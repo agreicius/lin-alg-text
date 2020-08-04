@@ -1,0 +1,127 @@
+\begin{frame}{General line or plane}
+Take now a general line or plane:
+\begin{eqnarray}
+\text{line $\ell$: solutions $(x,y)$ to } &ax+by&=d\\
+\text{plane $V$: solutions $(x,y,z)$ to } &ax+by+cz&=e
+\end{eqnarray}
+\pause 
+We can describe $\ell$ these objects using orthogonality as well. 
+\begin{theorem}
+Let $\boldw_0=(x_0,y_0)$ be a single point on the line $\ell$ defined in (1), and let $\ell_0$ be the line perpendicular to $\boldv_0=(a,b)$ passing through the origin. Then $\ell$ is the translation of $\ell_0$ by $w_0$: 
+\[
+\ell=\boldw_0+\ell_0:=\pause\{\boldw_0+\boldw\colon \boldw\in\ell_0\}=
+\{\boldw_0+\boldw\colon \boldw\perp\boldv_0\}
+\]
+\pause
+Let $\boldw_0=(x_0,y_0,z_0)$ be a single point on the plane $V$ defined in (2), and let $V_0$ be the plane perpendicular to $\boldv_0=(a,b,c)$ passing through the origin. Then $V$ is the translation of $V_0$ by $w_0$: 
+\[
+\ell=\boldw_0+V_0:=\pause\{\boldw_0+\boldw\colon \boldw\in V_0\}=
+\{\boldw_0+\boldw\colon \boldw\perp\boldv_0\}
+\]
+\end{theorem}
+\end{frame}
+\begin{frame}
+You know what to do.
+\end{frame}
+\begin{frame}
+The last theorem can be understood as a (simple) case of the following more general theorem about linear systems. 
+\begin{theorem}
+Let $\boldx_0$ be a single solution to the nonhomogeneous system of equations
+\[
+\underset{m\times n}{A}\ \underset{n\times 1}{\boldx}=\underset{m\times 1}{\boldb},
+\]
+where $A$ and $\boldb$ are fixed. 
+
+\pause Let $V$ be the set of \alert{all} solutions to the corresponding homogeneous equation:
+\[
+V=\{\boldx\colon A\boldx=\boldzero\}.
+\]
+\pause Then the set of all solutions $V'$ to $A\boldx=\boldb$ is obtained by translating the homogenous solutions by $\boldx_0$:
+\[
+V'=\boldx_0+V:=\{\boldx_0+\boldx\colon \boldx\in V\}=\{\boldx_0+\boldx\colon A\boldx=\boldzero\}.
+\]
+\end{theorem}
+\end{frame}
+\begin{frame}{Proof of theorem}
+\footnotesize
+Fix a particular solution $\boldx_0$ to $A\boldx=\boldb$. 
+We must show the \alert{set equality}:
+\[
+\{\boldx\colon A\boldx=\boldb\}=\{\boldx_0+\boldx'\colon A\boldx'=\boldzero.\}
+\]
+\pause
+Call the LHS set $S_1$ and the RHS set $S_2$. To show a set equality we must prove 
+\[
+S_1\subset S_2, \text{ and }  S_2\subset S_1.
+\]
+\pause
+\alert{$S_1\subset S_2$:} To show this we must show the implication 
+\[
+\boldx\in S_1\Rightarrow \boldx\in S_2.
+\] 
+\pause Suppose $\boldx\in S_1$, and set $\boldx'=\boldx-\boldx_0$. Then 
+\begin{eqnarray*}
+\boldx\in S_1&\Rightarrow&A\boldx=\boldb \\
+\pause &\Rightarrow&A\boldx=A\boldx_0 \\
+\pause&\Rightarrow&A\boldx-A\boldx_0=\boldzero \\
+\pause&\Rightarrow&A(\boldx-\boldx_0)=\boldzero \\
+\pause&\Rightarrow&A\boldx'=\boldzero.
+\end{eqnarray*}
+\pause Since $\boldx=\boldx_0+(\boldx-\boldx_0)=\boldx_0+\boldx'$, we have shown that $\boldx=\boldx_0+\boldx'$ with $A\boldx'=\boldzero$, and thus that $\boldx\in S_2$. 
+
+\pause This proves $S_1\subset S_2$. Your professor will now ask YOU to prove $S_2\subset S_1$.
+\end{frame}
+\begin{frame}{Parametrizations of lines}
+\footnotesize
+A line $\ell$ in $\R^2$ can be described by giving a single point $\boldv_0=(x_0,y_0)\in\ell$, and giving a vector $\boldv_1$ that specifies the direction in which the line travels. 
+
+\bpause 
+Translating this into vector addition, we see that the line $\ell$ can be described as the set of all points of the form 
+\[
+\boldv_0+t\boldv_1, \ t\in\R.
+\]
+\pause Alternatively, we sometimes simply specify two points $\boldw_0=(x_1,y_1)$, $\boldw_1=(x_2,y_2)$ to determine the line $\ell$. \pause Then the vector defining the line's direction would be $\boldw_1-\boldw_0$, and using the formula above, we describe $\ell$ as the set of points of the form 
+\[
+\boldw_0+t(\boldw_1-\boldw_0)=(1-t)\boldw_0+t\boldw_1, \ t\in\R.
+\]
+\pause
+I will call such descriptions {\bf vector parametrizations}. They describe the points in $\ell$ as a vector expression involving the parameter $t$. 
+
+\bpause There is nothing special about $\R^2$ here. We could use the same argument to give parametrizations of lines in $\R^3$, or indeed in $\R^n$ for any $n$. 
+\end{frame}
+\begin{frame}{Parametrizations of planes}
+\footnotesize 
+Gaussian elimination gives a method for finding a parametrization of the set of solutions to any linear system. 
+\bpause 
+Consider a plane first. It is the set of solutions $(x,y,z)$ to the system 
+\[
+\begin{bmatrix}a&b&c\end{bmatrix}\begin{bmatrix}x\\ y\\ z\end{bmatrix}=e,
+\] 
+for some $a, b, c, e$ with $a, b, c$ not all zero. 
+\bpause The last condition guarantees there will be two free variables for this system, and GE gives us equations for $x,y,z$ in terms of two parameters $r, s$.
+\bpause We can rewrite these equations as a vector parametrization of the form 
+\[
+\begin{bmatrix}x\\ y\\ z\end{bmatrix}=\begin{bmatrix}x_0\\ y_0\\ z_0\end{bmatrix}+r\begin{bmatrix}v_1\\ v_2\\ v_3\end{bmatrix}+s\begin{bmatrix}w_1\\ w_2\\ w_3\end{bmatrix}=\boldx_0+r\boldv+s\boldw,
+\]
+where $\boldx_0, \boldv$ and $\boldw$ are fixed vectors, and we allow the parameters $r$ and $s$ to vary. 
+
+\end{frame}
+\begin{frame}{General linear parametrizations}
+\footnotesize
+As I mentioned, the same reasoning applies to any linear system
+\[
+A\boldx=\boldb.
+\]
+This system has either (1) 0 solutions, (2) a unique solution, or (3) infinitely many solutions. 
+\bpause
+Parametrization is only needed in the last situation. There will be some number $k$ of free variables, and we set these equal to parameters $t_1,t_2,\dots ,t_k$.  
+
+\bpause The variables $x_i$ of $\boldx$ are then expressed in terms of these parameters $t_j$, and we can always express the resulting equations as one vector expression. 
+\bpause 
+Thus we can parametrize the set of solutions to $A\boldx=\boldb$ as the set of $\boldx$ of the form 
+\[
+\begin{bmatrix}x_1\\ x_2 \\ \vdots \\ x_n\end{bmatrix}=\boldx_0+t_1\boldv_1+t_2\boldv_2+\cdots t_k\boldv_k,
+\]
+where $\boldx_0,\boldv_1,\dots, \boldv_k$ are fixed and the parameters $t_1,t_2,\dots, t_k$ are allowed to vary. 
+
+\end{frame}

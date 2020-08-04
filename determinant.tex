@@ -1,0 +1,174 @@
+\begin{frame}{\ref{s:det}.\ref{ss:det}-\ref{s:det}.\ref{ss:further}: executive summary}
+\alert{Definitions:} determinant, minors, cofactors.
+\bspace
+\alert{Procedures:} determinant.
+\bspace
+\alert{Theorems:} $\det(A)\ne 0$ iff $A$ invertible; $\det(AB)=\det(A)\det(B)$, how row reduction affects determinant, some other determinant properties. 
+\end{frame}
+
+\begin{frame}{\ref{s:det}.\ref{ss:det}: determinants}
+The \alert{determinant} is a map that assigns to a square matrix $A$ a scalar, called $\det(A)$:
+\[
+A\mapsto \det(A).
+\]
+\pause As you will see, the definition of the determinant is far from intuitive; nonetheless the determinant will be very useful to us. In particular we shall see that 
+\[
+A \text{ is invertible }\Leftrightarrow \det(A)\ne 0.
+\]
+\pause We will define the determinant {\em recursively}; this means that when computing $\det A$ for an $n\times n$ matrix will have to compute the determinant of certain smaller matrices. We begin with the smallest cases: $n=1$ and $n=2$. 
+\begin{definition}[Small cases]
+Let $A=[a]$ be a $1\times 1$ matrix. Then $\det(A)=a$. 
+\bspace
+Let $A=\abcdmatrix{a}{b}{c}{d}$. Then $\det(A)=ad-bc$. 
+\end{definition} 
+\end{frame}
+\begin{frame}
+\footnotesize
+\begin{definition}
+Let $A$ be $n\times n$.\\
+The {\bf $ij$-th minor of $A$}, denoted $M_{ij}$, is the determinant of the submatrix of $A$ obtained by deleting the $i$-th row and $j$-th column. 
+\bpause
+The {\bf $ij$-th cofactor of $A$}, denoted $C_{ij}$, is defined as 
+\[
+C_{ij}=(-1)^{i+j}M_{ij}.
+\]
+\end{definition}
+\pause
+\begin{definition}
+Let $A=[a_{ij}]_{n\times n}$.
+\bpause 
+\alert{Expansion along row.} Pick any $i$. Then we define 
+\[
+\det(A)=\sum_{j=1}^na_{ij}C_{ij}=a_{i1}C_{i1}+a_{i2}C_{i2}\dots +a_{in}C_{in}
+\] 
+\bpause
+\alert{Expansion along column.} Pick any $j$. Then we define 
+\[
+\det(A)=\sum_{i=1}^na_{ij}C_{ij}=a_{1j}C_{1j}+a_{2j}C_{2j}\dots +a_{nj}C_{nj}.
+\] 
+\end{definition}
+\end{frame}
+\begin{frame}
+ \ {\tiny
+Let $A=[a_{ij}]_{n\times n}$.
+\\
+\alert{Expansion along row.} Pick any $i$. Then we define 
+\[
+\det(A)=\sum_{j=1}^na_{ij}C_{ij}=a_{i1}C_{i1}+a_{i2}C_{i2}\dots +a_{in}C_{in}
+\] 
+\alert{Expansion along column.} Pick any $j$. Then we define 
+\[
+\det(A)=\sum_{i=1}^na_{ij}C_{ij}=a_{1j}C_{1j}+a_{2j}C_{2j}\dots +a_{nj}C_{nj}.
+\] 
+}
+\footnotesize
+\alert{Comments}
+\bb
+\pause\ii For this to be well-defined, we should get the same value no matter which column or row we decide to use in order to compute the determinant. \alert{This is not at all obvious and technically needs to be proved!}
+\pause\ii The definition $\det(A)$ involves cofactors, which themselves are computed by invoking the definition of the determinant on a smaller submatrix. This means we keep invoking the recursive definition until we get down to  $2\times 2$ matrices, where the determinant is given by a formula.  
+\pause\ii When $A$ is written as a rectangular array, we use vertical lines to denote determinant: e.g., $\begin{vmatrix}
+a&b\\c&d
+\end{vmatrix}
+=ad-bc$.
+\ee
+\end{frame}
+\begin{frame}{Example}
+Compute $\det(A)$ for 
+\[
+A=\begin{bmatrix}
+2&1&0&3\\
+0&2&1&0\\
+4&2&1&0\\
+0&0&0&2
+\end{bmatrix}
+\]
+\pause
+Choose the row/column along which you wish to expand wisely! I pick the third column for its preponderance of 0's and 1's:
+\begin{eqnarray*}
+\det(A)&=&0M_{13}-M_{23}+M_{33}-0M_{43}\\
+\pause&=&-\begin{vmatrix}
+2&1&3\\4&2&0\\0&0&2
+\end{vmatrix}
++
+\begin{vmatrix}
+2&1&3\\ 0&2&0\\0&0&2
+\end{vmatrix}\\
+\pause&=&-2\begin{vmatrix}
+2&1\\4&2
+\end{vmatrix}
++
+2\begin{vmatrix}
+2&1\\0&2
+\end{vmatrix}
+\\
+\pause &=&-0+8=\boxed{8}.
+\end{eqnarray*}
+\pause What was I thinking? I should have picked the last row!
+\end{frame}
+\begin{frame}
+The freedom to compute the determinant using any row or column leads to two important, if obvious, properties.
+\pause\begin{theorem}
+Let $A$ be $n\times n$. If $A$ has a row or column of zeros, then $\det(A)=0$. 
+\end{theorem}
+\pause
+\begin{proof}
+Expand along the row (or column) of zeros. 
+\end{proof}
+\pause\begin{theorem}
+For any $n\times n$ matrix $A$ we have $\det(A^T)=\det(A)$. \end{theorem}
+\pause\begin{proof}
+Expanding along the $i$-th row of $A$ is the same as expanding along the $i$-th column of $A^T$. 
+\end{proof}
+\end{frame}
+\begin{frame}
+\footnotesize
+Because of its recursive definition, we often resort to a proof by induction to show some property of determinants holds. 
+\pause
+\begin{theorem}
+The determinant of a triangular matrix is the the product of its diagonal entries; that is, if $A=[a_{ij}]$ is triangular, then $\det(A)=a_{11}\cdot a_{22}\cdots a_{nn}$.  
+\end{theorem}
+\pause\begin{proof}
+We will prove this for lower triangular matrices, the proof for upper triangular matrices being exactly similar. 
+
+We proceed by induction on the size $n$ of the matrix. 
+\bpause
+\alert{Base case: n=1.} If $A=[a]$ is $1\times 1$, then $\det(A)=a$, which is the product of its diagonal entries. 
+\bpause
+\alert{Induction step.} We assume that the proposition is true for \alert{all} lower triangular matrices of size $n-1$. 
+\\
+\pause Let $A=[a_{ij}]_{n\times n}$. We compute $\det(A)$ by expanding along the top row. Since $A$ is lower triangular all the entries are 0 except $a_{11}$ and we get $\det(A)=a_{11}M_{11}$. 
+\\
+\pause Now $M_{11}=\det(\tilde{A})$, where $\tilde{A}$ is the submatrix of $A$ obtained by deleting the first row and column. This matrix is also lower triangular with diagonal entries $a_{22},a_{33},\dots, a_{nn}$. By the induction hypothesis $\det(\tilde{A})=a_{22}\cdot a_{33}\cdots a_{nn}$. 
+\\
+\pause Thus $\det(A)=a_{11}\det(\tilde{A})=a_{11}\cdot a_{22}\cdots a_{nn}$, as claimed.   
+\end{proof}
+\end{frame}
+\begin{frame}
+\footnotesize
+\begin{theorem}Let $A$ be $n\times n$, with $n\geq 2$, and let $\tilde{A}$ be the matrix obtained by swapping two rows of $A$. Then $\det(A)=-\det(\tilde{A})$. 
+
+The same is true if $\tilde{A}$ is the result of swapping two columns of $A$. 
+\end{theorem}
+\pause
+\begin{proof}
+The second statement about swapping columns follows from the first and the fact that $\det A=\det A^T$. I leave the details to you. 
+
+\pause
+To prove the first statement we proceed by induction on $n$. 
+\bpause
+\alert{Base case: $n=2$.} Let $A=\begin{bmatrix}
+a&b\\c&d
+\end{bmatrix}$. Then $\tilde{A}=\abcdmatrix{c}{d}{a}{b}$. We have $\det(A)=ad-cb=-(cb-ad)=-\det(\tilde{A})$, as claimed. 
+\bpause
+\alert{Induction step.} Assume $n\geq 3$. We assume by induction that the result holds for any square matrices of size $n-1$.
+\bpause 
+Suppose $\tilde{A}$ is the result of swapping the $i$-th and $j$-th rows of $A$. Compute the determinants of $A$ and $\tilde{A}$ by expanding along \alert{any row other than the $i$-th or $j$-th rows}. This is possible since $n\geq 3$.  Call this the $k$-th row. 
+\bpause 
+The expansions for $\det(A)$ and $\det(\tilde{A})$ differ only in terms of their minors, $M_{k\ell}$ and $\tilde{M}_{k\ell}$, and these differ only in that the square matrices of size $n-1$ involved have two rows swapped: the ones corresponding the $i$-th and $j$-th rows of $A$! 
+
+\bpause By induction the determinants of these matrices differ by a factor of $(-1)$. Thus $M_{k
+\ell}=-\tilde{M}_{k\ell}$ for all $(k,\ell)$, from which it follows that 
+$\det(A)=-\det(\tilde{A})$.  
+\end{proof}
+\end{frame}
+

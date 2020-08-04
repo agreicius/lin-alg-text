@@ -1,0 +1,124 @@
+\begin{frame}{5.2: executive summary}
+\alert{Definitions:} one-to-one, onto, invertible, isomorphism.
+\bspace
+\alert{Procedures:} none.
+\bspace
+\alert{Theorems:} $T\colon V\rightarrow W$ is an isomorphism iff $\dim V=\dim W$ and either (i) $T$ is one-to-one, or (ii) $T$ is onto.
+\end{frame}
+\begin{frame}{Composition of linear transformations}
+\footnotesize
+\begin{theorem}
+Suppose we have 
+\[
+V\xrightarrow[]{T_1} W\xrightarrow[]{T_2}U
+\]
+where $T_1$ and $T_2$ are both linear transformations. Then their composition 
+\begin{eqnarray*}
+T=T_2\circ T_1\colon V&\rightarrow& U\\
+\boldv&\mapsto& T(\boldv)=T_2(T_1(\boldv)). 
+\end{eqnarray*}
+is a linear transformation; i.e., the composition of linear functions is linear. 
+\end{theorem}
+\pause
+\begin{example}
+Let $B\in M_{mn}$ and $A\in M_{rm}$, and consider the corresponding linear transformations
+\[
+\R^n\xrightarrow[]{T_B} \R^m\xrightarrow[]{T_A}\R^r.
+\]
+\pause
+Claim: $T_A\circ T_B=T_{AB}$. \\
+\pause Proof: for any $\boldx\in\R^n$ we have 
+\[
+T_A\circ T_B(\boldx)=T_A(T_B(\boldx))\pause=T_A(B\boldx)\pause=A(B\boldx)\pause=AB(\boldx)\pause=T_{AB}(\boldx).
+\]
+Thus $T_A\circ T_B=T_{AB}$. 
+\end{example}
+\end{frame}
+\begin{frame}{Inverses}
+\footnotesize
+\begin{definition}
+A linear transformation $T\colon V\rightarrow W$ is {\bf invertible} if there is a function 
+$S\colon W\rightarrow V$ such that
+\bb[(i)]
+\ii $S\circ T=I_V$ (the identity function on $V$)
+\ii $T\circ S=I_W$(the identity function on $W$).
+\ee
+In this case the function $S$ is called the {\bf inverse} of $T$, and is denoted $S=T^{-1}$. 
+\bpause
+From general function theory we know that $T$ has an inverse if and only if 
+\bb
+\ii $T$ is {\bf one-to-one} (i.e., $T(\boldv_1)=T(\boldv_2)\Rightarrow \boldv_1=\boldv_2$), and  
+\ii $T$ is {\bf onto} (i.e., for all $\boldw\in W$ there is a $\boldv\in V$ such that $T(\boldv)=\boldw$). 
+\ee 
+\end{definition}
+\end{frame}
+\begin{frame}{Proof techniques}
+\footnotesize
+We currently have two different ways of proving that a given $T\colon V\rightarrow W$ is invertible. 
+\bb
+\ii Show directly that there is an inverse function $T^{-1}\colon W\rightarrow V$ satisfying $T^{-1}\circ T=I_V$ and $T\circ T^{-1}=I_W$. 
+\ii Show directly that $T$ is one-to-one and onto. 
+\ee
+\pause
+\alert{Example}. Let $A\in M_{nn}$. Prove $T_A\colon\R^n\rightarrow\R^n$ is invertible if and only if $A$ is invertible. 
+\\
+\pause Proof: \\
+\alert{($\Leftarrow$)} Suppose $A$ is invertible, with inverse $A^{-1}$. Claim: $T_A^{-1}=T_{A^{-1}}$. Indeed we have 
+\begin{eqnarray*}
+T_{A^{-1}}(T_A(\boldx))\pause&=&T_{A^{-1}}(A\boldx)\pause=A^{-1}A\boldx=\boldx\\
+\pause T_{A}(T_{A^{-1}}(\boldx))&=&T_{A}(A^{-1}\boldx)=AA^{-1}\boldx=\boldx
+\end{eqnarray*}
+\pause Thus $T_{A^{-1}}\circ T_A=I_{\R^n}$ and $T_A\circ T_{A^{-1}}=I_{\R^n}$, as desired. 
+\bpause
+\alert{($\Rightarrow$)} Suppose $T_{A}$ is invertible. Then $T_A$ is one-to-one. In particular, this means $\NS(T_A)=\{\boldzero\}$, since $T(\boldv)=T(\boldzero)\Rightarrow \boldv=\boldzero$. But $\NS(T_A)=\NS(A)$. Thus $\NS(A)=\{\boldzero\}$, which implies $A$ is invertible. 
+\end{frame}
+\begin{frame}
+\footnotesize
+\begin{theorem}
+Let $T\colon V\rightarrow W$ be linear. 
+\bb[(a)]
+\ii If $T$ is invertible, then $T^{-1}\colon W\rightarrow V$ is linear; i.e., inverses of linear transformations are linear. 
+\pause
+\ii $T$ is invertible if and only if $\NS(T)=\{\boldzero_V\}$ and $\range(T)=W$. 
+\ee 
+\pause In particular if $V$ is finite-dimensional with $\dim(V)=n$, then the following are equivalent:
+\bb[(i)]
+\ii $T$ is invertible;
+\ii $\dim V=\dim W=n$ and $\dim(\NS(T))=0$ (i.e., $\nullity(T)=0)$);
+\ii $\dim V=\dim W=n$ and $\dim(\range(T))=n$ (i.e., $\nullity(T)=n$).
+\ee
+\end{theorem}
+\end{frame}
+
+\begin{frame}{Isomorphisms}
+\footnotesize
+\begin{definition}
+An invertible linear transformation $T\colon V\rightarrow W$ is called an ${\bf isomorphism}$. 
+\\
+Two vector spaces $V$ and $W$ are called {\bf isomorphic} if there exists an isomorphism $T\colon V\rightarrow W$. 
+\end{definition}
+\pause To say that $V$ and $W$ are isomorphic is to say that $V$ and $W$ are \alert{essentially the same thing}, at least as far as vector spaces are concerned. 
+
+\bpause 
+Why? The invertible functions $T\colon V\rightarrow W$ and $T^{-1}\colon W\rightarrow V$ allow us to \alert{translate} any vector space property of $V$ into a vector space property of $W$ and vice versa. For example: 
+\begin{eqnarray*}
+\{\boldv_1,\dots , \boldv_r\} \text{ spans } V &\xLeftrightarrow[\ T^{-1} \ ]{\ T \ }& \{T(\boldv_1),\dots , T(\boldv_r)\} \text{ spans } W\\ \\
+\{\boldv_1,\dots , \boldv_r\} \text{ is independent in } V &\xLeftrightarrow[\ T^{-1} \ ]{\ T \ }& \{T(\boldv_1),\dots , T(\boldv_r)\} \text{ is independent in } W\\ \\
+\dim(V)&=&\dim(W)
+\end{eqnarray*}  
+
+\end{frame}
+\begin{frame}
+\begin{theorem}
+Let $V$ be finite-dimensional, and let $S=\{\boldv_1,\dots ,\boldv_n\}$ be a basis. Then the coordinate map 
+\begin{eqnarray*}
+T=(\underline{\hspace{5pt}})_S\colon V&\rightarrow& \R^n\\
+\boldv=k_1\boldv_1+\cdots +k_n\boldv_n&\mapsto&(\boldv)_S=(k_1,k_2,\dots,k_n)
+\end{eqnarray*}
+is an isomorphism. Thus $V$ is isomorphic to $\R^n$. 
+\end{theorem}
+\pause
+\alert{Comment}. This theorem is kind of a bummer as it means that all of our so-called exotic vector spaces $M_{mn}, P_n, etc.$ are really just some $\R^n$ dressed up in a funny outfit. 
+\bpause 
+But hold on! Not \alert{all} of our exotic spaces. Just the \alert{finite-dimensional} ones. Thus $P_{\infty}, C^\infty(-\infty,\infty), C(-\infty,\infty), $ etc., remain exotic. 
+\end{frame}

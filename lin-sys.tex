@@ -1,0 +1,235 @@
+\begin{frame}{\ref{s:linear systems}.\ref{ss:solving} executive summary}
+\footnotesize
+\alert{Definitions}: linear equations, linear systems, homogenous/nonhomogenous, solutions to linear system, consistent/inconsistent systems, parametric equations, row operations, row equivalence, augmented matrix
+\bspace
+\alert{Procedures}: introduction to row reduction
+\bspace
+\alert{Theorems}: row equivalent systems have the same set of solutions
+\end{frame}
+\begin{frame}{Linear equations}
+\begin{definition}
+A {\bf linear equation} in the $n$ variables (or {\bf unknowns}) $x_1,x_2,\dots x_n$ is an equation that can be written in the form 
+\[
+a_1x_1+a_2x_2+\cdots a_nx_n=b,
+\] 
+where $a_1,\dots, a_n, b$ are constants. 
+\bpause
+The linear equation is called {\bf homogenous} when $b=0$.
+\end{definition}
+\pause
+\alert{Examples}.
+\bb
+\ii Consider $\sqrt{3}x+\sin(5)=2z-e^4y$. \pause This is a linear equation in the unknowns $x,y,z$ as we can write it as $\sqrt{3}x+e^4y-2z=-\sin(5)$. Note that this is a \alert{nonhomogenous} linear equation. 
+\pause\ii The equation $x^2+y^2=1$ is a \alert{nonlinear} equation in the unknowns $x$ and $y$.   
+\ee
+\end{frame}
+\begin{frame}[plain]{Linear systems}\footnotesize
+\begin{definition}
+A {\bf system of linear equations} (or {\bf linear system}) is a set of linear equations.
+\bpause
+We display a system of $m$ equations in the $n$ unknowns $x_1,x_2,\dots x_n$ as follows:
+\[
+\eqsys
+\]
+\pause A {\bf homogenous} linear system is one where $b_i=0$ for all $i$:
+\[
+\homsys
+\]
+\end{definition}
+\pause
+\alert{Comment.} It will be helpful to get comfortable to the double-indexed constants $a_{ij}$ as soon as possible. Here is a good way to understand this:
+\begin{itemize}
+\pause\ii $i$, the first index, indicates the $i$-th {\color{red}row}, or equivalently, the $i$-th equation;
+\pause\ii $j$, the second index, indicates the $j$-th {\color{blue} column}, which is associated to the $j$-th variable. 
+\end{itemize}
+\end{frame}
+\begin{frame}{Solutions to linear systems}
+\begin{definition}
+A {\bf solution to a linear equation}
+\[
+a_1x_1+a_2x_2+\cdots a_nx_n=b
+\]
+is a \alert{sequence} (or {\bf ordered $n$-tuple})  $(s_1,s_2,\dots, s_n)$ for which the substitution $x_i=s_i$ makes the equation true.
+We say $(s_1,\dots ,s_n)$ {\bf solves the equation} in this case . 
+\bpause
+A {\bf solution to a system of linear equations}
+\[
+\eqsys
+\]
+is a \alert{sequence} (or {\bf ordered $n$-tuple})  $(s_1,s_2,\dots, s_n)$ which solves all $m$ of the system's equations. We say $(s_1,s_2,\dots, s_n)$ {\bf solves the system} in this case. 
+\end{definition}
+\end{frame}
+\begin{frame}
+Given a linear system we will seek to find the {\color{blue} set} $S$ of \alert{all} solutions to the system. As we will soon see, this set will take one of three qualitative forms:
+\bb[(i)]
+\ii $S$ is empty; i.e., there are no solutions. We say the system is {\bf inconsistent} in this case. Otherwise a system is called {\bf consistent}. 
+\ii $S$ contains a single element; i.e., there is exactly one solution.
+\ii $S$ contains infinitely many elements; i.e., there are infinitely solutions. 
+\ee
+\pause
+\alert{Example 1}: $\begin{linsys}{2} x&-&y&=&0\\ x&-&y&=&1\end{linsys}$
+
+\pause {\scriptsize The first equation says $x=y$. If this were true, the second equation would imply $0=1$, a contradiction. Thus there are no solutions. The set of solutions is $S=\{ \ \}=:\emptyset$, the empty set. }
+\bpause \alert{Example 2}: $\begin{linsys}{2} x&-&y&=&0\\ x&+&y&=&1\end{linsys}$
+
+\pause {\scriptsize First equation says $x=y$. Then second equation says $2x=1$, $x=1/2$. Thus $(x,y)=(1/2,1/2)$ is the unique solution, and $S=\{ (1/2,1/2)\}$.} 
+\bpause 
+\alert{Example 3}: $\begin{linsys}{2} x&-&y&=&1\\ 2x&-&2y&=&2\end{linsys}$
+
+\pause {\scriptsize The second equation is just twice the first. So we need only find all solutions to $x-y=1$. Note that we can set $x=t$ for \alert{any} real number $t \in\R$. Solving for $y$ in terms of $t$ we get $(x,y)=(t,t-1)$ for any $t\in\R$, and thus $S=\{(t,t-1)\colon t\in\R\}$, an infinite set! This is called a \alert{parametric description} of $S$.  Alternatively we can describe the infinite solutions with the \alert{parametric equations } $x=t$, $y=t-1$, $t$ any real number.} 
+\end{frame}
+\begin{frame}{Example}
+Consider the system of 3 equations in 3 unknowns
+\[
+\begin{linsys}{3}
+ 2x&-&y&-&z&=&3\\
+ x&&&-&z&=&2 \\
+ x&-&y&&&=&1
+\end{linsys}
+\]
+\pause\alert{Comments.}
+\bb
+\pause\ii Q: why the funny formatting? A: we always associate the $j$-th variable with the $j$ column of our equation array, for reasons that will become clear soon. \alert{Mandate:} given some linear system, possibly expressed in a funky way, always convert it to this column-aligned format.
+\pause\ii The triple (or $3$-tuple) $(x,y,z)=(5,2,5)$ is NOT a solution to the system. It satisfies equation (1), but not equation (2) and not equation (3). 
+\pause\ii The triples $(x,y,z)=(4,3,2)$ and $(x,y,z)=(0,-1,-2)$ ARE solutions to this system. You can check that both triples solve equations (1), (2) and (3) of the system.
+\pause\ii How do we find \alert{ALL} solutions to a linear system?
+\ee
+\end{frame}
+%\begin{frame}{Linear systems in two unknowns}
+%\pause
+%Consider a single linear equation in two unknowns $x,y$
+%\[
+%ax+by=c.
+%\]
+%The set of all solutions to this equation defines a line $L$ in the $xy$-plane. In fact, when $b\ne 0$ we can express this more familiarly as the line defined by 
+%\[
+%y=-\frac{a}{c}x+b
+%\] 
+%with slope $m=-\frac{a}{c}$ and $y$-intercept $b$. 
+%\end{frame}
+\begin{frame}
+Some systems are easier to solve than others.
+\[
+\begin{array}{ccc}
+\text{System 1}&\hspace{5pt}&\text{System 2}\\
+\hline
+\begin{linsys}{3}
+2x&+&3y&+&-z&=&18\\
+x&+&2y&-&2z&=&8\\
+-\frac{1}{2}x&+&-\frac{1}{2}y&+&\frac{1}{2}z&=&-3
+\end{linsys}
+& &
+\begin{linsys}{3}
+x&+&y&+&z&=&10\\
+&&y&-&3z&=&-2\\
+&&&&z&=&2
+\end{linsys}
+\end{array}
+\]
+\pause The staircase pattern of System 2 allows us to easily solve by ``backwards substitution". 
+\bpause Eq 3 tells us that $\boxed{z=2}$. 
+
+\pause Substitute $z=2$ into Eq 2, and solve for $y$ to get $\boxed{y=4}$. 
+
+\pause Substitute $y=4$ and $z=2$ into Eq 1 and solve for $x$ to get $\boxed{x=4}$. We see that $\boxed{(x,y,z)=(4,4,2)}$ is the only solution to System 2. 
+\bpause Our method for solving a more complicated system, like System 1, will be to \alert{transform} the system into a simpler one resembling System 2. 
+\bpause \alert{Key point:} in order for this method to work, we need to make sure that the transformed system has \alert{EXACTLY} the same solutions as the original system! 
+\end{frame}
+\begin{frame}{Elementary row operations}
+We will only allow the following types of transformations of a system, called {\bf elementary row operations}. In what follows, let $e_i$ stand for the $i$-th equation of the given system.
+\begin{description}
+\pause\item[Scalar mult.] Multiply an equation by a \alert{nonzero} number $c\ne 0$. That is, replace $e_i$ with $c\cdot e_i$ for $c\ne 0$. 
+\pause\item[Swap] Interchange the order of any two equations. That is, swap equations $e_i$ and $e_j$. 
+\pause\item[Addition] Add a multiple of one row to another. That is, replace $e_i$ with $e_i+ce_j$ for some $c$.    
+\end{description}
+\pause We must convince ourselves that applying any one of these operations to a single row of a system will produce a new system with \alert{EXACTLY} the same set of solutions.
+\bpause If this is so, then by applying these operations in series we will be able to reduce a complicated system to a simpler system with the same set of solutions. 
+\end{frame}
+\begin{frame}{Example}
+Consider again 
+\[
+\begin{linsys}{3}
+2x&+&3y&+&-z&=&18\\
+x&+&2y&-&2z&=&8\\
+-\frac{1}{2}x&+&-\frac{1}{2}y&+&\frac{1}{2}z&=&-3
+\end{linsys}
+\]
+Begin applying row operations as follows
+\begin{eqnarray*}
+\pause&\xrightarrow[]{2e_3}&\begin{linsys}{3}
+2x&+&3y&+&-z&=&18\\
+x&+&2y&-&2z&=&8\\
+-x&+&-y&+&z&=&-6
+\end{linsys}\\
+\pause&\xrightarrow[]{e_1-e_2}&\pause\begin{linsys}{3}
+x&+&y&+&z&=&10\\
+x&+&2y&-&2z&=&8\\
+-x&+&-y&+&z&=&-6
+\end{linsys}\\
+\pause&\xrightarrow[e_2-e_1]{e_3+e_1}&\pause
+\begin{linsys}{3}
+x&+&y&+&z&=&10\\
+&&y&-&3z&=&-2\\
+&&&&2z&=&4
+\end{linsys}\\
+\pause&\xrightarrow[]{\frac{1}{2}e_3}&
+\pause\begin{linsys}{3}
+x&+&y&+&z&=&10\\
+&&y&-&3z&=&-2\\
+&&&&z&=&2
+\end{linsys}
+\end{eqnarray*}
+
+\end{frame}
+\begin{frame}{Example concluded}
+Now put the logic together. 
+\pause
+\begin{eqnarray*}
+\begin{linsys}{3}
+2x&+&3y&+&-z&=&18\\
+x&+&2y&-&2z&=&8\\
+-x&+&-y&+&z&=&-6
+\end{linsys}
+&\xrightarrow[]{\text{row op.'s}}&
+\begin{linsys}{3}
+x&+&y&+&z&=&10\\
+&&y&-&3z&=&-2\\
+&&&&z&=&2
+\end{linsys}
+\end{eqnarray*}
+\pause We saw already that the second system has exactly one solution, namely the triple $(x,y,z)=(4,4,2)$. 
+\bpause Since transforming a system by row operations preserves solutions, the first and second system have \alert{exactly the same solutions}.
+\bpause Thus $\boxed{(x,y,z)=(4,4,2)}$ is the only solution to the original system! 
+\end{frame}
+\begin{frame}
+Let's make official some concepts and claims of this lecture.
+\pause
+\begin{definition}
+We say two systems of linear equations are {\bf row equivalent} if the one can be obtained from the other by a sequence of row operations. 
+\end{definition}
+\pause
+\begin{theorem}[Row equivalence theorem]
+Row equivalent systems of linear equations have equal sets of solutions. 
+\end{theorem}
+\end{frame}
+\begin{frame}{Augmented matrices}
+The `+' and `=' symbols in systems of equations just get in the way when performing row operations. As such we will often replace a system with its {\bf associated augmented matrix} and perform our row operations on this. 
+\bpause\alert{Example.} The system 
+\[
+\begin{linsys}{3}
+2x&+&3y&+&-z&=&18\\
+x&+&2y&-&2z&=&8\\
+-x&+&-y&+&z&=&-6
+\end{linsys}
+\]
+is represented by the augmented matrix
+\[
+\begin{bmatrix}[rrr|r]
+2&3&-1&18\\
+1&2&-2&8\\
+-1&-1&1&-6
+\end{bmatrix}
+\]
+\pause The vertical line is unnecessary, but I often include it to remind us where the equal signs were. 
+\bpause 
+\end{frame}

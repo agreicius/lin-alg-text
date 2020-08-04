@@ -1,0 +1,155 @@
+\begin{frame}{\ref{s:vectorspace}.\ref{ss:dimension}: executive summary}
+\alert{Definitions:} dimension of a vector space.
+\bspace
+\alert{Procedures:} none, but many examples using ``standard bases" for our familiar spaces. 
+\bspace
+\alert{Theorems:} independent set can be extended to basis, spanning set can be contracted to basis; ``street smarts" theorems; if $W\subset V$, then $\dim W\leq \dim V$, and $\dim W=\dim V$ iff $W=V$. 
+\end{frame}
+\begin{frame}{\ref{s:vectorspace}.\ref{ss:dimension}: dimension}
+\footnotesize
+\begin{theorem}\label{th:basiscard}
+Suppose $S=\{\boldv_1,\dots ,\boldv_n\}$ is a basis for the vector space $V$. Then
+every other basis $S'$ for $V$ contains exactly $n$ elements.
+\bspace
+In fact: 
+\bb[(a)]
+\ii if $S'$ contains {\color{red} less} than $n$ elements, then it does not span $V$; 
+\ii if $S'$ contains {\color{blue} more} than $n$ elements, then it is linearly dependent. 
+\ee
+\end{theorem}
+\pause\begin{proof}
+To be sketched in class. Boil everything down to a system of linear equations. 
+\end{proof}
+\pause
+Thanks to the theorem, the following notion of \alert{dimension} is well-defined. 
+\begin{definition}
+Let $V$ be a vector space. 
+\bspace
+If $V$ does not have a finite basis, then we say $V$ is {\bf infinite dimensional} and write $\dim(V)=\infty$. 
+\bspace
+Otherwise we define the dimension of $V$ to be the number $n$ of vectors in a/any basis for $V$, and write $\dim(V)=n$. 
+
+\end{definition}
+\end{frame}
+\begin{frame}{Standard examples}
+To prove $\dim(V)=n$, we must \alert{EXHIBIT} a basis of $V$ containing $n$ elements. 
+\bb
+\pause\ii Since we have declared $S=\{ \}$ to be a basis for $\{\boldzero\}$, we have $\dim(\{\boldzero\})=0$.  
+\pause\ii Since the standard basis $\{\bolde_1,\dots,\bolde_n\}$ of $\R^n$ has $n$ elements, we have $\dim(\R^n)=n$. 
+
+\ii Since the standard basis $\{1,x,\dots ,x^n\}$ of $P_n$ has $n+1$ elements, we have $\dim(P_n)=n+1$. 
+
+\ii Since the standard basis $\{E_{ij}\colon 1\leq i\leq m, 1\leq j\leq n\}$ of $M_{mn}$ has $mn$ elements, we have $\dim(M_{mn})=mn$. 
+\ee
+\pause To prove $\dim(V)=\infty$, we must prove $V$ has no finite basis. 
+\bspace
+We shown this already for $P_\infty, C^\infty(-\infty,\infty), C^{(n)}(-\infty,\infty), C(-\infty,\infty), F(-\infty,\infty)$.
+
+Thus for each of these spaces $V$ we have $\dim(V)=\infty$.  
+\end{frame}
+\begin{frame}{Street smarts}
+For each pair $V$ and $S$ below, show super-super quickly that $S$ is NOT a basis for $V$. 
+\bb
+\ii $V=M_{23}$.
+\[
+S=\left\{
+\begin{bmatrix}
+1&1&0\\0&0&0
+\end{bmatrix},
+\begin{bmatrix}
+0&1&1\\
+0&0&0
+\end{bmatrix},
+\begin{bmatrix}
+0&0&1\\
+1&0&0
+\end{bmatrix},
+\begin{bmatrix}
+0&0&0\\
+1&1&0
+\end{bmatrix},
+\begin{bmatrix}
+0&0&0\\
+0&1&1
+\end{bmatrix}
+\right\}
+\]
+\pause
+\begin{proof}
+We have 5 vectors living in a 6-dimensional space. By Theorem \ref{th:basiscard}, these vectors cannot span. 
+\end{proof}
+\pause
+\ii $V=P_3$, 
+\[
+S=\{1+\pi x-x^3, 1+\sqrt{e}x^2+x^3, 1+x+x^2+x^3, 1-x^3, x+17x^2+x^3\}.
+\]
+\pause\begin{proof}
+We have 5 vectors living in a 4-dimensional space. By Theorem \ref{th:basiscard} they must be linearly dependent. 
+\end{proof}
+\ee
+\end{frame}
+\begin{frame}
+Here are some more useful facts about bases, the proofs of which will be done in class and the exercises. 
+\begin{theorem}
+Let $V$ be finite dimensional. 
+\bb
+\pause \ii If $S$ spans $V$, then some subset of $S$ is a basis of $V$. (Basically, throw out the redundant members!).
+\pause \ii If $S$ is linearly independent, then $S$ can be extended to a basis of $V$. (Basically, add vectors to $S$ one by one until it spans.) 
+\pause \ii Suppose $\dim V=n$, and let $S=\{\boldv_1,\dots ,\boldv_n\}$ be any set of $n$ vectors in $V$. Then 
+\[
+S \text{ spans $V$}\Leftrightarrow S \text{ is linearly independent}.
+\]
+\pause Thus \alert{if we know beforehand} that $\dim V=n$, then to show a given set $S=\{\boldv_1,\dots ,\boldv_n\}$ is a basis it suffices to show either that is spans, or that it is linearly independent. 
+\ee
+\end{theorem}
+\end{frame}
+\begin{frame}
+Dimension can be a useful tool for deciding whether a subspace $W$ of $V$ is in fact all of $V$. 
+\begin{theorem}
+Suppose $\dim(V)=n$, and let $W\subset V$ be a subspace of $V$. 
+\bb[(a)]
+\pause\ii $\dim(W)\leq \dim(V)$. 
+\pause\ii $\dim(W)=\dim(V)$ if and only if $W=V$. 
+\ee
+\end{theorem}
+\pause\begin{proof}[Proof of (a)]
+First we show $W$ is finite-dimensional. Indeed, if not, we could find an infinite set $S$ of linearly independent vectors, contradicting the fact that in an $n$-dimensional space there can be at most $n$ linearly independent vectors. 
+\bpause 
+Thus we have $\dim(W)=r$ for some finite $r$, which means we can find a basis $S=\{\boldv_1,\dots, \boldv_r\}$ of $W$. Since these are linearly independent vectors in $V$, by the previous theorem we can \alert{extend} $S$ to a basis $\{\boldv_1,\dots, \boldv_r,\boldv_{r+1},\dots,\boldv_n\}$ of $V$, showing $r\leq n$, and thus $\dim(W)\leq\dim(V)$.   
+\end{proof}
+\end{frame}
+\begin{frame}{Example}
+Describe all subspaces of $\R^3$. 
+\bpause
+Since $\dim(\R^3)=3$, by the previous theorem a subspace $W\subset \R^3$ has dimension 0, 1, 2, or 3.
+\bpause 
+\alert{$\dim(W)=0$.} In this case $W=\{\boldzero\}$ is the trivial subspace. 
+\bpause
+\alert{$\dim(W)=1$.} In this case $W=\Span\{\boldv\}$ of a single nonzero vector. We recognize this as a line in 3-space. 
+\bpause
+\alert{$\dim(W)=2$.} In this case $W=\Span\{\boldv, \boldw\}$ is the span of two linearly independent vectors. This means that they are not scalar multiples of one another, hence not colinear. It follows that $W$ is a plane in 3-space. 
+\bpause
+\alert{$\dim(W)=3$.} Since $W\subset\R^3$ and $\dim(\R^3)=3$, it follows from the previous theorem that $W=\R^3$. 
+\bpause We have shown that the only subspaces of $\R^3$ are lines, planes, the origin, and $\R^3$ itself.  
+
+\end{frame}
+\begin{frame}{Dimension theorem compendium}
+ We collect here some of the most important results from this section. 
+\begin{theorem}{Dimension theorem compendium}
+Let $V$ be a vector space, and suppose $B=\{\boldv_1,\boldv_2,\dots, \boldv_n\}$ is a basis for $V$. 
+\bb[(a)]
+\ii (Street smarts) If $S$ is a subset of $V$ containing less than $n$ elements, then $S$ does not span $V$.
+\ii (Street smarts) If $S$ is a subset of $V$ containing more than $n$ elements, then $S$ is linearly dependent. 
+\ii All bases of $V$ contain exactly $n$ elements. 
+\ii If $S$ is linearly independent, then $S$ can be extended to a basis of $V$. 
+\ii If $S$ spans $V$, then some subset of $S$ is a basis for $V$: i.e., $S$ can be contracted to a basis. 
+\ii If $\val{S}=n$, then $S$ is a basis if and only if $S$ is linearly independent if and only if $S$ spans $V$. 
+\ii (Dimension of subspaces I) Given subspace $W\subseteq V$, we have $\dim W\leq \dim V=n$. 
+\ii (Dimension of subspaces II) Given subspace $W\subseteq V$, we have 
+\[
+W=V \text{ if and only if } \dim W=\dim V.
+\]
+\ee
+\end{theorem}
+
+\end{frame}

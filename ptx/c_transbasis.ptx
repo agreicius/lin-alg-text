@@ -1,0 +1,10 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="c_transbasis">
+  <title>Linear transformations, bases, and dimension</title>
+  <xi:include  href="ss_rank-nullity.ptx"/>
+  <xi:include  href="ss_rank-nullity.ptx"/>
+  <xi:include  href="ss_coordinate.ptx"/>
+  <xi:include  href="ss_matrixreps.ptx"/>
+  <xi:include  href="ss_changeofbasis.ptx"/>
+  <xi:include  href="ss_eigenvectors.ptx"/>
+  <xi:include  href="ss_diagonalization.ptx"/>
+</chapter>

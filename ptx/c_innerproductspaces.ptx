@@ -1,0 +1,5 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="c_innerproductspaces">
+  <title>Inner product spaces</title>
+  <xi:include  href="ss_innerproducts.ptx"/>
+  <xi:include  href="ss_orthogonality.ptx"/>
+</chapter>

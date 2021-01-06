@@ -1,0 +1,313 @@
+In what follows $V$ is always a vector space along with an inner product $\langle \ , \rangle$. Notions of norm and orthogonality always refer to this fixed choice of inner product. 
+\bb
+\ii Show that $\frac{\boldv}{\norm{\boldv}}:=\frac{1}{\norm{\boldv}}\cdot\boldv$ is a unit vector for any $\boldv\in V$. 
+%\vfill
+\\
+\begin{solution}
+In any inner product space the norm operation satisfies $\norm{c\boldv}=\val{c}\norm{\boldv}$. (Observe the subtle notational difference: $\val{c}$ is absolute value of the real number $c$; $\norm{\boldv}$ is norm of the vector $\boldv$. )
+
+Now let $\ds\boldw=\frac{1}{\norm{\boldv}}\boldv$. Then 
+\begin{align*}
+\norm{\boldw}&=\norm{\frac{1}{\norm{\boldv}}\boldv}\\
+&=\val{\frac{1}{\norm{\boldv}}}\norm{\boldv}\\
+&=\frac{1}{\norm{\boldv}}\norm{\boldv} &\text{(since <m>\ds\frac{1}{\norm{\boldv}}\geq 0</m>)}\\
+&=1
+\end{align*}
+\end{solution}
+
+\ii Let $(V, \angvec{ \ , })$ be an inner product space. Prove: $\norm{c\boldv}=\val{c}\norm{\boldv}$ for all $c\in \R$. 
+
+(Here $\val{c}$ is the absolute value of $c$.) 
+
+Your proof must be valid for a general inner product space; i.e., you can only invoke the definition of $\norm{ \underline{\hspace{5pt}}}$ in terms of $\angvec{\ , }$, the axioms of an inner product, and properties of real number arithmetic. 
+\\
+\begin{solution}
+ \begin{align*}
+  \norm{c\boldv}^2&=\angvec{c\boldv, c\boldv}\\
+  &=c^2\angvec{\boldv, \boldv}\\
+  &=c^2\norm{\boldv}^2
+ \end{align*} 
+ This implies 
+ \[
+ \norm{c\boldv}=\sqrt{c^2}\norm{\boldv}=\val{c}\norm{\boldv}.
+ \]
+\end{solution} 
+
+
+\ii Compute the angle between $\boldv=(1,1,1,1)$ and $\boldw=(1,-1,1,1)$. Do NOT use a calculator. 
+%\vfill
+\begin{solution}
+The equation for the angle $\theta$ ends up being $\cos(\theta)=\frac{1}{2}$. The unique $\theta$ in the range $[0,\pi]$ satisfying this is $\theta=\pi/3=60^\circ$.
+\end{solution}
+\ii Let $V=C([0,1])$ with inner product $\ds \angvec{ f, g}=\int_0^1f(x)g(x) \ dx$. Let $f(x)=1$ and $g(x)=x$. Compute the angle $\theta$ between $f$ and $g$ with respect to this inner product. 
+
+Your answer cannot be expressed in terms of inverse trig functions: i.e., the angle is a familiar one that you can solve for by hand. 
+\\
+\begin{solution}
+\noindent
+The angle $\theta$ is the unique angle between 0 and $\pi$ satisfying 
+\[
+\cos(\theta)=\frac{\angvec{f,g}}{\norm{f}\norm{g}}=\frac{\int_0^1x \ dx}{\sqrt{\int_0^11\ dx}\sqrt{\int_0^1 x^2 \ dx}}=\frac{1/2}{1/\sqrt{3}}=\frac{\sqrt{3}}{2}.
+\] 
+Thus $\theta=\pi/6$. 
+\end{solution} 
+%\newpage
+\ii Prove that if $\boldw$ is orthogonal to $\boldv_1,\boldv_2,\dots, \boldv_n$, then it is orthogonal to any linear combination of the $\boldv_i$. In other words prove the implication:
+\[
+(\boldw\perp\boldv_i \text{ for all <m>i</m>})\Rightarrow (\boldw\perp(c_1\boldv_1+c_2\boldv_2+\cdots+c_n\boldv_n) \text{ for any <m>c_i</m>})
+\]
+%\vfill
+\begin{solution}
+We prove both directions of the if and only if separately. 
+
+$(\Leftarrow)$: this is the easy direction. If $\boldw$ is orthogonal to {\em any} linear combination of the $\boldv_i$, then in particular it is orthogonal to each of the $\boldv_i$. 
+
+($\Rightarrow)$: assume $\boldw\perp\boldv_i$ for all $i$. Then $\boldw\cdot\boldv_i=0$ for all $i$. But then 
+\begin{align*}
+\boldw\cdot(c_1\boldv_1+\cdots +c_n\boldv_n)&=\boldw\cdot(c_1\boldv_1)+\cdots +\boldw\cdot(c_n\boldv_n) &\text{(add. prop. of dot)}\\
+&=c_1(\boldw\cdot\boldv_1)+\cdots +c_n\boldw\cdot\boldv_n) &\text{(scalar mult. prop. of dot)}\\
+&=0+0+\cdots +0=0.
+\end{align*}
+Thus $\boldw\perp(c_1\boldv_1+\cdots +c_n\boldv_n)$ for any $c_i$, as desired. 
+\end{solution}
+
+%\newpage
+\ii For each of the following operations on $\R^2$, determine whether it defines an inner product on $\R^2$. If it fails to be an inner product, identify which of the three inner product axioms (if any) it does satisfy, and  provide explicit counterexamples for any axiom that fails.
+\bb
+\ii $\angvec{(x_1,x_2),\ (y_1,y_2)}=x_1y_2+x_2y_1$. 
+\ii $\angvec{(x_1,x_2),\ (y_1,y_2)}=2x_1y_1+x_1y_2+x_2y_1+3x_2y_2$. 
+\ii $\angvec{(x_1,x_2), \ (y_1,y_2)}=x_1^2y_1^2+x_2^2y_2^2$.
+\ee
+\begin{solution}
+\noindent
+In what follows we let $\boldx=(x_1,x_2)$, $\boldy=(y_1,y_2)$, $\boldz=(z_1,z_2)$. 
+
+(a) The proposed operation satisfies all axioms except positivity. Let's see why. 
+\\
+Symmetry. We have 
+\begin{align*}
+\angvec{\boldy,\ \boldx}&=y_1x_2+y_2x_1\\
+&=x_1y_2+x_2y_1\\
+&=\angvec{\boldx, \boldy}
+\end{align*}
+Linearity in first variable. We have 
+\begin{align*}
+\angvec{c\boldx+d\boldy,\boldz}&=\angvec{(cx_1+dy_1,cx_2+dy_2),\ (z_1,z_2)}\\
+&=(cx_1+dy_1)z_2+(cx_2+dy_2)z_1\\
+&=c(x_1z_2+x_2z_1)+d(y_1z_2+y_2z_1)\\
+&=c\angvec{\boldx,\ \boldy}+d\angvec{\boldx, \ \boldz}
+\end{align*}
+Positivity. This fails. Take $\boldx=(1,-1)$. Then 
+\[
+\angvec{\boldx,\boldx}=1\cdot (-1)+(-1)\cdot 1=-2<0.
+\]
+Furthermore, taking $\boldx=(0,1)$, we see that $\angvec{\boldx,\boldx}=0$. Thus both parts of positivity fail. 
+\vspace{.1in}
+\\
+(b) This is in fact an inner product! The proofs that properties  (i) and (ii) hold proceed exactly as the argument above. Let's focus on positivity. We have 
+\begin{align*}
+\angvec{\boldx,\boldx}&=2x_1^2+2x_1x_2+3x_2^2\\
+&=2(x_1+\frac{1}{2}x_2)^2+\frac{11}{4}x_2^2 &\text{(complete the square)}\\
+&=2u^2+\frac{11}{4}v^2 &(u=x_1+\frac{1}{2}x_2, \ v=x_2)
+\end{align*}
+Clearly the expression $2u^2+\frac{11}{4}v^2$ is nonnegative. Furthermore this will be equal to zero if and only if $u=v=0$ if and only if $x_1+\frac{1}{2}{x_2}=x_2=0$ if and only if $x_1=x_2=0$. This proves $\angvec{\boldx,\boldx}\geq 0$ and $\angvec{\boldx, \boldx}=0$ if and only if $\boldx=\boldzero$. 
+\vspace{.1in}
+\\
+(c) It is clear that the operation is symmetric: that is $\angvec{\boldx, \boldy}=\angvec{\boldy,\boldx}$. 
+Thus axiom (i) is satsified. 
+
+\noindent
+The operation does not satisfy axiom (ii). For example, Let $\boldx=(1,1)$, $\boldy=(0,1)$. Then 
+\[
+\angvec{2\boldx,\boldy}=\angvec{(2,2),(0,1)}=4\ne 2\angvec{\boldx,\boldy}=1.
+\]
+The operation does satisfy positivity, as is easily shown. 
+\end{solution}
+\ii Equip $P_2$ with the {\em evaluation inner product}  $\angvec{p,q}=p(-1)q(-1)+p(0)q(0)+p(1)q(1)$. 
+\\
+Find all polynomials $p(x)$ orthogonal to $q(x)=x$ with respect to this inner product. 
+\\
+Note: this is an infinite set of polynomials. Describe it by giving a parameter description of its elements.
+\\
+\begin{solution}
+\noindent A polynomial $p$ is orthogonal to $q$ if and only if $p(-1)q(-1)+p(0)q(0)+p(1)q(1)=0$ if and only if $-p(-1)+p(1)=0$. If $p(x)=ax^2+bx+c$, this means $-(a-b+c)+(a+b+c)=0$, or $2b=0$. Thus $p(x)=ax^2+c$, for $a,c\in\R$ any real numbers. 
+\end{solution} 
+\ii Equip $V=C([-\pi,\pi])$ with the {\em integral inner product} $\angvec{f, g}=\int_{-\pi}^\pi f(x)g(x) \ dx$.
+\bb
+\ii Show that $f(x)=\cos(x)$ and $g(x)=\sin(x)$ are orthogonal with respect to this inner product. 
+\ii Compute $\norm{\cos(x)}$ with respect to this inner product. 
+\ii Show that if $f(x)$ is an odd function (i.e., $f(x)=-f(-x)$ for all $x$) and $g(x)$ is an even function ($g(-x)=g(x)$ for all $x$), then $f$ and $g$ are orthogonal with respect to this inner product.  
+\\
+{\bf Hint}: use the area interpretation of the integral, as well as graphical properties of even/odd functions. 
+\ee 
+\begin{solution}
+\noindent 
+Orthogonality follows from $\int_{-\pi}^\pi \cos x\sin x\ dx=\int_{\pi}^{\pi}\frac{1}{2}\sin(2x)\ dx=0$, as one easily shows. 
+
+We have 
+\[
+\norm{\cos x}=\sqrt{\angvec{\cos x, \cos x}}=\sqrt{\int_{-\pi}^\pi \cos^2(x) \ dx}=\sqrt{\pi}. 
+\]
+
+If $f$ is odd and $g$ is even, then their product $fg$ is odd. The integral of an odd function over a symmetric interval like $[-\pi, \pi]$ is always 0. You can see this using the area interpretation (any region to the right of the $y$-axis has a flipped region to the left that cancels out its contribution to the integral), or by using integral properties:
+\begin{align*}
+\int_{-\pi}^\pi f(x)g(x) \ dx&=\int_{\pi}^{-\pi} -f(-u)g(-u) \ du &\text{(change of variables <m>u=-x, du=-dx</m>)}\\
+&= \int_{\pi}^{-\pi} f(u)g(u) \ du&\text{(since <m>fg</m> is odd)}\\
+&=-\int_{-\pi}^\pi f(x)g(x) \ dx &\text{(flip the enpoints, change variable name)}
+\end{align*}
+Since $\int_{-\pi}^\pi f(x)g(x) \ dx=-\int_{-\pi}^\pi f(x)g(x) \ dx$, we conclude $\angvec{f, g}=\int_{-\pi}^\pi f(x)g(x) \ dx=0$. 
+\end{solution}
+\ii Let $\boldv, \boldw\in V$, and let $\theta$ be the angle between them. Prove the following equivalence:
+\[
+\norm{\boldv+\boldw}=\norm{\boldv}+\norm{\boldw}\text{ if and only if } \theta=0.
+\]
+Your proof should be a {\em chain of equivalences} with each step justified. 
+\\
+\begin{solution}
+\begin{align*}
+\norm{\boldv+\boldw}=\norm{\boldv}+\norm{\boldw}&\Leftrightarrow
+\norm{\boldv+\boldw}^2=\left(\norm{\boldv}+\norm{\boldw}\right)^2
+&\text{( square both sides)}\\
+&\Leftrightarrow (\boldv+\boldw)\cdot(\boldv+\boldw)=\norm{\boldv}^2+2\norm{\boldv}\norm{\boldw}+\norm{\boldw}^2\\
+&\Leftrightarrow \boldv\cdot\boldv+2\boldv\cdot\boldw+\boldw\cdot\boldw=\boldv\cdot\boldv+2\norm{\boldv}\norm{\boldw}+\boldw\cdot\boldw\\
+&\Leftrightarrow \boldv\cdot\boldw=\norm{\boldv}\norm{\boldw}\\
+&\Leftrightarrow \frac{\boldv\cdot\boldw}{\norm{\boldv}\norm{\boldw}}=1\\
+&\Leftrightarrow \cos(\theta)=1\\
+&\Leftrightarrow \theta=0.
+\end{align*}
+\end{solution}
+\ii Take $\boldv,\boldw\in V$. Suppose $\norm{\boldv}=2$ and $\norm{\boldw}=3$. Find the maximum and minimum possible values of $\norm{\boldv-\boldw}$, and give explicit examples where those values occur. 
+%\vfill
+\\
+\begin{solution}
+We  we have 
+\begin{align*}
+\norm{\boldv-\boldw}^2&=(\boldv-\boldw)\cdot(\boldv-\boldw)\\
+&=\norm{\boldv}^2-2\boldv\cdot\boldw+\norm{\boldw}^2.
+\end{align*}
+By Cauchy-Schwarz 
+\[
+- \norm{\boldv}\norm{\boldw}\leq\boldv\cdot\boldw\leq \norm{\boldv}\norm{\boldw}.
+\]
+Thus 
+\[
+\norm{\boldv}^2-2\norm{\boldv}\norm{\boldw}+\norm{\boldw}^2\leq\norm{\boldv-\boldw}^2\leq 
+\norm{\boldv}^2+2\norm{\boldv}\norm{\boldw}+\norm{\boldw}^2
+\]
+which implies 
+\[
+(\norm{\boldv}-\norm{\boldw})^2\leq\norm{\boldv-\boldw}^2\leq(\norm{\boldv}+\norm{\boldw})^2
+\]
+and thus
+\[
+\norm{\boldv}-\norm{\boldw}\leq\norm{\boldv-\boldw}\leq\norm{\boldv}+\norm{\boldw}
+\]
+So in our example 
+\[
+1\leq \norm{\boldv-\boldw}\leq 5.
+\]
+In the special case when $V=\R^2$ with the dot product, the picture of this situation consists of two circles centered about the origin: one of radius 2, the other of radius 3. The vector $\boldv$ represents a point on the small circle; the vector $\boldw$ represents a point on the large one. These are closest when they lie along the same radius vector from the origin; they are furthest when lying on diametrically opposed radii.  
+\end{solution}
+\ii Prove the {\em Pythagorean theorem for general inner product spaces}: if $\boldv\perp\boldw$, then 
+\[
+\norm{\boldv+\boldw}^2=\norm{\boldv}^2+\norm{\boldw}^2.
+\]
+\begin{solution}
+We have 
+\begin{align*}
+\norm{\boldv+\boldw}^2&=\langle\boldv+\boldw,\boldv+\boldw\rangle\\
+&=\langle\boldv,\boldv\rangle+2\cancelto{0}{\langle\boldv,\boldw\rangle}+\langle\boldw,\boldw\rangle &\text{(since <m>\boldv\perp\boldw</m>)}\\
+&=\norm{\boldv}^2+\norm{\boldw}^2
+\end{align*}
+\end{solution}
+\ii Prove each inequality below using a judicious choice of inner product in conjunction with the Cauchy-Schwarz inequality (and possibly a judicious choice of one of the vectors in the Cauchy-Schwarz inequality). 
+\bb
+\ii  For all $f, g\in C([a,b])$
+\[
+\left(\int_a^b f(x)g(x) \ dx\right)^2\leq \int_a^b f^2(x)\ dx\int_a^b g^2(x) \ dx.\]
+\ii For all $(x_1,x_2,\dots, x_n)\in\R^n$,
+\[
+(x_1+x_2+\cdots +x_n)\leq\sqrt{x_1^2+x_2^2+\cdots +x_n^2}\sqrt{n}. 
+\]
+\ii For all $a,b,\theta\in\R$ 
+\[
+(a\cos(\theta)+b\sin(\theta))^2\leq a^2+b^2.
+\]
+
+\ee
+\begin{solution}
+\noindent 
+(a) Once we translate the integrals as inner products, this inequality is obtained by squaring both sides of the Cauchy-Schwarz (C-S) inequality. 
+\\
+(b) This is an instance of C-S, where $V=\R^n$ with dot product, $\boldx$ is arbitrary, and $\boldy=(1,1,\dots, 1)$. 
+\\
+(c) This is an instance of C-S, where $V=\R^2$ with dot product, $\boldx=(a,b)$ and $\boldy=(\cos(\theta), \sin(\theta))$. Note that $\norm{\boldy}=1$ for this choice of $\boldy$. 
+\end{solution}
+\begin{samepage}
+\ii Let $(V,\angvec{ \ , })$ be an inner product space. Recall in this context that we define $\norm{\boldv}=\sqrt{\angvec{\boldv, \boldv}}$, and $d(\boldv, \boldw)=\norm{\boldv-\boldw}$. 
+\\
+An {\bf isometry}  of $V$ is a function $f\colon V\rightarrow V$ that preserves distance: i.e., 
+\[
+d(f(\boldv), f(\boldw))=d(\boldv, \boldw) \text{ for all <m>\boldv, \boldw\in V</m>}.
+\]
+In this exercise we will show that any isometry that maps $\boldzero$ to $\boldzero$ is a linear transformation. \\
+(This is a handy fact to know. For example, reflections through lines in $\R^2$ and planes in $\R^3$ clearly preserve distances and map $\boldzero$ to itself; it follows immediately that these operations are linear. )
+
+\noindent
+In what follows, assume that $f$ is an isometry of $V$ satisfying $f(\boldzero)=\boldzero$.  
+\bb
+\ii Prove that $\norm{f(\boldv)}=\norm{\boldv}$: i.e., $f$ preserves norms. 
+\ii Prove $\angvec{f(\boldv), f(\boldw)}=\angvec{\boldv, \boldw}$: i.e., $f$ preserves inner products. 
+\\
+Hint: first prove that $\angvec{\boldv, \boldw}=\frac{1}{2}(\norm{\boldv}^2+\norm{\boldw}^2-\norm{\boldv-\boldw}^2)$.
+\ii To prove $f$ is linear it is enough to show $f(\boldv+c\boldw)=f(\boldv)+cf(\boldw)$ for all $\boldv, \boldw\in V$, $c\in \R$. \\
+To do so, use the above parts to show that 
+\[
+\norm{f(\boldv+c\boldw)-(f(\boldv)+cf(\boldw))}=0.
+\]  
+\noindent
+Hint: regroup this difference in a suitable manner so that you can use parts (a)-(b). You may also want to use the identity 
+\[
+\norm{\boldv-\boldw}^2=\norm{\boldv}^2-2\angvec{\boldv,\boldw}+\norm{\boldw}^2.
+\]
+\ee
+\end{samepage}
+\begin{solution}
+\noindent
+(a) We have 
+\begin{align*}
+\norm{f(\boldv)}&=\norm{f(\boldv)-\boldzero}\\
+&=\norm{f(\boldv)-f(\boldzero)} &\text{(since <m>f(\boldzero)=\boldzero</m>)}\\
+&=d(f(\boldv),f(\boldzero) &\text{(by def.)}\\
+&=d(\boldv, \boldzero) &\text{(<m>f</m> is an isometry)}\\
+&=\norm{\boldv}
+\end{align*}
+(b) The hint here is proved by starting with the RHS and substituting $\norm{\boldv}^2=\angvec{\boldv, \boldv}, \norm{\boldw}^2=\angvec{\boldw,\boldw}, \norm{\boldv-\boldw}^2=\angvec{\boldv-\boldw,\boldv-\boldw}$, and then using algebraic properties of the inner product to simplify the resulting expression until you get the LHS. 
+
+Once we have shown the equality mentioned in the hint, the rest is easy:
+\begin{align*}
+\angvec{f(\boldv),f(\boldw)}&=\frac{1}{2}(\norm{f(\boldv)}^2+\norm{f(\boldw)}^2-\norm{f(\boldv)-f(\boldw)}^2) &\text{(hint equality)}\\
+&=\frac{1}{2}(\norm{f(\boldv)}^2+\norm{f(\boldw)}^2-d(f(\boldv), f\boldw))^2) &\text{(def. of dist.)}\\
+&=\frac{1}{2}(\norm{\boldv}^2+\norm{\boldw}^2-d(\boldv, \boldw)^2) &\text{(<m>f</m> preserves norm and dist.)}\\
+&=\frac{1}{2}(\norm{\boldv}^2+\norm{\boldw}^2-\norm{\boldv-\boldw}^2) &\text{(def. of dist.)}\\
+&=\angvec{\boldv,\boldw} &\text{(hint equality)}
+\end{align*}
+(c) Note that proving 
+\[
+\norm{f(\boldv+c\boldw)-(f(\boldv)+cf(\boldw))}=0
+\]
+implies that $f(\boldv+c\boldw)-(f(\boldv)+cf(\boldw))=\boldzero$, and hence that $f(\boldv+c\boldw)=f(\boldv)+cf(\boldw)$, as desired. We will prove the square of this norm is 0, and we group the expression as $(f(\boldv+c\boldw)-f(\boldv))-cf(\boldw)$. 
+\\
+We have
+\begin{align*}
+&\norm{\left(f(\boldv+c\boldw)-f(\boldv)\right)-cf(\boldw))}^2\\
+&=\norm{f(\boldv+c\boldw)-f(\boldv)}^2-2\angvec{f(\boldv+c\boldw)-f(\boldv),cf(\boldw)}+\norm{cf(\boldw)}^2 &\text{(suggested identity)}\\
+&=\norm{f(\boldv+c\boldw)-f(\boldv)}^2-2c\angvec{f(\boldv+c\boldw)-f(\boldv),f(\boldw)}+c^2\norm{f(\boldw)}^2 \\
+&=\norm{\boldv+c\boldw- \boldv}^2-2c\angvec{f(\boldv+c\boldw)-f(\boldv),f(\boldw)}+c^2\norm{\boldw}^2 &\text{(<m>f</m> preserves distance and norms)}\\
+&=c^2\norm{\boldw}^2-2c\angvec{f(\boldv+c\boldw),f(\boldw)}+2c\angvec{f(\boldv),f(\boldw)}+c^2\norm{\boldw}^2\\
+&=c^2\norm{\boldw}^2-2c\angvec{\boldv+c\boldw,\boldw}+2c\angvec{\boldv, \boldw} +c^2\norm{\boldw}^2 &\text{<m>f</m> preserves inner product)}\\
+&\vdots &\text{(inner product simplification)}\\
+&=0
+\end{align*}
+\end{solution}
+\ee

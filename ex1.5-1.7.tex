@@ -1,0 +1,1241 @@
+\bb
+\ii Let \[
+B =
+\begin{bmatrix}[rcl]
+8&1&5\\
+2&-7&-1\\
+3&4&1
+\end{bmatrix}, \hspace{5pt}
+D =
+\begin{bmatrix}[rcl]
+8&1&5\\
+-6&21&3\\
+3&4&1
+\end{bmatrix}, \hspace{5pt}
+F =
+\begin{bmatrix}[rcl]
+8&1&5\\
+8&1&1\\
+3&4&1
+\end{bmatrix}, \hspace{5pt}
+\]
+For each part below, find an explicit {\em elementary matrix} $E$ satisfying the given matrix equation.
+
+Justify your answer by first explaining what row operation $E$ should perform.
+\bb
+\ii $EB = D$
+\ii $ED=B$
+\ii $EB=F$
+\ii $EF=B$.
+\ee
+\begin{solution}
+\ \\
+(a) To obtain $D$ from $B$ we must scale the second row of $B$ by $-3$. Thus
+\[ E =
+\begin{bmatrix}[rcl]
+1&0&0\\
+0&-3&0\\
+0&0&1
+\end{bmatrix}.
+\]
+\noindent (c) To obtain $F$ from $B$ we must replace the second row of $B$ with $r_2+2r_3$. Thus
+\[
+E =
+\begin{bmatrix}[rcl]
+1&0&0\\
+0&1&2\\
+0&0&1
+\end{bmatrix}
+\]
+\end{solution}
+
+\ii For each matrix below use the inversion algorithm to find the inverse, if it exists.
+\vspace{.1in} \\
+\bb
+\ii $A=\begin{bmatrix}[rrr]
+1/5&1/5&-2/5\\
+1/5&1/5&1/10\\
+1/5&-4/5&1/10\end{bmatrix}
+$
+\vspace{.1in} \\
+\ii $A=\begin{bmatrix}[rrr]
+1/5&1/5&-2/5\\
+2/5&-3/5&-3/10\\
+1/5&-4/5&1/10
+\end{bmatrix}
+$
+\vspace{.1in} \\
+\ii
+$A=\begin{bmatrix}[rrrr]
+0&0&2&0\\
+1&0&0&1\\
+0&-1&3&0\\
+2&1&5&-3
+\end{bmatrix}
+$
+\vspace{.1in} \\
+\ee
+\begin{solution}
+(a)
+\begin{eqnarray*}
+\begin{bmatrix}[rcl|rcl]
+1/5&1/5&-2/5&1&0&0\\
+1/5&1/5&1/10&0&1&0\\
+1/5&-4/5&1/10&0&0&1
+\end{bmatrix}
+&\xrightarrow[]{r_1 - r_2}&
+\begin{bmatrix}[rcl|rcl]
+1/5&1/5&-2/5&1&0&0\\
+0&0&-1/2&1&-1&0\\
+1/5&-4/5&1/10&0&0&1
+\end{bmatrix}\\
+&\xrightarrow[]{r_1 - r_3}&
+\begin{bmatrix}[rcl|rcl]
+1/5&1/5&-2/5&1&0&0\\
+0&0&-1/2&1&-1&0\\
+0&1&-1/2&1&0&-1
+\end{bmatrix}\\
+&\xrightarrow[]{5r_1}&
+\begin{bmatrix}[rcl|rcl]
+1&1&-2&5&0&0\\
+0&0&-1/2&1&-1&0\\
+0&1&-1/2&1&0&-1
+\end{bmatrix}\\
+&\xrightarrow[]{r_2 \leftrightarrow r_3}&
+\begin{bmatrix}[rcl|rcl]
+1&1&-2&5&0&0\\
+0&1&-1/2&1&0&-1\\
+0&0&-1/2&1&-1&0
+\end{bmatrix}\\
+&\xrightarrow[]{r_1- r_2}&
+\begin{bmatrix}[rcl|rcl]
+1&0&-3/2&4&0&1\\
+0&1&-1/2&1&0&-1\\
+0&0&-1/2&1&-1&0
+\end{bmatrix}\\
+&\xrightarrow[]{-2r_3}&
+\begin{bmatrix}[rcl|rcl]
+1&0&-3/2&4&0&1\\
+0&1&-1/2&1&0&-1\\
+0&0&1&-2&2&0
+\end{bmatrix}\\
+&\xrightarrow[]{r_2 + \frac{1}{2}r_3}&
+\begin{bmatrix}[rcl|rcl]
+1&0&-3/2&4&0&1\\
+0&1&0&0&1&-1\\
+0&0&1&-2&2&0
+\end{bmatrix}\\
+&\xrightarrow[]{r_1 + \frac{3}{2}r_3}&
+\begin{bmatrix}[rcl|rcl]
+1&0&0&1&3&1\\
+0&1&0&0&1&-1\\
+0&0&1&-2&2&0
+\end{bmatrix}\\
+\end{eqnarray*}
+\ \\
+(b)
+\begin{eqnarray*}
+\begin{bmatrix}[rcl|rcl]
+1/5&1/5&-2/5&1&0&0\\
+2/5&-3/5&-3/10&0&1&0\\
+1/5&-4/5&1/10&0&0&1
+\end{bmatrix}
+&\xrightarrow[]{2r_1 - r_2}&
+\begin{bmatrix}[rcl|rcl]
+1/5&1/5&-2/5&1&0&0\\
+0&1&-1/2&2&-1&0\\
+1/5&-4/5&1/10&0&0&1
+\end{bmatrix}\\
+&\xrightarrow[]{r_1 - r_3}&
+\begin{bmatrix}[rcl|rcl]
+1/5&1/5&-2/5&1&0&0\\
+0&1&-1/2&2&-1&0\\
+0&1&-1/2&1&0&-1
+\end{bmatrix}\\
+&\xrightarrow[]{r_2 - r_3}&
+\begin{bmatrix}[rcl|rcl]
+1/5&1/5&-2/5&1&0&0\\
+0&1&-1/2&2&-1&0\\
+0&0&0&1&-1&1
+\end{bmatrix}\\
+\end{eqnarray*}
+Since we have row reduced our matrix to a matrix with a row of zeros, we can conclude that our original matrix was singular. Thus no inverse exists.
+\ \\
+(c)
+\begin{eqnarray*}
+\begin{bmatrix}[rccl|rccl]
+0&0&2&0&1&0&0&0\\
+1&0&0&1&0&1&0&0\\
+0&-1&3&0&0&0&1&0\\
+2&1&5&-3&0&0&0&1
+\end{bmatrix}
+&\xrightarrow[]{r_1 \leftrightarrow r_2}&
+\begin{bmatrix}[rccl|rccl]
+1&0&0&1&0&1&0&0\\
+0&0&2&0&1&0&0&0\\
+0&-1&3&0&0&0&1&0\\
+2&1&5&-3&0&0&0&1
+\end{bmatrix}\\
+&\xrightarrow[]{r_4-2r_1}&
+\begin{bmatrix}[rccl|rccl]
+1&0&0&1&0&1&0&0\\
+0&0&2&0&1&0&0&0\\
+0&-1&3&0&0&0&1&0\\
+0&-1&-5&5&0&2&0&-1
+\end{bmatrix}\\
+&\xrightarrow[]{-r_3}&
+\begin{bmatrix}[rccl|rccl]
+1&0&0&1&0&1&0&0\\
+0&0&2&0&1&0&0&0\\
+0&1&-3&0&0&0&-1&0\\
+0&-1&-5&5&0&2&0&-1
+\end{bmatrix}\\
+&\xrightarrow[]{r_4+r_3}&
+\begin{bmatrix}[rccl|rccl]
+1&0&0&1&0&1&0&0\\
+0&0&2&0&1&0&0&0\\
+0&1&-3&0&0&0&-1&0\\
+0&0&-8&5&0&2&-1&-1
+\end{bmatrix}\\
+&\xrightarrow[]{r_2 \leftrightarrow r_3}&
+\begin{bmatrix}[rccl|rccl]
+1&0&0&1&0&1&0&0\\
+0&1&-3&0&0&0&-1&0\\
+0&0&2&0&1&0&0&0\\
+0&0&-8&5&0&2&-1&-1
+\end{bmatrix}\\
+&\xrightarrow[]{r_4+4r_3}&
+\begin{bmatrix}[rccl|rccl]
+1&0&0&1&0&1&0&0\\
+0&1&-3&0&0&0&-1&0\\
+0&0&2&0&1&0&0&0\\
+0&0&0&5&4&2&-1&-1
+\end{bmatrix}\\
+&\xrightarrow[]{\frac{1}{2}r_3}&
+\begin{bmatrix}[rccl|rccl]
+1&0&0&1&0&1&0&0\\
+0&1&-3&0&0&0&-1&0\\
+0&0&1&0&1/2&0&0&0\\
+0&0&0&5&4&2&-1&-1
+\end{bmatrix}\\
+&\xrightarrow[]{r_2 + 3r_3}&
+\begin{bmatrix}[rccl|rccl]
+1&0&0&1&0&1&0&0\\
+0&1&0&0&3/2&0&-1&0\\
+0&0&1&0&1/2&0&0&0\\
+0&0&0&5&4&2&-1&-1
+\end{bmatrix}\\
+&\xrightarrow[]{\frac{1}{5}r_4}&
+\begin{bmatrix}[rccl|rccl]
+1&0&0&1&0&1&0&0\\
+0&1&0&0&3/2&0&-1&0\\
+0&0&1&0&1/2&0&0&0\\
+0&0&0&1&4/5&2/5&-1/5&-1/5
+\end{bmatrix}\\
+&\xrightarrow[]{r_1 - r_4}&
+\begin{bmatrix}[rccl|rccl]
+1&0&0&0&-4/5&3/5&1/5&1/5\\
+0&1&0&0&3/2&0&-1&0\\
+0&0&1&0&1/2&0&0&0\\
+0&0&0&1&4/5&2/5&-1/5&-1/5
+\end{bmatrix}\\
+\end{eqnarray*}
+\end{solution}
+
+\ii For each matrix below find the inverse using the inverse algorithm.
+\\
+Assume $k_1,k_2,k_3,k_4,k \neq 0$.
+\vspace{.1in}\\
+\bb
+\ii $A=\begin{bmatrix}[rrrr]
+0&0&0&k_1\\
+0&0&k_2&0\\
+0&k_3&0&0\\
+k_4&0&0&0
+\end{bmatrix}
+$
+\vspace{.1in}\\
+\ii $A=\begin{bmatrix}[rrrr]
+k&0&0&0\\
+1&k&0&0\\
+0&1&k&0\\
+0&0&1&k
+\end{bmatrix}$
+\ee
+\begin{solution}
+(a)
+\begin{eqnarray*}
+\begin{bmatrix}[rccl|rccl]
+0&0&0&k_1&1&0&0&0\\
+0&0&k_2&0&0&1&0&0\\
+0&k_3&0&0&0&0&1&0\\
+k_4&0&0&0&0&0&0&1
+\end{bmatrix}
+&\xrightarrow[]{r_1 \leftrightarrow r_4}&
+\begin{bmatrix}[rccl|rccl]
+k_4&0&0&0&0&0&0&1\\
+0&0&k_2&0&0&1&0&0\\
+0&k_3&0&0&0&0&1&0\\
+0&0&0&k_1&1&0&0&0
+\end{bmatrix}\\
+&\xrightarrow[]{r_2 \leftrightarrow r_3}&
+\begin{bmatrix}[rccl|rccl]
+k_4&0&0&0&0&0&0&1\\
+0&k_3&0&0&0&0&1&0\\
+0&0&k_2&0&0&1&0&0\\
+0&0&0&k_1&1&0&0&0
+\end{bmatrix}\\
+&\xrightarrow[]{\frac{1}{k_4}r_1}&
+\begin{bmatrix}[rccl|rccl]
+1&0&0&0&0&0&0&1/k_4\\
+0&k_3&0&0&0&0&1&0\\
+0&0&k_2&0&0&1&0&0\\
+0&0&0&k_1&1&0&0&0
+\end{bmatrix}\\
+&\xrightarrow[]{\frac{1}{k_3}r_2}&
+\begin{bmatrix}[rccl|rccl]
+1&0&0&0&0&0&0&1/k_4\\
+0&1&0&0&0&0&1/k_3&0\\
+0&0&k_2&0&0&1&0&0\\
+0&0&0&k_1&1&0&0&0
+\end{bmatrix}\\
+&\xrightarrow[]{\frac{1}{k_2}r_3}&
+\begin{bmatrix}[rccl|rccl]
+1&0&0&0&0&0&0&1/k_4\\
+0&1&0&0&0&0&1/k_3&0\\
+0&0&1&0&0&1/k_2&0&0\\
+0&0&0&k_1&1&0&0&0
+\end{bmatrix}\\
+&\xrightarrow[]{\frac{1}{k_1}r_4}&
+\begin{bmatrix}[rccl|rccl]
+1&0&0&0&0&0&0&1/k_4\\
+0&1&0&0&0&0&1/k_3&0\\
+0&0&1&0&0&1/k_2&0&0\\
+0&0&0&1&1/k_1&0&0&0
+\end{bmatrix}\\
+\end{eqnarray*}
+Thus $A^{-1}=\begin{bmatrix}[rrrr]
+0&0&0&1/k_4\\
+0&0&1/k_3&0\\
+0&1/k_2&0&0\\
+1/k_1&0&0&0
+\end{bmatrix}
+$
+\ \\
+(b)
+\begin{eqnarray*}
+\begin{bmatrix}[rccl|rccl]
+k&0&0&0&1&0&0&0\\
+1&k&0&0&0&1&0&0\\
+0&1&k&0&0&0&1&0\\
+0&0&1&k&0&0&0&1
+\end{bmatrix}
+&\xrightarrow[]{\frac{1}{k}r_1}&
+\begin{bmatrix}[rccl|rccl]
+1&0&0&0&1/k&0&0&0\\
+1&k&0&0&0&1&0&0\\
+0&1&k&0&0&0&1&0\\
+0&0&1&k&0&0&0&1
+\end{bmatrix}\\
+&\xrightarrow[]{r_1 - r_2}&
+\begin{bmatrix}[rccl|rccl]
+1&0&0&0&1/k&0&0&0\\
+0&-k&0&0&1/k&-1&0&0\\
+0&1&k&0&0&0&1&0\\
+0&0&1&k&0&0&0&1
+\end{bmatrix}\\
+&\xrightarrow[]{-\frac{1}{k}r_2}&
+\begin{bmatrix}[rccl|rccl]
+1&0&0&0&1/k&0&0&0\\
+0&1&0&0&-1/k^2&1/k&0&0\\
+0&1&k&0&0&0&1&0\\
+0&0&1&k&0&0&0&1
+\end{bmatrix}\\
+&\xrightarrow[]{r_2 - r_3}&
+\begin{bmatrix}[rccl|rccl]
+1&0&0&0&1/k&0&0&0\\
+0&1&0&0&-1/k^2&1/k&0&0\\
+0&0&-k&0&-1/k^2&1/k&-1&0\\
+0&0&1&k&0&0&0&1
+\end{bmatrix}\\
+&\xrightarrow[]{-\frac{1}{k}r_3}&
+\begin{bmatrix}[rccl|rccl]
+1&0&0&0&1/k&0&0&0\\
+0&1&0&0&-1/k^2&1/k&0&0\\
+0&0&1&0&1/k^3&-1/k^2&1/k&0\\
+0&0&1&k&0&0&0&1
+\end{bmatrix}\\
+&\xrightarrow[]{r_3 - r_4}&
+\begin{bmatrix}[rccl|rccl]
+1&0&0&0&1/k&0&0&0\\
+0&1&0&0&-1/k^2&1/k&0&0\\
+0&0&1&0&1/k^3&-1/k^2&1/k&0\\
+0&0&0&-k&1/k^3&-1/k^2&1/k&-1
+\end{bmatrix}\\
+&\xrightarrow[]{-\frac{1}{k}r_4}&
+\begin{bmatrix}[rccl|rccl]
+1&0&0&0&1/k&0&0&0\\
+0&1&0&0&-1/k^2&1/k&0&0\\
+0&0&1&0&1/k^3&-1/k^2&1/k&0\\
+0&0&0&1&-1/k^4&1/k^3&-1/k^2&1/k
+\end{bmatrix}
+\end{eqnarray*}
+Thus $A^{-1}=\begin{bmatrix}[rrrr]
+1/k&0&0&0\\
+-1/k^2&1/k&0&0\\
+1/k^3&-1/k^2&1/k&0\\
+-1/k^4&1/k^3&-1/k^2&1/k
+\end{bmatrix}$.
+\end{solution}
+
+\ii Find all values of $c$, if any, making the matrix $A=\begin{bmatrix}[rrr]
+c&1&0\\
+1&c&1\\
+0&1&c
+\end{bmatrix}$
+invertible.
+\\
+\begin{solution} The matrix is row equivalent to $U=\begin{bmatrix}[rrr]
+1&c&1\\
+0&1&c\\
+0&0&-2c+c^3
+\end{bmatrix}$.
+\vspace{.1in}\\
+We know $A$ is invertible if and only if $U$ is invertible. Furthermore $U$ is invertible if and only if $-2c+c^3=c(c^2-2)\ne 0$. This is the case if and only if $c\ne 0$ and $c\ne \pm \sqrt{2}$. Thus $A$ is invertible if and only if $c \neq 0, \pm\sqrt{2}$.
+\end{solution}
+
+\ii For each $A$ below, express $A$ and $A^{-1}$ as products of elementary matrices.
+\vspace{.1in} \\
+\bb
+\ii $A=\begin{bmatrix}[rr]
+1&0\\-5&2
+\end{bmatrix}$
+\vspace{.1in} \\
+\ii $A=\begin{bmatrix}[rrr]
+1&1&0\\
+1&1&1\\
+0&1&1
+\end{bmatrix}$
+\vspace{.1in} \\
+\ii $A=\begin{bmatrix}[rrr] 1&1&1\\ 1&-1&0\\ 1&0&-1\end{bmatrix}$.
+
+\ee
+\begin{solution}\ \\
+(a)
+\begin{eqnarray*}
+A =
+\begin{bmatrix}[rl]
+1&0\\
+-5&2
+\end{bmatrix}
+&\xrightarrow[]{r_2+5r_1}&
+\begin{bmatrix}
+1&0\\
+0&2
+\end{bmatrix}\\
+&\xrightarrow[]{\frac{1}{2}r_2}&
+\begin{bmatrix}
+1&0\\
+0&1
+\end{bmatrix}
+\end{eqnarray*}
+Thus we have elementary matrices
+$E_1 =
+\begin{bmatrix}
+1&0\\
+5&1
+\end{bmatrix},
+E_2 =
+\begin{bmatrix}
+1&0\\
+0&1/2
+\end{bmatrix}$ such that:\\
+$E_2E_1 =
+\begin{bmatrix}
+1&0\\
+0&1/2
+\end{bmatrix}
+\begin{bmatrix}
+1&0\\
+5&1
+\end{bmatrix}
+= A^{-1}
+$ and $
+E^{-1}_1E^{-1}_2 =
+\begin{bmatrix}
+1&0\\
+0&-2
+\end{bmatrix}
+\begin{bmatrix}
+1&0\\
+-5/2&-1
+\end{bmatrix}
+= A$
+\\
+(b)
+\begin{eqnarray*}
+\begin{bmatrix}[rcl|rcl]
+1&1&0&1&0&0\\
+1&1&1&0&1&0\\
+0&1&1&0&0&1
+\end{bmatrix}
+&\xrightarrow[]{r_2-r_1}&
+\begin{bmatrix}[rcl|rcl]
+1&1&0&1&0&0\\
+0&0&1&-1&1&0\\
+0&1&1&0&0&1
+\end{bmatrix}\\
+&\xrightarrow[]{r_2 \leftrightarrow r_3}&
+\begin{bmatrix}[rcl|rcl]
+1&1&0&1&0&0\\
+0&1&1&0&0&1\\
+0&0&1&-1&1&0
+\end{bmatrix}\\
+&\xrightarrow[]{r_2-r_3}&
+\begin{bmatrix}[rcl|rcl]
+1&1&0&1&0&0\\
+0&1&0&1&-1&1\\
+0&0&1&-1&1&0
+\end{bmatrix}\\
+&\xrightarrow[]{r_1-r_2}&
+\begin{bmatrix}[rcl|rcl]
+1&0&0&0&1&-1\\
+0&1&0&1&-1&1\\
+0&0&1&-1&1&0
+\end{bmatrix}\\
+\end{eqnarray*}
+Then the elementary matrices are:\\
+\ \\
+$E_1 =
+\begin{bmatrix}[rcl]
+1&0&0\\
+-1&1&0\\
+0&0&1
+\end{bmatrix},
+E_2 =
+\begin{bmatrix}
+1&0&0\\
+0&0&1\\
+0&1&0
+\end{bmatrix},
+E_3 =
+\begin{bmatrix}
+1&0&0\\
+0&1&-1\\
+0&0&1
+\end{bmatrix},
+E_4 =
+\begin{bmatrix}
+1&-1&0\\
+0&1&0\\
+0&0&1
+\end{bmatrix}
+$\\
+And\\
+\ \\
+$A^{-1} = E_4E_3E_2E_1$ and $A=E_1^{-1}E_2^{-1}E_3^{-1}E_4^{-1}$
+\\
+(c)
+\begin{align*}
+\begin{bmatrix}[rcl|rcl]
+1&1&1&1&0&0\\
+1&-1&0&0&1&0\\
+1&0&-1&0&0&1
+\end{bmatrix}
+&\xrightarrow[]{r_2-r_1}
+\begin{bmatrix}[rcl|rcl]
+1&1&1&1&0&0\\
+0&-2&-1&-1&1&0\\
+1&0&-1&0&0&1
+\end{bmatrix}\\
+&\xrightarrow[]{r_3-r_1}
+\begin{bmatrix}[rcl|rcl]
+1&1&1&1&0&0\\
+0&-2&-1&-1&1&0\\
+0&-1&-2&-1&0&1
+\end{bmatrix}\\
+&\xrightarrow[]{-\frac{1}{2}r_2}
+\begin{bmatrix}[rcl|rcl]
+1&1&1&1&0&0\\
+0&1&1/2&1/2&-1/2&0\\
+0&-1&-2&-1&0&1
+\end{bmatrix}\\
+&\xrightarrow[]{r_3+r_1}
+\begin{bmatrix}[rcl|rcl]
+1&1&1&1&0&0\\
+0&1&1/2&1/2&-1/2&0\\
+0&0&-3/2&-1/2&-1/2&1
+\end{bmatrix}\\
+&\xrightarrow[]{-2/3 r_3}
+\begin{bmatrix}[rcl|rcl]
+1&1&1&1&0&0\\
+0&1&1/2&1/2&-1/2&0\\
+0&0&1&1/3&1/3&-2/3
+\end{bmatrix}\\
+&\xrightarrow[]{r_2-1/2r_3}
+\begin{bmatrix}[rcl|rcl]
+1&1&1&1&0&0\\
+0&1&0&1/3&-2/3&2/3\\
+0&0&1&1/3&1/3&-2/3
+\end{bmatrix}\\
+&\xrightarrow[]{r_1-r_3}
+\begin{bmatrix}[rcl|rcl]
+1&1&0&2/3&-1/3&2/3\\
+0&1&0&1/3&-2/3&2/3\\
+0&0&1&1/3&1/3&-2/3
+\end{bmatrix}\\
+&\xrightarrow[]{r_1-r_2}
+\begin{bmatrix}[rcl|rcl]
+1&0&0&1/3&1/3&0\\
+0&1&0&1/3&-2/3&2/3\\
+0&0&1&1/3&1/3&-2/3
+\end{bmatrix}\\
+\end{align*}
+The corresponding elementary matrices are
+\begin{align*}
+E_1&=\begin{bmatrix}[rrr]
+1&0&0\\
+-1&1&0\\
+0&0&1
+\end{bmatrix}, \hspace{5pt}
+E_2=\begin{bmatrix}[rrr]
+1&0&0\\
+0&1&0\\
+-1&0&1
+\end{bmatrix}, \hspace{5pt}
+E_3=\begin{bmatrix}[rrr]
+1&0&0\\
+0&-\frac{1}{2}&0\\
+0&0&1
+\end{bmatrix}, \hspace{5pt}
+\\
+E_4&=\begin{bmatrix}[rrr]
+1&0&0\\
+0&1&0\\
+1&0&1
+\end{bmatrix}, \hspace{5pt}
+E_5=\begin{bmatrix}[rrr]
+1&0&0\\
+0&1&0\\
+0&0&-\frac{2}{3}
+\end{bmatrix}, \hspace{5pt}
+E_6=\begin{bmatrix}[rrr]
+1&0&0\\
+0&1&-\frac{1}{2}\\
+0&0&1
+\end{bmatrix}, \hspace{5pt}
+\\
+E_7&=\begin{bmatrix}[rrr]
+1&0&-1\\
+0&1&0\\
+0&0&1
+\end{bmatrix}, \hspace{5pt}
+E_8=\begin{bmatrix}[rrr]
+1&-1&0\\
+0&1&0\\
+0&0&1
+\end{bmatrix}, \hspace{5pt}
+\end{align*}
+We have $A^{-1}=E_8E_7E_6E_5E_4E_3E_2E_1$ and $A=E_1^{-1}E_2^{-1}E_3^{-1}E_4^{-1}E_5^{-1}E_6^{-1}E_7^{-1}E_8^{-1}$.
+\end{solution}
+\ii Let
+\[
+A=\begin{bmatrix}
+2&1&0\\
+-1&1&0\\
+3&0&-1
+\end{bmatrix}, \hspace{5pt}
+B=\begin{bmatrix}
+6&9&4\\
+-5&-1&0\\
+-1&-2&-1
+\end{bmatrix}.
+\]
+Produce $B$ from $A$ using row operations, the use this sequence of row operations to find $C$ such that $CA =B$.
+\\
+\begin{solution}
+\begin{eqnarray*}
+\begin{bmatrix}[rcl]
+2&1&0\\
+-1&1&0\\
+3&0&-1
+\end{bmatrix}
+&\xrightarrow[]{r_3 - 2r_1}&
+\begin{bmatrix}[rcl]
+2&1&0\\
+-1&1&0\\
+-1&-2&-1
+\end{bmatrix}
+\\
+&\xrightarrow[]{r_2 - 2r_1}&
+\begin{bmatrix}[rcl]
+2&1&0\\
+-5&-1&0\\
+-1&-2&-1
+\end{bmatrix}
+\\
+&\xrightarrow[]{r_1 - 4r_3}&
+\begin{bmatrix}[rcl]
+6&9&4\\
+-5&-1&0\\
+-1&-2&-1
+\end{bmatrix}\\
+\end{eqnarray*}
+\begin{eqnarray*}
+C =
+\begin{bmatrix}[rcl]
+1&0&-4\\
+0&1&0\\
+0&0&1
+\end{bmatrix}
+\begin{bmatrix}[rcl]
+1&0&0\\
+-2&1&0\\
+0&0&1
+\end{bmatrix}
+\begin{bmatrix}[rcl]
+1&0&0\\
+0&1&0\\
+-2&0&1
+\end{bmatrix}
+=
+\begin{bmatrix}[rcl]
+9&0&-4\\
+-2&1&0\\
+-2&0&1
+\end{bmatrix}
+\end{eqnarray*}
+\end{solution}
+\ii Let $A$ be $n\times n$. Show that the following are equivalent by proving a ``cycle of implications".
+\bb[(i)]
+\ii $A$ is invertible.
+\ii For any column vector $\boldb$ the matrix equation $A\boldx=\boldb$ has a unique solution.
+\ii For any column vector $\boldb$ the matrix equation $A\boldx=\boldb$ has a solution.
+\ee
+This completes the proof of the invertibility theorem in its current form.
+\\
+\begin{solution}
+\ \\
+$(i)\Rightarrow (ii)$. Suppose $A$ is invertible. Given any $\underset{n\times 1}{\boldb}$, we have
+\begin{align*}
+A\boldx=\boldb\Rightarrow A^{-1}A\bold=A^{-1}\boldb\\
+&\Rightarrow I\boldx=A^{-1}\boldb\\
+&\Rightarrow \boldx=A^{-1}\boldb
+\end{align*}
+This shows that for any $\boldb$, there is a unique solution to the equation $A\boldx=\boldb$: namely, $\boldx=A^{-1}\boldb$.
+\\
+$(ii)\Rightarrow (iii)$. Easy.
+\\
+$(iii)\Rightarrow (i)$. \\
+Assume $A\boldx=\boldb$ has a solution for any vector $\boldb$. For each $1\leq j\leq n$ let $\bolde_j$ be the $j$-th column of the identity matrix $I_n$: i.e., $\bolde_j$ has a 1 in the $j$-th row, and 0's elsewhere. By assumption for each such $\bolde_j$ I can find a vector $\boldc_j$ such that $A\boldc_j=\bolde_j$.
+\\
+I claim the matrix
+\[
+C=\begin{bmatrix}[cccc]\vert&\vert &\dots &\vert\\ \boldc_1&\boldc_2&\dots&\boldc_n\\\vert&\vert &\dots &\vert \end{bmatrix}\]
+is the inverse of $A$.
+\\
+Indeed, using the column method of matrix multiplication we see that
+\begin{align*}
+AC&=A\begin{bmatrix}[cccc]\vert&\vert &\dots &\vert\\ \boldc_1&\boldc_2&\dots&\boldc_n\\\vert&\vert &\dots &\vert \end{bmatrix} \\
+&=\begin{bmatrix}[cccc]\vert&\vert &\dots &\vert\\ A\boldc_1&A\boldc_2&\dots&A\boldc_n\\\vert&\vert &\dots &\vert \end{bmatrix}\\
+&=\begin{bmatrix}[cccc]\vert&\vert &\dots &\vert\\ \bolde_1&\bolde_2&\dots&\bolde_n\\\vert&\vert &\dots &\vert \end{bmatrix}\\
+&=I_n,
+\end{align*}
+where the last equality follows by construction: i.e, we picked $\bolde_j$ precisely to be the $j$-th column $I_n$ !!
+\\
+Note that this only shows $AC=I_n$; i.e., only that $C$ is a {\em right-inverse} of $A$. Luckily we proved a corollary in the lecture notes that says you are a right inverse if and only if you are a left inverse. This allows us to claim that we also have $CA=I_n$, and hence that $C=A^{-1}$.
+\\ \\
+(You might object that the corollary cited was proved using the invertibility theorem, which the desired statement is a part of! However, if you look closely at the proof of the corollary, you see that it only uses statement (b) from the invertibility theorem. )
+\end{solution}
+\ii Let $A$ be $n\times n$ and suppose $A$ has two identical columns. Use an appropriate statement from the invertibility theorem to show $A$ is not invertible.
+\\
+\begin{solution}
+\noindent Let $\boldc_i$ be the columns of $A$ and suppose that columns $\boldc_i$ and $\boldc_j$ are equal. Define $\boldx$ to be the column vector with a 1 in the $i$-th row, a $-1$ in the $j$-th column, and 0's elsewhere. \\
+Then the column method of matrix multiplication tells us that
+\[
+A\boldx=\boldc_i-\boldc_j=\boldzero.
+\]
+Since $\boldx$ is nontrivial, we have found a nontrivial solution to $A\boldx=\boldzero$. By the invertibility theorem we now conclude $A$ is not invertible.
+\end{solution}
+
+\ii Prove that if A is an invertible matrix and B is row equivalent to A, then B is also invertible.
+\begin{solution}
+Given that B is row equivalent to A, we can write B as the product of elementary matrices and A.\\
+$$ B = E_n\dots E_1A$$
+By Theorem 1.5.2, all of the elementary matrices are invertible. And we know that the product of any number of invertible matrices is also invertible. Thus B is also invertible.
+\end{solution}
+
+\ii Determine conditions on $b_i$'s to guarantee a consistent system.
+\begin{eqnarray*}
+x_1-2x_2-x_3&=&b_1\\
+-4x_1+5x_2+2x_3&=&b_2\\
+-4x_1+7x_2+4x_3&=&b_3
+\end{eqnarray*}
+\begin{solution}
+\begin{eqnarray*}
+\begin{bmatrix}[rcl|c]
+1&-2&-1&b_1\\
+-4&5&2&b_2\\
+-4&7&4&b_3
+\end{bmatrix}
+&\xrightarrow[]{4r_1+r_2}&
+\begin{bmatrix}[rcl|c]
+1&-2&-1&b_1\\
+0&-3&-2&4b_1+b_2\\
+-4&7&4&b_3
+\end{bmatrix}\\
+&\xrightarrow[]{4r_1+r_3}&
+\begin{bmatrix}[rcl|c]
+1&-2&-1&b_1\\
+0&-3&-2&4b_1+b_2\\
+0&-1&0&4b_1+b_3
+\end{bmatrix}\\
+&\xrightarrow[]{r_2 \leftrightarrow r_3}&
+\begin{bmatrix}[rcl|c]
+1&-2&-1&b_1\\
+0&-1&0&4b_1+b_3\\
+0&-3&-2&4b_1+b_2
+\end{bmatrix}\\
+&\xrightarrow[]{-r_2}&
+\begin{bmatrix}[rcl|c]
+1&-2&-1&b_1\\
+0&1&0&-4b_1-b_3\\
+0&-3&-2&4b_1+b_2
+\end{bmatrix}\\
+&\xrightarrow[]{3r_2+r_3}&
+\begin{bmatrix}[rcl|c]
+1&-2&-1&b_1\\
+0&1&0&-4b_1-b_3\\
+0&0&-2&-8b_1+b_2-3b_3
+\end{bmatrix}\\
+&\xrightarrow[]{-1/2r_3}&
+\begin{bmatrix}[rcl|c]
+1&-2&-1&b_1\\
+0&1&0&-4b_1-b_3\\
+0&0&1&4b_1-1/2b_2+3/2b_3
+\end{bmatrix}
+\end{eqnarray*}
+Thus, this system is consistent for all values of $b_i$.
+\end{solution}
+
+\ii Let $A\textbf{x}=\textbf{0}$ be a homogeneous system of $n$ linear equations in $n$ unknowns, and let $Q$ be an invertible n x n matrix.\\
+Prove that $A\textbf{x}=\textbf{0}$ has only the trivial solution if and only if $(QA)\textbf{x}=\textbf{0}$ has only the trivial solution.
+\\
+\begin{solution}
+Claim: $A\boldx=\boldzero\Leftrightarrow QA\boldx=\boldzero$. From this claim it follows that the set of solutions to $A\boldx=\boldzero$ is exactly equal to the set of solutions to $QA\boldx=\boldzero$, and hence that the former equation has a unique solution if and only if the latter equation has a unique solution.
+
+Proof of claim:
+\begin{align*}
+QA\boldx=\boldzero&\Leftrightarrow Q^{-1}QA\boldx=Q^{-1}\boldzero\\
+&\Leftrightarrow A\boldx=\boldzero.
+\end{align*}
+\end{solution}
+\ii Answer true or false. If true, provide a proof; if false, give an explicit counterexample.
+\bb
+\ii The product of two elementary matrices of the same size must be an elementary matrix.
+\ii If $A$ is row equivalent to $B$, and $B$ is row equivalent to $C$, then $A$ is row equivalent to $C$.
+\ii $A$ is a singular $n\times n$ matrix, then the linear system $A\boldx=\boldzero$ has infinitely many solutions.
+\ii If $A$ is invertible, then if the second row of $A$ is replaced with the second row plus the first row, the resulting matrix is invertible.
+\ii If $A$ is a square matrix, and if the linear system $A\textbf{x} = \textbf{b}$ has a unique solution, then the linear system $A\textbf{x} = \textbf{c}$ also must have a unique solution.
+\ii If $A$ and $B$ are row equivalent matrices, then the linear systems $A\textbf{x}=\textbf{0}$ and $B\textbf{x}=\textbf{0}$ have the same solution set.
+\ii Let $A$ and $B$ be n x n matrices. If $A$ or $B$ (or both) are not invertible, then neither is $AB$.
+\ee
+\begin{solution}
+\ \\
+(a)
+False. Consider:
+\begin{eqnarray*}
+\begin{bmatrix}[rc]
+1&0\\
+0&-3
+\end{bmatrix}
+\begin{bmatrix}[rc]
+1&4\\
+0&1
+\end{bmatrix}
+=
+\begin{bmatrix}[rc]
+1&4\\
+0&-3
+\end{bmatrix}
+\end{eqnarray*}
+The matrix on the right is not an elementary matrix, as it performs TWO row operations on a matrix: (1) $r_1\rightarrow r_1+4r_2$, and (2) $r_2\rightarrow -3r_2$.
+\\
+(b) True. Simply apply row operations to first transorm $A$ to $B$, then $B$ to $C$.
+\\
+(c) True. Singular means noninvertible, btw. The invertibility theorem tells us that $A\boldx=\boldzero$ has more than one solution. Since linear systems have either 0, 1 or infinitely-many solutions, we conclude that it has infinitely many solutions.
+\\
+(d) True. The new matrix $B$ is just $EA$, where $E$ is an elementary matrix. Since elementary matrices are invertible, $B=EA$ is the product of invertible matrices, hence invertible.
+\\
+(e) False. Take $A=\begin{bmatrix}1&1\\0&0 \end{bmatrix}$, $\boldb=\begin{bmatrix}1\\0\end{bmatrix}$ and $\boldc=\begin{bmatrix}0\\1 \end{bmatrix}$.
+
+Then the equation $A\boldx=\boldb$ has a solution: namely $\boldx=\begin{bmatrix}1\\0\end{bmatrix}$. But the equation $A\boldx=\boldc$ does not have a solution.
+\\
+(f)
+True.
+Since $A$ and $B$ are row equivalent, we can $B = E_r \cdots E_1A=QA$, where $Q=E_r \cdots E_1$ is invertible, being the product of invertible matrices.
+
+I claim $A\boldx=\boldzero$ if and only if $QA\boldx=\boldzero$. Indeed, the $\Rightarrow$ direction follows by multiplying both sides of $A\boldx=\boldzero$ by $Q$; the $\Leftarrow$ direction follows by multiplying both sides of $QA\boldx=\boldzero$ by $Q^{-1}$. Since $QA=B$, we conclude that $A\boldx=\boldzero$ if and only if $B\boldx=\boldzero$. This means the two equations have the same solution set.
+\\
+(g)
+True.
+We know now that for any $n\times n$ matrices $A,B$ we have the if and only if statement:
+\[
+A \text{ and } B \text{ are invertible}\Leftrightarrow AB \text{ is invertible.}
+\]
+Thus if either one of $A$ or $B$ is not invertible, then the product $AB$ is not invertible.
+\end{solution}
+\ii \label{ex:diag} Let $D=\begin{bmatrix}d_1&0&\cdots\\ 0&d_2&0&\cdots\\ \vdots & & &\vdots\\ 0&0&\cdots & d_n \end{bmatrix}$ be an $n\times n$ diagonal matrix.
+\bb
+\ii Let $A$ be $n\times r$. Use either the row/column method to describe the product $DA$ as on operation on the rows/columns of $A$. (You choose which is appropriate, rows or columns.)
+\ii Let $B$ be $m\times n$. Describe the product $BD$ as on operation of the rows/columns of $B$. (You choose which is appropriate, rows or columns.)
+\ee
+%\vfill
+\begin{solution}\noindent
+(a) To understand what multiplying on the left by $D$ does, we use the row method. This tells us that $DA$ returns the matrix whose $i$-th row is $d_i$ times the $i$-th row of $A$.
+\\
+(b) To understand what multiplying on the right by $D$ does, we use the column method. This tells us that $BD$ returns the matrix whose $j$-th column is $d_j$ times the $j$-th column of $B$.
+\end{solution}
+\ii Let $A=[a_{ij}]$ be a triangular $n\times n$ matrix.
+
+Prove: $A$ is invertible if and only if $a_{ii}\ne 0$ for all $1\leq i\leq n$.
+
+Hint: use a convenient equivalent statement of invertibility from the invertibility theorem.
+\begin{solution}\noindent
+Note: this statement is extremely easy to prove once we can invoke the determinant. Without this tool, it is intuitively true but not so easy to prove as it turns out!
+\begin{description}
+\item[Case 1] assume $A$ is upper triangular. We show the two implications separately.
+\begin{description}
+\item[$(\Longleftarrow)$] this is the easy direction. If all $a_{ii}\ne 0$, then since $A$ is upper triangular, it is easy to see that $A$ can be row reduced to the identity matrix. First, for all $i$ we scale the $i$-th row by $\frac{1}{a_{i}}$; this transforms $A$ into a row echelon matrix with a leading 1 in every column. Reducing the resulting matrix to reduced row echelon form then yields the identity matrix.
+\item[$(\Longrightarrow)$] we prove this implication by proving its contrapositive.
+\\
+Assume one of the diagonal entries of $A$ is equal to 0. Let $a_{jj}$ be the {\em first} zero diagonal entry, so that $a_{ii}\ne 0$ for all $i<j$. Consider the matrix equation $A\boldx=\boldzero$, and its corresponding homogenous linear system. I claim there is a solution $(x_1,x_2,\dots, x_n)$ where $x_j=1$ and $x_k=0$ for all $k>j$. This would yield a {\em non-trivial} solution to the homogenous system; the invertibility theorem then would imply $A$ is not invertible.
+
+So why can we build such a solution? Since $A$ is upper triangular, looking at the corresponding system, the equations $j$ through $n$ only involve the variables $x_k$ for all $k\geq j$. Since $a_{jj}=0$, clearly the choice $x_j=1$, $x_k=0$ for $k>j$ satisfies equations $j$ through $n$. Next, by assumption the coefficients  $a_{ii}\ne 0$ for all $i<j$. This allows me now to back-substitute and solve for each $x_i$, $i<j$.
+
+This concludes the proof that if $A$ is invertible, then $a_{ii}\ne 0$ for all $i$.
+\end{description}
+\item[Case 2] assume $A$ is lower triangular. The result in this case follows from Case 1 as follows:
+\begin{align*}
+$1<m>$3</m>$5&\Longleftrightarrow $1<m>$3</m>$5 &$1<m>$3</m>$5\\
+&\Longleftrightarrow $1<m>$3</m>$5 &$1<m>$3</m>$5\\
+&\Longleftrightarrow $1<m>$3</m>$5 &$1<m>$3</m>$5
+\end{align*}
+\end{description}
+
+\end{solution}
+\ii Prove that if $A$ and $B$ are symmetric, then $cA+dB$ is symmetric for any $c,d\in\R$.
+\\
+\begin{solution}
+We use the definition that $A$ is symmetric if and only if $A^T=A$.
+
+Assume $A$ and $B$ are symmetric. Then $A^T=A$ and $B^T=B$. But then
+\begin{align*}
+(cA+dB)^T&=(cA)^T+(dB)^T &\text{(additive prop. of transp.)}\\
+&=cA^T+dB^T &\text{(scaling prop. of transp.}
+&=cA+dB &$1<m>$3</m>$5
+\end{align*}
+This shows $(cA+dB)^T=cA+dB$, which means $A+B$ is symmetric.
+\end{solution}
+\ii Suppose $A$ is symmetric and invertible. Prove $A^{-1}$ is symmetric.
+\\
+\begin{solution}
+\noindent We use the alternative definition that $A$ is symmetric if and only if $A^T=A$.
+
+Assume $A$ is symmetric. Then $A^T=A$. But then
+\begin{align*}
+(A^{-1})^T&=(A^T)^{-1} &\text{(prop. of transp.)}\\
+&=A^{-1} &$1<m>$3</m>$5
+\end{align*}
+This shows $(A^{-1})^T=A^{-1}$, which means $A^{-1}$ is symmetric.
+\end{solution}
+\ii Let $A$ and $B$ be symmetric. Prove that $AB$ is symmetric if and only if $AB=BA$.
+\\
+\begin{solution}
+I will prove this if and only if statement by showing both implications separately. Note that we assume throughout that $A$ and $B$ are symmetric: thus that $A^T=A$ and $B^T=B$.
+\\ \\
+$(\Rightarrow)$: suppose $AB$ is symmetric. Then $(AB)^T=(AB)$. On the other hand, we have
+\[
+(AB)^T=B^TA^T=BA,
+\]
+where the last equality holds since $A$ and $B$ are symmetric.
+
+But then we have $AB=(AB)^T=BA$, showing $AB=BA$.
+\\ \\
+$(\Leftarrow)$: suppose $AB=BA$. Then
+\begin{align*}
+(AB)^T&=B^TA^T &\text{(prop. of transp.)}\\
+&=BA &$1<m>$3</m>$5\\
+&=AB &\text{(by assumption)}.
+\end{align*}
+This shows that $(AB)^T=AB$, which proves $AB$ is symmetric.
+\\ \\
+Having shown that
+\[
+$1<m>$3</m>$5\Rightarrow AB=BA,
+\]
+AND
+\[
+AB=BA\Rightarrow $1<m>$3</m>$5,
+\]
+we conclude that
+\[
+$1<m>$3</m>$5\Leftrightarrow AB=BA.
+\]
+\end{solution}
+
+
+\ii  For each matrix below (i) decide whether it is lower triangular, upper triangular, diagonal or neither, and (ii) decide whether it is invertible.
+\bb
+\ii
+$
+\begin{bmatrix}[rl]
+4&0\\
+1&7
+\end{bmatrix}$
+\vspace{.1in}\\
+\ii $
+\begin{bmatrix}[rl]
+0&-3\\
+0&0
+\end{bmatrix}$
+\vspace{.1in}\\
+\ii $
+\begin{bmatrix}[rcl]
+4&0&0\\
+0&\frac{3}{5}&0\\
+0&0&-2
+\end{bmatrix}$
+\vspace{.1in}\\
+\ii $
+\begin{bmatrix}[rcl]
+3&0&0\\
+3&1&0\\
+7&0&0
+\end{bmatrix}$
+\ee
+\begin{solution}\ \\
+a. Lower Triangular and Invertible\\
+b. Upper Triangular and Not Invertible\\
+c. Diagonal (Upper and Lower Triangular) and Invertible\\
+d. Lower Triangular and Not Invertible
+\end{solution}
+
+\ii Find the product by inspection:\\
+$$
+\begin{bmatrix}[rcl]
+2&0&0\\
+0&-1&0\\
+0&0&4
+\end{bmatrix}
+\begin{bmatrix}[rcl]
+4&-1&3\\
+1&2&0\\
+-5&1&-2
+\end{bmatrix}
+\begin{bmatrix}[rcl]
+-3&0&0\\
+0&5&0\\
+0&0&2
+\end{bmatrix}$$
+\begin{solution}
+Multiply the first row of the second matrix by 2, the second row by -1, and the third row by 4. Now we have:\\
+$$
+\begin{bmatrix}[rcl]
+8&-2&6\\
+-1&-1&0\\
+-20&4&-8
+\end{bmatrix}
+\begin{bmatrix}[rcl]
+-3&0&0\\
+0&5&0\\
+0&0&2
+\end{bmatrix}
+$$\\
+Now multiply the first column of the new matrix by -3, the second column by 5, and the third column by 2. Which gives the matrix:\\
+$$\begin{bmatrix}[rcl]
+-24&-10&12\\
+3&-10&0\\
+60&20&-16
+\end{bmatrix}
+$$
+\end{solution}
+
+\ii Find $A^2$, $A^{-2}$, and $A^{-k}$ by inspection:\\
+$$A =
+\begin{bmatrix}[rcl]
+-6&0&0\\
+0&3&0\\
+0&0&5
+\end{bmatrix}
+$$
+\begin{solution}\ \\
+$
+A^2 =
+\begin{bmatrix}[rcl]
+36&0&0\\
+0&9&0\\
+0&0&25
+\end{bmatrix},
+A^{-2} =
+\begin{bmatrix}[rcl]
+1/36&0&0\\
+0&1/9&0\\
+0&0&1/25
+\end{bmatrix},
+A^{-k} =
+\begin{bmatrix}[rcl]
+1/(-6)^k&0&0\\
+0&1/(3)^k&0\\
+0&0&1/(5)^k
+\end{bmatrix}
+$
+\end{solution}
+
+\ii  Find the diagonal entries of $AB$ by inspection.\\
+$$A =
+\begin{bmatrix}[rcl]
+4&0&0\\
+-2&0&0\\
+-3&0&7
+\end{bmatrix},
+B =
+\begin{bmatrix}[rcl]
+6&0&0\\
+1&5&0\\
+3&2&6
+\end{bmatrix}
+$$
+\begin{solution}\ \\
+The diagonal entries of a product of two lower triangular matrices are obtained simply by multiplying the corresponding diagonal entries. Thus the diagonal entries of the product (in order) are $4\cdot 6=24, 0\cdot 5=0, 7\cdot 6=42$.
+\end{solution}
+
+\ii Find all values of $x$ for which A is invertible.\\
+$$
+\begin{bmatrix}[rcl]
+x - 1/2&0&0\\
+x&x-1/3&0\\
+x^2&x^3&x+1/4
+\end{bmatrix}\\
+$$
+\begin{solution}
+Since matrix A is lower triangular, we can apply Theorem 1.7.1, which states that a triangular matrix is invertible if and only if its diagonal entries are all non zero. Thus $x \neq 1/2, 1/3, -1/4$.
+\end{solution}
+
+\ii Show that if $A$ is a symmetric $n\times n$ matrix and $B$ is any $n\times m$ matrix, the the following products are symmetric: $B^TB$, $BB^T$, $B^TAB$.
+\\
+\begin{solution}
+We will use the general facts that: $(A^T)^T = A$ and $(AB)^T = B^TA^T$. As usual, to show a matrix $C$ is symmetric, we must show $C^T=C$.
+
+\begin{eqnarray*}
+(B^TB)^T&=&B^T(B^T)^T\\
+&=& B^TB
+\end{eqnarray*}\\
+\begin{eqnarray*}
+ (BB^T)^T&=& (B^T)^TB^T\\
+&=&BB^T
+\end{eqnarray*}\\
+\begin{eqnarray*}
+(B^TAB)^T&=& B^TA^TB\\
+&=& B^TAB \ $1<m>$3</m>$5
+\end{eqnarray*}
+\end{solution}
+
+\ii Find all $3\times 3$ diagonal matrices $A$ such that\\
+$$A^2 - 3A - 4I = 0$$
+\begin{solution}
+$
+\begin{bmatrix}[rcl]
+a^2&0&0\\
+0&b^2&0\\
+0&0&c^2
+\end{bmatrix}
+-
+\begin{bmatrix}[rcl]
+3a&0&0\\
+0&3b&0\\
+0&0&3c
+\end{bmatrix}
+-
+\begin{bmatrix}[rcl]
+4&0&0\\
+0&4&0\\
+0&0&4
+\end{bmatrix}
+=
+\begin{bmatrix}[rcl]
+0&0&0\\
+0&0&0\\
+0&0&0
+\end{bmatrix}
+$
+This produces three equations, each with one unknown.
+\begin{eqnarray*}
+a^2-3a-4&=&0\\
+b^2-3b-4&=&0\\
+c^2-3c-4&=&0
+\end{eqnarray*}
+Solving for one will solve the other two.\\
+$a^2 - 3a - 4 = 0 \rightarrow (a-4)(a+1) = 0 \rightarrow a=4,-1$\\
+Thus $b = 4,-1$ and $c=4,-1$. It is important to note that in matrix $A$, $a$ need not be equal to $b$. So there are 8 solutions to $A$\\
+$
+\begin{bmatrix}[rcl]
+4&0&0\\
+0&4&0\\
+0&0&4
+\end{bmatrix}:
+\begin{bmatrix}[rcl]
+4&0&0\\
+0&4&0\\
+0&0&-1
+\end{bmatrix}:
+\begin{bmatrix}[rcl]
+4&0&0\\
+0&-1&0\\
+0&0&4
+\end{bmatrix}:
+\begin{bmatrix}[rcl]
+-1&0&0\\
+0&4&0\\
+0&0&4
+\end{bmatrix}\\
+\begin{bmatrix}[rcl]
+4&0&0\\
+0&-1&0\\
+0&0&-1
+\end{bmatrix}:
+\begin{bmatrix}[rcl]
+-1&0&0\\
+0&4&0\\
+0&0&-1
+\end{bmatrix}:
+\begin{bmatrix}[rcl]
+-1&0&0\\
+0&-1&0\\
+0&0&4
+\end{bmatrix}:
+\begin{bmatrix}[rcl]
+-1&0&0\\
+0&-1&0\\
+0&0&-1
+\end{bmatrix}
+$
+\end{solution}
+
+\ii Prove: If $A^TA =A$, then $A$ is symmetric and $A=A^2$.
+\\
+\begin{solution}
+\noindent
+First we prove $A^TA$ is symmetric by showing $(A^TA)^T=A^TA$:
+\begin{align*}
+(A^TA)^T&=A^T(A^T)^T &((AB)^T=B^TA^T)\\
+&=A^TA &($1<m>$3</m>$5)
+\end{align*}
+Thus $A^TA$ is symmetric. Since we assume $A^TA=A$, it follows that $A$ is symmetric; thus  $A^T=A$. This means
+\begin{align*}
+A&=A^TA&($1<m>$3</m>$5)\\
+&=AA &($1<m>$3</m>$5)\\
+&=A^2
+\end{align*}
+\end{solution}
+\ee

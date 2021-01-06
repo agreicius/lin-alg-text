@@ -1,0 +1,137 @@
+\bb
+\begin{samepage}
+\ii For each of the following functions $T$, decide whether $T$ is linear. If yes, provide a proof; if no, given an explicit example that violates one of the axioms.  
+\bb
+\ii $T\colon M_{nn}\rightarrow M_{nn}$, $T(A)=A^2$ 
+\ii $T\colon M_{nn}\rightarrow \R$, $T(A)=\tr A$
+\ii $T\colon M_{nn}\rightarrow \R$, $T(A)=\det A$. 
+\ii $T\colon F((-\infty, \infty))\rightarrow F((-\infty, \infty))$, $T(f)=1+f$
+\ii $T\colon F((-\infty, \infty))\rightarrow F((-\infty, \infty))$, $T(f(x))=f(x+3)$
+\ii $T\colon\R^3\rightarrow \R^2$, $T(x,y,z)=(xy,yz)$. 
+\ee
+\end{samepage}
+\begin{solution}
+\noindent
+(a) Nonlinear. Take $A=I_2$. Then $T(2A)=4I\ne 2T(A)=2I$. 
+\\
+(b) Linear. Easy proof. 
+\\
+(c) Nonlinear. Let $A=I_2$. Then $\det(2A)=4\ne 2\det(A)=2$. 
+\\
+(d) Nonlinear. Notice that $T(\boldzero)=1\ne\boldzero$; yet any linear transformation sends the zero vector to the zero vector. 
+\\
+(e) Linear. 
+\begin{align*}
+T(cf+dg)&=(cf+g)(x+3)&\text{(by def)}\\
+&=cf(x+3)+dg(x+3)&\text{(function arith.)}\\
+&=cT(f)+dT(g) &\text{(by def)}
+\end{align*}
+(f) Nonlinear. $T(2(1,1,1))=T(2,2,2)=(4,4)$ and $2T(1,1,1)=2(1,1)=(2,2)$, so $T$ does not respect scalar multiplication. (Nor does it respect vector addition.) 
+\end{solution}
+\ii Define $T\colon C^\infty(\R)\rightarrow C^\infty(\R)$ by $T(f)=g$, where $g(x)=f(x)+f(-x)$. 
+\\
+Show that $T$ is a linear transformation.
+\\
+\begin{solution}
+\noindent We show $T$ is linear by showing $T(cf+dg)=cT(f)+dT(g)$ for any $c,d\in\R$ and any $f,g\in C^\infty(\R)$. 
+\begin{align*}
+T(cf+dg)&=(cf+dg)(x)+(cf+dg)(-x) &\text{(by def)}\\
+&=c(f(x)+f(-x))+d(g(x)+g(-x)) &\text{(arith)}\\
+&=cT(f)+dT(g) &\text{(by def)}
+\end{align*}
+\end{solution}
+\ii \label{ex:linereflection}{\em Reflections in $\R^2$}. Given a fixed angle $\alpha$, $0\leq \alpha<\pi $, let $\ell_{\alpha}$ be the line through the origin that makes an angle of $\alpha$ with the positive $x$-axis. 
+\\
+We define $T_{\alpha}\colon\R^2\rightarrow \R^2$ as 
+$
+T_\alpha(P)=\text{ the reflection <m>P'</m> of $P$ through $\ell_\alpha$}
+$
+\\
+In more detail, given point $P\in\R^2$, let $\ell'$ be the line passing through $P$ that is perpendicular to $\ell_{\alpha}$, and let $Q$ be the intersection of $\ell$ and $\ell_\alpha$. If $P$ already lies on $\ell_{\alpha}$, then $T_\alpha(P)=P$; otherwise $T_\alpha(P)$ is the {\em other} point $P'$ lying on $\ell$, whose distance to $Q$ is equal to the distance between $P$ and $Q$. 
+\bb
+\ii Give a geometric argument (i.e., draw a picture) that strongly suggests $T_\alpha$ is linear. 
+
+\ii Now prove $T_\alpha$ is linear by finding a $2\times 2$ matrix $A$ such that $T_\alpha=T_A$.
+\ee
+\begin{solution}
+\noindent
+(a) As the diagram below illustrates, reflection preserves sums of vectors and scalar multiples of vectors. This is a result of the fact that reflection preserves angles between position vectors. 
+\\
+(b) As suggestive as the diagram is, it falls somewhat short of a proof. We will find the matrix $\underset{2\times 2}{A}$ such that $T_{\alpha}=T_A$. 
+\vspace{.1in}
+\\
+It is easiest to see what reflection does by thinking in terms of polar coordinates. Recall: any point $P=(x,y)$ can be expressed in the form $(r\cos\theta, r\sin\theta)$.  The values $r$ and $\theta$ are called polar coordinates of the vector. In general there are many choices for $r$ and $\theta$ for any given vector $(x,y)$. We will stipulate that $\boldr=\sqrt{x^2+y^2}$ (the length of the vector), and that $\theta$ is the measure of any oriented angle that {\em starts from} the positive $x$-axis and {\em ends at} $\overrightarrow{OP}$. Note that for $(x,y)\ne (0,0)$ the angle $\theta$ is defined only up to multiples of $2\pi n$, where $n$ is an integer.  
+\\
+Suppose $P=(x,y)$ has polar coordinates $(r,\theta)$. As is illustrated in the diagram below, the oriented angle {\em starting from} the position vector $\overrightarrow{OP}$ and {\em ending at} $\ell_\alpha$ can be described as $\alpha-\theta$ (up to a multiple of $2\pi$). By symmetry (or congruent triangles), the oriented angle from the line $\ell_\alpha$ to the position vector $\overrightarrow{OP'}$ of the reflection $P'$ can also be described as $\alpha-\theta$.  It follows that $\overrightarrow{OP'}$ has length $r$ (reflection preserves length), and oriented angle $\theta+(\alpha-\theta)+(\alpha-\theta)=2\alpha-\theta$. Thus, in terms of polar coordinates we have 
+\begin{align*}
+T_{\alpha}(x,y)&=T(r\cos\theta,r\sin\theta)\\
+&=(r\cos(2\alpha-\theta),r\sin(2\alpha-\theta) \hspace{20pt} \text{(from the discussion above)}\\
+&=(r\cos(2\alpha)\cos(\theta)+r\sin(2\alpha)\sin(\theta),r\sin(2\alpha)\cos(\theta)-r\cos(2\alpha)\sin(\theta))  \hspace{20pt}\text{(trig. identities)}\\
+&=(\cos(2\alpha)r\cos(\theta)+\sin(2\alpha)r\sin(\theta),\sin(2\alpha)r\cos(\theta)-\cos(2\alpha)r\sin(\theta))  \hspace{20pt}\text{(algebra)}\\
+&=\begin{bmatrix}[rr]
+\cos(2\alpha)&\sin(2\alpha)\\
+\sin(2\alpha)&-\cos(2\alpha)
+\end{bmatrix}
+\begin{bmatrix}[r]
+r\cos\theta\\
+r\sin\theta
+\end{bmatrix}  \hspace{20pt}\text{(identifying 2-vectors with column vectors)}\\
+&=\begin{bmatrix}[rr]
+\cos(2\alpha)&\sin(2\alpha)\\
+\sin(2\alpha)&-\cos(2\alpha)
+\end{bmatrix}
+\begin{bmatrix}[r]
+x\\
+y
+\end{bmatrix}.
+\end{align*}
+This proves $T_\alpha=T_A$ where 
+\[
+A=\begin{bmatrix}[rr]
+\cos(2\alpha)&\sin(2\alpha)\\
+\sin(2\alpha)&-\cos(2\alpha)
+\end{bmatrix}.
+\]
+Since any function of the form $T_A$ is linear, we conclude $T_\alpha$ is linear. 
+
+\end{solution}
+\ii Let $V=\R^\infty=\{(a_1,a_2,\dots, )\colon a_i\in\R\}$, the space of all infinite sequences. Define the ``shift left function", $T_\ell$, and ``shift right function", $T_r$, as follows:
+\begin{align*}
+T_\ell\colon \R^\infty&\rightarrow \R^\infty & T_r\colon \R^\infty&\rightarrow \R^\infty\\
+s=(a_1,a_2, a_3,\dots )&\longmapsto T_\ell(s)=(a_2, a_3,\dots) & s=(a_1,a_2, a_3,\dots )&\longmapsto T_r(s)=(0,a_1,a_2,\dots) 
+\end{align*}
+Prove that $T_\ell$ and $T_r$ are linear transformations. 
+\\
+\begin{solution}
+Let $\bolds=(a_1,a_2,a_3,\dots)$ and $\boldt=(b_1,b_2,b_3,\dots)$ be two infinite sequences. Then for any scalars $c,d\in\R$ we have 
+\begin{align*}
+T_\ell(c\bolds+d\boldr)&=T_\ell(ca_1+db_1,ca_2+db_2,\dots) &\text{(arith. of sequences)}\\
+&=(ca_2+db_2,ca_3+db_3,\dots) &\text{(def. of <m>T_\ell</m>)}\\
+&=c(a_2,a_3,\dots)+d(b_2,b_3,\dots) &\text{(arith. of sequences)}\\
+&=cT_\ell(\bolds)+dT_\ell(\boldt) &\text{(def. of <m>T_\ell</m>)},
+\end{align*}
+and 
+\begin{align*}
+T_r(c\bolds+d\boldr)&=T_r(ca_1+db_1,ca_2+db_2,\dots) &\text{(arith. of sequences)}\\
+&=(0,ca_1+db_1,ca_2+db_2,\dots) &\text{(def. of <m>T_r</m>)}\\
+&=c(0,a_1,a_1,\dots)+d(0,b_1,b_2,\dots) &\text{(arith. of sequences)}\\
+&=cT_r(\bolds)+dT_r(\boldt) &\text{(def. of <m>T_r</m>)}.
+\end{align*}
+This proves $T_\ell$ and $T_r$ are both linear transformations. 
+\end{solution}
+
+
+\ii (Conjugation). Fix an invertible matrix $Q\in M_{nn}$. Define $T\colon M_{nn}\rightarrow M_{nn}$ as $T(A)=QAQ^{-1}$. Show that $T$ is a linear transformation. (This operation is called {\bf conjugation by $Q$}.) 
+\\
+\begin{solution}
+\noindent
+We show that $T(cA+dB)=cT(A)+dT(B)$ for any $c,d\in\R$ and any $A,B\in M_{nn}$:
+\begin{align*}
+T(cA+dB)&=Q(cA+dB)Q^{-1} &\text{(def. of <m>T</m>)}\\
+&=QcAQ^{-1}+QdBQ^{-1} &\text{(left- and right-distributivity of matrix mult.)}\\
+&=cQAQ^{-1}+dQBQ^{-1} &\text{(scalars commute)}\\
+&=cT(A)+dT(B) &\text{(def. of <m>T</m>)}
+\end{align*}
+\end{solution}
+
+\ee

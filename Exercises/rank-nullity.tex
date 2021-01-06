@@ -1,0 +1,958 @@
+\bb
+\ii Suppose $T\colon\R^2\rightarrow \R^3$ is linear, and satisfies $T(1,1)=(1,1,1)$, $T(1,-1)=(1,2,1)$. 
+
+Find the matrix $A$ such that $T=T_A$. 
+
+Hint: first write $(1,0)$ and $(0,1)$ as linear combinations of $(1,1)$ and $(1,-1)$. 
+\\
+\begin{solution}
+Write $(1,0)=\frac{1}{2}(1,1)+\frac{1}{2}(1,-1)$, and $(0,1)=\frac{1}{2}(1,1)-\frac{1}{2}(1,-1)$. 
+Then 
+\begin{align*}
+T(1,0)&=T(\frac{1}{2}(1,1)+\frac{1}{2}(1,-1))\\
+&=\frac{1}{2}T(1,1)+\frac{1}{2}T(1,-1) &\text{($T$ is linear)}\\
+&=\frac{1}{2}(1,1,1)+\frac{1}{2}(1,2,1) &\text{(given)}\\
+&=(1,3/2,1)
+\end{align*}
+and 
+\begin{align*}
+T(0,1)&=T(\frac{1}{2}(1,1)-\frac{1}{2}(1,-1))\\
+&=\frac{1}{2}T(1,1)-\frac{1}{2}T(1,-1) &\text{($T$ is linear)}\\
+&=\frac{1}{2}(1,1,1)-\frac{1}{2}(1,2,1) &\text{(given)}\\
+&=(0,-1/2,0).
+\end{align*}
+It follows, following our recipe, that $T=T_A$, where 
+\[
+A=\begin{bmatrix}
+1&0\\
+3/2&-1/2\\
+1&0
+\end{bmatrix}
+\]
+\end{solution}
+\ii Suppose $T\colon \R^n\rightarrow \R^n$ is linear, that $B=\{\boldv_1,\boldv_2,\dots, \boldv_n\}$ is a basis for $\R^n$ and that 
+$T(\boldv_i)=~2\boldv_i$ for all $1\leq i\leq n$. 
+
+Compute the $n\times n$ matrix $A$ such that $T=T_A$. Justify your answer.
+\\
+\begin{solution}
+I claim $T=T_A$, where 
+\[
+A=2I_n=\begin{bmatrix}
+2&0&\dots&0\\
+0&2&\dots&0\\
+\vdots \\
+0&0&\dots&2
+\end{bmatrix}.
+\]
+Indeed, observe that $T_A$ is linear (since it's a matrix equation), and that 
+\[
+T_A(\boldx)=2I_n\underset{n\times 1}{\boldx}=2\boldx
+\]
+ for any $\boldx\in\R^n$. In particular, $T_A(\boldv_i)=2\boldv_i$ for the elements $\boldv_i$ of the given basis $B$. But then $T(\boldv_i)=T_A(\boldv_i)$ for all $\boldv_i\in B$. We have a theorem that states any two linear transformations that agree on a basis must agree everywhere, and hence are equal. We conclude $T=T_A$, as claimed. 
+\end{solution}
+\ii Use the rank-nullity theorem to compute the rank of the linear transformation $T$ described. 
+\bb
+\ii $T\colon\R^7\rightarrow M_{32}$ has nullity 2.
+\ii $T\colon P_3\rightarrow \R$ has nullity 1.
+\ii The null space of $T\colon P_5 \rightarrow P_5$ is $P_4$.
+\ii $T\colon P_n\rightarrow M_{mn}$ has nullity 3.
+\ee
+\begin{solution}
+\noindent
+(a)
+$\rank(T) = \dim(R^7) - 2 = 7-2=5$
+\\
+(b)
+$\rank(T) = \dim(P_3) - 1 = 4-1=3$
+\\
+(c)$\rank(T) = \dim(P_5) - \nullity(T) = \dim(P_5)-\dim(P_4) = 1$
+\\
+(d) 
+$\rank(T) = \dim(P_n)-3 = (n+1) - 3 = n-2$
+\end{solution}
+
+%\ii Let $T\colon V\rightarrow W$ be a linear transformation, where $V$ is finite dimensional.\\
+%Let $S=\{\boldv_1,\boldv_2,\dots, \boldv_r\}$ be a basis of $\NS(T)$ and this basis to a full basis $B=\{\boldv_1,\boldv_2,\dots, \boldv_r, \boldu_{1},\dots \boldu_{n-r}\}$ of $V$. 
+%\\
+%Prove the claim made in my lecture notes: namely, that  $S'=\{T(\boldu_{1}),\dots, T(\boldu_{n-r})\}$ is a basis of $\range(T)$.
+%\\
+%Treat the linear independence and span questions separately. \\
+%For the spanning question, begin as follows: given $\boldw\in \range(T)$, by definition there is a $\boldv\in V$ such that $T(\boldv)=\boldw$; write out $\boldv$ in terms of the basis $B$ and go from there. 
+%%\vfill
+%\begin{solution}
+%\noindent We prove separately that (a) $S'$ is linearly independent, and (b) $S'$ spans $\range(T)$. 
+%\\
+%(a) Suppose we have $\sum_{i=1}^{n-r}c_iT(\boldu_i)=\boldzero$. Then $T(\sum_{i=1}^{n-r}c_i\boldu_i)=\boldzero$, and we see that the vector $\boldu=\sum_{i=1}^{n-r}c_i\boldu_i\in\NS(T)$. Since the $\boldv_i$ span $\NS(T)$ we then also have 
+%\[
+%\boldu=\sum_{i=1}^rd_i\boldv_i \text{ for some $d_i\in\R$}.
+%\]
+%It would stand to reason, since $S$ is a basis, that the only way can have 
+%\[
+%\boldu=\sum_{i=1}^rd_i\boldv_i=\sum_{i=1}^{n-r}c_i\boldu_i
+%\]
+%is if $d_i=c_j=0$ for all $i, j$. But how can we prove this? The equality above implies 
+%\[
+%d_1\boldv_1+d_2\boldv_2+\cdots +d_r\boldv_r-c_1\boldu_1-c_2\boldu_2-\cdots -c_{n-r}\boldu_{n-r}=\boldzero.
+%\]
+%By linear independence of $S$ it now follows that $d_i=c_j=0$ for all $i, j$. 
+%\\
+%(b) First, since $S'\subseteq \range(T)$, we have $\Span(S')\subseteq \range(T)$. To show the other direction, take any $\boldw\in \range(T)$. Then $\boldw=T(\boldv)$ for some $\boldv\in V$. Since $S$ is a basis for $V$, we can write 
+%\[
+%\boldv=c_1\boldv_1+c_2\boldv_2+\cdots c_r\boldv_r+d_1\boldu_1+d_2\boldu_2+\cdots +d_{n-r}\boldu_{n-r}
+%\]
+%for some $c_i, d_j\in\R$. Then we have 
+%\begin{align*}
+%\boldw&=T(\boldv)\\
+%&=T(c_1\boldv_1+c_2\boldv_2+\cdots c_r\boldv_r+d_1\boldu_1+d_2\boldu_2+\cdots +d_{n-r}\boldu_{n-r})\\
+%&=c_1T(\boldv_1)+c_2T(\boldv_2)+\cdots c_rT(\boldv_r)+d_1T(\boldu_1)+d_2T(\boldu_2)+\cdots +d_{n-r}T(\boldu_{n-r})\\
+%&=\boldzero+d_1T(\boldu_1)+d_2T(\boldu_2)+\cdots +d_{n-r}T(\boldu_{n-r})  &\text{(since $T(\boldv_i)=\boldzero$ for all $i$)}\\
+%&=d_1T(\boldu_1)+d_2T(\boldu_2)+\cdots +d_{n-r}T(\boldu_{n-r})
+%\end{align*}
+%This shows $\boldw\in \Span(S')$, as desired. 
+%\end{solution} 
+%\begin{samepage}
+%\ii Let $V=\R^\infty=\{(a_1,a_2,\dots, )\colon a_i\in\R\}$, the space of all infinite sequences. Define the ``shift left" and ``shift right" functions as follows:
+%\begin{align*}
+%T_L\colon \R^\infty&\rightarrow \R^\infty\\
+%s=(a_1,a_2, a_3,\dots )&\longmapsto T_L(s)=(a_2, a_3,\dots) \\
+%\\
+%T_R\colon \R^\infty&\rightarrow \R^\infty\\
+%s=(a_1,a_2, a_3,\dots )&\longmapsto T_R(s)=(0,a_1,a_2,\dots) 
+%\end{align*}
+%\bb
+%\ii Prove that $T_L$ and $T_R$ are linear. 
+%\ii Show that $T_L$ is onto, but not one-to-one. (Compute $\NS(T_L)$ and $\range(T_L)$.)
+%\ii Show that $T_R$ is one-to-one, but not onto. (Compute $\NS(T_R)$ and $\range(T_R)$. )
+%\ii Show that $T_L\circ T_R=I_{\R^\infty}$ but $T_R\circ T_L\ne I_{\R^\infty}$. 
+%\ee
+%\end{samepage}
+%\begin{solution}
+%\noindent {\em Moral of this exercise}: when $V$ is NOT finite-dimensional, we do NOT necessarily have the equivalence
+%\[
+%\text{$T$ invertible iff $T$ onto iff $T$ 1-1}.
+%\]
+%for linear transformations $T\colon V\rightarrow V$.  
+%\\
+%(a) Easy. 
+%\\
+%(b) Given any sequence $t=(b_1,b_2,\dots )$, we have $b=T(s)$, where $s=(0,b_1,b_2,\dots)$. Thus $T_L$ is onto: i.e., $\range(T_L)=\R^\infty$. It is east to see that $T_L$ is not 1-1: in fact, we compute easily $\NS(T_L)$ is the subspace of infinite sequences of the form $(c,0,0,\dots)$, which is nontrivial. 
+%\\
+%(c) We have $T_R((a_1,a_2,\dots))=(0,0,\dots)$ iff $(0,a_1,a_2,\dots)=(0,0,\dots)$ if and only if $a_1=a_2=\cdots =0$. This shows $\NS(T_R)=\{\boldzero\}$. It is also clear that $\range(T_R)$ is the space of all infinite sequences of the form $(0,b_1,b_2,\dots)$. As this is not all of $\R^\infty$, we see that $T_R$ is not onto. 
+%\\
+%(d) Also easy. This is an example of a function ($T_R)$ that has a left-inverse (namely, $T_L$) which is not a right-inverse (since $T_R\circ T_L\ne I_V$)!! Funny things can happen when $V$ is not finite-dimensional. 
+%\end{solution}
+\ii Give an explicit example of a matrix $A$ such that $\CS(A)\ne \CS(U)$. 
+\\
+\begin{solution}
+Take $A=\begin{bmatrix}1&1\\1&1 \end{bmatrix}$, which row reduces to $U=\begin{bmatrix} 1&1\\0&0 \end{bmatrix}$. 
+
+Then $\CS(A)=\Span(\{(1,1\})$, which is the line $y=x$, and $\CS(U)=\Span(\{(1,0)\})$, which is the $x$-axis. Clearly these two lines are not equal. 
+
+Note: any explicit counterexample you give must be non-invertible, since otherwise $\CS A=\CS U=\R^n$, by the invertibility theorem. 
+\end{solution}
+\ii Prove that $\CS(A)=\{\boldb\in\R^m\colon A\boldx=\boldb \text{ has a solution}\}$.
+%
+%This is a {\em set equality} of the form $S=T$. You can prove this either (a) by showing $S\subset T$ and $T\subset S$, or (b) by showing that $x\in S \Leftrightarrow x\in T$. 
+%\vfill
+\\
+\begin{solution}
+A complete proof of this is given in my lecture notes.
+\end{solution}
+\ii Find bases and dimensions for all fundamental spaces of 
+\[
+A=\begin{bmatrix}[rrrr] 
+1&-1&2&0\\
+2&0&3&1\\
+1&1&1&1
+\end{bmatrix}
+\]
+%\vfill
+\begin{solution}
+Routine. Follow the usual algorithms. The matrix row reduces to 
+\[
+U=\begin{bmatrix}[rrrr]
+1&-1&2&0\\ 0&1&-1/2&1/2\\ 0&0&0&0
+\end{bmatrix}.
+\]
+From this we compute the following bases:
+\begin{align*}
+\NS(A)\colon B_1&=\{(1,1,0,-2), (-3,1,2,0) \} & \dim(\NS(A))&=2\\
+\CS(A)\colon B_2&=\{ (1,2,1), (-1,0,1) \} & \dim(\CS(A))&=2\\
+\RS(A)\colon B_3&=\{ (1,-1,2,0), (0,1,-\frac{1}{2},\frac{1}{2}) & \dim(RS(A))&=2 
+\end{align*}
+\end{solution}
+%\ii Let $A$ be $m\times n$. Look closely at our description of the method of computing the fundamental spaces to do prove the following:
+%\[
+%\dim(\CS(A))=\dim(\RS(A))=(\# \text{ leading variables in system $A\boldx=\boldzero$})
+%\]
+
+%\vfill
+%\ii Let $S=\{p_1=1+x+2x^2,p_2=1-x,p_3=1+x^2,p_4=1+x-x^2\}$ and let $W=\Span(S)\subset P$.  (Recall $P$ is the space of all polynomials.) 
+%\bb
+%\ii Use ``street smarts" to decide whether $S$ is linearly independent. 
+%\ii Use coordinate vectors and an appropriate fundamental space algorithm to choose a basis of $W=\Span(S)$ {\em from among the elements of $S$}.
+%\ii Give a satisfying description of $W$. 
+%\ee
+%\begin{solution}
+%\noindent 
+%(a) In fact we see that $S$ lies within the smaller subspace $P_2$, which has dimension $3$. Since $S$ has 4 elements and lives in a 3-dimensional space, it is guaranteed to be dependent. Street smarts! 
+%\\ \\
+%(b) Let $B$ be the standard basis of $P_2$: i.e., $B=\{1,x,x^2\}$. Then we can translate this whole problem into $\R^3$ using coordinate vectors. Namely we let:
+%\[
+%\boldv_1=(p_1)_B=\begin{bmatrix}
+%1\\ 1\\ 2
+%\end{bmatrix}, \boldv_2=(p_2)_B=\begin{bmatrix}
+%1\\ -1\\ 0
+%\end{bmatrix}, \boldv_3=(p_3)_B=\begin{bmatrix}
+%1\\0 \\ 1
+%\end{bmatrix}, \boldv_4=(p_4)_B=\begin{bmatrix}
+%1\\ 1\\ -1
+%\end{bmatrix},
+%\]
+%and set $W'=\Span(\{\boldv_1,\boldv_2,\boldv_3,\boldv_4\}$. 
+%
+%Putting the $\boldv_i$ into the columns of a matrix $A$ and applying our column space algorithm tells us that $\{\boldv_1,\boldv_2,\boldv_4\}$ form a basis for $W'$. (You do the work.) 
+%
+%Translating back to $P_3$ we conclude that the corresponding polynomials $\{p_1,p_2,p_4\}$ form a basis for $W$. 
+%\\
+%(c) Since $W$ has a basis containing three elements, we see that $\dim(W)=3$. Since $W\subset P_2$ and $\dim(P_2)=\dim(W)=3$, we see by the dimension theorem compendium (subspace part)  that $W$ is in fact all of $P_2$. 
+%\end{solution}
+\ii For each matrix below use the rank-nullity theorem to help determine the fundamental spaces ``by inspection"--i.e., without having to do Gaussian elimination. 
+
+The various fundamental spaces will live either in $\R^2$ or $\R^3$. For each matrix give two sketches showing (a) $\NS(A)$ and $\RS(A)$ in one sketch, and (b) $\CS(A)$ in another. 
+\bb
+\ii $A=\begin{bmatrix}[rrr]
+3&2&1\\
+-6&-4&-2
+\end{bmatrix}$
+%\vfill
+
+\ii $A=\begin{bmatrix}[rr]
+2&1\\
+8&4\\
+6&3
+\end{bmatrix}
+$
+\ee
+\begin{solution}
+\noindent (a) The columns of $A$ are all scalar multiples of each other, so clearly $B_1=\{(1,-2)\}$ is a basis of $\CS(A)$, and we have $\rank(A)=1$. When you sketch $\CS(A)$ you get the line in $\R^2$  connecting $(0,0)$ and $(1,-2)$. 
+
+It follows that $\RS(A)$ is also 1-dimensional, and thus that any nonzero row of $A$ will do as a basis: e.g., $B_2=\{(3,2,1)\}$. When you sketch $\RS(A)$ you get the line in $\R^3$ passing through $(0,0,0)$ and $(3,2,1)$. 
+
+Lastly rank-nullity implies $\dim(\NS(A))=3-1=2$. Furthermore, by the orthogonality relation $\NS(A)$ is the plane orthogonal to $\RS(A)$. Having already sketched $\RS(A)$ above, this is now easy to add to your sketch. You do it! 
+%\vfill
+\\
+(b)
+The reasoning is similar to the above. 
+
+A basis for $\CS(A)$ is $B_1=\{(1,4,3)\}$. Thus $\CS(A)$ is the span of this vector, which defines a line in $\R^3$. 
+
+A basis for $\RS(A)$ is $B_2=(2,1)$, and thus $\RS(A)$ is the line passing through the origin and $(2,1)$. Then $\NS(A)$ is just the orthogonal complement of this in $\R^2$, which now is the line perpendicular to this line. Sketch it!  
+\end{solution}
+
+%\newpage
+\ii Let $A$ be $m\times n$ with $n<m$. Use fundamental spaces to show that there is a $\boldb\in\R^m$ such that the system $A\boldx=\boldb$ is inconsistent. 
+%\vfill
+\\
+\begin{solution}
+Using the fact that $\CS(A)=\{\boldb\in\R^m\colon A\boldx=\boldb \text{ has a solution}\}$, we see that we need only show that $\CS(A)\subsetneq R^m$. We do so using rank-nullity. 
+
+We have $\rank(A)\leq\min\{m,n\}$. Since $n<m$, $\min\{m,n\}=n$. Thus $\rank(A)\leq n$. 
+
+But $\rank(A)=\dim(\CS(A))$. Thus 
+\[\dim(\CS(A))\leq n<m=\dim(\R^m).\] 
+Thus we have $\CS(A)\subset \R^m$ and $\dim(\CS(A))<\dim(\R^m)$. 
+By our theorem about dimensions of subspaces, it follows that $\CS(A)\ne \R^m$, and we are done. 
+
+\end{solution}
+\ii Let $A=\begin{bmatrix}[rrrr]1&1&1&1\\ 2&1&2&1\\ 1&1&1&1 \end{bmatrix}$. 
+Use the rank-nullity theorem to find bases for all the fundamental spaces of $A$ ``by inspection". 
+%\vfill
+\\
+\begin{solution}
+More of the same. There are clearly only 2 linearly independent columns. So a basis for $\CS(A)$ is $B_1=\{(1,2,1),(1,1,1)\}$. 
+
+Since $\dim(\RS(A))=\dim(\CS(A))=2$, we see easily that $B_2=\{(1,1,1,1),(2,1,2,1)\}$ is a basis for $\RS(A)$. 
+
+Lastly, rank-nullity tells us that $\dim(\NS(A))=n-2=4-2=2$. Thus to come up with a basis for $\NS(A)$ I need only find two linearly independent elements of $\NS(A)$. 
+
+I can come up with two such solutions to $A\boldx=\boldzero$ easily by inspection, thinking of $A\boldx$ as a linear combination of the columns of $A$. For example, since the first and third columns of $A$ are identical, I see that $(1,0,-1,0)$ is an element of $\NS(A)$. (Do the multiplication yourself!) Since the second and fourth columns are identical, I see that $(0,1,0,-1)$ is an element of $\NS(A)$. 
+
+Since these two vectors are clearly linearly independent and $\NS(A)$ has dimension 2, we see that $B_3=\{(1,0,-1,0), (0,1,0,-1)\}$ is a basis for $\NS(A)$.    
+\end{solution}
+\ii Find bases for all the fundamental spaces of the following matrices.
+\bb
+\ii 
+$$
+A = 
+\begin{bmatrix}[rrrr]
+1&4&5&2\\
+2&1&3&0\\
+-1&3&2&2
+\end{bmatrix}
+$$
+\ii 
+$$
+A = 
+\begin{bmatrix}[rrrrr]
+1&4&5&6&9\\
+3&-2&1&4&-1\\
+-1&0&-1&-2&-1\\
+2&3&5&7&8
+\end{bmatrix}
+$$
+\ee
+\begin{solution}
+\noindent (a) The matrix $A$ reduces to:
+$$
+\begin{bmatrix}[rrrc]
+1&0&1&-2/7\\
+0&1&1&4/7\\
+0&0&0&0
+\end{bmatrix}
+$$
+The non-zero rows of the reduced matrix form a basis for the row space:
+$$\{
+\begin{bmatrix}[rrrr]
+1&0&1&-2/7
+\end{bmatrix},
+\begin{bmatrix}[rrrr]
+0&1&1&4/7
+\end{bmatrix}\}$$
+Since the null space is the solution space of the homogeneous linear system $A\boldx = \textbf{0}$, we need to look at the first two rows of the reduced matrix.
+\begin{eqnarray*}
+x_1 + x_3 - 2/7x_4 &=& 0\\
+x_2 + x_3 +4/7x_4 &=& 0
+\end{eqnarray*}
+Setting the free variables $x_3 = r$ and $x_4 = s$.
+\begin{eqnarray*}
+(x_1,x_2,x_3,x_4) &=& (-r + 2/7s, -r-4/7s,r,s)\\
+&=& r(-1,-1,1,0) + s(2/7,-4/7,0,1)
+\end{eqnarray*}
+Thus the basis for the null space is:
+$$
+\left\{
+\begin{bmatrix}[c]
+-1\\
+-1\\
+1\\
+0
+\end{bmatrix}
+,
+\begin{bmatrix}[c]
+2/7\\
+-4/7\\
+0\\
+1
+\end{bmatrix}
+\right\}
+$$
+\\
+(b) The 
+matrix $A$ reduces to:
+$$
+\begin{bmatrix}[rrrrr]
+1&0&1&2&1\\
+0&1&1&1&2\\
+0&0&0&0&0\\
+0&0&0&0&0
+\end{bmatrix}
+$$
+Thus the basis for the row space is:
+$$
+\{
+\begin{bmatrix}[rrrrr]
+1&0&1&2&1
+\end{bmatrix},
+\begin{bmatrix}[rrrrr]
+0&1&1&1&2
+\end{bmatrix}\}
+$$
+Setting up the equations for the null space basis:
+\begin{eqnarray*}
+x_1 + x_3+ 2x_4+x_5 &=& 0\\
+x_2+x_3+x_4+2x_5 &=& 0
+\end{eqnarray*}
+Setting the free variables $x_3 = r$, $x_4 = s$, and $x_5 = t$.
+\begin{eqnarray*}
+(x_1,x_2,x_3,x_4,x_5,) &=& (-r-2s-t,-r-s-2t,r,s,t)\\
+&=& r(-1,-1,1,0,0) + s(-2,-1,0,1,0) + t(-1,-2,0,0,1) 
+\end{eqnarray*}
+Thus the basis for the null space is:
+$$
+\left\{
+\begin{bmatrix}[c]
+-1\\
+-1\\
+1\\
+0\\
+0
+\end{bmatrix},
+\begin{bmatrix}[c]
+-2\\
+-1\\
+0\\
+1\\
+0
+\end{bmatrix},
+\begin{bmatrix}[c]
+-1\\
+-2\\
+0\\
+0\\
+1
+\end{bmatrix}
+\right\}
+$$
+\end{solution}
+
+\ii Find bases for the row space and for the column space of the given matrix.
+\bb
+\ii 
+$$A=
+\begin{bmatrix}[rrrr]
+1&2&4&5\\
+0&1&-3&0\\
+0&0&1&-3\\
+0&0&0&0
+\end{bmatrix}
+$$
+\ii 
+$$A=
+\begin{bmatrix}[rrrr]
+1&2&-1&5\\
+0&1&4&3\\
+0&0&1&-7\\
+0&0&0&1
+\end{bmatrix}
+$$
+\ee
+\begin{solution}
+\noindent
+(a) The non-zero rows of the matrix for a basis for the row space:
+$$
+\{
+\begin{bmatrix}[rrrr]
+1&2&4&5
+\end{bmatrix},
+\begin{bmatrix}[rrrr]
+0&1&-3&0
+\end{bmatrix},
+\begin{bmatrix}[rrrr]
+0&0&1&-3
+\end{bmatrix}\}
+$$
+The columns that have the leading 1's of the row vectors form a basis for the column space:
+$$
+\left\{
+\begin{bmatrix}[c]
+1\\
+0\\
+0\\
+0\\
+0
+\end{bmatrix},
+\begin{bmatrix}[c]
+2\\
+1\\
+0\\
+0\\
+0
+\end{bmatrix},
+\begin{bmatrix}[c]
+4\\
+-3\\
+1\\
+0\\
+0
+\end{bmatrix},
+\begin{bmatrix}[c]
+5\\
+0\\
+-3\\
+1\\
+0
+\end{bmatrix}
+\right\}
+$$
+\\
+(b) The non-zero rows of the matrix for a basis for the row space:
+$$
+\{
+\begin{bmatrix}[rrrr]
+1&2&-1&5
+\end{bmatrix},
+\begin{bmatrix}[rrrr]
+0&1&4&3
+\end{bmatrix},
+\begin{bmatrix}[rrrr]
+0&0&1&-7
+\end{bmatrix},
+\begin{bmatrix}[rrrr]
+0&0&0&1
+\end{bmatrix}
+\}
+$$
+The columns that have the leading 1's of the row vectors form a basis for the column space:
+$$
+\left\{
+\begin{bmatrix}[c]
+1\\
+0\\
+0\\
+0\\
+0
+\end{bmatrix},
+\begin{bmatrix}[c]
+2\\
+1\\
+0\\
+0\\
+0
+\end{bmatrix},
+\begin{bmatrix}[c]
+-1\\
+4\\
+1\\
+0\\
+0
+\end{bmatrix},
+\begin{bmatrix}[c]
+5\\
+3\\
+-7\\
+1\\
+0
+\end{bmatrix}
+\right\}
+$$
+\end{solution}
+\ii Let 
+$\ds A=
+\begin{bmatrix}[rrrrr]
+1&-2&5&0&3\\
+-2&5&-7&0&-6\\
+-1&3&-2&1&-3\\
+-3&8&-9&1&-9
+\end{bmatrix}
+$.
+\bb
+\ii 
+Use the usual procedure to find bases for $\CS(A)$ and $\RS(A)$. 
+\ii Now compute a basis for $\RS(A)$ consisting of a {\em subset of the rows}  of $A$. Hint: look at $A^T$. 
+\ee
+\begin{solution}
+The given matrix reduces to:
+$$
+\begin{bmatrix}[rrrrr]
+1&0&11&0&3\\
+0&1&3&0&0\\
+0&0&0&1&0\\
+0&0&0&0&0
+\end{bmatrix}
+$$
+The non-zero rows of the reduced matrix for a basis for the row space:
+$$
+\{
+\begin{bmatrix}[rrrrr]
+1&0&11&0&3
+\end{bmatrix},
+\begin{bmatrix}[rrrrr]
+0&1&3&0&0
+\end{bmatrix},
+\begin{bmatrix}[rrrrr]
+0&0&0&1&0
+\end{bmatrix}
+\}
+$$
+The columns of the original matrix that correspond the the columns of the reduced matrix that have the leading 1's of the row vectors form a basis for the column space:
+$$
+\left\{
+\begin{bmatrix}[c]
+1\\
+-2\\
+-1\\
+-3
+\end{bmatrix},
+\begin{bmatrix}[c]
+-2\\
+5\\
+3\\
+8
+\end{bmatrix},
+\begin{bmatrix}[c]
+0\\
+0\\
+1\\
+1
+\end{bmatrix}
+\right\}
+$$
+\\
+(b) 
+We have $\RS(A)=\CS(A^T)$. Applying the usual procedure to compute a basis of $\CS(A^T)$ produces a basis for $\RS(A)=\CS(A^T)$ from among the columns of $A^T$, which are the rows of $A$. 
+\\
+We have 
+$$A^T=
+\begin{bmatrix}[rrrr]
+1&-2&-1&-3\\
+-2&5&3&8\\
+5&-7&-2&-9\\
+0&0&1&1\\
+3&-6&-3&-9
+\end{bmatrix}
+$$
+which reduces to:
+$$
+\begin{bmatrix}[rrrr]
+1&0&0&0\\
+0&1&0&1\\
+0&0&1&1\\
+0&0&0&0\\
+0&0&0&0
+\end{bmatrix}
+$$
+Since columns 1,2,and 3 have the leading 1's, the corresponding rows of the original matrix form a basis:
+$$
+\{
+\begin{bmatrix}[rrrrr]
+1&-2&5&0&3
+\end{bmatrix},
+\begin{bmatrix}[rrrrr]
+-2&5&-7&0&-6
+\end{bmatrix},
+\begin{bmatrix}[rrrrr]
+-1&3&-2&1&-3
+\end{bmatrix}
+\}
+$$
+\end{solution}
+\ii Find a subset of the given vectors that forms a basis for the space spanned by those vectors, and then express each vector that is not in the basis as a linear combination of the basis vectors.
+$$
+\boldv_1 = (1,0,1,1), \boldv_2 = (-3,3,7,1), \boldv_3 = (-1,3,9,3), \boldv_4 = (-5,3,5,-1)
+$$
+\begin{solution}
+Start by writing each vector as a column in a matrix.
+$$
+\begin{bmatrix}[rrrr]
+1&-3&-1&-5\\
+0&3&3&3\\
+1&7&9&5\\
+1&1&3&-1
+\end{bmatrix}
+$$
+Like the previous problems we reduce the matrix.
+$$
+\begin{bmatrix}[rrrr]
+1&0&2&-2\\
+0&1&1&1\\
+0&0&0&0\\
+0&0&0&0
+\end{bmatrix}
+$$
+Now the columns of the original matrix that correspond to the columns of the reduced matrix that have the leading 1's form a basis. Thus column 1 and 2 form the basis. Since our columns are vectors, the basis is: $$\{\boldv_1,\boldv_2\}$$
+Now we find a set of dependency equations for each column in the reduced matrix that does not have a leading 1. Let $\boldw_i$ be the columns of the reduced matrix. Then
+\begin{eqnarray*}
+\boldw_3 &=& 2\boldw_1 + \boldw_2\\
+\boldw_4 &=& -2\boldw_1 + \boldw_2
+\end{eqnarray*}
+Replacing each $\boldw_i$ with $\boldv_i$ gives the required result:
+\begin{eqnarray*}
+\boldv_3 &=& 2\boldv_1 + \boldv_2\\
+\boldv_4 &=& -2\boldv_1 + \boldv_2
+\end{eqnarray*}
+\end{solution}
+
+\ii Find the rank and nullity of each matrix by reducing it to row echelon form.
+\bb
+\ii
+$$A =
+\begin{bmatrix}[rrrrr]
+1&0&-2&1&0\\
+0&-1&-3&1&3\\
+-2&-1&1&-1&3\\
+0&1&3&0&-4
+\end{bmatrix}
+$$
+\ii
+$$A =
+\begin{bmatrix}[rrrr]
+1&3&1&3\\
+0&1&1&0\\
+-3&0&6&-1\\
+3&4&-2&1\\
+2&0&-4&-2
+\end{bmatrix}
+$$
+\ee
+\begin{solution}
+\noindent (a) The matrix reduces to:
+$$
+\begin{bmatrix}[rrrrr]
+1&0&-2&0&1\\
+0&1&3&0&-4\\
+0&0&0&1&-1\\
+0&0&0&0&0
+\end{bmatrix}
+$$
+Since the matrix has 3 leading 1's, $\rank(A)=3$. The rank-nullity theorem now tells us that $\nullity(A)=n-3=5-3=2$. 
+\\
+(b) 
+$A$ reduces to:
+$$
+\begin{bmatrix}
+1&0&-2&0\\
+0&1&1&0\\
+0&0&0&1\\
+0&0&0&0\\
+0&0&0&0
+\end{bmatrix}
+$$
+This matrix has three leading 1's, which means $\rank(A)=3$ and $\nullity(A)=4-3=1$.
+\end{solution} 
+\ii Matrix $R$ is the reduced row echelon form of the matrix $A$.
+$$
+A=
+\begin{bmatrix}[rrrr]
+0&2&2&4\\
+1&0&-1&-3\\
+2&3&1&1\\
+-2&1&3&-2
+\end{bmatrix},
+R = 
+\begin{bmatrix}[rrrr]
+1&0&-1&0\\
+0&1&1&0\\
+0&0&0&1\\
+0&0&0&0
+\end{bmatrix}
+$$
+\bb
+\ii Compute the rank and nullity of A.
+\ii Confirm that the rank an nullity satisfy the rank-nullity theorem.
+\ee
+\begin{solution}
+\noindent 
+(a) Since $R$ has three non-zero rows, $\rank(A) = 3$. There is one free variable, so $\nullity(A) = 1$.
+\\
+(b)
+The matrix $A$ is $4\times 4$. Thus $n = 4$. In our example we have 
+\begin{align*}
+\rank(A) + \nullity(A) &=3+1 &\text{(from (a))}\\
+&=4
+\end{align*}
+Thus $\rank(A) + \nullity(A)=n$ as predicted by the theorem. 
+\end{solution}
+\ii Give two explicit matrices $A$ and $B$ of the same size satisfying $\rank(A)=\rank(B)$, but $\rank(A^2)\ne \rank(B^2)$. 
+\\
+\begin{solution}
+\noindent
+Let $A=\begin{bmatrix}
+1&1\\
+-1&-1
+\end{bmatrix}$ and $B=\begin{bmatrix}
+1&1\\ 1&1
+\end{bmatrix}$. Both clearly have rank 1. Since $A^2=\boldzero$, we have $\rank(A^2)=0$. On the other hand $B^2=\begin{bmatrix}
+2&2\\ 2&2
+\end{bmatrix}$, which has rank 1.    
+\end{solution}
+\ii Prove: an $n\times n$ matrix $A$ satisfies $\CS(A)\subseteq \NS(A)$ if and only if  $A^2=\boldzero$. 
+\\
+Produce an explicit nonzero example of such a matrix. 
+\\
+\begin{solution}
+\noindent Write $A=\begin{bmatrix}
+\vert &\vert & &\vert\\
+\hspace{5pt} \boldv_1&\hspace{5pt}\boldv_2&\cdots &\hspace{5pt}\boldv_n\\
+\vert &\vert & &\vert
+\end{bmatrix}$. 
+Then we have 
+\begin{align*}
+A^2=\boldzero 
+&\Longleftrightarrow 
+\begin{bmatrix}
+\vert &\vert & &\vert\\
+\hspace{5pt} A\boldv_1&\hspace{5pt}A\boldv_2&\cdots &\hspace{5pt}A\boldv_n\\
+\vert &\vert & &\vert
+\end{bmatrix}=\boldzero &\text{(column method)}\\
+&\Longleftrightarrow A\boldv_j=\boldzero \text{ for all $1\leq j\leq n$} \\
+&\Longleftrightarrow \boldv_j\in\NS(A) \text{ for all $1\leq j\leq n$}\\
+&\Longleftrightarrow \Span\left(\{ \boldv_1,\boldv_2,\dots, \boldv_n\}\right)\subseteq\NS(A)\\
+&\Longleftrightarrow \CS(A)\subseteq \NS(A)
+\end{align*}  
+The penultimate if and only only is a consequence of the general fact that a subspace $W$ contains $\Span(\{\boldw_1,\dots, \boldw_r\})$ if and only if it contains $\boldw_i$ for all $i$. 
+\end{solution} 
+\ii If $A$ is an $m$ by $n$ matrix, what is the largest possible value for its rank and the smallest possible value for its nullity?
+\\
+\begin{solution}
+\noindent Since the row vectors of $A$ lie in $R^n$ and the column vectors in $R^m$, the row space of $A$ is at most $n$-dimensional and the column space is at most $m$-dimensional. Since the rank of $A$ is the common dimension of its row and column space, it follows that the rank is at most the smaller of $m$ and $n$. Thus:
+$$
+\rank(A)\leq \min(m,n)
+$$
+Using the rank-nullity theorem we can find a similar bound for the nullity.
+\begin{align*}
+\nullity(A) &= n - \rank(A) &\text{ (Thm. 4.8.2)}\\
+&\geq n - \min(m,n) &\text{(since $\rank(A)\leq\min(m,n)$)}\\
+&= \max(n-m,0) &
+\end{align*}
+The last equality follows from the more general rule that \[ r-\min\{m,n\}=\max\{r-m,r-n\}.\]
+\end{solution}
+\ii Complete the following statements. Justify your answer. 
+\bb
+\ii If $A$ is a  3 by 5 matrix, then the rank of $A$ is at most $\dots$
+
+\ii If $A$ is a 3 by 5 matrix, then the nullity of $A$ is at most $\dots$
+\ee
+\begin{solution}
+\noindent
+(a) By the previous exercise  $\rank(A)$ is at most $\min(3,5) = 3$. 
+\\
+(b) 
+The nullity is at most 5. Consider
+$$A =
+\begin{bmatrix}[rrrrr]
+0&0&0&0&0\\
+0&0&0&0&0\\
+0&0&0&0&0
+\end{bmatrix}
+$$
+The rank of this matrix is 0. Thus the nullity must be 5. Since the rank can never be negative, the largest the nullity can be is 5.
+\end{solution}
+\ii Let $A$ be a 5 by 7 matrix with rank 4.
+\bb
+\ii What is the dimension of the solution space of $A\boldx = \textbf{0}$?
+\ii Is $A\boldx = \textbf{b}$ consistent for all vectors $\textbf{b}$ in $\R^5$?
+\ee
+\begin{solution}
+\noindent (a) The solution space of $A\boldx = \textbf{0}$ is $\NS(A)$. Thus:
+$$
+\nullity(A) =n- \rank(A) = 7 - 4 = 3
+$$
+\\
+(b) No. Since $\rank(A)=4$, $\dim(\CS(A))=4$. Since $\CS(A)\subset\R^5$ and $\dim(\R^5)=5$ it follows that $\CS(A)\subsetneq \R^5$. Then there is $\boldb\in\R^5$ such that $\boldb\notin\CS(A)$. Since 
+\[
+\CS(A)=\{\boldb\in\R^5\colon A\boldx=\boldb \text{ is consistent}\}
+\]
+it follows that we cannot solve $A\boldx=\boldb$ for this $\boldb$. 
+\end{solution}
+\ii \label{ex:rowscolumns} Prove: If a matrix A is not a square, then either the row vectors or the column vectors of $A$ are linearly dependent.
+\\
+\begin{solution}
+\noindent Suppose $A$ is a $m$ by $n$ matrix with $n>m$. Then we have $n$ columns in $A$ which we can think of as being vectors in $R^m$. The columns of $A$ cannot be linearly independent since $R^m$ has dimension $m$, so any collection of vectors from $R^m$ with more than $m$ vectors must be linearly dependent. So the columns are dependent. Similarly, if $n<m$, then you can think of the rows of $A$ as a collection of $m$ vectors in $R^n$. Using the same argument we can see that rows must be dependent.
+\end{solution}
+\ii True or false. If true, provide a proof; if false, give an explicit counterexample. 
+\bb
+\ii Either the row vectors or the column vectors of a square matrix are linearly independent.
+
+\ii A matrix with linearly independent row vectors and linearly independent column vectors is square.
+\ii The nullity of a nonzero $m$ by $n$ matrix is at most $m$.
+\ii Adding one additional column to a matrix increases its rank by one.
+\ii The nullity of a square matrix with linearly dependent rows is at least one.
+\ii If $A$ is a square and $A\boldx = \textbf{b}$ is inconsistent for some vector $\textbf{b}$, the the nullity of $A$ is zero.
+\ii If a matrix $A$ has more rows than columns, then the dimension of the row space is greater than the dimension of the column space.
+\ii $\rank(A)=\rank(A^T)$. 
+\ii If $\nullity(A^T)=\nullity(A)$, then $A$ is square. 
+\ee
+\begin{solution}
+\noindent (a) 
+False. Consider the matrix:
+$$
+\begin{bmatrix}[rrr]
+1&1&1\\
+1&1&1\\
+1&1&1
+\end{bmatrix}
+$$
+Both the row vectors and the column vectors are linearly dependent.
+\\
+(b) True. Let $A$ be an $m$ by $n$ matrix with linearly independent row vectors and linearly independent column vectors. Assume for the purpose of contradiction that $m \neq n$. Then by Exercise \ref{ex:rowscolumns} either the row vectors or the column vectors are linearly dependent. This contradicts the fact that $A$ has linearly independent row vectors and linearly independent column vectors. Thus the assumption is false and $m = n$, so $A$ is a square matrix.
+\\
+(c) False. The $m\times n$ zero matrix has nullity $n$. So if $n>m$ the nullity of $0_{mn}$ is greater than $n$.  
+\\
+(d) False. Consider:
+$$
+\begin{bmatrix}[rrr]
+1&0&0\\
+0&1&0\\
+0&0&1
+\end{bmatrix}
+$$
+Since the matrix has 3 leading 1's, the rank is 3. Now if we add a column of 1's
+$$
+\begin{bmatrix}[rrrr]
+1&0&0&1\\
+0&1&0&1\\
+0&0&1&1
+\end{bmatrix}
+$$
+Since the matrix has 3 leading 1's, the rank is 3.
+\\
+(e) True. Let $A$ be an $n$ by $n$ matrix. Since the rows are linearly dependent, the reduced form of $A$ has a row of zeros for the bottom row. Thus $$\rank(A) < n$$ And $$\nullity(A) = n - \rank(A) > 0$$
+\\
+(f) False. Use the invertibility theorem. Since $A$ is inconsistent for some vector $\textbf{b}$, part (e) is false. Thus part (o) is false. So $A$ does not have nullity 0.
+\\
+(g) 
+False. By rank-nullity, the row space and the column space always have the same dimension.
+\\
+(h) True. We have $\rank(A)=\dim\CS(A)=\dim\RS(A^T)=\rank(A^T)$. 
+\\
+(i) True. Let $A$ be $m\times n$, and assume $\nullity(A)=\nullity(A^T)$.  Then by the rank-nullity theorem 
+\begin{align*}
+n&=\rank(A)+\nullity(A)&\text{(by rank-nullity theorem, since $A$ is $m\times n$)}
+\\
+&=\rank(A^T)+\nullity(A) &\text{(since $\rank(A)=\rank(A^T)$)}\\
+&=\rank(A^T)+\nullity(A^T) &\text{(by assumption)}\\
+&=m &\text{(by rank-nullity theorem, since $A^T$ is $n\times m$)}
+\end{align*}
+
+\end{solution}
+\ii Suppose $\underset{m\times n}{A}$ reduces to the row echelon matrix $\underset{m\times n}{U}$. 
+\bb
+\ii Prove: the columns $\boldu_{i_1}, \boldu_{i_2}, \dots, \boldu_{i_r}$ of $U$ form a basis for $\CS U$ if and only if the corresponding columns $\bolda_{i_1}, \bolda_{i_2}, \dots, \bolda_{i_r}$ of $A$ form a basis for $\CS A$. 
+\ii Prove: the columns of $U$ with leading 1's form a basis for $\CS U$. 
+\ii Prove: $\dim \NS U=\#(\text{ free variables })$ in linear system $U\boldx=\boldzero$. 
+\ii Suppose $x_{j_1}=t_{j_1}, x_{j_2}=t_{j_2}, \dots, x_{j_s}=t_{j_s}$ are the free variables of the system $U\boldx=\boldzero$. Let $\boldv_{j_k}$ be the element of $\NS U$ obtained by setting $t_{j_k}=1$ and $t_{j_\ell}=0$ for $\ell\ne k$ in our parametric description of solutions to $U\boldx=\boldzero$. 
+
+Prove: $\{\boldv_{j_1}, \boldv_{j_2}, \dots, \boldv_{j_s}\}$ is a basis for $\NS U$. 
+
+\ee
+\begin{solution}
+\noindent
+Recall that $A$ being row equivalent to $U$ is equivalent to there being an invertible matrix $Q$ such that 
+\[
+QA=U\tag{$*$}
+\]
+We will this fact repeatedly. 
+\\
+(a) By the column method of matrix multiplication we have $\boldu_i=Q\bolda_i$: i.e., the $i$-th column of $U$ is obtained by multiplying the $i$-th column of $A$ on the left by $Q$. First observe that 
+\begin{align*}
+\boldzero=c_1\bolda_{i_1}+\cdots +c_r\bolda_{i_r}&\Leftrightarrow Q\boldzero=Q(c_1\bolda_{i_1}+\cdots +c_r\bolda_{i_r}) &\text{(since $Q$ is invertible)}\\
+&\Leftrightarrow \boldzero=c_1Q\bolda_{i_1}+\cdots +c_rQ\bolda_{i_r} &\text{(matrix arithmetic)}\\
+&\Leftrightarrow \boldzero=c_1\boldu_{i_1}+\cdots +c_r\boldu_{i_r}
+\end{align*}
+In particular, there a nontrivial linear combination of the $\bolda_{i_k}$ equal to $\boldzero$ if and only if there is a nontrivial linear combination of the $\boldu_{i_k}$ equal to $\boldzero$. Thus the $\bolda_{i_k}$ are independent if and only if the $\boldu_{i_k}$ are independent. 
+
+Next, I claim the $\bolda_{i_k}$ span $\CS A$ if and only if the  $\boldu_{i_k}$ span $\CS U$. Indeed, suppose the $\bolda_{i_k}$ span $\CS A$. Take $\boldy\in \CS U$. I will show that $\boldy$ is a linear combination of the $\boldu_{i_k}$. 
+
+Since $\boldy\in \CS U$, there is an $\boldx\in\R^n$ such that $\boldy=U\boldx$ (since $\CS U=\range U$). We have $U=QA$, and thus $\boldy=QA(\boldx)=Q(\boldw)$, where $\boldw=A\boldx$. Then $\boldw\in \CS A$, and we can write $\boldw=c_1\bolda_{i_1}+\cdots +c_r\bolda_{i_r}$. It then follows that 
+\[
+\boldy=Q\boldw=Q(c_1\bolda_{i_1}+\cdots +c_r\bolda_{i_r})=c_1Q\bolda_{i_1}+\cdots +c_rQ\bolda_{i_r}=c_1\boldu_{i_1}+\cdots +c_r\boldu_{i_r}.
+\]
+Since $\boldy$ was any element of $\CS U$, we see that the $\boldu_{i_k}$ span $\CS U$, as desired. 
+
+To go the other way (i.e., that if the $\boldu_{i_k}$ span $\CS U$,  the $\bolda_{i_k}$ span $\CS A$), note that $(*)$ implies $A=Q^{-1}U$, and we can use the same argument above with the roles of $\bolda_{i_k}$ and $\boldu_{i_k}$ swapped! 
+
+We have shown that the $\bolda_{i_k}$ are independent if and only if the $\boldu_{i_k}$, and that they span $\CS A$ if and only if the $\boldu_{i_k}$ span $\CS U$. It follows that the $\bolda_{i_k}$ form a basis for $\CS A$ if and only if the $\boldu_{i_k}$ form a basis for $\CS U$. 
+\\
+(b) Now let $\boldu_{i_1},\dots, \boldu_{i_r}$ be the columns of $U$ with leading 1's, and let $\boldu_{j_1}, \boldu_{j_2}, \dots, \boldu_{j_s}$ be the columns without leading 1's. To prove the $\boldu_{i_k}$ form a basis for $\CS U$, I will show that given any $\boldy\in \CS U$ there is a {\em unique} choice of scalars $c_1, c_2,\dots, c_r$ such that $c_1\boldu_{i_1}+\cdots +c_r\boldu_{i_r}=\boldy$. (Recall that the uniqueness of this choice implies linear independence.) 
+
+So assume $\boldy\in \CS U$. Then we can find $\boldx\in\R^n$ such that $U\boldx=\boldy$, which means the linear system with augmented matrix $[\ U\ \vert \ \boldy]$ is consistent. Using our Gaussian elimination theory, we know that the solutions $\boldx=(x_1,x_2,\dots, x_n)$ to this system are in 1-1 correspondence with choices for the free variables $x_{j_1}=t_{j_1}, x_{j_2}=t_{j_2}, \dots, x_{j_s}=t_{j_s}$. (Remember that the columns $\boldu_{j_k}$ without leading 1's correspond to the free variables.) In particular, there is a unique solution to $U\boldx=\boldy$ where we set all the free variables equal to 0. By the column method, this gives us a unique linear combination of only the columns $\boldu_{i_k}$ with leading 1's equal to $\boldy$. This proves the claim. 
+\\
+(c) Using the notation and result from (b) we see that $\rank U=\dim\range U=\dim\CS U=r$, the number of columns of $U$ with leading 1's. By the rank-nullity theorem, $\dim\NS U=n-r=s$, the number of columns without leading 1's. This is also equal to the number of free variables in the corresponding system of equations. 
+\\
+(d) The given recipe produces a list of $s$ distinct vectors in $\NS U$. Since $s=\dim\NS U$, by part (c), it suffice to show the $\boldv_i$ are linearly independent. This is easy to see. Indeed suppose we have $c_1\boldv_1+c_2\boldv_2+\cdots +c_s\boldv_s=\boldzero$. Since for each $1\leq i\leq s$, $\boldv_i$ is the {\em only} vector with a nonzero entry for the $i$-th component, we must have $c_i=0$ for all $1\leq i\leq s$.  Thus we see that the set is linearly independent. 
+\end{solution}
+
+
+\ee

@@ -1,0 +1,591 @@
+\bb
+\ii Let $A$ be $n\times n$. Let $c$ be any constant. State and prove a formula relating $\det(cA)$ with $\det(A)$. 
+\\
+(Look at the $n=2$ case to see what this should be.) 
+\\
+\begin{solution}
+\noindent
+WARNING: $\det(cA)\ne c\det(A)$!!!
+\\
+We claim $\det(cA)=c^n\det(A)$, where $A$ is $n\times n$. 
+\\
+Proof: first observe that $cA=(cI_n)A=\begin{bmatrix}
+c&0&\dots&0\\
+0&c&0&\dots\\
+\vdots &\\
+0&0&\dots&c
+\end{bmatrix}A$, using the result of Exercise \ref{ex:diag} of the previous section. Then 
+\begin{align*}
+\det(cA)&=\det((cI_n)A)\\
+&=\det(cI_n)\det(A)\\
+&=c^n\det(A),
+\end{align*}
+where the last equality follows since $cI_n$ is a diagonal matrix with $c$'s along the diagonal. 
+\end{solution}
+\ii Let $A,B$ be $n\times n$, and suppose $B$ is invertible. Prove the following:
+\bb
+\ii $\ds \det(B^{-1})=\frac{1}{\det(B)}$. 
+\ii $\det(B^{-1}AB)=\det(A)$.
+\ee
+%\vfill
+\begin{solution}
+\ \\
+(a) Since $BB^{-1}=I$, we have
+\begin{align*}
+1&=\det(I)\\
+&=\det(BB^{-1})\\
+&=\det(B)\det(B^{-1})
+\end{align*}
+Dividing both sides by $\det(B)$ (remember $\det(B)$ is just a number!) we get $\det(B^{-1})=\frac{1}{\det(B)}$. 
+\\ \\
+(b) Start with the LHS and compute:
+\begin{align*}
+\det(B^{-1}AB)&=\det(B^{-1})\det(A)\det(B) &\text{(det. is multiplicative)}\\
+&=\det(A)\det(B^{-1})\det(B) &\text{(real mult. is commutative)}\\
+&=\det(A)\frac{1}{\det(B)}\det(B) &\text{(prev. problem)}\\
+&=\det(A)
+\end{align*}
+\end{solution}
+\ii Let $A$ be $n\times n$, and suppose two rows of $A$ are identical. Show that $\det(A)=0$. 
+\\
+Now prove the same result for a matrix with two identical columns. 
+\\
+\begin{solution}
+\noindent Let the rows of $A$ be $\boldr_k$, and suppose $\boldr_i=\boldr_j$. 
+\\
+Let $E$ be the elementary matrix which replaces $\boldr_i$ with $\boldr_i-\boldr_j$. 
+Then $EA=B$, where the $i$-th row of $B$ is 0 (since $\boldr_i=\boldr_j$ in $A$). This clearly implies $\det(B)=0$. Furthermore, we know $\det(E)=1$. Though this is already a proven result, it is easy to see why it is true. Such an elementary matrix is triangular (maybe upper or lower depending), with 1's along the diagonal; thus its determinant, being the product of the diagonal elements, is 1. 
+
+Now we compute 
+\begin{align*}
+0&=\det(B)\\
+&=\det(EA)\\
+&=\det(E)\det(A)\\
+&=\det(A),
+\end{align*}
+showing $\det(A)=0$. 
+
+Now suppose $A$ has two identical columns. Then $A^T$ has two identical rows, and we have 
+\[
+\det(A)=\det(A^T)=0,
+\]
+where the last equality follows from the previous result. 
+\end{solution}
+\ii Suppose $A$ is $3\times 3$ and satisfies:
+\[
+\underset{r_1-r_2}{E}\ \underset{2r_2}{E}\ \underset{r_1\leftrightarrow r_2}{E}A=\begin{bmatrix}[rrr]
+1&0&0\\
+85&2&0\\
+-18&201&3
+\end{bmatrix}.
+\]
+Find $\det(A)$. 
+\\
+\begin{solution}
+\noindent We have 
+\begin{align*}
+&\det\left(\underset{r_1-r_2}{E}\right)\det\left(\underset{2r_2}{E}\right)\det\left(\underset{r_1\leftrightarrow r_2}{E}\right)\det(A)=\det\left(\begin{bmatrix}[rrr]
+1&0&0\\
+85&2&0\\
+-18&201&3
+\end{bmatrix}\right)\\
+&\Rightarrow 1(2)(-1)\det(A)=1(2)(3)\\
+&\Rightarrow -2\det(A)=6\\
+&\Rightarrow \det(A)=-3.
+\end{align*}
+\end{solution}
+\ii State and prove a formula for $\det(A)$ where 
+\[
+A=\begin{bmatrix}
+a&b&b\dots \\
+b&a&b&\dots\\
+\vdots & &\vdots \\
+b&b&\dots &a
+\end{bmatrix},
+\]
+the matrix with $a$'s along the diagonal and $b$'s everywhere else. 
+\\
+Look at the $n=2$ and $n=3$ cases first. Your proof of the formula in the general case will involve row operations. 
+\\
+\begin{solution}
+\noindent We perform the following row operations: replace $r_1$ with $r_1-r_2$; replace $r_2$ with $r_2-r_3$; replace $r_3$ with $r_3-r_4$, etc.These are row operations of the third type ($r_i+cr_j$), and thus do NOT change the determinant. (Recall of course that the other types of row operatins DO change the determinant.)
+
+These operations result in the matrix
+\[B=
+\begin{bmatrix}
+(a-b)&-(a-b)&0&0&\dots\\
+0&(a-b)&-(a-b)&0&\dots\\
+\vdots\\
+0&0&&\dots& (a-b)&-(a-b)\\
+b&b&b&\dots &b &a
+\end{bmatrix}
+\]
+Now replace column $\boldc_2$ with $\boldc_2+\boldc_1$, column $\boldc_3$ with $\boldc_3+\boldc_2, \dots$, column $\boldc_n$ with $\boldc_n+\boldc_{n-1}$. These operations, which also do not change the determinant, result in the lower triangular matrix 
+\[
+C=\begin{bmatrix}
+(a-b)&0&0&0&\dots\\
+0&(a-b)&0&0&\dots\\
+0&0&(a-b)&0&\dots
+\vdots\\
+0&0&&\dots& (a-b)&0\\
+b&2b&3b&\dots &(n-1)b &a+(n-1)b
+\end{bmatrix}
+\]
+We conclude that $\det(A)=\det(B)=\det(C)=(a-b)^{n-1}(a+(n-1)b)$. 
+
+\end{solution}
+
+\ii Given $r_1, r_2, \dots, r_n\in \R$ the {\em Vandermonde} matrix is defined as 
+\[
+A_{r_1,r_2,\dots, r_n}=\begin{bmatrix}
+1&1&\cdots &1\\
+r_1&r_2&\cdots & r_n\\
+r_1^2&r_2^2&\cdots &r_n^2\\
+\vdots & \vdots &\cdots &\vdots\\
+r_1^{n-1}&r_2^{n-1}&\cdots &r_n^{n-1}
+\end{bmatrix}=[r_j^{i-1}]_{1\leq i,j\leq n}.
+\] 
+Prove: $\ds\det (A_{r_1,r_2,\dots, r_n})=\prod_{1\leq i<j\leq n}(r_j-r_i)$. 
+\\
+{\bf Hint}. Do a proof by induction. For the induction step, first clear out the entries under the 1 of the first column, working from the bottom up. You will also use linearity in columns. 
+\begin{solution}
+\noindent This is a well known result. Look it up or else follow my instructions. The sequence of row operations (working from bottom up) is $\boldr_n-r_1\boldr_{n-1}$, $\boldr_{n-1}-r_1\boldr_{n-2},\dots$, $\boldr_2-r_1\boldr_1$. 
+\end{solution} 
+\ii Let 
+$$A =
+\begin{bmatrix}[rrrr]
+2&3&-1&1\\
+-3&2&0&3\\
+3&-2&1&0\\
+3&-2&1&4
+\end{bmatrix}
+$$
+\bb
+\ii Find $M_{32}$ and $C_{32}$.
+\ii Find $M_{44}$ and $C_{44}$.
+\ee
+\begin{solution}
+\noindent
+(a) Delete row 3 and column 2 from A to and compute the determinant:
+\[
+\begin{vmatrix}[rrr]
+2&-1&1\\
+-3&0&3\\
+3&1&4
+\end{vmatrix}
+=2(-3)+1(-21)+-3=-30.
+\]
+Thus $M_{32} = -30$ and $C_{32} = (-1)^{3+2}M_{32} = 30$
+\\
+(b) Delete the 4th row and column and compute the determinant:
+\[
+\begin{vmatrix}[rrr]
+2&3&-1\\
+-3&2&0\\
+3&-2&1
+\end{vmatrix}
+=2(2)-3(-3)+(-1)(0)=13.
+\]
+Thus $M_{44} = 13$ and $C_{44} = (-1)^{4+4}M_{44} = 13$
+\end{solution}
+\ii Let 
+$$A =
+\begin{bmatrix}[rrr]
+-1&1&2\\
+3&0&-5\\
+1&7&2
+\end{bmatrix}
+$$
+\bb
+\ii Compute $\det(A)$ by expanding along the second row. 
+\ii Compute $\det(A)$ by expanding along the third column. 
+\ee
+\begin{solution} 
+\ \\
+\end{solution}
+\ii Compute 
+$$
+\det 
+\begin{bmatrix}[rrrr]
+3&3&0&5\\
+2&2&0&-2\\
+4&1&-3&0\\
+2&10&3&2
+\end{bmatrix}
+$$
+\begin{solution}
+Since column three has two zeros, lets expand by it:\\
+$$\det(A) = -3
+\begin{vmatrix}[rrr]
+3&3&5\\
+2&2&-2\\
+2&10&2
+\end{vmatrix}
+-3
+\begin{vmatrix}[rrr]
+3&3&5\\
+2&2&-2\\
+4&1&0
+\end{vmatrix}
+$$
+Now we compute these $3\times 3$ deterimants:
+\begin{eqnarray*}
+\det(A) &=&-3(3(24)-3(8)+5(16))-3(4(-16)-1(-16))\\
+&=&-3(8\cdot 16)-3(-3\cdot 16)\\
+&=&-15\cdot 16=-240.
+\end{eqnarray*}
+\end{solution}
+\ii Compute 
+$$ \det  
+\begin{bmatrix}[rrrrr]
+4&0&0&1&0\\
+3&3&3&-1&0\\
+1&2&4&2&3\\
+9&4&6&2&3\\
+2&2&4&2&3
+\end{bmatrix}
+$$
+\begin{solution}
+Since row one has three zeros, lets expand by row one.\\
+$$ \det(A) = 4
+\begin{vmatrix}[rrrr]
+3&3&-1&0\\
+2&4&2&3\\
+4&6&2&3\\
+2&4&2&3
+\end{vmatrix}
+-1
+\begin{vmatrix}[rrrr]
+3&3&3&0\\
+1&2&4&3\\
+9&4&6&3\\
+2&2&4&3
+\end{vmatrix}
+$$
+
+Expanding by the 4th columns gives:\\
+\begin{eqnarray*}
+&=& 4\left(3
+\begin{vmatrix}[rrr]
+3&3&-1\\
+4&6&2\\
+2&4&2
+\end{vmatrix}
+-3
+\begin{vmatrix}[rrr]
+3&3&-1\\
+2&4&2\\
+2&4&2
+\end{vmatrix}
++3
+\begin{vmatrix}[rrr]
+3&3&-1\\
+2&4&2\\
+4&6&2
+\end{vmatrix}
+\right)\\
+&-1
+\left(3
+\begin{vmatrix}[rrr]
+3&3&3\\
+9&4&6\\
+2&2&4
+\end{vmatrix}
+-3
+\begin{vmatrix}[rrr]
+3&3&3\\
+1&2&4\\
+2&2&4
+\end{vmatrix}
++3
+\begin{vmatrix}[rrr]
+3&3&3\\
+1&2&4\\
+9&4&6
+\end{vmatrix}
+\right)\\
+&=&12((32-36)-(28-28)+(36-32))-3((138-168)-(54-48)+(156-120))\\
+&=&12(-4 +4)-3(-30-6+36) = 0 
+\end{eqnarray*}
+\end{solution}
+\ii\label{ex:detcolumnops} We know now how elementary row operations affect the determinant. State and prove analogous statements about how elementary {\em column operations} affect the determinant of a matrix. 
+\ \\
+\begin{solution}
+\noindent
+Multiplying a matrix $A$ on the {\em right} by an elementary matrix $E$ has the effect of performing the corresponding elementary {\em column operation}. In more detail:
+\\
+$AE_{c\boldr_i}$ scales the $i$-th column of $A$ by $c$;
+\\
+$AE_{\boldr_i\leftrightarrow \boldr_j}$ swaps columns $i$ and $j$;
+\\
+$AE_{\boldr_i+c\boldr_j}$ replaces column $i$ with column $i$ plus $c$ times column $j$. 
+
+To see what happens to the determinant, we use the multiplicative property: 
+\\
+$\det(AE_{c\boldr_i})=\det A\det E_{c\boldr_i}=c\det A$;
+\\
+$\det(AE_{\boldr_i\leftrightarrow \boldr_j})=\det A\det E_{\boldr_i\leftrightarrow \boldr_j}=-\det A$;
+\\
+$\det(AE_{\boldr_i+c\boldr_j})=\det A\det E_{\boldr_i+c\boldr_j}=\det A$.
+\end{solution}
+\ii Let 
+\[
+A=\begin{bmatrix}[rrrrr]
+-4&1&1&1&1\\
+1&-4&1&1&1\\
+1&1&-4&1&1\\
+1&1&1&-4&1\\
+1&1&1&1&-4
+\end{bmatrix}
+\]
+Show that $\det(A) = 0$ without directly computing the determinant.
+\\
+\begin{solution}
+\noindent First solution: notice that each row sums to 0. Using the column method of matrix multiplication, this implies that 
+\[
+A\begin{bmatrix}
+1\\ 1\\ 1\\ 1\\ 1
+\end{bmatrix}=\underset{5\times 1}{\boldzero}
+\]
+Thus $A\boldx=\boldzero$ has a nontrivial solution: namey, $\boldx=(1,1,1,1,1)$. It follows from the invertibility theorem that $A$ is not invertible. Thus $\det A=0$. 
+\\
+Second solution: each column also sums to 0. This means if we apply successive row operations, replacing $\boldr_1$ with $\boldr_1+\boldr_2$, then replacing the resulting $\boldr_1$ with $\boldr_1+\boldr_2$, and so on, that we will eventually end up with a row of zeros:
+\begin{eqnarray*}
+\begin{bmatrix}[rrrrr]
+-4&1&1&1&1\\
+1&-4&1&1&1\\
+1&1&-4&1&1\\
+1&1&1&-4&1\\
+1&1&1&1&-4
+\end{bmatrix}
+&\xrightarrow[]{r_1 + r_2}&
+\begin{bmatrix}[rrrrr]
+-3&-3&2&2&2\\
+1&-4&1&1&1\\
+1&1&-4&1&1\\
+1&1&1&-4&1\\
+1&1&1&1&-4
+\end{bmatrix}\\
+&\xrightarrow[]{r_1 + r_3}&
+\begin{bmatrix}[rrrrr]
+-2&-2&-2&3&3\\
+1&-4&1&1&1\\
+1&1&-4&1&1\\
+1&1&1&-4&1\\
+1&1&1&1&-4
+\end{bmatrix}\\
+&\xrightarrow[]{r_1 + r_4}&
+\begin{bmatrix}[rrrrr]
+-1&-1&-1&-1&4\\
+1&-4&1&1&1\\
+1&1&-4&1&1\\
+1&1&1&-4&1\\
+1&1&1&1&-4
+\end{bmatrix}\\
+&\xrightarrow[]{r_1 + r_5}&
+\begin{bmatrix}[rrrrr]
+0&0&0&0&0\\
+1&-4&1&1&1\\
+1&1&-4&1&1\\
+1&1&1&-4&1\\
+1&1&1&1&-4
+\end{bmatrix}
+\end{eqnarray*}
+Let $B$ be the matrix we row reduced $A$ to. Since all of our row operations were of the row addition type, we have $\det A=\det B$. Since $B$ has a row of zeros, $\det B=0$. It follows that $\det A=\det B=0$. 
+\end{solution}
+\ii Use determinants to decide whether the given matrix is invertible.\\
+$$ A =
+\begin{bmatrix}[rrr]
+2&0&3\\
+0&3&2\\
+-2&0&-4
+\end{bmatrix}
+$$
+\begin{solution}Expanding by the first column gives:\\
+$$
+\det(A) = 2
+\begin{bmatrix}[rr]
+3&2\\
+0&-4
+\end{bmatrix}
+-2
+\begin{bmatrix}[rr]
+0&3\\
+3&2
+\end{bmatrix}
+=-24 + 18 =-6
+$$
+Since the determinant is non-zero, the matrix is invertible.
+\end{solution}
+
+\ii Use determinants to decide whether the given matrix is invertible.\\
+$$ A =
+\begin{bmatrix}[rrr]
+\sqrt{2}&-\sqrt{7}&0\\
+3\sqrt{2}&-3\sqrt{7}&0\\
+5&-9&0
+\end{bmatrix}
+$$
+\begin{solution}Expanding by the third column gives:\\
+$$
+\det(A) = 0
+$$
+Thus $A$ is not invertible.
+\end{solution}
+
+\ii Find the values of $k$ for which the matrix $A$ is invertible.\\
+$$
+\begin{bmatrix}[rrr]
+1&2&0\\
+k&1&k\\
+0&2&1
+\end{bmatrix}
+$$
+\begin{solution}Expanding by the first row gives:\\
+$$
+\det(A) = 
+\begin{bmatrix}[rr]
+1&k\\
+2&1
+\end{bmatrix}
+-k
+\begin{bmatrix}[rr]
+2&0\\
+2&1
+\end{bmatrix}
+=1-2k-2k = 1-4k.
+$$
+Now we set $1-4k = 0$. Solving for k gives: $k = \frac{1}{2}$. Thus matrix $A$ is invertible for all $k\neq \frac{1}{2}$.
+\end{solution}
+\ii Use the adjoint formula to compute the inverse of 
+\[
+A=\begin{bmatrix}[rrr]
+1&2&-3\\
+1&1&1\\
+1&0&-1
+\end{bmatrix}.
+\]
+\begin{solution}
+\noindent
+First compute $\det A=1(-1)-2(-2)-3(-1)=6$. Next compute 
+\[
+\adjoint A=([C_{ij}])^T=\left( \begin{bmatrix}[rrr]
+-1&2&-1\\
+2&2&2\\
+5&-4&-1
+\end{bmatrix}
+\right)^T
+=\begin{bmatrix}[rrr]
+-1&2&5\\
+2&2&-4\\
+-1&2&-1
+\end{bmatrix}.
+\]
+We conclude that 
+\[
+A^{-1}=\frac{1}{6}\begin{bmatrix}[rrr]
+-1&2&5\\
+2&2&-4\\
+-1&2&-1
+\end{bmatrix}.
+\]
+Verify this yourself by checking $AA^{-1}=I_3$ !!
+\end{solution}
+\ii In each part, find the determinant given that $A$ is a 4x4 matrix for which $\det(A) = -2$.
+\bb
+\ii  $\det(-A)$ 
+
+\ii $\det(A^{-1})$
+
+\ii $\det(2A^T)$
+
+\ii $\det(A^3)$
+\ee
+\begin{solution}
+\noindent
+(a) 
+$$\det(-A)=\det(-1 \cdot A) = (-1)^4\det(A) = \det(A) = -2$$
+(b)
+$$\det(-A) = \frac{1}{\det(A)} = \frac{1}{-2} = -\frac{1}{2} $$
+(c)
+$$\det(2A^T)=2^4det(A)=2^4(-2)=-32 $$
+(d)
+$$ \det(A^3)=\det(AAA)=\det(A)\det(A)\det(A)=-2\cdot -2\cdot -2=-8$$
+\end{solution}
+
+\ii Prove that a square matrix $A$ is invertible if and only if $A^TA$ is invertible.
+\\
+\begin{solution}
+\noindent
+$(\Rightarrow)$ Assume that $A$ is invertible:\\
+Since $A$ is square, we know that $\det(A^T) = \det(A)$. Since $A$ is invertible, $\det(A)\neq 0$. Now:
+$$\det(A^TA)=\det(A^T)\det(A)=\det(A)\det(A)\neq 0 $$
+Thus $A^TA$ is invertible.\\
+$(\Leftarrow)$ Assume that $A^TA$ is invertible:\\
+Since $A^TA$ is invertible, we know that $\det(A^TA) \neq 0$. Thus
+$$ 0\neq \det(A^TA) = \det(A^T)\det(A) = \det(A)\det(A)$$
+which makes $\det(A) \neq 0$. So matrix $A$ is invertible.
+
+Alternatively, we have 
+\begin{align*}
+A \text{ inv.}&\Leftrightarrow A \text{ and } A^T \text{ inv.} &(A \text{ inv.}\Leftrightarrow A^T \text{ inv.})\\
+&\Leftrightarrow A^TA \text{ inv.}&(A, B \text{ inv.}\Leftrightarrow A\cdot B \text{ inv.})
+\end{align*}
+That paranthetical justification of the first $\Leftrightarrow$ was never explicity stated thus far; we only proved the direction $A \text{ invertible}\Rightarrow A^T \text{ invertible}$. However, we can prove the reverse direction using the first implication:
+\begin{align*}
+A^T \text{ invertible}&\Rightarrow (A^T)^T \text{ invertible} &(\text{by first implication})\\
+&\Rightarrow A \text{ invertible}&((A^T)^T=A).
+\end{align*}
+\end{solution}
+
+\ii True or false. If true, provide a proof; if false, give an explicit counterexample. 
+\bb
+\ii If $A$ is a 4x4 matrix and $B$ is obtained from $A$ by interchanging the first two rows and then interchanging the last two rows, then $\det(A)=\det(B)$.
+\ii If $A$ is a 3x3 matrix and $B$ is obtained from $A$ by multiplying the first column by 4 and multiplying the third column by $\frac{3}{4}$, then $\det(B)=3\det(A)$.
+\ii If $A$ is a 3x3 matrix and $B$ is obtained from $A$ by adding 5 times the first row to each of the second and third rows, then $\det(B) = 25\det(A)$.
+\ii If the sum of the second and fourth row vectors of a 6x6 matrix $A$ is equal to the last row vector, then $\det(A) = 0$
+\ii If $A$ is a 3x3 matrix, then $\det(2A) = 2\det(A)$.
+\ii If $A$ and $B$ are square matrices of the same size and $A$ is invertible, then $\det(A^{-1}BA)=\det(B)$.
+\ii If $A$ is a square matrix and the linear system $A\textbf{x} = \textbf{0}$ has multiple solutions for $\textbf{x}$, then $\det(A)=0$.
+\ii If $E$ is an elementary matrix, then $E\textbf{x} = \textbf{0}$ has only the trivial solution.
+\ee
+\begin{solution}
+\noindent (a) True. 
+The row operations and determinant theorem states that interchanging two rows of a matrix flips the sign on the determinant. Since we did the interchanging twice, the sign flips twice. Thus $\det(A)=\det(B)$.
+\\
+(b) True. 
+We saw in Exercise \ref{ex:detcolumnops} that performing elementary column operations on a matrix has the same effect on the determinant as the corresponding row operation. Thus in this case we have $\det(B) =\frac{3}{4}\cdot 4 \det(A) = 3\det(A)$.
+\\
+(c) False. 
+By the row operations and determinant theorem we know that multiplying one row and adding it to another row does not change the value of the determinant. Thus $\det(A)=\det(B)$.
+\\
+(d) True.
+By GE: Add $r_2$ to $r_4$ to replace $r_2$. Then subtract $r_6$ from $r_2$ to replace $r_6$. Now $r_6$ is all zeros, thus $\det(A) = 0$.
+\\
+(e) False. In fact we have 
+$$\det(2A) = 2^3\det(A) = 8\det(A) \neq 2\det(A),$$ 
+as long as $\det A\ne 0$. For an explicit counterexample, take $A=I_3$. Then $\det(2I_3)=8$ and $2\det I_n=2$. 
+\\
+(f) True. We have 
+\begin{eqnarray*}
+\det(A^{-1}BA)&=&\det(A^{-1})\det(B)\det(A)\\
+&=&\frac{1}{\det(A)}\det(B)\det(A)\\
+&=&\det(B)
+\end{eqnarray*}
+\\
+(g) True.
+By the invertibility theorem  know that the following statements are equivalent:
+\begin{center}
+$A\textbf{x} = \textbf{0}$ has only the trivial solution\\
+$\det(A)\neq 0$
+\end{center}
+By our assumptions, the first statement is false, thus the second statement is also false.
+\\
+(h) True. Elementary matrices are invertible. 
+
+\end{solution}
+
+
+
+
+\ee

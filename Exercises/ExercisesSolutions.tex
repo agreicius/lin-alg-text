@@ -1,0 +1,182 @@
+\documentclass[11pt]{amsart}
+%%%%%%%%%%PACKAGES%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{latexsym}
+\usepackage{amssymb, amsmath, amsthm, amsfonts}
+\usepackage{stmaryrd} %For \mapsfrom
+%\usepackage[fleqn]{amsmath}  % fleqn option makes aligned equations flushed left!
+%\usepackage[english]{babel}
+%\usepackage{pgf}
+\usepackage{mathtools}
+\usepackage[mathscr]{eucal} 
+\usepackage{fancyhdr}
+\usepackage{multicol,parcolumns}
+\usepackage{enumerate}
+%\usepackage{enumitem}
+\usepackage[shortlabels]{enumitem}
+\usepackage{graphicx}
+\usepackage{extarrows}
+\usepackage{cancel}
+%\usepackage{tikz}
+%\usepackage[all,cmtip]{xy} %\SelectTips{cm}{10}
+\usepackage[all]{xy} \SelectTips{cm}{10}
+%\usepackage{listings} %For code blocks
+
+\usepackage[
+printsolution=true, 
+%solutionspacebelow=0in,
+%solutionnameposition=inline
+]{exercises}
+
+\input{../LatexPreamble}
+\input{../LinAlgPreamble}
+%%%%%%%%FANCY HEADER%%%%%%%%%
+\pagestyle{plain}
+\setlength{\headheight}{13.6pt}
+\fancyhfoffset[L]{.5in}
+%\lhead{\Large \bf{Name:}}
+\chead{Exercises}
+\rhead{Math 240}
+%\lfoot{TURN OVER!}
+%\rfoot{TURN OVER!}
+
+%%%%%%%PAGE LAYOUT%%%%%%%%%%%%%
+\setlength{\textwidth}{6.5in}
+\setlength{\textheight}{9in}
+
+%\setlength{\topmargin}{-.8in}
+%\setlength{\columnsep}{1.5in}
+\addtolength{\hoffset}{-1 in}
+\addtolength{\voffset}{-.5 in}
+
+
+%%%%%%%THEOREM ENVIRONMENTS%%%%%%%%
+\theoremstyle{definition}
+\newtheorem*{definition}{Definition}
+\newtheorem*{definitions}{Definitions}
+\newtheorem*{notation}{Notation}
+\newtheorem*{example}{Example}
+%\newtheorem*{comment}{Comment}
+%\newtheorem*{comments}{Comments}
+\newtheorem*{examples}{Examples}
+\newtheorem*{warning}{Warning}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{corollary}{Corollary}
+\newtheorem*{proposition}{Proposition}
+\newtheorem*{lemma}{Lemma}
+
+\newtheoremstyle{named}{}{}{}{}{\bfseries}{.}{.5em}{\thmnote{#3}}
+\theoremstyle{named}
+\newtheorem*{namedtheorem}{Theorem}
+
+\newcounter{myalgctr}
+\newenvironment{myalg}{%      define a custom environment
+   \bigskip\noindent%         create a vertical offset to previous material
+   \refstepcounter{myalgctr}% increment the environment's counter
+   \textbf{Algorithm \themyalgctr}% or \textbf, \textit, ...
+   \newline%
+   }{\par\bigskip}  %   
+\numberwithin{myalgctr}{section}
+
+
+%%%%%%%%%%HYPERREFS PACKAGE%%%%%%%%%%%%%%%%%
+\usepackage[colorlinks]{hyperref}
+%\definecolor{webcolor}{rgb}{0.8,0,0.2}
+%\definecolor{webbrown}{rgb}{.6,0,0}
+%\usepackage[
+%        colorlinks,
+%       linkcolor=webbrown,  filecolor=webcolor,  citecolor=webbrown, 
+%        backref
+%]{hyperref}
+\usepackage[alphabetic, lite]{amsrefs} % for bibliography
+\title{Solutions to Math 240 Exercises}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\maketitle
+\tableofcontents
+\section*{1.1-1.2: linear systems}
+\ \\
+\setcounter{exercises@solutionnumber}{1}
+\input{ex1.1}
+
+\setcounter{exercises@solutionnumber}{1}
+\ \\
+\section*{1.3-1.4: matrix arithmetic}
+\input{ex1.3-1.4}
+
+\setcounter{exercises@solutionnumber}{1}
+\ \\
+\section*{1.5-1.6: inverses, diagonal and symmetric matrices}
+\input{ex1.5-1.7}
+
+\setcounter{exercises@solutionnumber}{1}
+\ \\
+\section*{2.1-2.3: the determinant}
+\input{ex2.1-2.3}
+
+\setcounter{exercises@solutionnumber}{1}
+\ \\
+\section*{3.1: vector spaces}
+\input{ex3.1}
+
+\setcounter{exercises@solutionnumber}{1}
+\ \\
+\section*{3.2: linear transformations}
+\input{ex3.2}
+
+\setcounter{exercises@solutionnumber}{1}
+\ \\
+\section*{3.3: subspaces}
+\input{ex3.3}
+
+
+\setcounter{exercises@solutionnumber}{1}
+\ \\
+\section*{3.4-3.5: linear independence and bases}
+\input{ex3.4-3.5}
+
+\setcounter{exercises@solutionnumber}{1}
+\ \\
+\section*{3.6: dimension}
+\input{dimension}
+
+\setcounter{exercises@solutionnumber}{1}
+\ \\
+\section*{4.1-4.2: linear transformations, bases, rank-nullity} \phantomsection \label{S:basissection}
+\input{rank-nullity}
+
+\setcounter{exercises@solutionnumber}{1}
+\ \\
+\section*{4.3: coordinate vectors} \phantomsection \label{S:basissection}
+\input{coordinates}
+
+\setcounter{exercises@solutionnumber}{1}
+\ \\
+\section*{4.4: matrix representations} \phantomsection \label{S:basissection}
+\input{matrix-reps}
+\setcounter{exercises@solutionnumber}{1}
+\ \\
+\section*{4.5: change of basis} \phantomsection \label{S:basissection}
+\input{change-basis}
+\setcounter{exercises@solutionnumber}{1}
+\ \\
+\section*{4.6: eigenvectors} \phantomsection \label{S:basissection}
+\input{ex6.1}
+
+	\setcounter{exercises@solutionnumber}{1}
+\ \\
+\section*{4.7: diagonalization} \phantomsection \label{S:basissection}
+\input{ex6.2}
+
+\setcounter{exercises@solutionnumber}{1}
+\ \\
+\section*{5.1: inner products}\phantomsection\label{S:innerproduct}
+\input{ex4.1}
+
+\setcounter{exercises@solutionnumber}{1}
+\ \\
+\section*{5.2: orthogonal bases and projection}\phantomsection\label{S:orthogonal}
+\input{ex4.2}
+
+
+
+\end{document}

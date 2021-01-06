@@ -1,0 +1,959 @@
+\bb
+\ii Use the row or column method to quickly compute the following product:
+\[
+\begin{bmatrix}[rrrrr]
+1&-1&1&-1&1\\
+1&-1&1&-1&1\\
+1&-1&1&-1&1\\
+1&-1&1&-1&1\\
+1&-1&1&-1&1
+\end{bmatrix}
+\begin{bmatrix}[rrrr]
+1&1&1&1\\
+-1&0&0&0\\
+0&1&0&0\\
+0&0&2&0\\
+0&0&0&3
+\end{bmatrix}
+\]
+\begin{solution}
+We did this in class using the column method. For kicks, I'll describe the row method here. Call the product $AB$. 
+
+Note that all the rows of $A$ are all identical, and equal to $\begin{bmatrix} 1 &-1 &1 &-1 &1\end{bmatrix}$. From the row method it follows that each row of $AB$ is given by 
+\[
+\begin{bmatrix} 1 &-1 &1 &-1 &1\end{bmatrix}B.
+\]
+Thus the rows of $AB$ are all identical, and the row method computes the product above by taking the corresponding alternating sum of the rows of $B$: 
+\[
+\begin{bmatrix} 1 &-1 &1 &-1 &1\end{bmatrix}B=\begin{bmatrix}
+2&2&-1&4
+\end{bmatrix}.
+\]
+Thus $AB$ is the the $5\times 4 $ matrix, all of whose rows are $\begin{bmatrix}
+2&2&-1&4
+\end{bmatrix}$.
+
+
+\end{solution}
+\ii Each of the $3\times 3 $ matrices $B_i$ below performs a specific row operation when multiplying a $3\times n$ matrix $A=\begin{bmatrix}
+-\boldr_1-\\
+-\boldr_2-\\
+-\boldr_3-
+\end{bmatrix}$ on the left; i.e., the matrix $B_iA$ is the result of performing a certain row operation on the matrix $A$. 
+
+Use the row method of matrix multiplication to decide what row operation each $B_i$ represents. 
+\[
+B_1=\begin{bmatrix}
+1&0&0\\
+0&1&0\\
+-2&0&1
+\end{bmatrix},
+B_2=\begin{bmatrix}
+1&0&0\\
+0&\frac{1}{2}&0\\
+0&0&1
+\end{bmatrix},
+B_3=\begin{bmatrix}
+0&0&1\\
+0&1&0\\
+1&0&0
+\end{bmatrix}.
+\] 
+\ \\
+\begin{solution}
+\noindent The matrix $B_1$, when multiplied on the left, replaces the third row of $A$ with $\boldr_3-2\boldr_2$. 
+ \\
+The matrix $B_2$, when multiplied on the left, replaces the second row  of $A$ with $\frac{1}{2}\boldr_2$. 
+\\
+The matrix $B_3$, when multiplied on the left, swaps $\boldr_1$ and $\boldr_3$. 
+\end{solution}
+\ii For each part below write down the most general $3\times 3$ matrix $A=[a_{ij}]$ satisfying the given condition (use letter names $a,b,c,$etc. for entries).   
+\bb
+\ii  $a_{ij}=a_{ji}$ for all $i,j$. 
+\ii $a_{ij}=-a_{ji}$ for all $i,j$ 
+\ii $a_{ij}=0$ for $i\ne j$. 
+\ee
+\ \\
+\begin{solution}
+\noindent
+$A=\begin{bmatrix}
+a&b&c\\
+b&d&e\\
+c&e&f
+\end{bmatrix}$
+\vspace{.1in}
+\\
+$A=\begin{bmatrix}[rrr]
+0&a&b\\
+-a&0&c\\
+-b&-c&0
+\end{bmatrix}$
+\vspace{.1in}
+\\
+$A=\begin{bmatrix}[rrr]
+a&0&0\\
+0&b&0\\
+0&0&c
+\end{bmatrix}
+$
+\end{solution}
+\ii Let $A$ be a square $n\times n$ matrix. We define its {\bf square} to be the matrix $A^2:=AA$. 
+
+Given a square $n\times n$ matrix $B$, we define a {\bf square-root} of $B$ to be a matrix $A$ such that $A^2=B$. 
+\bb
+\ii Find {\em all} square-roots of $\underset{2\times 2}{\boldzero}$. 
+\ii Find {\em all} square-roots of $I_2$. 
+\ee 
+Your answers for both parts should be a useful description of the entries of an arbitrary square-root matrix $A=\begin{bmatrix}
+a&b\\
+c&d
+\end{bmatrix}$, ideally some sort of parametrization.  \ \\
+\begin{solution}
+\noindent
+For both parts let $A=\abcdmatrix{a}{b}{c}{d}$ be an arbitrary $2\times 2$ matrix. Then 
+\[
+A^2=\abcdmatrix{a^2+bc}{ab+bd}{ac+cd}{d^2+cb}.
+\]
+Setting $A^2=\boldzero_{2\times 2}$ yields the {\em nonlinear} system of equations 
+\begin{align*}
+a^2+bc&=0\\
+ab+bd=b(a+d)&=0\\
+ac+cd=c(a+d)&=0\\
+d^2+cb&=0
+\end{align*}
+This system has infinitely many solutions. For example, if we set $a=r$ and $d=-r$, then the second and third equations are automatically satisfied, and the first and four equations reduce to $r^2+bc=0$. If we set $b=s$ for any $s\ne 0$, then we must have $c=-r^2/s$. Thus any 
+\[
+A=\begin{bmatrix}[rr]
+r&s\\
+-r^2/s& -r
+\end{bmatrix}, r\in \R, s\ne 0\in \R
+\]
+satisfies $A^2=\boldzero_{2\times 2}$.
+
+Similarly, setting $A^2=I_2$ yields the {\em nonlinear} system of equations 
+\begin{align*}
+a^2+bc&=1\tag{1}\\
+ab+bd=b(a+d)&=0\tag{2}\\
+ac+cd=c(a+d)&=0\tag{3}\\
+d^2+cb&=1\tag{4}
+\end{align*}
+Let's try to write down {\em all} solutions to this system. 
+\\
+Equation 2 implies either $b=0$, or $b\ne 0$ and $a+d=0$. Consider the two cases separately. 
+\\
+{\bf Case 1}: $b=0$. Then (1) and (4) imply $a^2=d^2=1$. Furthermore, (3) implies either $c=0$ or $a+d=0$. This leads to the following mutually exclusive possibilities for $A$:
+\[
+\begin{bmatrix}
+\pm1&0\\
+0&\pm 1
+\end{bmatrix}, \begin{bmatrix}
+1&0\\
+r&-1
+\end{bmatrix}, \begin{bmatrix}
+-1&0\\
+r&1
+\end{bmatrix},
+\]
+where $r$ can be any nonzero real number. \\
+{\bf Case 2}: $b\ne 0$ and $a+d=0$. Then $a=-d$. Set $a=r$, $d=-r$, $b=s$ where $r$ and $s$ are any two real numbers. Equation 1 (or 4) then implies $c=(1-r^2)/s$, leading to solutions of the form
+\[
+\begin{bmatrix}
+r&s\\
+(1-r^2)/s&-r
+\end{bmatrix}
+\]
+where $r$ and $s$ are any real numbers. 
+ 
+ The matrices described in the two cases comprise {\em all} solutions to $A^2=I_2$. In particular, note that $I_2$ has infinitely many square-roots! 
+\end{solution}
+
+%\ii Let $A,B$ be $n\times n$ matrices. Prove: $(AB)^T=B^TA^T$. 
+
+\ii Suppose $A$ is $n\times n$ and satisfies $A^2+3A-5I=\boldzero_n$. Prove $A$ is invertible by providing an explicit inverse. 
+\\
+\begin{solution}
+Set $A^{-1}=\frac{1}{5}(A+3I)$, and show directly (using the above equality) that $AA^{-1}=A^{-1}A=I$. 
+\end{solution}
+\ii Show that in general $(AB)^r\ne A^rB^r$. Why does the argument from real number algebra fail?
+%\vfill
+\\
+\begin{solution}
+\noindent
+Easy to come up with counterexamples. I'll leave that part to you. Look for $2\times 2$ examples. 
+
+Why doesn't this work? In a word: matrix multiplication is not commutative. Look at the $r=3$ case for concreteness. 
+\[
+(AB)^3=(AB)(AB)(AB)=ABABAB.
+\]
+Since matrix multiplication is {\em not commutative}, I cannot rearrange the $A$'s and $B$'s above to get $AAABBB=A^3B^3$. 
+\end{solution}
+\ii Show that $(A+B)^2=A^2+2AB+B^2$ if and only if $AB=BA$. 
+%\vfill
+\\
+\begin{solution}
+\noindent
+Let's do a chain of equivalences, where at each step I do something valid (and reversible) to the given equation:
+\begin{align*}
+(A+B)^2=A^2+2AB+B^2&\Leftrightarrow (A+B)(A+B)=A^2+2AB+B^2 &\text{(def.)}\\
+&\Leftrightarrow A^2+AB+BA+B^2=A^2+2AB+B^2 &\text{(expand LHS carefully)}\\
+&\Leftrightarrow AB+BA=2AB &\text{(additive cancel)}\\
+&\Leftrightarrow BA=AB &\text{(additive cancel)}
+\end{align*}
+Following the chain of equivalences we see that 
+\[
+(A+B)^2=A^2+2AB+B^2 \text{ if and only if } BA=AB,
+\]
+as desired. 
+\end{solution}
+
+\ii Let 
+\[A = 
+\begin{bmatrix}[rc]
+3&0\\
+-1&2\\
+1&1
+\end{bmatrix}
+, \hspace{5pt} B = 
+\begin{bmatrix}[rc]
+4&-1\\
+0&2
+\end{bmatrix}
+, \hspace{5pt} C = 
+\begin{bmatrix}[rcl]
+1&4&2\\
+3&1&5
+\end{bmatrix}
+\]
+\[
+D = 
+\begin{bmatrix}[rcl]
+1&5&2\\
+-1&0&1\\
+3&2&4
+\end{bmatrix}
+,  \hspace{5pt} E = 
+\begin{bmatrix}[rcl]
+6&1&3\\
+-1&1&2\\
+4&1&3
+\end{bmatrix}.
+\]
+Compute the following matrices, or else explain why the given expression is not well defined. 
+\bb
+\ii $(2D^T-E)A$
+\ii $(4B)C+2B$
+\ii $B^T(CC^T-A^TA)$
+\ee
+\ \\
+\begin{solution}
+\ \\
+(a) \ 
+
+\begin{eqnarray*}
+\left(\begin{bmatrix}[rcl]
+2&-2&6\\
+10&0&4\\
+4&2&8
+\end{bmatrix}
+-
+\begin{bmatrix}[rcl]
+6&1&3\\
+-1&1&2\\
+4&1&3
+\end{bmatrix}
+\right)
+\begin{bmatrix}[rc]
+3&0\\
+-1&2\\
+1&1
+\end{bmatrix}
+&=& 
+\begin{bmatrix}[rcl]
+-4&-3&3\\
+11&-1&2\\
+0&1&5
+\end{bmatrix}
+\begin{bmatrix}[rc]
+3&0\\
+-1&2\\
+1&1
+\end{bmatrix}\\
+&=&
+\begin{bmatrix}[rc]
+-6&-3\\
+36&0\\
+4&7
+\end{bmatrix}
+\end{eqnarray*}
+
+
+\noindent (b) 
+\begin{eqnarray*}
+\begin{bmatrix}[rc]
+16&-4\\
+0&8
+\end{bmatrix}
+\begin{bmatrix}[rcl]
+1&4&2\\
+3&1&5
+\end{bmatrix}
++
+\begin{bmatrix}[rc]
+8&-2\\
+0&4
+\end{bmatrix}
+&=&
+\begin{bmatrix}[rcl]
+4&60&12\\
+24&8&40
+\end{bmatrix}
++
+\begin{bmatrix}[rc]
+8&-2\\
+0&4
+\end{bmatrix}
+\end{eqnarray*}
+The matrix sum on the right is not defined. Thus the operation is not defined. 
+
+(c) \ 
+ \begin{eqnarray*}
+\begin{bmatrix}[rc]
+4&0\\
+-1&2
+\end{bmatrix}
+\left(
+\begin{bmatrix}[rcl]
+1&4&2\\
+3&1&5
+\end{bmatrix}
+\begin{bmatrix}[rc]
+1&3\\
+4&1\\
+2&5
+\end{bmatrix}
+-
+\begin{bmatrix}[rcl]
+3&-1&1\\
+0&2&1
+\end{bmatrix}
+\begin{bmatrix}[rc]
+3&0\\
+-1&2\\
+1&1
+\end{bmatrix}
+\right)\\
+= 
+\begin{bmatrix}[rc]
+4&0\\
+-1&2
+\end{bmatrix}
+\left(
+\begin{bmatrix}[rc]
+21&17\\
+17&35
+\end{bmatrix}
+-
+\begin{bmatrix}[rc]
+11&-1\\
+-1&5
+\end{bmatrix}
+\right)
+=
+\begin{bmatrix}[rc]
+40&72\\
+26&42
+\end{bmatrix}
+\end{eqnarray*}
+
+
+
+
+\end{solution}
+
+
+
+
+
+
+\ii Let 
+\[A = 
+\begin{bmatrix}[rcl]
+3&-2&7\\
+6&5&4\\
+0&4&9
+\end{bmatrix}
+, \hspace{5pt} B = 
+\begin{bmatrix}[rcl]
+6&-2&4\\
+0&1&3\\
+7&7&5
+\end{bmatrix}.
+\]
+Compute the following using either the row or column method of matrix multiplication:
+\bb
+\ii the first column of $AB$;
+\ii the second row of $BB$;
+\ii the third column of $AA$. 
+\ee
+\begin{solution} 
+\ \\
+(a) 
+Using expansion by columns, the first column of $AB$ is given by $A$ times the first column of $B$. We compute
+\[
+\begin{bmatrix}[rcl]
+3&-2&7\\
+6&5&4\\
+0&4&9
+\end{bmatrix}
+\begin{bmatrix}[r]
+6\\
+0\\
+7
+\end{bmatrix}
+=
+\begin{bmatrix}[r]
+67\\
+64\\
+63
+\end{bmatrix}
+\]
+\ \\
+(b) Using expansion by rows, the second row of $BB$ is given by the second row of $B$ times $B$. We compute
+\[
+\begin{bmatrix}[rcl]
+0&1&3
+\end{bmatrix}
+\begin{bmatrix}[rcl]
+6&-2&4\\
+0&1&3\\
+7&7&5
+\end{bmatrix}
+=
+\begin{bmatrix}[rcl]
+21&22&18
+\end{bmatrix}
+\]
+\noindent
+(c) 
+Using expansion by columns, the third column of $AA$ is given by $A$ times the third column of $A$. We compute
+\[
+A\colvec{7 \\ 4 \\ 9}=\begin{bmatrix}[rcl]
+3&-2&7\\
+6&5&4\\
+0&4&9
+\end{bmatrix}
+\colvec{7 \\ 4 \\ 9}=\colvec{76\\98\\97}
+\]
+
+\end{solution}
+
+
+\ii Find all values of $k$, if any, that satisfy the equation:
+\newline
+\begin{eqnarray*}
+\begin{bmatrix}[rcl]
+2&2&k
+\end{bmatrix}
+\begin{bmatrix}[rcl]
+1&2&0\\
+2&0&3\\
+0&3&1
+\end{bmatrix}
+\begin{bmatrix}[r]
+2\\
+2\\
+k
+\end{bmatrix}
+= 0
+\end{eqnarray*}
+
+\begin{solution} Since:
+\begin{eqnarray*}
+\begin{bmatrix}[rcl]
+2&2&k
+\end{bmatrix}
+\begin{bmatrix}[rcl]
+1&2&0\\
+2&0&3\\
+0&3&1
+\end{bmatrix}
+\begin{bmatrix}[r]
+2\\
+2\\
+k
+\end{bmatrix}
+= 
+\begin{bmatrix}[rcl]
+6&4+3k&6+k
+\end{bmatrix}
+\begin{bmatrix}[r]
+2\\
+2\\
+k
+\end{bmatrix}
+=
+\begin{bmatrix}[r]
+k^2 + 12k + 20
+\end{bmatrix}
+\end{eqnarray*}
+Set $k^2 + 12k + 20 = 0$ and solve for $k$.
+$$0 = k^2 + 12k + 20 = (k + 2)(k + 10) \rightarrow k = -2, -10$$
+\end{solution}
+
+\ii Let $\boldzero_{2\times 2}$ denote the  $2 \times 2$ matrix, each of whose entries is zero.
+\bb
+\ii Is there a 2 $\times$ 2 matrix $A$ such that $A \neq \boldzero$ and $AA = \boldzero$?
+
+\ii Is there a 2$\times$ 2 matrix $A$ such that $A \neq \boldzero$ and $AA = A$?
+\ee
+\ \\
+\begin{solution}
+Yes, there are many examples. Here is one:
+\[
+A = 
+\begin{bmatrix}[rc]
+0&1\\
+0&0
+\end{bmatrix} ,
+AA = 
+\begin{bmatrix}[rc]
+0&1\\
+0&0
+\end{bmatrix}
+\begin{bmatrix}[rc]
+0&1\\
+0&0
+\end{bmatrix}
+= 
+\begin{bmatrix}[rc]
+0&0\\
+0&0
+\end{bmatrix}
+\]
+\noindent 
+(b)
+Again yes, here is one example:
+\[
+A = 
+\begin{bmatrix}[rc]
+1&0\\
+0&1
+\end{bmatrix} ,
+AA = 
+\begin{bmatrix}[rc]
+1&0\\
+0&1
+\end{bmatrix}
+\begin{bmatrix}[rc]
+1&0\\
+0&1
+\end{bmatrix}
+= 
+\begin{bmatrix}[rc]
+1&0\\
+0&1
+\end{bmatrix}
+\]
+\end{solution}
+
+\ii Answer true or false. If true, provide a proof; if false, provide an explicit counterexample. 
+\bb
+\ii If $B$ has a column of zeros, then so does $AB$ if this product is defined.
+\ii If $B$ has a column of zeros, then so does $BA$ if this product is defined.
+\ii If $A, B, C$ are {\em nonzero}  $n\times n$ matrices and $AC=BC$, then $A=B$. (Remember: a matrix is nonzero if it is not the zero matrix. )
+\ii If $AB+BA$ is well-defined, then $A$ and $B$ are square matrices of the same size. 
+
+\ee
+\ \\
+\begin{solution}
+\noindent
+(a) True. Use the column method of matrix multiplication. Suppose column $j$ of $B$ is a zero column, and denote this column $\mathbf{b}_j$. Then according to the column method of multiplication, the $j$-th column of the product $AB$ is given by $A\mathbf{b}_j$. But clearly, $A\mathbf{b}_j$ is the zero column vector, since $\mathbf{b}_j$ contains nothing but zeros. Thus the $j$-th column of $AB$ is a zero column.  
+\\
+(b) False. Let 
+\[
+A = 
+\begin{bmatrix}[rc]
+1&1\\
+1&1
+\end{bmatrix} 
+, B = 
+\begin{bmatrix}[rc]
+0&1\\
+0&1
+\end{bmatrix} .
+\]
+Then 
+\[
+BA = \begin{bmatrix}[rc]
+0&1\\
+0&1
+\end{bmatrix} 
+\begin{bmatrix}[rc]
+1&1\\
+1&1
+\end{bmatrix} 
+=
+\begin{bmatrix}[rc]
+1&1\\
+1&1
+\end{bmatrix} 
+\]
+\noindent 
+(c) False. Take $A=C=\begin{bmatrix}
+0&1\\ 0&0
+\end{bmatrix}$, and $B=\begin{bmatrix}
+0&2\\ 0&0
+\end{bmatrix}$. Then $AC=BC=\boldzero_{2\times 2}$, but $A\ne B$. 
+\\
+(d) True. Suppose $A$ is $m\times n$ and $B$ is $r\times s$. For $AB$ to be well defined, we must have $n=r$. Thus $B$ is in fact $n\times s$. For $BA$ to be well-defined we need $s=m$. Thus $B$ is $n\times m$, and hence $AB$ is $m\times m$ and $BA$ is $n\times n$. For the sum of these matrices to be equal, we need $m=n$. Thus $A$ and $B$ are both $n\times n$ matrices! 
+\end{solution}
+\ii Let 
+$
+A = 
+\begin{bmatrix}[rc]
+2&0\\
+4&1
+\end{bmatrix}
+$.
+\\
+Compute $A^3$, $A^{-3}$ and $A^2-2A+I$. 
+\\
+\begin{solution}
+\begin{align*}
+A^3&=AAA\\
+&=
+\begin{bmatrix}[rc]
+2&0\\
+4&1
+\end{bmatrix}
+\begin{bmatrix}[rc]
+2&0\\
+4&1
+\end{bmatrix} 
+\begin{bmatrix}[rc]
+2&0\\
+4&1
+\end{bmatrix} 
+\\
+&=
+\begin{bmatrix}[rc]
+4&0\\
+12&1
+\end{bmatrix} 
+\begin{bmatrix}[rc]
+2&0\\
+4&1
+\end{bmatrix}
+\\
+&=
+\begin{bmatrix}[rc]
+8&0\\
+28&1
+\end{bmatrix} 
+\\ \\
+A^{-3}&=(A^{-1})^3 &\text{(by definition)}\\
+&=A^{-1}A^{-1}A^{-1}\\
+&=
+\begin{bmatrix}[rc]
+\frac{1}{2}&0\\
+-2&1
+\end{bmatrix} 
+\begin{bmatrix}[rc]
+\frac{1}{2}&0\\
+-2&1
+\end{bmatrix} 
+\begin{bmatrix}[rc]
+\frac{1}{2}&0\\
+-2&1
+\end{bmatrix} \\
+&=
+\begin{bmatrix}[rc]
+\frac{1}{4}&0\\
+-3&1
+\end{bmatrix} 
+\begin{bmatrix}[rc]
+\frac{1}{2}&0\\
+-2&1
+\end{bmatrix} 
+\\
+&=
+\begin{bmatrix}[cc]
+\frac{1}{8}&0\\
+-\frac{7}{2}&1
+\end{bmatrix} 
+\\ \\
+A^2 -2A + I&=\begin{bmatrix}[rc]
+2&0\\
+4&1
+\end{bmatrix} \begin{bmatrix}[rc]
+2&0\\
+4&1
+\end{bmatrix} -2\begin{bmatrix}[rc]
+2&0\\
+4&1
+\end{bmatrix} +
+\begin{bmatrix}[rc]
+1&0\\
+0&1
+\end{bmatrix}
+\\
+&=
+\begin{bmatrix}[rc]
+4&0\\
+12&1
+\end{bmatrix}
+-
+\begin{bmatrix}[rc]
+4&0\\
+8&2
+\end{bmatrix} 
++
+\begin{bmatrix}[rc]
+1&0\\
+0&1
+\end{bmatrix} \\
+&=
+\begin{bmatrix}[rc]
+1&0\\
+4&1
+\end{bmatrix} 
+\end{align*}
+\end{solution}
+\ii Let $A=\begin{bmatrix}[rc]
+2&0\\
+4&1
+\end{bmatrix}$. Compute $p(A)$, where $p(x)=x^3-2x+5$.
+\\ 
+\begin{solution}
+Replace $x$ with $A$ and the constant term $5$ with $5I$: 
+\begin{eqnarray*}
+\begin{bmatrix}[rc]
+8&0\\
+28&1
+\end{bmatrix} 
+-
+\begin{bmatrix}[rc]
+4&0\\
+8&2
+\end{bmatrix} 
++
+5\begin{bmatrix}[rc]
+1&0\\
+0&1
+\end{bmatrix} 
+=
+\begin{bmatrix}[rc]
+9&0\\
+20&4
+\end{bmatrix} \end{eqnarray*}
+\end{solution}
+\ii Let 
+\begin{eqnarray*}
+A = 
+\begin{bmatrix}[rc]
+a&b\\
+c&d
+\end{bmatrix} 
+, \hspace{5pt}
+C = 
+\begin{bmatrix}[rc]
+0&0\\
+1&0
+\end{bmatrix}.
+\end{eqnarray*}
+\\
+Find all choices of $a,b,c,$ and $d$ for which $AC=CA$. 
+\\
+\begin{solution}
+\begin{eqnarray*}
+AC =
+\begin{bmatrix}[rc]
+a&b\\
+c&d
+\end{bmatrix}
+\begin{bmatrix}[rc]
+0&0\\
+1&0
+\end{bmatrix}
+=
+\begin{bmatrix}[rc]
+b&0\\
+d&0
+\end{bmatrix}\\
+CA = 
+\begin{bmatrix}[rc]
+0&0\\
+1&0
+\end{bmatrix} 
+\begin{bmatrix}[rc]
+a&b\\
+c&d
+\end{bmatrix} 
+=
+\begin{bmatrix}[rc]
+0&0\\
+a&b
+\end{bmatrix}\\
+\end{eqnarray*}
+Thus $A$ and $C$ commute when: $a = d$ and $b = 0$
+\end{solution}
+\ii Consider the system 
+\[
+\begin{linsys}{2}
+2x_1&-&2x_2&=&4\\
+x_1&+&4x_2&=&4
+\end{linsys}
+\]
+\bb
+\ii Find a matrix $A$ and column vector $\boldb$ such that solutions $(x_1,x_2)$ to the system correspond to solutions $\colvec{x_1 \\ x_2}$ to the matrix equation $A\colvec{x_1\\ x_2}=\boldb$. 
+\ii Now solve your matrix equation in (a) algebraically using inverses. 
+\ee
+\ \\
+\begin{solution}
+We let $A=\begin{bmatrix}[rc]
+2&-2\\
+1&4
+\end{bmatrix}$ and $\boldb=\colvec{4 \\ 4}$. Using our formula for inverses of $2\times 2$ matrices, we see that $A$ is invertible and $A^{-1}=\begin{bmatrix}[rc]
+2/5&1/5\\
+-1/10&1/5
+\end{bmatrix}$. 
+Then we solve the matrix equation as follows:
+\begin{align*}
+A\colvec{x_1\\ x_2}&=\colvec{4 \\4}\\
+\colvec{x_1\\ x_2}&=A^{-1}\colvec{4 \\4} &\text{(mult. both sides on left by $A^{-1}$)}\\
+\colvec{x_1\\ x_2}&=
+\begin{bmatrix}[rc]
+2/5&1/5\\
+-1/10&1/5
+\end{bmatrix}
+\begin{bmatrix}[r]
+4\\
+4
+\end{bmatrix}\\
+&=\colvec{12/5 \\ 2/5}=\frac{1}{5}\colvec{12\\ 2}.
+\end{align*}
+\end{solution}
+\ii Find at least nine solutions to $A^2 = I_3$
+\\
+\begin{solution}
+Matrices of the form 
+\[
+\begin{bmatrix}[rcl]
+\pm 1&0&0\\
+0&\pm 1&0\\
+0&0&\pm 1
+\end{bmatrix}
+\]
+comprise eight of the desired nine solutions. For a ninth solution take 
+\[
+A=\begin{bmatrix}
+0&1&0\\
+1&0&0\\
+0&0&1
+\end{bmatrix}.
+\]
+
+\end{solution}
+\ii Can a matrix with two identical rows or two identical columns have an inverse?
+\\
+\begin{solution}
+\noindent
+No. We see this using the row or column method of multiplication. 
+
+For example, suppose $A$ has two identical columns; that means we have $\mathbf{a}_{i}=\mathbf{a}_{j}$ for two columns $\mathbf{a}_{i}$ and $\mathbf{a}_{j}$.  Now suppose by contradiction that $B$ is the inverse of $A$. Then $BA=I_n$. The column method tells us that the the $i$- and $j$-th columns of $BA$ are $B\mathbf{a}_{i}$ and $B\mathbf{a}_{j}$; but then these two columns are equal, a contradiction since $I_n$ does not have any identical columns. 
+
+A similar argument applies if $A$ has two identical rows. 
+\end{solution}
+\ii Assuming $A, B, C$ and $D$ are all invertible square matrixes, solve the following equation for $D$ in terms of $A$, $B$ and $C$.
+\[
+ABC^TDBA^TC=AB^T.\\
+\]
+\ \\
+\begin{solution}
+\begin{eqnarray*}
+ABC^TDBA^TC&=&AB^T\\
+(ABC^T)^{-1}ABC^TDBA^TC&=&(ABC^T)^{-1}AB^T\\
+DBA^TC&=&(ABC^T)^{-1}AB^T\\
+DBA^TC(BA^TC)^{-1}&=&(ABC^T)^{-1}AB^T(BA^TC)^{-1}\\
+D&=&(ABC^T)^{-1}AB^T(BA^TC)^{-1}
+\end{eqnarray*}
+Side note: You can also work with one matrix at a time and multiply on the correct side of both sides by the inverse. It takes longer, but gives the same result.
+\end{solution}
+\ii Prove: $A+B=B+A$, where $A$ and $B$ are any $m\times n$ matrices. (This is Theorem 1.18 (a).) 
+\\
+\begin{solution}
+\noindent
+Let $A = [a_{ij}], B = [b_{ij}]$ and $(A+B)_{ij}$ denote the $ij$ entry of $A+B$. Show that $(A+B)_{ij} = (B+A)_{ij}$.
+\begin{eqnarray*}
+(A+B)_{ij} &=& a_{ij} + b_{ij}\\
+&=& b_{ij} + a_{ij}\\
+&=& (B+A)_{ij}
+\end{eqnarray*}
+Note that line two follows from the fact that addition of real numbers is commutative
+\end{solution}
+\ii Prove: $(AB)^T = B^TA^T$, where $A$ is any $m\times n$ matrix and $B$ is any $n\times r$ matrix.  
+\\ 
+%\begin{solution}
+%Let $A$ be $m\times n$ and $B$ be $n\times r$. We must show the $ij$-th entries of the LHS and RHS matrix are equal. We start with the LHS. 
+%\begin{align*}
+%\left((AB)^T\right)_{ij}&=(AB)_{ji}&\text{(def. of transpose)}\\
+%&=\sum_{k=1}^n(A)_{jk}(B)_{ki} &\text{(def. of mult.)}\\
+%&=\sum_{k=1}^n(A^T)_{kj}(B^T)_{ik} &\text{(def. of transpose)}\\
+%&=\sum_{k=1}^n(B^T)_{ik}(A^T)_{kj} &\text{(commutivity of reals)}\\
+%&=(B^TA^T)_{ij}
+%\end{align*}
+\begin{solution}
+\noindent
+Both the LHS and RHS are $n\times n$ matrices. It remains to show the $ij$-th entries are all equal: that is, $((AB)^T)_{ij}=(B^TA^T)_{ij}$ for all $i,j$. 
+\begin{align*}
+((AB)^T)_{ij}&=(AB)_{ji} & \text{(def. of transp.)}\\
+&=\sum_{\ell=1}^n(A)_{j\ell}(B)_{\ell j} &\text{(def. of mult.)}\\
+&=\sum_{\ell=1}^n(A^T)_{\ell j}(B^T)_{i\ell} &\text{(def. of transp.)}\\
+&=\sum_{\ell=1}^n(B^T)_{i\ell}(A^T)_{\ell j} &\text{(real number commutativity)}\\
+&=(B^TA^T)_{ij}.
+\end{align*}
+
+\end{solution}
+\ii Answer true or false. If true, provide a proof; if false, give an explicit counterexample. 
+\bb[(a)]
+\ii If $A$ and $B$ are invertible $n\times n$ matrices, then $(AB)^{-1} = A^{-1}B^{-1}$.
+\ii A square matrix containing a row or column of zeros cannot be invertible.
+\ii If $A$ and $B$ are invertible $n\times n$ matrices, then $A+B$ is invertible. 
+\ii If $A$ is invertible, then $A^T$ is invertible. 
+\ee
+\ \\
+\begin{solution}\noindent
+(a) False. Let
+\begin{eqnarray*}
+A = 
+\begin{bmatrix}[rc]
+2&1\\
+1&1
+\end{bmatrix}:
+B = 
+\begin{bmatrix}[rc]
+2&2\\
+3&2
+\end{bmatrix}\\
+A^{-1}B^{-1} = 
+\begin{bmatrix}[rc]
+-5/2&2\\
+4&-3
+\end{bmatrix}\\
+(AB)^{-1} = B^{-1}A^{-1} = 
+\begin{bmatrix}[rc]
+-2&3\\
+5/2&-7/2
+\end{bmatrix}\\
+\end{eqnarray*}
+\noindent (b) True. If $A$ has a row of zeroes, then $AB$ has a row of zeroes; it follows that there cannot be a matrix $B$ such that $AB=I$, and thus that $A$ is not invertible. 
+
+Similarly, if $A$ has a column of zeroes, then $BA$ has a column of zeroes, and hence cannot be equal to $I$. Thus $A$ cannot be invertible in this case. 
+\\
+(c) 
+False. Take $A=I_2$ and $B=-I_2$. Both are invertible, yet $A+B=\boldzero$ is not invertible. 
+\\
+(d) True. In fact, we have a theorem that says in this case that $(A^T)^{-1}=(A^{-1})^T$. 
+\end{solution}
+
+\ee

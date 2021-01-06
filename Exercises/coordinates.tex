@@ -1,0 +1,436 @@
+\bb
+\ii Find the coordinate vector $[\boldv]_B$ relative to the basis $B= {\boldv_1,\boldv_2,\boldv_3}$ for $\R^3$.
+\bb
+\ii $\boldv =(2,-1,3)$; $\boldv_1 = (1,0,0)$, $\boldv_2=(2,2,0)$, $\boldv_3 = (3,3,3)$
+\ii $\boldv =(5,-12,3)$; $\boldv_1 = (1,2,3)$, $\boldv_2=(-4,5,6)$, $\boldv_3 = (7,-8,9)$
+\ee
+\begin{solution}
+\noindent In both parts, the coordinate vector $[\boldv]_S$ is computed by finding $c_1,c_2,c_3$ such that $\boldv=c_1\boldv_1+c_2\boldv_2+c_3\boldv_3$. We do so using GE. 
+\noindent (a) 
+$$
+\begin{bmatrix}[rrrr]
+1&2&3&2\\
+0&2&3&-1\\
+0&0&3&3
+\end{bmatrix}
+$$
+\begin{eqnarray*}
+c_3 &=& 1\\
+c_2 &=& -1/2 -3/2 = -2\\
+c_1 &=& 2-3+4 = 3
+\end{eqnarray*}
+Thus $[\boldv]_B=(3,-2,1)$.
+\\
+(b) 
+\begin{eqnarray*}
+\begin{bmatrix}[rrrr]
+1&-4&7&5\\
+2&5&-8&-12\\
+3&6&9&3
+\end{bmatrix}
+&\xrightarrow[]{2r_1-r_2}&
+\begin{bmatrix}[rrrr]
+1&-4&7&5\\
+0&-13&22&22\\
+3&6&9&3
+\end{bmatrix}\\
+&\xrightarrow[]{3r_1-r_3}&
+\begin{bmatrix}[rrrr]
+1&-4&7&5\\
+0&-13&22&22\\
+0&-18&12&12
+\end{bmatrix}\\
+&\xrightarrow[]{-1/13r_2}&
+\begin{bmatrix}[rrrr]
+1&-4&7&5\\
+0&1&-22/13&-22/13\\
+0&-18&12&12
+\end{bmatrix}\\
+&\xrightarrow[]{18r_2+r_3}&
+\begin{bmatrix}[rrrr]
+1&-4&7&5\\
+0&1&-22/13&-22/13\\
+0&0&-240/13&-240/13
+\end{bmatrix}\\
+&\xrightarrow[]{-13/240r_3}&
+\begin{bmatrix}[rrrr]
+1&-4&7&5\\
+0&1&-22/13&-22/13\\
+0&0&1&1
+\end{bmatrix}\\
+\end{eqnarray*}
+\begin{eqnarray*}
+c_3 &=& 1\\
+c_2 &=& -22/13 + 22/13 = 0\\
+c_1 &=& 5 - 7 = -2
+\end{eqnarray*}
+Thus the coordinate vector is $[\boldv]_B=(-2,0,1)$.
+\end{solution}
+\ii Find the coordinate vector $[p]_B$ relative to the basis $B= \{p_1,p_2,p_3\}$ for $P_2$.
+\bb
+\ii $p = 4 -3x +x^2$, $p_1 = 1$, $p_2 = x$, $p_3 = x^2$
+\ii $p = 2 -x +x^2$, $p_1+x = 1$, $p_2 = 1+x^2$, $p_3 = x+x^2$
+\ee
+\begin{solution}
+\noindent In both parts, the coordinate vector $[\boldv]_B$ is computed by finding $c_1,c_2,c_3$ such that $p=c_1p_1+c_2p_2+c_3p_3$. As usual this boils down (after grouping like terms and equating like coefficients) to solving a certain linear system, which we do either by inspection, or by using GE. 
+\\
+(a)  By inspection, we see that $p=4p_1+(-3)p_2+p_3$. Thus $[p]_B=(4,-3,1)$. 
+\\
+(b) We solve the corresponding linear system in this case using GE:
+\begin{eqnarray*}
+\begin{bmatrix}[rrrr]
+1&1&0&2\\
+1&0&1&-1\\
+0&1&1&1
+\end{bmatrix}
+&\xrightarrow[]{r_2\leftrightarrow r_3}&
+\begin{bmatrix}[rrrr]
+1&1&0&2\\
+0&1&1&1\\
+1&0&1&-1
+\end{bmatrix}\\
+&\xrightarrow[]{r_1 -r_3}&
+\begin{bmatrix}[rrrr]
+1&1&0&2\\
+0&1&1&1\\
+0&1&-1&3
+\end{bmatrix}\\
+&\xrightarrow[]{r_2 -r_3}&
+\begin{bmatrix}[rrrr]
+1&1&0&2\\
+0&1&1&1\\
+0&0&2&-2
+\end{bmatrix}\\
+\end{eqnarray*}
+\begin{eqnarray*}
+c_3 &=& -1\\
+c_2 &=& 1 + 1 = 2\\
+c_1 &=& 2-2 = 0
+\end{eqnarray*}
+Thus the coordinate vector is $[p]_B=(0,2,-1)$.
+\end{solution}
+\ii The set $B = \{A_1,A_2,A_3,A_4\}$ is a basis for $M_{22}$, where 
+$$
+A_1 =
+\begin{bmatrix}[rr]
+1&0\\
+1&0
+\end{bmatrix}
+, A_2=
+\begin{bmatrix}[rr]
+1&1\\
+0&0
+\end{bmatrix}
+, A_3 = 
+\begin{bmatrix}[rr]
+1&0\\
+0&1
+\end{bmatrix}
+, A_4 = 
+\begin{bmatrix}[rr]
+0&0\\
+1&0
+\end{bmatrix}
+$$
+(a) Compute $[A]_B$, where $$A = 
+\begin{bmatrix}[rr]
+6&2\\
+5&3
+\end{bmatrix}.$$
+\vspace{.1in}
+\\
+(b) Now compute $[A]_B$ for the general matrix 
+\[
+A=
+\begin{bmatrix}
+a&b\\ c&d
+\end{bmatrix}.
+\]
+\begin{solution}
+\noindent
+(a) Finding $c_1, c_2, c_3, c_4$ such that $A=c_1A_1+c_2A_2+c_3A_3+c_4A_4$ amounts to solving the system corresponding to the augmented matrix below:
+$$
+\begin{bmatrix}[rrrr|r]
+1&1&1&0&6\\
+0&1&0&0&2\\
+1&0&0&1&5\\
+0&0&1&0&3
+\end{bmatrix}
+$$,
+or equivalently, the matrix equation 
+\[
+\underset{A}{\underbrace{\begin{bmatrix}
+1&1&1&0\\
+0&1&0&0\\
+1&0&0&1\\
+0&0&1&0
+\end{bmatrix}}}
+\begin{bmatrix}
+c_1\\ c_2\\ c_3\\ c_4
+\end{bmatrix}=
+\begin{bmatrix}
+6\\ 2\\ 5\\ 3
+\end{bmatrix}
+\]
+After GE this reduces to 
+\[
+\begin{bmatrix}[rrrr|r]
+1&1&1&0&6\\
+0&1&0&0&2\\
+0&0&1&-1&-1\\
+0&0&0&1&4
+\end{bmatrix}
+\]
+Thus
+\begin{eqnarray*}
+c_4 &=& 4\\
+c_3 &=& 3\\
+c_2 &=& 2\\
+x_1 &=& 1
+\end{eqnarray*}
+Then $A = 1A_1 + 2A_2 +3A_3 +4A_4$ and the coordinate vector is:\\ $[A]_B = (1,2,3,4)$.
+\vspace{.1in}
+\\
+(b) For the general matrix $\begin{bmatrix}
+a&b\\c&d
+\end{bmatrix}$, the same reasoning shows that we need to solve the matrix equation 
+\[
+\underset{A}{\underbrace{\begin{bmatrix}
+1&1&1&0\\
+0&1&0&0\\
+1&0&0&1\\
+0&0&1&0
+\end{bmatrix}}}
+\begin{bmatrix}
+c_1\\ c_2\\ c_3\\ c_4
+\end{bmatrix}=
+\begin{bmatrix}
+a\\ b\\ c\\ d
+\end{bmatrix}
+\]
+We could proceed exactly as above, using Gaussian elimination. Instead, I observe that $A$ is invertible, and solve (after computing $A^{-1}$) 
+\begin{align*}
+\begin{bmatrix}
+c_1\\ c_2\\ c_3\\ c_4
+\end{bmatrix}&=A^{-1}\begin{bmatrix}
+a\\ b\\ c\\ d
+\end{bmatrix}\\
+&=\begin{bmatrix}[rrrr]
+1& -1& 0& -1\\ 0& 1& 0& 0\\ 0& 0& 0& 1\\ -1& 1& 1& 1
+\end{bmatrix}\begin{bmatrix}
+a\\ b\\ c\\ d
+\end{bmatrix}\\
+&=\begin{bmatrix}
+a - b - d\\ b\\ d \\ -a + b + c + d
+\end{bmatrix}
+\end{align*}
+Thus for general $A=\begin{bmatrix}
+a&b\\ c&d
+\end{bmatrix}$ we see that 
+\[
+[A]_B=(a-b-d, b, d, -a+b+c+d)
+\]
+\end{solution}
+\begin{samepage}
+\ii Suppose $\dim(V)=n$, and let $B=\{\boldv_1,\dots ,\boldv_n\}$  be a basis for $V$. 
+Define 
+\begin{align*}
+T\colon V&\rightarrow \R^n\\
+\boldv&\mapsto [\boldv]_B.
+\end{align*}
+Prove all statements of the coordinate vector map theorem, as listed below. 
+\bb
+\ii  $T$ is a linear transformation. 
+
+\ii $T(\boldv_1)=T(\boldv_2)$ if and only if $\boldv_1=\boldv_2$: i.e., $T$ is {\em one-to-one}. 
+
+In particular, $T(\boldv)=\boldzero$ if and only if $\boldv=\boldzero_V$. 
+
+\ii  $\range T=\R^n$: i.e. $T$ is {\em onto}. 
+
+\ii  A set $S=\{w_1,w_2,\dots, w_r\}\subseteq V$ is linear independent  if and only if $T(S)=\{T(\boldw_1), T(\boldw_2),\dots, T(\boldw_r)\}\subseteq \R^n$ is linearly independent. 
+
+\ii A set $S=\{w_1,w_2,\dots, w_r\}\subseteq V$ spans $V$ if and only if $T(S)=\{T(\boldw_1), T(\boldw_2),\dots, T(\boldw_r)\}$ spans $\R^n$. 
+\ee
+\end{samepage}
+\begin{solution}
+\noindent (a) We must show $[c\boldv+d\boldw]_B=c[\boldv]_B+d[\boldw]_B$ for all $\boldv,\boldw\in V$ and all $c,d\in\R$. 
+To this end, given $\boldv, \boldw$, write
+\begin{align*}
+\boldv&=a_1\boldv_1+a_2\boldv_2+\cdots +a_n\boldv_n\\
+\boldw&=b_1\boldv_1+b_2\boldv_2+\cdots +b_n\boldv_n
+\end{align*} 
+We can do this since $B$ spans $V$. It follows that for any $c,d\in\R$ 
+\[
+c\boldv+d\boldw=(ca_1+db_1)\boldv_1+(ca_2+db_2)\boldv_2+\cdots +(ca_n+db_n)\boldv_n
+\]
+Now, using the definition of coordinate vectors we have 
+\begin{align*}
+[c\boldv+d\boldw]_B&=\colvec{ca_1+db_1\\ca_2+db_2\\ \vdots \\ ca_n+db_n}\\
+&=\colvec{ca_1\\ca_2\\ \vdots \\ ca_n}+\colvec{db_1\\db_2\\ \vdots \\ db_n}\\
+&=c\colvec{a_1\\a_2\\ \vdots \\ a_n}+d\colvec{b_1\\b_2\\ \vdots \\ b_n}\\
+&=c[\boldv]_B+d[\boldw]_B.
+\end{align*} 
+(b) I begin, somewhat ponderously, by first proving that $T(\boldv)=[\boldv]_B=(0,0,\dots, 0)$ if and only if $\boldv=\boldzero$. 
+This is fairily obvious. Indeed, given an arbitrary $\boldv\in V$, we have $\boldv=c_1\boldv_1+c_2\boldv_2+\cdots +c_n\boldv_n$ for some $c_i\in \R$, and $[\boldv]_B=(c_1,c_2,\dots, c_n)$.  Clearly $[\boldv]_B=(0,0,\dots, 0)$ if and only if $c_1=c_2=\cdots =c_n=0$ if and only if $\boldv=\boldzero$. 
+
+We have proved a special case of the general claim: namely $T(\boldv)=T(\boldzero)$ iff $\boldv=\boldzero$. The general case follows by using the fact that $T$ is linear. We have 
+\begin{align*}
+T(\boldv_1)=T(\boldv_2)&\Leftrightarrow T(\boldv_1)-T(\boldv_2)=(0,0,\dots, 0)\\
+&\Leftrightarrow T(\boldv_1-\boldv_2)=(0,0,\dots, 0) &\text{($T$ is linear)}\\
+&\Leftrightarrow \boldv_1-\boldv_2=\boldzero &\text{(by our special case!)}\\
+&\Leftrightarrow \boldv_1=\boldv_2
+\end{align*}
+This same trick can be used to show, in general, that a linear transformation $T$ is one-to-one if and only if $\NS T=\{\boldzero\}$.
+\\
+(c) This is obvious. Given any $(c_1,c_2,\dots, c_n)\in\R^n$, set $\boldv=c_1\boldv_1+c_2\boldv_2+\cdots +c_n\boldv_n$. Then by definition $[\boldv]_B=(c_1,c_2,\dots, c_n)$. 
+\\
+(d) We can now use our results above to prove the remaining statements. Note that 
+\begin{align*}
+c_1\boldw_1+c_2\boldw_2+\cdots +c_r\boldw_r=\boldzero &\Leftrightarrow T(c_1\boldw_1+c_2\boldw_2+\cdots +c_r\boldw_r)=(0,0,\dots, 0) &\text{(special case of (b)!)}\\
+&\Leftrightarrow c_1T(\boldw_1)+c_2T(\boldw_2)+\cdots +c_rT(\boldw_r)=(0,0,\dots, 0) &\text{($T$ is linear)}
+\end{align*}
+From this we see that the $\boldw_i$ are linearly independent if and only if the $T(\boldw_i)$ are linearly independent. 
+\\
+(e) Suppose the $\boldw_i$ span. Given any $\boldy\in \R$, there is a $\boldv\in V$ such that $T(\boldv)=\boldy$, since $\range T=\R^n$ (part (c)). Since the $\boldw_i$ span, we can write $\boldv=d_1\boldw_1+d_2\boldw_2+\cdots +d_r\boldw_r$. Then 
+\[
+\boldy=T(\boldv)=T(d_1\boldw_1+d_2\boldw_2+\cdots +d_r\boldw_r)=d_1T(\boldw_1)+d_2T(\boldw_2)+\cdots +d_rT(\boldw_r),\]
+showing that the $T(\boldw_i)$ span $\R^n$. 
+
+Conversely, suppose the $T(\boldw_i)$ span $\R^n$. Given any $\boldv\in V$, we have $T(\boldv)=d_1T(\boldw_1)+d_2T(\boldw_2)+\cdots +d_rT(\boldw_r)$, for some $d_i\in\R$, since $T(\boldv)\in\R^n$ and the $T(\boldw_i)$ span $\R^n$ by assumption. But then 
+\[
+T(\boldv)=T(d_1\boldw_1+d_2\boldw_2+\cdots +d_r\boldw_r),
+\]
+since $T$ is linear. It follows that 
+\[
+\boldv=d_1\boldw_1+d_2\boldw_2+\cdots +d_r\boldw_r,
+\]
+since $T$ is 1-1 by (b) !! This shows that the $\boldw_i$ span $V$, as desired. 
+\\
+Note: properties (d) and (e) can be summarized by saying $T$ preserves linear independence and $T$ preserves spanning sets. This property is enjoyed more generally by any isomorphism between vector spaces. 
+
+\end{solution}
+\ii Let $S=\{p_1=1+x+2x^2,p_2=1-x,p_3=1+x^2,p_4=1+x-x^2\}$ and let $W=\Span(S)\subset P$.  (Recall $P$ is the space of all polynomials.) 
+\bb
+\ii Use ``street smarts" to decide whether $S$ is linearly independent. 
+\ii Use coordinate vectors and an appropriate fundamental space algorithm to choose a basis of $W=\Span(S)$ {\em from among the elements of $S$}.
+\ii Give a satisfying description of $W$. 
+\ee
+\begin{solution}
+\noindent 
+(a) In fact we see that $S$ lies within the smaller subspace $P_2$, which has dimension $3$. Since $S$ has 4 elements and lives in a 3-dimensional space, it is guaranteed to be dependent. Street smarts! 
+\\ \\
+(b) Let $B$ be the standard basis of $P_2$: i.e., $B=\{1,x,x^2\}$. Then we can translate this whole problem into $\R^3$ using coordinate vectors. Namely we let:
+\[
+\boldv_1=(p_1)_B=\begin{bmatrix}
+1\\ 1\\ 2
+\end{bmatrix}, \boldv_2=(p_2)_B=\begin{bmatrix}
+1\\ -1\\ 0
+\end{bmatrix}, \boldv_3=(p_3)_B=\begin{bmatrix}
+1\\0 \\ 1
+\end{bmatrix}, \boldv_4=(p_4)_B=\begin{bmatrix}
+1\\ 1\\ -1
+\end{bmatrix},
+\]
+and set $W'=\Span(\{\boldv_1,\boldv_2,\boldv_3,\boldv_4\}$. 
+
+Putting the $\boldv_i$ into the columns of a matrix $A$ and applying our column space algorithm tells us that $\{\boldv_1,\boldv_2,\boldv_4\}$ form a basis for $W'$. (You do the work.) 
+
+Translating back to $P_3$ we conclude that the corresponding polynomials $\{p_1,p_2,p_4\}$ form a basis for $W$. 
+\\
+(c) Since $W$ has a basis containing three elements, we see that $\dim(W)=3$. Since $W\subset P_2$ and $\dim(P_2)=\dim(W)=3$, we see by the dimension theorem compendium (subspace part)  that $W$ is in fact all of $P_2$. 
+\end{solution}
+\ii Let $V=P_2$, and let $S=\{x^2+2x+1, 3x^2+6x \}$. Extend $S$ to a basis of $P_2$ by first translating the problem to $\R^3$ using coordinate vectors and applying the relevant algorithm there. 
+\\
+\begin{solution}
+\noindent Let $B=\{1,x,x^2\}$ be the standard basis of $P_2$. Applying coordinate vectors to $S$ yields the set $\{ (1,2,1), (0,6,3)\}$. The usual ``extend to a basis" algorithm tells us that $\{(1,2,1), (0,6,3), (0,1,0)\}$ is a basis for $\R^3$. Now translate back to our original vector space to conclude that $\{ x^2+2x+1, 3x^2+6x, x\}$ is a basis for $P_2$ extending $S$. (Note that the vector $(0,1,0)$ corresponds to the polynomial $p(x)=0+1x+0=x$ via the coordinate vector map. )
+\end{solution}
+\ii Let $V=P_3$ and consider the polynomials 
+\[
+p_1=x^3+1, p_2=2x^3+x+1, p_3=3x^3+2x+1, p_4=2x^3+x^2+x+1,
+\]
+Let $S=\{p_1, p_2, p_3, p_4\}$ and define $W=\Span(S)$. 
+
+Find a subset of $S$ that is a basis of $W$ and compute $\dim(W)$. Use coordinate vectors!
+%\newpage
+\begin{solution}
+\noindent
+{\bf General technique:} translate problem to $\R^4$ using coordinate vectors, answer the problem there using one of the fundamental space algorithms, then translate the results back into the original $P_3$ context.
+% 
+Let $B=\{1,x,x^2,x^3\}$ be the standard basis of $P_3$, and translate the whole problem to $\R^4$ using coordinate vectors. That is, we let 
+\begin{align*}
+\boldv_1&=[p_1]_B=\begin{bmatrix}[r]
+1\\0\\0\\ 1
+\end{bmatrix} & \boldv_2&=[p_2]_B=\begin{bmatrix}[r]
+1\\ 1 \\0 \\2
+\end{bmatrix}\\
+\boldv_3&=[p_3]_B=\begin{bmatrix}[r]
+1\\ 2 \\ 0 \\ 3
+\end{bmatrix}
+&
+\boldv_4&=[p_4]_B=\begin{bmatrix}[r]
+1\\ 1\\ 1 \\ 2
+\end{bmatrix} 
+\end{align*}
+and let $W'=\Span\{\boldv_1,\boldv_2,\boldv_3,\boldv_4\}\subseteq \R^4$. We use the {\em column space} algorithm to determine a basis of $W'$ from among the $\boldv_i$. That is $W'=\CS(A)$ where 
+\[
+A=\begin{bmatrix}[rrrr]
+1&1&1&1\\ 0&1&2&1\\ 0&0&0&1\\ 1&2&3&2
+\end{bmatrix}
+\xrightarrow{\text{row reduce}}
+U=\begin{bmatrix}[rrrr]
+1&1&1&1\\0&1&2&1\\0&0&0&1\\0&0&0&0
+\end{bmatrix}.
+\]
+
+Since the first, second and fourth columns of $U$ form a basis for $\CS(U)$, the same is true of $A$, which means $\{\boldv_1,\boldv_2,\boldv_4\}$ is a basis for $W'$. 
+
+Lastly, returning back to $P_3$ we conclude that $\{p_1,p_2,p_4\}$ is a basis for $W$ in $P_3$.  
+\end{solution}
+\ii\label{ex:fundspace} Let 
+\[
+S=\left\{A_1=\begin{bmatrix}[rr]1&2\\1&1 \end{bmatrix}, \ A_2=\begin{bmatrix}[rr] 1&1\\2&1\end{bmatrix}, \ A_3=\begin{bmatrix}[rr] -1&1\\ -4&-1 \end{bmatrix} , \ A_4=\begin{bmatrix}[rr] 0&1\\2&0\end{bmatrix}\right\}
+\] 
+and define $W=\Span(S)\subseteq M_{22}$. 
+\bb
+\item Compute a basis $B$ of $W$ from among the elements of $S$. 
+
+You should first ``translate" the problem into $\R^4$ using coordinate vectors and apply an appropriate fundamental space algorithm. 
+%\vspace{4.5in}
+\item Show that in fact $W$ is equal to the subspace $W'=\left\{\begin{bmatrix}
+a&b\\
+c&a
+\end{bmatrix}
+\colon a,b,c\in\R\right\}$.
+\\
+Make your life easier by using a dimension argument, but make sure all your claims are fully justified. 
+\ee
+\begin{solution}
+\noindent
+(a) Translate the problem to $\R^4$ using the coordinate vector map with respect to the standard basis, and identify in this way the given vector space with $\CS(A)$, where 
+\[
+A=\begin{bmatrix}[rrrr]
+1&1&-1&0\\
+2&1&1&1\\
+1&2&-4&2\\
+1&1&-1&0
+\end{bmatrix}
+\]
+The GE procedure for $\CS(A)$ tells us that the first, second and fourth columns form a basis for $\CS(A)$. Translating back to $M_{22}$, we conclude that $B=\{A_1,A_2,A_4\}$ is a basis for $W$. 
+\\
+(b) We see easily that $W'$ has basis 
+\[
+B'=\left\{\begin{bmatrix}
+1&0\\ 0&1
+\end{bmatrix}, \begin{bmatrix}
+0&1\\ 0&0
+\end{bmatrix}, \begin{bmatrix}
+0&0\\
+1&0
+\end{bmatrix}\right\}.
+\] Thus  $\dim W'=3$. Since $B\subseteq W'$, it follows that $W=\Span(B)\subseteq W'$. Since $\dim W=\dim W'=3$, we conclude by the dimension theorem compendium (subspace part) that $W=W'$. 
+
+\end{solution}
+
+
+\ee

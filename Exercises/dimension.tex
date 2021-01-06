@@ -1,0 +1,421 @@
+\bb
+\ii Prove the following statement from the ``street smarts theorem".
+\\
+Let $V$ be a vector space with basis $B=\{\boldv_1,\dots, \boldv_n\}$. Then any collection of $r$ vectors, with $r>n$, is linearly dependent. 
+\\
+Hint: suppose $S=\{\boldw_1,\boldw_2,\dots ,\boldw_r\}$ with $r>n$. Begin by setting up the vector equation $c_1\boldw_1+c_2\boldw_2+\cdots +c_r\boldw_r=\boldzero_V$; then write each $\boldw_j$ in this equation as a linear combination of the $\boldv_i$ (possible since $\boldv_i$ span); then collect like terms and use the fact that the $\boldv_i$ are linearly independent.
+\\
+\begin{solution}
+\noindent Since $B$ spans we can write each 
+\[
+\boldw_j=a_{1j}\boldv_1+a_{2j}\boldv_2+\cdots+ a_{nj}\boldv_{nj}=\sum_{i=1}^na_{ij}\boldv_i.
+\] 
+Now, we have 
+{
+\small
+\begin{align*}
+c_1\boldw_1+c_2\boldw_2\cdots +c_r\boldw_r=\boldzero_V&\Leftrightarrow c_1\sum_{i=1}^na_{i1}\boldv_i+c_2\sum_{i=1}^na_{i2}\boldv_i\cdots +c_r\sum_{i=1}^na_{ir}\boldv_i=\boldzero\\
+&\Leftrightarrow (\sum_{j=1}^ra_{1j}c_j)\boldv_1+(\sum_{j=1}^ra_{2j}c_j)\boldv_2+\cdots +(\sum_{j=1}^ra_{nj}c_j)\boldv_n=\boldzero &\text{(grouping like terms)}\\
+&\Leftrightarrow (a_{i1}c_1+a_{i2}c_{2}+\cdots a_{ir}c_r)=0 \text{ for all $i$,} &\text{($\boldv_i$ are lin. ind.)}\\
+&\Leftrightarrow (c_1,\dots ,c_r) \text{ is a solution to system} \\
+&\begin{linsys}{4}
+a_{11}x_{1}&+&a_{12}x_{2}&+&\cdots &+&a_{1r}x_r&=&0\\
+a_{21}x_{1}&+&a_{22}x_{2}&+&\cdots &+&a_{2r}x_r&=&0\\
+&\vdots& &\vdots& &\vdots& \\
+a_{n1}x_{1}&+&a_{n2}x_{2}&+&\cdots &+&a_{nr}x_r&=&0
+\end{linsys}
+\end{align*}
+}
+Now this is a homogenous linear system of $n$ equations in $r$ unknowns, where $r>n$. Gaussian elimination theory tells us that this has a nontrivial solution. It follows that the $\boldw_i$ are linearly dependent.
+\end{solution}
+\ii For each of the following choices of a vector space $V$ and subset $S\subseteq V$ decide whether $S$ is a basis for $V$. 
+
+Keep an eye out for potential shortcuts using the dimension theorem compendium. 
+\vspace{.1in}
+\\
+(a) $V=P_3$, $S=\{1-x^3, x-x^3, x^2-x^3\}$. 
+\\
+(b) $V=\R^3$, $S=\{(1,2,3), (2,5,6), (1,-1,3)\} $.
+\\
+\begin{solution}
+\noindent
+(a) The set $S$ is guaranteed not to span $P_3$. Indeed, we have $\dim P_3=4$, $\#S=3$. Street smarts! (Dimension theorem compendium.)
+\\
+(b) Since $\# S=\dim\R^3=3$, the dimension theorem compendium asserts that $S$ is a basis iff $S$ is linearly independent iff $S$ spans. This means I need only check one of the two usual conditions to being a basis: linear independence, or span. 
+\\
+Let's check whether $S$ is linearly independent. We have 
+\begin{align*}
+c_1(1,2,3)+c_2(2,5,6)+c_3(1,-1,3)=(0,0,0) &\Longleftrightarrow \begin{bmatrix}[rrr]
+1&2&1\\ 2&5&-1\\3&6&3
+\end{bmatrix}
+\begin{bmatrix}
+c_1\\ c_2\\ c_3
+\end{bmatrix}=\begin{bmatrix}
+0\\ 0\\ 0
+\end{bmatrix}.
+\end{align*}
+Let $A=\begin{bmatrix}[rrr]
+1&2&1\\ 2&5&-1\\3&6&3
+\end{bmatrix}
+$. We see via simple computation that $\det A=0$ and thus that $A$ is not invertible. The invertibility theorem then implies that there is a nontrivial solution $(c_1,c_2,c_3)\ne (0,0,0)$ to the matrix equation, and hence a nontrivial linear combination of the vectors yielding $\boldzero$. This proves $S$ is not linearly independent, and hence not a basis. 
+\end{solution}
+\ii In multivariable calculus, a plane in $\R^3$ is defined as the set of solutions to an equation of the form $ax+by+cz=d$, where at least one of $a, b, c$ is nonzero. 
+
+In particular, a plane passing through the origin $(0,0,0)$ is the set of solutions to an equation of the form $ax+by+cz=0$, where at least one of $a, b, c$ is nonzero. 
+\bb
+\ii Show that a plane passing through the origin is a subspace of $\R^3$ of dimension 2; conversely, show that a subspace of $\R^3$ of dimension 2 is a plane passing through the origin. 
+
+In other words, show that the set of all planes passing through the origin is  precisely the set of all 2-dimensional subspaces of $\R^3$. 
+\ii Let $\mathcal{P}\colon ax+by+cz+d$ be any plane in $\R^3$, and let $P=(x_0,y_0,z_0)$ be a point of $\mathcal{P}$. Show that there is a 2-dimensional subspace $W\subseteq \R^3$ such that $\mathcal{P}=P+W:=\{(x_0,y_0,z_0)+\boldw\colon \boldw\in W\}$. 
+
+The set $P+W$ is called the {\bf translate of $W$ by $P$}. This result shows that all planes in $\R^3$ are translates of 2-dimensional subspaces.   
+\ee
+\begin{solution}
+\noindent 
+(a) Let $\mathcal{P}$ be the plane defined by $ax+by+cz=0$. Gaussian elimination allows us to describe the points of $\mathcal{P}$ parametrically. For example, if $a\ne 0$, then $\mathcal{P}=\{(-(bs+ct)/a, s, t)\colon s, t\}=\Span\{(-b/a, 1,0),(-c/a,0,1)\}$. The set $\{\{(-b/a, 1,0),(-c/a,0,1)\}$ is clearly linearly independent: the vectors are not scalar multiples of one another. Thus $\mathcal{P}$ is a subspace of dimension 2 in this case. The cases $b\ne 0$ and $c\ne 0$ are dealt with similarly. In all cases, we see that $\mathcal{P}$ is a subspace of dimension 2. 
+
+Going the other way, suppose $W\subseteq \R^3$ is a 2-dimensional subspace. By definition of dimension, $W$ has a a basis $\{(x_1,y_1,z_1), (x_2, y_2, z_2)\}$ consisting of two linearly independent vectors. I claim that there is a nonzero vector $(a,b,c)$ for which 
+\[
+ax_1+by_1+cz_1=ax_2+by_2+cz_3=0.
+\]
+To see this, consider the corresponding matrix equation
+\[
+\begin{bmatrix}
+x_1&y_1&z_1\\
+x_2&y_2&z_2
+\end{bmatrix}\begin{bmatrix}
+a\\ b\\ c
+\end{bmatrix}=\begin{bmatrix}
+0 \\ 0
+\end{bmatrix}.
+\]
+Thinking of $a, b, c$ as the unknowns here, we see that we have a homogenous linear system with more unknowns  than equations. It follows that there is a nontrivial solution $(a,b,c)\ne (0,0,0)$ to this equation.  
+
+Fix one such solution $(a,b,c)$, and let $\mathcal{P}$ be the plane with defining equation $ax+by+cz=0$. We showed above that $\mathcal{P}$ is a 2-dimensional subspace. Since $(x_1,y_1,z_1)$ and $(x_2,y_2,z_2)$ both satisfy this equation we must have $W=\Span \{(x_1,y_1,z_1), (x_2, y_2, z_2)\}\subseteq\mathcal{P}$. Lastly, since $\dim W=\dim\mathcal{P}=2$, we conclude $W=\mathcal{P}$ (dimension theorem compendium). 
+\\
+\\
+(b) This claim follows from part (a) and the fact that an arbitrary plane $\mathcal{P}\colon ax+by+cz=d$ can be obtained by taking the parallel plane $\mathcal{P}_0\colon ax+by+cz=0$ that passes through the origin,  and translating it by $P=(x_0,y_0,z_0)$, where $P$ is any point in $\mathcal{P}$. 
+\end{solution}
+\ii Let $V=M_{33}$, $W=\{A\in M_{33}\colon A^T=-A\}$ (i.e., the subspace of skew-symmetric matrices), and 
+
+$W'=\Span\left\{A_1=\begin{bmatrix}
+0&1&2\\
+-1&0&1\\
+-2&-1&0
+\end{bmatrix}, 
+A_2=\begin{bmatrix}
+0&1&-1\\
+-1&0&1\\
+1&-1&0
+\end{bmatrix},
+A_3=\begin{bmatrix}
+0&1&0\\
+-1&0&-1\\
+0&1&0
+\end{bmatrix}
+\right\}
+$
+Show that $W'=W$ as follows:
+\\
+(a) Show that $W'\subseteq W$ (easy); 
+\\
+\noindent (b) Compute the dimensions of $W'$ and $W$ and use the dimension theorem (compendium). 
+
+\begin{solution}
+%\ \\
+\noindent 
+(a) Since each $A_i$ is clearly skew-symmetric, then any linear combination of the $A_i$'s is skew-symmetric. Thus $W'=\Span(\{A_1,A_2,A_3\})\subseteq W$. 
+\\
+(b)
+Since $W=\left\{\begin{bmatrix}
+0&a&b\\
+-a&0&c\\
+-b&-c&0
+\end{bmatrix}\colon a,b,c\in \R\right\}$, we see essentially by inspection that 
+\[
+B=\left\{
+\begin{bmatrix}
+0&1&0\\
+-1&0&0\\
+0&0&0
+\end{bmatrix},
+\begin{bmatrix}
+0&0&1\\
+0&0&0\\
+-1&0&0
+\end{bmatrix},
+\begin{bmatrix}
+0&0&0\\
+0&0&1\\
+0&-1&0
+\end{bmatrix}
+\right\}
+\]
+is  basis for $W$, and hence that $\dim W=3$. 
+
+Since $W'\subseteq W$, it follows that $W=W'$ iff $\dim W'=3$, by the dimension theorem (compendium). To show $\dim W'=3$, we need only show that the given matrices, which span $W'$ by definition, are linearly independent and hence a basis. This is done in the usual way. I leave it to you. 
+\end{solution}
+
+
+\ii Find a basis for the solution space of the homogeneous linear system, and find the dimension of that space.
+\begin{eqnarray*}
+x_1-4x_2+3x_3-x_4 &=& 0\\
+2x_1 - 8x_2 +6x_3 -2x_4 &=&0
+\end{eqnarray*}
+\begin{solution}
+\noindent Let $W$ be the set of solutions to this homogenous system of equations. The augmented matrix we obtain to determine $W$ is 
+$$
+\begin{bmatrix}[rrrrr]
+1&-4&3&-1&0\\
+2&-8&6&-2&0
+\end{bmatrix}
+$$
+Since row two is just 2 times row one, the reduced matrix is:
+$$
+\begin{bmatrix}[rrrrr]
+1&-4&3&-1&0\\
+0&0&0&0&0
+\end{bmatrix}
+$$
+Writing the solution with free variables $x_2= t,x_3=r,x_4=s$
+$$
+x_4 = s, x_3 = r, x_2 = t, x_1 = 4t-3s+r
+$$
+Writing the solution in vector form gives:
+\begin{align*}
+(x_1,x_2,x_3,x_4) &= (4t-3s+r,t,s,r)\tag{$*$}\\
+&= t(4,1,0,0) + s(-3,0,1,0) + r(1,0,0,1)\tag{$**$}
+\end{align*}
+Thus the vectors $\{(4,1,0,0),(-3,0,1,0),(1,0,0,1)\}$ span the vector space. For linear independence, note that 
+\[
+t(4,1,0,0) + s(-3,0,1,0) + r(1,0,0,1)=(0,0,0,0)\Rightarrow (4t-3s+r,t,s,r)=(0,0,0,0)\Rightarrow r=s=t=0.
+\]
+This shows the three vectors form a basis of $W$, and hence that $\dim W=3$. 
+\end{solution}
+\ii Find a basis for the solution space of the homogeneous linear system, and find the dimension of that space.
+\begin{eqnarray*}
+x+y+z&=& 0\\
+3x+2y-2z&=&0\\
+4x+3y-z &=& 0\\
+6x+5y+z &=& 0
+\end{eqnarray*}
+\begin{solution}
+\noindent The matrix we obtain to find the basis is:
+$$
+\begin{bmatrix}[rrrr]
+1&1&1&0\\
+3&2&-2&0\\
+4&3&-1&0\\
+6&5&1&0
+\end{bmatrix}
+$$
+Which reduces to the matrix:
+$$
+\begin{bmatrix}[rrrr]
+1&0&-4&0\\
+0&1&5&0\\
+0&0&0&0\\
+0&0&0&0
+\end{bmatrix}
+$$
+Writing the solution with free variable $x_3 = r$
+$$
+x_3 = r, x_2 = -5r, x_1 = 4r
+$$
+Writing the solution in vector form gives:
+\begin{eqnarray*}
+(x_1,x_2,x_3) &=& (4r,-5,r)\\
+&=& r(4,-5,1)
+\end{eqnarray*}
+Thus the vector $\{(4,-5,1)\}$ spans the vector space, and by the remark at the end of example 3 on page 223, they also form a basis for the vector space. Since the basis has 1 vector, the dimension of the vector space is 1.
+\end{solution}
+\ii Let 
+\[
+S=\{\boldv_1=(1,1,1,1), \boldv_2=(2,2,2,0) \}\subseteq\R^4.
+\]
+Enlarge $S$ into a basis of $\R^4$. 
+\\
+\begin{solution}
+\ \\
+We will have a systematic way of doing this later. For now we proceed in the spirit of the proof that every linearly independent set can be extended to a basis. 
+
+Namely, we search for a vector $\boldv\in \R^4$ such that $\boldv\notin\Span S$. Consider $\boldv_3=(1,0,0,0)$. A simple application of Gaussian elimination shows that $(1,0,0,0)$ is not a linear combination of $\boldv_1$ and $\boldv_2$. Thus $S'=\{\boldv_1,\boldv_2,\boldv_3\}$ is linearly independent. 
+
+Next, I claim $\boldv_4=(0,1,0,0)$ is not in $\Span S'$. Again you can confirm this with a Gaussian elimination argument. We conclude that 
+\[
+S''=\{(1,1,1,1), (2,2,2,0),(1,0,0,0), (0,1,0,0)\}
+\]
+is linearly independent. Since $\#S''=\dim\R^4=4$, we conclude $S''$ is a basis for $\R^4$ extending our original set $S$. 
+\end{solution}
+\ii Compute bases and dimensions for the following subspaces of $\R^4$.
+\bb
+\ii $W=\{(a,b,c,d)\in\R^4\colon d=a+b, c=a-b\}$
+\ii $W=\{(a,b,c,d)\in \R^4\colon a+b=c+d\}$
+\ee
+\begin{solution}
+\noindent
+Both spaces can be described as null spaces of a linear transformation. 
+
+In (a) we have 
+\[
+W=\{(a,b,c,d)\in\R^4\colon d=a+b, c=a-b\}=\{(a,b,c,d)\in\R^4\colon a+b-d=0 \text{ and } a-b-c=0\}.
+\]
+Thus $W=\NS \begin{bmatrix}[rrrr]
+1&1&0&-1\\
+1&-1&-1&0
+\end{bmatrix}$. After some Gaussian elimination, we see that $W=\{(\frac{1}{2}(s+t), \frac{1}{2}(-s+t), s, t)\colon s,t\in\R\}$. From this parametric description, we can then easily extract the basis $\{(1/2,  -1/2, 1, 0), (1/2, 1/2, 0, 1) \}$. We conclude $\dim W=2$. 
+
+In (b) we have $W=\{(a,b,c,d)\in\R^4\colon a+b-c-d=0\}=\NS [1 1 -1 -1]$. Again Gaussian elimination tells us that 
+\[
+W=\{(-r+s+t, r, s, t)\colon r,s,t\in\R\}=\Span\underset{S}{\underbrace{\{(-1,1,0,0), (1,0,1,0), (1,0,0,1)\}}}=\Span S.
+\] 
+The spanning set $S$ on the right is easily seen to be linearly independent: $a(-1,1,0,0)+b(1,0,1,0)+c(1,0,0,1)=(-a+b+c,a, b, c)=(0,0,0)\Rightarrow a=b=c=0$. Thus $S$ is a basis for $W$ and we conclude $\dim W=3$. 
+\end{solution}
+\ii Let $V=M_{nn}$, $W_1$ the set of diagonal matrices, $W_2$ the set of symmetric matrices, $W_3$ the set of upper triangular matrices. Compute the dimensions of all these spaces. You may use your results from Exercise \ref{ex:matrixbases} in Section \hyperref[S:basis]{3.3-3.4}.
+\\
+\begin{solution}
+\bb[(i)]
+\ii $W_1$, the set of diagonal matrices.  
+Let 
+\[
+S=\{E_{11}, E_{22}, \dots , E_{nn}\},
+\]
+where as usual $E_{ij}$ denotes the matrix with a 1 in the $ij$-th entry, and 0's elsewhere. I claim $S$ is a basis of $W_1$, and hence that $\boxed{\dim(W_1)=n}$. 
+
+$S$ {\em spans}. An arbitrary diagonal matrix $A$ has entries $a_ii$ along the diagonal and 0 elsewhere. Then clearly 
+\[
+A=a_{11}E_11+\cdots +a_{nn}E_nn.
+\]
+This shows $S$ spans $W_1$. 
+
+$S$ {\em is linearly independent}. Note that $S$ is a subset of the standard basis for $M_{nn}$. Since the standard basis is linearly independent, any subset of it is also linearly independent. Thus $S$ is independent.
+
+\ii $W_2$, the set of symmetric matrices. 
+
+Let
+\[
+S=\{E_{11},\dots ,E_{nn}\}\cup\{F_{ij}\}_{1\leq i<j\leq n}
+\]
+where $E_{ii}$ is exactly as above, and $F_{ij}$ is the matrix with a 1 in the $ij$-th entry, a 1 in the $ji$-th entry, and 0's elsewhere. I claim $S$ is a basis. 
+
+$S$ {\em spans}. Similar argument as above. An arbitrary symmetric matrix $A$ has any coefficients $a_{ii}$ along the diagonal; if the $ij$-th entry is $a_{ij}$, then the $ji$-th entry is $a_{ji}$, and thus it is clear that 
+\[
+A=a_{11}E_{11}+\cdots a_{nn}E_{nn}+\sum_{1\leq i<j\leq n}a_{ij}F_{ij}.
+\]
+Thus $S$ spans. 
+
+$S$ {\em is linearly independent}. Suppose 
+\[
+a_{11}E_{11}+\cdots a_{nn}E_{nn}+\sum_{1\leq i<j\leq n}a_{ij}F_{ij}=0_{nn}.
+\]
+From the definition of $E_{ii}$ and $F_{ij}$, if follows that the $ij$-th entry of the matrix on the LHS is just $a_{ij}$. Thus $a_{ij}=0$ for all $i,j$. This shows $S$ is independent. 
+
+Finally, The number of elements in $S$ is equal to the number of positions in an $n\times n$ matrix on and above the diagonal. Counting from the bottom of the matrix up, we see there are 
+\[
+1+2+\cdots +n=\frac{n(n+1)}{2}
+\]
+of these. Thus $\boxed{\dim(W_2)=\frac{n(n+1)}{2}}$. 
+\ii $W_3$, the set of upper triangular matrices. 
+
+The argument is very similar to the above arguments. The set 
+\[
+S=\{E_{ij}\}_{1\leq i\leq j\leq n}
+\]
+is a basis. This set also has $\frac{n(n+1)}{2}$ elements. Thus $\boxed{\dim(W_3)=\frac{n(n+1)}{2}}$.
+\ee
+\end{solution}
+\ii Let $\{\boldv_1,\boldv_2,\boldv_3\}$ be a basis for a vector space $V$. Show that $\{\boldu_1,\boldu_2,\boldu_3\}$ is also a basis, where $\boldu_1 = \boldv_1$, $\boldu_2 = \boldv_1 + \boldv_2$, and $\boldu_3 = \boldv_1 +\boldv_2 + \boldv_3$.
+\\
+\begin{solution}
+\noindent Since $\{\boldv_1,\boldv_2,\boldv_3\}$ is a basis for $V$, any other basis for $V$ must also have exactly 3 vectors. Since the set $\{\boldu_1,\boldu_2,\boldu_3\}$ also has 3 vectors, then by the dimension theorem (compendium), we only need to show that this set spans $V$ or that it is linearly independent. Let's show that it is linearly independent. If we can show that if $c_1\boldu_1 + c_2\boldu_2 + c_3\boldu_3 = 0$,  then $c_1=c_2=c_3=0$,  we will be done.
+\begin{align*}
+c_1\boldu_1 + c_2\boldu_2 + c_3\boldu_3=0&\Rightarrow
+c_1\boldv_1 + c_2(\boldv_1+\boldv_2) + c_3(\boldv_1+\boldv_2+\boldv_3)=0\\
+&\Rightarrow (c_1+c_2+c_3)\boldv_1 + (c_2+c_3)\boldv_2 + c_3\boldv_3 = 0\\
+&\Rightarrow (c_1+c_2+c_3)=(c_2+c_3)=c_3=0 &\text{(since $\boldv_i$ are independent)}\\
+&\Rightarrow c_3=c_2=c_1=0 &\text{(work backwards)}
+\end{align*}
+This shows the $\boldu_i$ are independent, and hence constitute a basis. 
+\end{solution}
+\ii Let $V=M_{23}$ and define 
+\[
+W=\{A\in M_{23}\colon \text{ rows and columns of $A$ sum to 0}\}.
+\]
+Find a basis for $W$ and compute its dimension. 
+\\
+\begin{solution}
+We can proceed by inspection. The general element of $W$ looks like
+\[
+A=\begin{bmatrix}[rrr]
+r&s&-(r+s)\\
+-r&-s&(r+s)
+\end{bmatrix}=r\begin{bmatrix}[rrr]1&0&-1\\
+-1&0&1
+\end{bmatrix}+s\begin{bmatrix}[rrr]0&1&-1\\
+0&-1&1
+\end{bmatrix}.
+\]
+From this description it is obvious that 
+\[
+B=\left\{
+\begin{bmatrix}[rrr]1&0&-1\\
+-1&0&1
+\end{bmatrix},
+\begin{bmatrix}[rrr]0&1&-1\\
+0&-1&1
+\end{bmatrix}
+\right\}.
+\]
+spans $W$. It is also fairly clear that the given matrices are linearly independent (look at the relevant matrix equation yourself). Thus $B$ is a basis. 
+
+Since $B$ has 2 elements, we have $\dim(W)=2$. 
+\end{solution}
+
+\ii Let $C^\infty(-\infty,\infty)$ and consider the subspace 
+\[
+W=\Span(\{\cos(2x),\sin(2x), \sin(x)\cos(x), \cos^2(x),\sin^2(x) \}).
+\]
+Compute the dimension of $W$ by providing an explicit basis.
+\\
+\begin{solution}
+Some trig identities:
+\begin{align*}
+\cos(2x)&=\cos^2(x)-\sin^2(x)\\
+\sin(2x)&=2\sin(x)\cos(x).
+\end{align*}
+These identities show us that $\cos(2x)$ and $\sin(2x)$ are in the span of $\{\cos^2(x),\sin^2(x),\sin(x)\cos(x)\}$, and thus that $W=\Span(\{\cos^2(x),\sin^2(x),\sin(x)\cos(x)\}$. Is this new set linearly independent? 
+
+Suppose we have 
+\[
+k_1\cos^2(x)+k_2\sin^2(x)+k_3\sin(x)\cos(x)=0
+\]
+for all $x$. 
+
+Evaluating at $x=0$ yields $k_1=0$. 
+
+Evaluating at $x=\pi/2$ yields $k_2=0$. 
+
+Thus the identity becomes $k_3\sin(x)\cos(x)=0$, which is true for all $x$ if and only if $k_3=0$. 
+
+This shows that $\{\cos^2(x),\sin^2(x),\sin(x)\cos(x)\}$ is linearly independent. Since it also spans $W$, it is a basis of $W$. Since $W$ has a basis consisting of 3 elements, we conclude $\dim(W)=3$.
+\end{solution}
+\ii Let $A\in M_{nn}$. Show that there is a nonzero polynomial $p(x)=a_{n^2}x^{n^2}+a_{n^2-1}x^{n^2-1}+\cdots +a_1x+a_0$ such that 
+\[
+p(A)=a_{n^2}A^{n^2}+a_{n^2-1}A^{n^2-1}+\cdots +a_1A+a_0I_n=\underset{n\times n}{\boldzero}.
+\]
+Hint: consider the set $S=\{I_n, A, A^2, \dots, A^{n^2}\}\subseteq M_{nn}$ and use dimension theory. 
+\\
+\begin{solution}
+We are tempted to quote the dimension theorem compendium: $\dim M_{nn}=n^2$, $\#S=n^2+1$, thus $S$ is linearly dependent. This would then imply there is a linear combination of the elements of $S$ equal to 0: i.e., there is a nontrivial choice of $a_i$ such that $a_{n^2}A^{n^2}+a_{n^2-1}A^{n^2-1}+\cdots +a_1A+a_0I_n=\underset{n\times n}{\boldzero}$, as desired. 
+
+The problem with this reasoning is that we cannot be sure that $\#S=n+1$ !! In other words we might have $A^i=A^k$ for some pair $0\leq i<j\leq n^2$. But if this is the case, then we have $A^j-A^i=\underset{n\times n}{\boldzero}$, and thus $p(A)=\underset{n\times n}{\boldzero}$, where $p(x)=x^j-x^i$. 
+\end{solution}
+\ii Prove that $V=C^\infty(\R)$ is infinite dimensional. 
+
+Hint: use a proof by contradiction. More specifically, assume $\dim V=n$ for some $n$, and try and derive a contradiction to one of our dimension theorem compendium statements. 
+\\
+\begin{solution}
+\noindent
+By contradiction. Assume $\dim V=n$ for some $n<\infty$. Consider the set $S=\{f_0, f_1, f_2,\dots, f_{n}\}\subseteq C^\infty(\R)$ where $f_j(x)=x^j$. The set $S$ contains $n+1$ elements, and is linearly independent: indeed it is the standard basis of $P_{n}$. This contradicts the dimension theorem compendium: a set containing more than $n$ elements in an $n$-dimensional space is guaranteed to be linearly dependent! Thus we cannot have $\dim V=n$ for any $n$. 
+\end{solution}
+\ee

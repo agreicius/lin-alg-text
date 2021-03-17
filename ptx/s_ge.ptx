@@ -1,0 +1,570 @@
+<section xml:id="s_ge">
+  <title>Gaussian elimination</title>
+  <introduction>
+    <p>
+      In <xref ref="s_solving"/> we sketched a procedure for solving a linear system <m>L</m>. That procedure involved applying a sequence of row operations to <m>L</m> to obtain a <q>simpler</q> system <m>L'</m>.
+    </p>
+    <p>
+      In this section we will fill out this sketch. Specifically, we will
+      <ol>
+        <li>
+          <p>
+          describe precisely what we mean by a <q>simpler</q> system,
+          </p>
+        </li>
+        <li>
+          <p>
+            provide an algorithm (or recipe) that decides exactly what sequence of row operations to apply to obtain this simpler system,
+          </p>
+        </li>
+        <li>
+          <p>
+            explain how to find <em>all</em> solutions of the resulting simpler system.
+          </p>
+        </li>
+      </ol>
+    </p>
+<p>
+    Before we embark on these steps, we introduce a useful bit of notation. As you may have noticed, when performing row operations on a system of equations, we essentially treat the unknowns, as well as the plus and equals symbols, as placeholders; the only things that actually change in a given step are the coefficients in the equations. The <em>augmented matrix associated to a linear system</em> is a formal way of extracting just the information of the coefficients from a linear system. Of course, to be official, we should first define what a matrix is.
+  </p>
+<definition xml:id="d_matrix">
+  <title>Matrix</title>
+
+  <statement>
+    <p>
+    A <term>matrix</term> is a rectangular array of numbers.
+    </p>
+    <p>
+      A matrix with <m>m</m> rows and <m>n</m> columns is said to have <term>size</term> (or <term>dimension</term>) <m>m\times n</m>.
+    </p>
+  </statement>
+</definition>
+<definition xml:id="d_augmented_matrix" index="augmented matrix">
+  <title>Augmented matrix</title>
+  <statement>
+    <p>
+      Let <m>L</m> be the linear system
+      <me>
+     \eqsys
+      </me>.
+      The <term>augmented matrix associated to</term> <m>L</m> is the matrix
+      <me>
+        \augmatrix
+      </me>.
+
+    </p>
+  </statement>
+</definition>
+</introduction>
+<subsection xml:id="ss_ge_row_echelon">
+  <title>Row echelon matrices</title>
+ <p>
+   Here is our precise formulation of a <q>simple</q> linear system; it is a system whose associated augmented matrix is in <em>row echelon form</em>, as described below.
+</p>
+<definition xml:id="d_row_echelon">
+  <title>Row echelon form</title>
+
+  <statement>
+    <p>
+      A <term>zero row</term> of a matrix, is a row whose entries are all equal to zero; a <term>nonzero row</term> is a row that contains at least one nonzero entry.
+    </p>
+    <p>
+      A matrix is in <term>row echelon form</term> if the following conditions hold.
+      <dl>
+        <li><title>(i)</title>
+        <p>
+        In any nonzero row the first (i.e., leftmost) nonzero entry is equal to one. A <term>leading one</term> of a matrix is such an entry: i.e., an entry of a row that is equal to one, and that is also the first nonzero entry of that row.
+        </p>
+        </li>
+        <li><title>(ii)</title>
+    <p> All zero rows are grouped together at the bottom of the matrix.
+            </p>
+          </li>
+          <li><title>(iii)</title>
+            <p>
+              Given any two nonzero rows in the matrix,
+              the leading one of the lower row occurs strictly to the right of the leading one of the row above it.
+            </p>
+          </li>
+        </dl>
+      </p>
+      <p>
+        A matrix is in <term>reduced row echelon form</term>
+        if in addition to conditions (i)-(iii) it also satisfies the following condition.
+        <dl>
+          <li>
+            <title>(iv)</title>
+            Any column of the matrix that contains a leading one of the matrix in one of its rows . In other words, if a column contains a leading one, then that is the only nonzero entry of that column.
+          </li>
+        </dl>
+      </p>
+    </statement>
+  </definition>
+  <p>
+    In practice to decide whether a matrix is in in (reduced) row echelon form,
+    follow these steps:
+    <ol>
+      <li>
+        <p>
+          First verify whether all zero rows are at the bottom.
+        </p>
+      </li>
+      <li>
+        <p>
+          For each nonzero row,
+          determine whether the first nonzero entry is a 1, and put a box around it.
+        </p>
+      </li>
+      <li>
+        <p>
+          Make sure your boxes make a staircase pattern.
+        </p>
+      </li>
+      <li>
+        <p>
+          (For reduced row echelon form only.) Decide whether each column with a box has 0's everywhere else.
+        </p>
+      </li>
+    </ol>
+  </p>
+
+<example>
+  <title>Row echelon versus and reduced row echelon form</title>
+
+  <statement>
+    <p>
+    For each matrix decide (a) whether it is in row echelon form, and (b) whether it is in reduced row echelon form.
+    </p>
+    <ol>
+      <li>
+        <p>
+          <me>
+            \begin{bmatrix}0\amp 2\amp 1\amp 0\amp 0\\
+            0\amp 0\amp 0\amp 0\amp 0\\
+            0\amp 1\amp 0\amp 0\amp 1\\
+            1\amp 0\amp 0\amp 0\amp 0\\
+            0\amp 0\amp 0\amp 0\amp 0
+            \end{bmatrix}
+          </me>
+        </p>
+      </li>
+      <li>
+        <p>
+          <me>
+            \begin{bmatrix}1\amp 0\amp 0\amp -3\amp -7\\
+            0\amp 0\amp 1\amp 2\amp 0\\
+            0\amp 0\amp 0\amp 0\amp 1\\
+            0\amp 0\amp 0\amp 0\amp 0\\
+            0\amp 0\amp 0\amp 0\amp 0
+            \end{bmatrix}
+          </me>
+        </p>
+      </li>
+    </ol>
+  </statement>
+  <solution>
+      <ol>
+        <li>
+          <p>
+            Below you find the matrix with leading ones boxed. This matrix fails to be in row echelon form (and hence also reduced row echelon form) for a variety of reasons: the zero rows are not all grouped at the bottom; the first row is nonzero, but does not have a leading one; the leading one of the fourth row is to the left of the leading one of the leading one in the row above it.
+            <me>
+              \begin{bmatrix}0\amp 2\amp 1\amp 0\amp 0\\
+              0\amp 0\amp 0\amp 0\amp 0\\
+              0\amp \boxed{1}\amp 0\amp 0\amp 1\\
+              \boxed{1}\amp 0\amp 0\amp 0\amp 0\\
+              0\amp 0\amp 0\amp 0\amp 0
+              \end{bmatrix}
+            </me>
+
+          </p>
+        </li>
+        <li>
+          <p> Below you find the matrix with leading ones boxed. This matrix is in row echelon form: the zero rows (rows 4 and 5) are grouped at the bottom; each nonzero row has a leading one (boxed in the matrix below); the leading ones step strictly to the right as we move down the rows.
+            <me>
+              \begin{bmatrix}\boxed{1}\amp 0\amp 0\amp -3\amp -7\\
+              0\amp 0\amp \boxed{1}\amp 2\amp 0\\
+              0\amp 0\amp 0\amp 0\amp \boxed{1}\\
+              0\amp 0\amp 0\amp 0\amp 0\\
+              0\amp 0\amp 0\amp 0\amp 0
+              \end{bmatrix}
+            </me>
+          The matrix is <em>not</em> in reduced row echelon form, as the last column contains a leading one in its third row, and a nonzero entry in its first row.
+          </p>
+        </li>
+      </ol>
+  </solution>
+</example>
+</subsection>
+
+<subsection xml:id="ss_gaussian_elimination">
+  <title>Gaussian elimination</title>
+  <p>
+    <term>Gaussian elimination</term>
+    is an algorithm which, given a matrix <m>A</m>,
+    transforms it one row operation at a time to a matrix <m>B</m> in row echelon form.
+    <ul>
+      <li>
+        <title>Step 1</title>
+        <p>
+          Find leftmost nonzero column and use row swap operation to move nonzero entry to top.
+        </p>
+      </li>
+      <li>
+        <title>Step 2</title>
+        <p>
+          Use scaling operation to make this top entry a leading 1.
+        </p>
+      </li>
+      <li>
+        <title>Step 3</title>
+        <p>
+          Add multiples of top row to lower rows to clear entries below the leading 1.
+        </p>
+      </li>
+      <li>
+        <title>Step 4</title>
+        <p>
+          Cover top row and begin again with Step 1 applied to remaining matrix.
+          Continue until matrix is in row echelon form.
+        </p>
+      </li>
+    </ul>
+  </p>
+  <p>
+    The next slide presents a detailed example of this procedure.
+  Use this as a model when doing your own examples and exercises, including the naming of row operations used
+</p>
+
+  <paragraphs>
+    <title>Example</title>
+    <md>
+      <mrow>\scriptsize
+      \begin{bmatrix}0\amp 0\amp -2\amp 0\amp 7\amp 12\\
+      2\amp 4\amp -10\amp 6\amp 12\amp 28\\
+      2\amp 4\amp -5\amp 6\amp -5\amp -1
+      \end{bmatrix}
+      \amp \xrightarrow[\hspace{35pt}]{r_1\leftrightarrow r_2}\amp
+      \begin{bmatrix}2\amp 4\amp -10\amp 6\amp 12\amp 28\\
+      0\amp 0\amp -2\amp 0\amp 7\amp 12\\
+      2\amp 4\amp -5\amp 6\amp -5\amp -1
+      \end{bmatrix}</mrow>
+      <mrow>\amp \xrightarrow[\hspace{35pt}]{\frac{1}{2}r_1}\amp
+      \begin{bmatrix}1\amp 2\amp -5\amp 3\amp 6\amp 14\\
+      0\amp 0\amp -2\amp 0\amp 7\amp 12\\
+      2\amp 4\amp -5\amp 6\amp -5\amp -1
+      \end{bmatrix}</mrow>
+      <mrow>\alert{\text{ (now done with first row) } }\amp \xrightarrow[\hspace{35pt}]{r_3-2r_1}\amp
+      \begin{bmatrix}1\amp 2\amp -5\amp 3\amp 6\amp 14\\
+      0\amp 0\amp -2\amp 0\amp 7\amp 12\\
+      0\amp 0\amp 5\amp 0\amp -17\amp -29
+      \end{bmatrix}</mrow>
+      <mrow>\amp \xrightarrow[\hspace{35pt}]{-\frac{1}{2}r_2}\amp
+      \begin{bmatrix}1\amp 2\amp -5\amp 3\amp 6\amp 14\\
+      0\amp 0\amp 1\amp 0\amp -7/2\amp -6\\
+      0\amp 0\amp 5\amp 0\amp -17\amp -29
+      \end{bmatrix}</mrow>
+      <mrow>\alert{\text{ (now done with 2nd row) } }\amp \xrightarrow[\hspace{35pt}]{r_3+(-5)r_2}\amp
+      \begin{bmatrix}1\amp 2\amp -5\amp 3\amp 6\amp 14\\
+      0\amp 0\amp 1\amp 0\amp -7/2\amp -6\\
+      0\amp 0\amp 0\amp 0\amp 1/2\amp 1
+      \end{bmatrix}</mrow>
+      <mrow>\amp \xrightarrow[\hspace{35pt}]{2r_3}\amp
+      \begin{bmatrix}1\amp 2\amp -5\amp 3\amp 6\amp 14\\
+      0\amp 0\amp 1\amp 0\amp -7/2\amp -6\\
+      0\amp 0\amp 0\amp 0\amp 1\amp 2
+      \end{bmatrix}</mrow>
+    </md>
+  </paragraphs>
+  <paragraphs>
+    <title>Gauss-Jordan elimination</title>
+    <p>
+      The procedure for reducing a matrix all the way to
+      <em>reduced row echelon</em>
+      is called <term>Gauss-Jordan elimination</term>.
+      To do this, first perform Gaussian elimination to reduce <m>A</m> to row echelon form,
+      then use row operations to clear the entries <em>above</em>
+      leading 1's, starting with the rightmost and working backward.
+    </p>
+    <p>
+      Continuing our previous example:
+      <md>
+        <mrow>\begin{bmatrix}1\amp 2\amp -5\amp 3\amp 6\amp 14\\ 0\amp 0\amp 1\amp 0\amp -7/2\amp -6\\ 0\amp 0\amp 0\amp 0\amp 1\amp 2 \end{bmatrix} .  \amp \xrightarrow[\hspace{35pt}]{r_2+7/2r_3}\amp \begin{bmatrix}1\amp 2\amp -5\amp 3\amp 6\amp 14\\ 0\amp 0\amp 1\amp 0\amp 0\amp 1\\ 0\amp 0\amp 0\amp 0\amp 1\amp 2 \end{bmatrix} .</mrow>
+        <mrow>\amp \xrightarrow[\hspace{35pt}]{r_1-6r_3}\amp \begin{bmatrix}1\amp 2\amp -5\amp 3\amp 0\amp 2\\ 0\amp 0\amp 1\amp 0\amp 0\amp 1\\ 0\amp 0\amp 0\amp 0\amp 1\amp 2 \end{bmatrix} .</mrow>
+        <mrow>\amp \xrightarrow[\hspace{35pt}]{r_1+5r_2}\amp \begin{bmatrix}1\amp 2\amp 0\amp 3\amp 0\amp 7\\ 0\amp 0\amp 1\amp 0\amp 0\amp 1\\ 0\amp 0\amp 0\amp 0\amp 1\amp 2 \end{bmatrix} </mrow>
+      </md>.
+    </p>
+  </paragraphs>
+</subsection>
+<subsection xml:id="ss_solving_rowechelon">
+  <title>Solving systems in row echelon form</title>
+  <p>
+    It remains now to solve the resulting system corresponding to our matrix in row echelon
+    (or reduced row echelon)
+    form.
+  </p>
+  <p>
+    Since all reduced row echelon matrices are row echelon matrices,
+    it will suffice to outline how to solve the latter type of systems.
+  </p>
+  <p>
+    Let's continue with our example:
+    <md>
+      <mrow>\amp  \amp  \begin{linsys}{5} \amp  \amp  \amp  \amp -2x_3\amp  \amp  \amp +\amp 7x_5\amp =\amp 12</mrow>
+      <mrow>2x_1 \amp  +\amp 4x_2 \amp  -\amp 10x_3\amp + \amp 6x_4 \amp +\amp 12x_5\amp =\amp 28</mrow>
+      <mrow>2x_1 \amp  +\amp 4x_2 \amp  -\amp 5x_3\amp + \amp 6x_4 \amp -\amp 5x_5\amp =\amp -1 \end{linsys}</mrow>
+      <mrow>\amp \xrightarrow[]{\text{ aug. mat. } }\amp \begin{bmatrix}0\amp 0\amp -2\amp 0\amp 7\amp 12\\ 2\amp 4\amp -10\amp 6\amp 12\amp 28\\ 2\amp 4\amp -5\amp 6\amp -5\amp -1 \end{bmatrix}</mrow>
+      <mrow>\amp \xrightarrow[]{\text{ row op.'s } }\amp \begin{bmatrix}1\amp 2\amp -5\amp 3\amp 6\amp 14\\ 0\amp 0\amp 1\amp 0\amp -7/2\amp -6\\ 0\amp 0\amp 0\amp 0\amp 1\amp 2 \end{bmatrix}</mrow>
+      <mrow>\amp \xrightarrow[]{\text{ new sys } }\amp \begin{linsys}{5} x_1\amp + \amp 2x_2\amp - \amp 5x_3 \amp +\amp 3x_4\amp  +\amp 6x_5\amp =\amp 14</mrow>
+      <mrow>\amp \amp  \amp  \amp x_3\amp \amp  \amp -\amp 7/2x_5\amp =\amp -6</mrow>
+      <mrow>\amp  \amp  \amp  \amp \amp \amp  \amp \amp x_5\amp =\amp 2 \end{linsys}</mrow>
+    </md>
+  </p>
+  <paragraphs>
+    <title>Solving a reduced system</title>
+    <md>
+      \begin{linsys}{5}
+      x_1\amp + \amp 2x_2\amp - \amp 5x_3 \amp +\amp 3x_4\amp  +\amp 6x_5\amp =\amp 14\\
+      \amp \amp  \amp  \amp x_3\amp \amp  \amp -\amp 7/2x_5\amp =\amp -6\\
+      \amp  \amp  \amp  \amp \amp \amp  \amp \amp x_5\amp =\amp 2
+      \end{linsys}
+    </md>
+    <p>
+      So how do we get <em>ALL</em> solutions,
+      and describe them in a useful way?
+      Here's how
+      <ol>
+        <li>
+          <p>
+            Divide the variables <m>x_1, x_2, \dots,
+            x_5</m> into <term>leading variables</term>
+            and <term>free variables</term>:
+            a leading variable is one corresponding to a column of the row reduced matrix that contains a leading 1;
+            a free variable is any variable that is not a leading one.
+            In our case, <m>x_1, x_3</m>,
+            and <m>x_5</m> are leading, and the rest, <m>x_2, x_4</m> are free.
+          </p>
+        </li>
+        <li>
+          <p>
+            The free variables act as <term>parameters</term> for our solutions.
+            They range independently over all reals.
+            Give them parameter names: <m>x_2=s</m>, <m>x_4=t</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Solve for the remaining leading variables in terms of the parameters <m>s, t</m>,
+            starting from the rightmost leading variable and working backwards (
+            <q>backwards substitution</q>).
+            We find <m>x_5=2</m>, <m>x_3=-6+7=1</m>, <m>x_1=7-2s-3t</m>.
+          </p>
+        </li>
+      </ol>
+    </p>
+    <p>
+      Thus the <term>general solution</term>
+      of the system is <m>(x_1,x_2,\dots,x_5)=(7-2s-3t,
+      s, 1, t, 2)</m>, where <m>s,t</m> can be any real numbers.
+    </p>
+  </paragraphs>
+  <paragraphs>
+    <title>Solving a reduced system</title>
+    <md>
+      \begin{linsys}{5}
+      x_1\amp + \amp 2x_2\amp - \amp 5x_3 \amp +\amp 3x_4\amp  +\amp 6x_5\amp =\amp 14\\
+      \amp \amp  \amp  \amp x_3\amp \amp  \amp -\amp 7/2x_5\amp =\amp -6\\
+      \amp  \amp  \amp  \amp \amp \amp  \amp \amp x_5\amp =\amp 2
+      \end{linsys}
+    </md>
+    <p>
+      Some comments about how we express the solutions to a system.
+      I described the <em>general solution</em> in <em>tuple form</em>:
+      <me>
+        (x_1,x_2,\dots,x_5)=(5-2s-3t, s, 1, t, 2), \  \text{ \(s, t\) any real numbers }
+      </me>.
+    </p>
+    <p>
+      Alternatively we can give <em>parametric equations</em>
+      for each variable separately:
+      <me>
+        \begin{array}{lcl} x_1=7-2s-3t\\ x_2=s\\ x_3=1\amp  \amp s,t\in\R \\ x_4=t\\ x_5=2\amp \amp \end{array}
+      </me>
+    </p>
+    <p>
+      Of course we can also just write down the
+      <em>set of all solutions</em>:
+      <me>
+        S=\Bigl\{(7-2s-3t, s, 1, t, 2) \colon s,t\in\R\Bigr\}
+      </me>.
+    </p>
+    <p>
+      Get used to using all three forms of answers.
+    </p>
+  </paragraphs>
+  <paragraphs>
+    <title>Inconsistent system</title>
+    <p>
+      It seems we have a surefire way of writing down general solution of any linear system.
+    </p>
+    <p>
+      However, we've glossed over the situation where a linear system has <em>no solutions</em>.
+      This is called an <term>inconsistent</term> system.
+    </p>
+    <p>
+      When can this happen?
+      As always, it all depends on the shape of the row echelon matrix we get after Gaussian elimination.
+      Here is a row echelon matrix whose corresponding linear system has no solutions:
+      <me>
+        \begin{bmatrix}1\amp 0\amp 2\amp 3\\ 0\amp 0\amp 1\amp 1\\ 0\amp 0\amp 0\amp 1 \end{bmatrix}
+      </me>
+    </p>
+    <p>
+      The last equation of the corresponding linear system would read <m>0x_1+0x_2+0x_3=1</m>,
+      or <m>0=1</m>.
+      Since this is impossible, there is no solution to the system.
+    </p>
+    <p>
+      We can express this succinctly in terms of leading 1's.
+    </p>
+    <theorem>
+      <statement>
+        <p>
+          A linear system is inconsistent if and only if its augmented matrix reduces to a row echelon matrix with a leading 1 in the <em>last column</em>.
+        </p>
+      </statement>
+    </theorem>
+  </paragraphs>
+  <paragraphs>
+    <title>Solutions to linear systems</title>
+    <p>
+      We are now in a position to fully describe what solution sets to linear systems look like qualitatively.
+    </p>
+    <theorem>
+      <title>Gaussian elimination theorem</title>
+      <statement>
+        <p>
+          Fix a linear system in <m>n</m> unknowns <m>x_1,x_2, \dots, x_n</m>,
+          let <m>A</m> be its corresponding augmented matrix,
+          and let <m>U</m> be the row echelon matrix we get after applying Gaussian elimination to <m>A</m>.
+        </p>
+        <ol>
+          <li>
+            <p>
+              The system is inconsistent if and only if the <em>last column</em>
+              of <m>U</m> has a leading 1.
+              In this case there are <m>0</m> solutions.
+            </p>
+          </li>
+          <li>
+            <p>
+              Assume the system is consistent.
+            </p>
+            <ol>
+              <li>
+                <p>
+                  If all variables are leading variables,
+                  then after back substituting,
+                  we find there is a unique solution.
+                  That is, in this case there is <m>1</m> solution.
+                </p>
+              </li>
+              <li>
+                <p>
+                  If there is a free variable, say <m>x_i</m>,
+                  then since we can set <m>x_i=t</m> for any <m>t</m>,
+                  there are <m>\infty</m>-many solutions
+                </p>
+              </li>
+            </ol>
+          </li>
+        </ol>
+        <p>
+          In particular, we see there are only 3 choices for the
+          <em>number of solutions</em>
+          to a linear system: 0, 1, or <m>\infty</m>-many!
+        </p>
+      </statement>
+    </theorem>
+  </paragraphs>
+  <paragraphs>
+    <title>Solutions to homogenous systems</title>
+    <p>
+      Consider the special case of a homogenous system
+      <me>
+        \homsys
+      </me>
+    </p>
+    <p>
+      Observe that <m>(x_1,x_2,\dots,
+      x_n)=(0,0,\dots, 0)</m> is a solution to this system.
+      Thus a homogenous system is always consistent! (Alternatively,
+      convince your self that the corresponding row echelon matrix <m>U</m> for the system will have no leading 1's in the last column.)
+    </p>
+  </paragraphs>
+  <paragraphs>
+    <title>Solutions to homogenous systems</title>
+    <p>
+      Since a homogenous system is always consistent,
+      the theorem from before boils down to the following:
+    </p>
+    <corollary>
+      <statement>
+        <p>
+          Fix a <em>homogeneous</em> linear system in <m>n</m> variables.
+          There are two possibilities:
+          <ol>
+            <li>
+              <p>
+                if all the variables are leading variables,
+                then the system has a unique solution (i.e., <m>1</m> solution);
+              </p>
+            </li>
+            <li>
+              <p>
+                if there is a free variable, then the system has <m>\infty</m>-many solutions.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </corollary>
+  </paragraphs>
+  <!-- <paragraphs>
+    <title>Solutions to homogeneous systems</title>
+    <p>
+      Furthermore, we have:
+    </p>
+    <corollary>
+      <statement>
+        <p>
+          Fix a homogeneous linear system.
+          If the system has more variables than equations,
+          then there are <m>\infty</m>-many solutions.
+        </p>
+      </statement>
+    </corollary>
+    <proof>
+      <p>
+        Since any homogeneous system is consistent.
+        We need only show there is a free variable.
+      </p>
+      <p>
+        Let <m>m</m> be the number of equations,
+        or equivalently, the number of rows of the augmented matrix.
+        By assumption <m>m\lt n</m>.
+      </p>
+      <p>
+        Now the definition of a leading 1 implies that there can be <em>at most</em>
+        <m>m</m> leading 1's, since there is at most one leading 1 per row.
+      </p>
+      <p>
+        This implies there are at most <m>m</m> leading variables,
+        and thus at least <m>n-m</m> free variables.
+        Since <m>n-m>0</m> there is at least one free variable,
+        and thus <m>\infty</m>-many solutions.
+      </p>
+    </proof>
+  </paragraphs> -->
+</subsection>
+
+</section>

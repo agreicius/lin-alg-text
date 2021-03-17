@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2020-08-13T17:18:18-05:00       *-->
+<!--*   A recent stable commit (2020-07-07):   *-->
+<!--* 1771dacf84bfb1789139598d8379414b560b8f17 *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<article class="paragraphs"><h5 class="heading"><span class="title">Proof of change of basis theorem.</span></h5>
+<p xmlns:svg="http://www.w3.org/2000/svg">{ \alert{Theorem recap}. Let \(V\) be finite-dimensional, let \(T\colon V\rightarrow V\) be linear, let \(B\) and \(B'\) be two bases for \(V\text{,}\) and let \(A=[T]_B\text{,}\) \(A'=[T]_{B'}\text{.}\) Then \(A=(\underset{B\rightarrow B'}{P})^{-1}A'\underset{B\rightarrow B'}{P}\) and \(A'=(\underset{B'\rightarrow B}{P})^{-1}A\underset{B'\rightarrow B}{P}\) }</p>
+<p xmlns:svg="http://www.w3.org/2000/svg">First recall that \(\underset{B'\rightarrow B}{P}=(\underset{B\rightarrow B'}{P})^{-1}\text{.}\) Using this fact, it is easy to see that the second equality follows from the first by multiplying on the left and right by an appropriate matrix and its inverse.</p>
+<p xmlns:svg="http://www.w3.org/2000/svg">We prove the first equality using the <em class="emphasis">uniqueness property</em> of \(A=[T]_B\text{.}\)</p>
+<p xmlns:svg="http://www.w3.org/2000/svg">That is, set \(C=(\underset{B\rightarrow B'}{P})^{-1}A'\underset{B\rightarrow B'}{P}\text{.}\)</p>
+<p>To show \(C=A\text{,}\) we need only show \([T(\boldv)]_B=C[\boldv]_B\) for all \(\boldv\in V\text{.}\) Here goes:</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{align*}
+C[\boldv]_B\amp =\amp (\underset{B\rightarrow B'}{P})^{-1}A'\underset{B\rightarrow B'}{P}[\boldv]_B\\
+\amp =\amp \underset{B'\rightarrow B}{P}A'\underset{B\rightarrow B'}{P}[\boldv]_B\hspace{10pt} (\text{ since } \underset{B'\rightarrow B}{P}=(\underset{B\rightarrow B'}{P})^{-1})\\
+\amp =\amp \underset{B'\rightarrow B}{P}A'[\boldv]_{B'} \hspace{10pt} \text{(prop. of \(\underset{B\rightarrow B'}{P}\))}\\
+\amp =\amp \underset{B'\rightarrow B}{P}[T(\boldv)]_{B'} \hspace{10pt} \text{(prop. of \(A'=[T]_{B'}\))}\\
+\amp =\amp [T(\boldv)]_{B}
+\end{align*}
+</div>
+<p xmlns:svg="http://www.w3.org/2000/svg">Amazing! We didn't even have to get our hands dirty.</p></article><span class="incontext"><a href="ss_changeofbasis.html#paragraphs-235">in-context</a></span>
+</body>
+</html>

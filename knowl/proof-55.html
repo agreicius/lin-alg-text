@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2020-08-13T17:18:28-05:00       *-->
+<!--*   A recent stable commit (2020-07-07):   *-->
+<!--* 1771dacf84bfb1789139598d8379414b560b8f17 *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<article class="hiddenproof"><h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading"><span class="type">Proof</span></h6>
+<p>Fix any two vectors \(\boldv\) and \(\boldw\text{.}\) For any \(t\in\R\) we have by positivity</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+0\leq \langle t\boldv-\boldw,t\boldv-\boldw\rangle=\langle\boldv,\boldv\rangle t^2-2\langle\boldv,\boldw\rangle t+\langle\boldw,\boldw\rangle=at^2-2bt+c=f(t)\text{,}
+\end{equation*}
+</div>
+<p data-braille="continuation">where \(a=\langle\boldv,\boldv\rangle=\norm{v}^2\text{,}\) \(b=\langle\boldv,\boldw\rangle\) and \(c=\langle\boldw,\boldw\rangle=\norm{w}^2\text{.}\)</p>
+<p xmlns:svg="http://www.w3.org/2000/svg">The inequality \(f(t)\geq 0\) tells us that the quadratic polynomial \(f(t)\) has <em class="emphasis">at most</em> one root. This means its discriminant \(4b^2-4ac\leq 0\text{,}\) since otherwise there would be two roots.</p>
+<p>Subbing back in for \(a,b,c\) and rearranging yields</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+(\langle\boldv,\boldw\rangle)^2\leq \norm{\boldv}^2\norm{\boldw}^2\text{.}
+\end{equation*}
+</div>
+<p xmlns:svg="http://www.w3.org/2000/svg">Taking square-roots yields the desired inequality.</p>
+<p xmlns:svg="http://www.w3.org/2000/svg">The same reasoning shows that the Cauchy-Schwarz inequality is an actual equality iff \(f(t)=0\) for some \(t\) iff \(0=\langle t\boldv-\boldw,t\boldv-\boldw\rangle\) iff \(\boldv=t\boldw\) for some \(t\) (by positivity).</p></article><span class="incontext"><a href="ss_innerproducts.html#proof-55">in-context</a></span>
+</body>
+</html>

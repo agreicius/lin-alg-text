@@ -116,6 +116,11 @@
 \def\p{\partial}
 \newcommand{\abcdmatrix}[4]{\begin{bmatrix}#1\amp #2\\ #3\amp #4 \end{bmatrix}
 }
+\newenvironment{amatrix}[1][ccc|c]{\left[\begin{array}{#1}}{\end{array}\right]}
+\newenvironment{linsys}[2][m]{
+\begin{array}[#1]{@{}*{#2}{rc}r@{}}
+}{
+\end{array}}
 \newcommand{\eqsys}{\begin{array}{rcrcrcr}
 a_{11}x_{1}\amp +\amp a_{12}x_{2}\amp +\cdots+\amp  a_{1n}x_{n}\amp =\amp b_1\\
 a_{21}x_{1}\amp +\amp a_{22}x_{2}\amp +\cdots+\amp a_{2n}x_{n}\amp =\amp b_2\\
@@ -162,20 +167,20 @@ a_{m1}x_{1}\amp +\amp a_{m2}x_{2}\amp +\cdots +\amp a_{mn}x_{n}\amp =\amp 0
 \end{bmatrix}
 }
 \newcommand{\augmatrix}{
-\begin{bmatrix}[cccc|c]
+\begin{amatrix}[cccc|c]
 a_{11} \amp  a_{12} \amp  \cdots \amp  a_{1n} \amp b_{1}\\
 a_{21} \amp  a_{22} \amp  \cdots \amp  a_{2n} \amp b_{2}\\
 \vdots  \amp  \vdots  \amp  \ddots \amp  \vdots  \amp \vdots\\
 a_{m1} \amp  a_{m2} \amp  \cdots \amp  a_{mn}\amp b_{m}
-\end{bmatrix}
+\end{amatrix}
 }
 \newcommand{\varaugmatrix}[4]{
-\begin{bmatrix}[cccc|c]
+\begin{amatrix}[cccc|c]
 #3_{11} \amp  #3_{12} \amp  \cdots \amp  #3_{1#2} \amp #4_{1}\\
 #3_{21} \amp  #3_{22} \amp  \cdots \amp  #3_{2#2} \amp #4_{2}\\
 \vdots  \amp  \vdots  \amp  \ddots \amp  \vdots  \amp \vdots\\
 #3_{#1 1} \amp  #3_{#1 2} \amp  \cdots \amp  #3_{#1 #2}\amp #4_{#1}
-\end{bmatrix}
+\end{amatrix}
 }
 \newcommand{\spaceforemptycolumn}{\makebox[\wd\boxofmathplus]{\ }}
 \newcommand{\grstep}[2][\relax]{
@@ -281,7 +286,7 @@ a_{m1} \amp  a_{m2} \amp  \cdots \amp  a_{mn}\amp b_{m}
 </latex-image-preamble>
   </docinfo>
   <book>
-    <title>Math 240</title>
+    <title>Linear algebra: the theory of vector spaces</title>
     <frontmatter>
       <titlepage>
         <author>
@@ -290,11 +295,24 @@ a_{m1} \amp  a_{m2} \amp  \cdots \amp  a_{mn}\amp b_{m}
       </titlepage>
     </frontmatter>
     <xi:include href="./c_linear_systems.ptx"/>
-    <xi:include href="./c_det.ptx"/>
+    <!-- <xi:include href="./c_det.ptx"/>
     <xi:include href="./c_vectorspace.ptx"/>
     <xi:include href="./c_transbasis.ptx"/>
-    <xi:include href="./c_innerproductspaces.ptx"/>
+    <xi:include href="./c_innerproductspaces.ptx"/> -->
     <backmatter>
+      <appendix xml:id="appendix-defs">
+        <title>Definitions</title>
+        <list-of elements="definition" divisions="section" />
+      </appendix>
+      <appendix xml:id="appendix-thms">
+        <title>Theorems</title>
+        <list-of elements="theorem" divisions="section" />
+      </appendix>
+
+      <appendix xml:id="appendix-egs">
+        <title>Examples</title>
+        <list-of elements="example" divisions="section" />
+      </appendix>
       <xi:include href="./bibliography.ptx"/>
     </backmatter>
   </book>

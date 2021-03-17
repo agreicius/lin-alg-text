@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2020-08-13T17:17:50-05:00       *-->
+<!--*   A recent stable commit (2020-07-07):   *-->
+<!--* 1771dacf84bfb1789139598d8379414b560b8f17 *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<article class="paragraphs"><h5 class="heading"><span class="title">Row reduction as matrix multiplication.</span></h5>
+<p xmlns:svg="http://www.w3.org/2000/svg">Suppose we perform a sequence of row operations on a matrix \(A\text{.}\) Denote the \(i\)-th row operation \(\rho_i\text{,}\) and denote by \(\rho_i(B)\) the result of applying \(\rho_i\) to a matrix \(B\text{.}\)</p>
+<p>Our sequence of operations \(\rho_i\) would produce the following sequence of matrices:</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\begin{array}{c} A\\  \rho_1(A)\\  \rho_2(\rho_1(A))\\  \vdots \\ \rho_r(\rho_{r-1}(\dots \rho_2(\rho_1(A)))) \end{array}
+\end{equation*}
+</div>
+<p>Let \(\rho_i\) corresponds to the elementary matrix \(E_i\text{.}\) Then we represent this same sequence using matrix multiplication:</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\begin{array}{c} A\\  E_1A\\  E_2E_1A\\  \vdots \\ E_rE_{r-1}\cdots E_2E_1A \end{array}
+\end{equation*}
+</div></article><span class="incontext"><a href="ss_elementary.html#paragraphs-67">in-context</a></span>
+</body>
+</html>

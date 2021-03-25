@@ -197,44 +197,46 @@
 </subsection>
 
 <subsection xml:id="ss_gaussian_elimination">
+  <definition xml:id="d_GE" index="Gaussian elimination">
   <title>Gaussian elimination</title>
-  <p>
-    <term>Gaussian elimination</term>
-    is an algorithm which, given a matrix <m>A</m>,
-    transforms it one row operation at a time to a matrix <m>B</m> in row echelon form.
-    <ul>
-      <li>
-        <title>Step 1</title>
-        <p>
-          Find leftmost nonzero column and use row swap operation to move nonzero entry to top.
-        </p>
-      </li>
-      <li>
-        <title>Step 2</title>
-        <p>
-          Use scaling operation to make this top entry a leading 1.
-        </p>
-      </li>
-      <li>
-        <title>Step 3</title>
-        <p>
-          Add multiples of top row to lower rows to clear entries below the leading 1.
-        </p>
-      </li>
-      <li>
-        <title>Step 4</title>
-        <p>
-          Cover top row and begin again with Step 1 applied to remaining matrix.
-          Continue until matrix is in row echelon form.
-        </p>
-      </li>
-    </ul>
-  </p>
-  <p>
-    The next slide presents a detailed example of this procedure.
-  Use this as a model when doing your own examples and exercises, including the naming of row operations used
-</p>
+    <statement>
+      <p>
+        <term>Gaussian elimination</term>
+        is the algorithm described below. This process takes as an input a matrix <m>A</m> and
+        transforms it one row operation at a time to a row equivalent matrix <m>B</m> in row echelon form.
+      </p>
 
+  <dl>
+    <li>
+      <title>Step 1</title>
+      <p>
+        Find the leftmost nonzero column and perform a row swap to move the row with this nonzero entry to the top of the matrix.
+      </p>
+    </li>
+    <li>
+      <title>Step 2</title>
+      <p>
+        Scale the new top row to produce a leading one in the row.
+      </p>
+    </li>
+    <li>
+      <title>Step 3</title>
+      <p>
+        Perform row addition operations to clear entries below the leading 1.
+      </p>
+    </li>
+    <li>
+      <title>Step 4</title>
+      <p>
+        Ignore the top row and begin again with Step 1 applied to the remaining matrix.
+        Continue until matrix is in row echelon form.
+      </p>
+    </li>
+  </dl>
+  </statement>
+</definition>
+<remark> <xref ref="d_GE"/> is really a theorem in disguise. As such a proof should technically be provided for its implicit claims: that is, we should prove that the algorithm terminates in a matrix in row echelon form. Such a proof is not difficult, but not especially illuminating. The interested reader is invited to consult Robert Beezer's <url href="http://linear.ups.edu/fcla"><em>A First Course in Linear Algebra </em></url> (<url href="http://linear.ups.edu/fcla/section-RREF.html#theorem-REMEF">Theorem REMEF</url>).
+</remark>
   <paragraphs>
     <title>Example</title>
     <md>
@@ -275,6 +277,14 @@
       \end{bmatrix}</mrow>
     </md>
   </paragraphs>
+  <example>
+    <title>Video example: Gaussian Elimination</title>
+    <video  width="80%" source="http://gauss.math.luc.edu/greicius/Math201/Fall2012/Videos/fta-applications.mp4"/>
+  </example>
+
+
+
+
   <paragraphs>
     <title>Gauss-Jordan elimination</title>
     <p>

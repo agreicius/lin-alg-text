@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-05-24T17:10:22-05:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Real vector spaces</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [['\\(','\\)']]
+    },
+    asciimath2jax: {
+        ignoreClass: ".*",
+        processClass: "has_am"
+    },
+    jax: ["input/AsciiMath"],
+    extensions: ["asciimath2jax.js"],
+    TeX: {
+        extensions: ["extpfeil.js", "autobold.js", "https://pretextbook.org/js/lib/mathjaxknowl.js", "AMScd.js", ],
+        // scrolling to fragment identifiers is controlled by other Javascript
+        positionToHash: false,
+        equationNumbers: { autoNumber: "none", useLabelIds: true, },
+        TagSide: "right",
+        TagIndent: ".8em",
+    },
+    // HTML-CSS output Jax to be dropped for MathJax 3.0
+    "HTML-CSS": {
+        scale: 88,
+        mtextFontInherit: true,
+    },
+    CommonHTML: {
+        scale: 88,
+        mtextFontInherit: true,
+    },
+});
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML-full"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext_add_on.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script xmlns:svg="http://www.w3.org/2000/svg">sagecellEvalName='Evaluate (Sage)';
+</script><link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/banner_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/toc_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/knowls_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/style_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/colors_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/setcolors.css" rel="stylesheet" type="text/css">
+<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link xmlns:svg="http://www.w3.org/2000/svg" href="developer.css" rel="stylesheet" type="text/css">
+</head>
+<body class="mathbook-book has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div xmlns:svg="http://www.w3.org/2000/svg" id="latex-macros" class="hidden-content" style="display:none">\(\newcommand{\Z}{{\mathbb Z}}
+\newcommand{\Q}{{\mathbb Q}}
+\newcommand{\R}{{\mathbb R}}
+\newcommand{\C}{{\mathbb C}}
+\newcommand{\T}{{\mathbb T}}
+\newcommand{\F}{{\mathbb F}}
+\newcommand{\HH}{{\mathbb H}}
+\newcommand{\compose}{\circ}
+\newcommand{\bolda}{{\mathbf a}}
+\newcommand{\boldb}{{\mathbf b}}
+\newcommand{\boldc}{{\mathbf c}}
+\newcommand{\boldd}{{\mathbf d}}
+\newcommand{\bolde}{{\mathbf e}}
+\newcommand{\boldi}{{\mathbf i}}
+\newcommand{\boldj}{{\mathbf j}}
+\newcommand{\boldk}{{\mathbf k}}
+\newcommand{\boldn}{{\mathbf n}}
+\newcommand{\boldp}{{\mathbf p}}
+\newcommand{\boldq}{{\mathbf q}}
+\newcommand{\boldr}{{\mathbf r}}
+\newcommand{\boldsymbol}{{\mathbf s}}
+\newcommand{\boldt}{{\mathbf t}}
+\newcommand{\boldu}{{\mathbf u}}
+\newcommand{\boldv}{{\mathbf v}}
+\newcommand{\boldw}{{\mathbf w}}
+\newcommand{\boldx}{{\mathbf x}}
+\newcommand{\boldy}{{\mathbf y}}
+\newcommand{\boldz}{{\mathbf z}}
+\newcommand{\boldzero}{{\mathbf 0}}
+\newcommand{\boldmod}{\boldsymbol{ \bmod }}
+\newcommand{\boldT}{{\mathbf T}}
+\newcommand{\boldN}{{\mathbf N}}
+\newcommand{\boldB}{{\mathbf B}}
+\newcommand{\boldF}{{\mathbf F}}
+\newcommand{\boldS}{{\mathbf S}}
+\newcommand{\boldG}{{\mathbf G}}
+\newcommand{\boldK}{{\mathbf K}}
+\newcommand{\boldL}{{\mathbf L}}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\NS}{null}
+\DeclareMathOperator{\RS}{row}
+\DeclareMathOperator{\CS}{col}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\range}{range}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\nullity}{nullity}
+\DeclareMathOperator{\sign}{sign}
+\DeclareMathOperator{\Fix}{Fix}
+\DeclareMathOperator{\Aff}{Aff}
+\DeclareMathOperator{\Frac}{Frac}
+\DeclareMathOperator{\Ann}{Ann}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\mdeg}{mdeg}
+\DeclareMathOperator{\Lt}{Lt}
+\DeclareMathOperator{\Lc}{Lc}
+\DeclareMathOperator{\disc}{disc}
+\DeclareMathOperator{\Frob}{Frob}
+\DeclareMathOperator{\adj}{adj}
+\DeclareMathOperator{\curl}{curl}
+\DeclareMathOperator{\grad}{grad}
+\DeclareMathOperator{\diver}{div}
+\DeclareMathOperator{\flux}{flux}
+\def\Gal{\operatorname{Gal}}
+\def\ord{\operatorname{ord}}
+\def\ML{\operatorname{M}}
+\def\GL{\operatorname{GL}}
+\def\PGL{\operatorname{PGL}}
+\def\SL{\operatorname{SL}}
+\def\PSL{\operatorname{PSL}}
+\def\GSp{\operatorname{GSp}}
+\def\PGSp{\operatorname{PGSp}}
+\def\Sp{\operatorname{Sp}}
+\def\PSp{\operatorname{PSp}}
+\def\Aut{\operatorname{Aut}}
+\def\Inn{\operatorname{Inn}}
+\def\Hom{\operatorname{Hom}}
+\def\End{\operatorname{End}}
+\def\ch{\operatorname{char}}
+\def\Zp{\Z/p\Z}
+\def\Zm{\Z/m\Z}
+\def\Zn{\Z/n\Z}
+\def\Fp{\F_p}
+\newcommand{\surjects}{\twoheadrightarrow}
+\newcommand{\injects}{\hookrightarrow}
+\newcommand{\bijects}{\leftrightarrow}
+\newcommand{\isomto}{\overset{\sim}{\rightarrow}}
+\newcommand{\floor}[1]{\lfloor#1\rfloor}
+\newcommand{\ceiling}[1]{\left\lceil#1\right\rceil}
+\newcommand{\mclass}[2][m]{[#2]_{#1}}
+\newcommand{\val}[2][]{\left\lvert #2\right\rvert_{#1}}
+\newcommand{\valuation}[2][]{\left\lvert #2\right\rvert_{#1}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\anpoly}{a_nx^n+a_{n-1}x^{n-1}\cdots +a_1x+a_0}
+\newcommand{\anmonic}{x^n+a_{n-1}x^{n-1}\cdots +a_1x+a_0}
+\newcommand{\bmpoly}{b_mx^m+b_{m-1}x^{m-1}\cdots +b_1x+b_0}
+\newcommand{\pder}[2]{\frac{\partial#1}{\partial#2}}
+\renewcommand{\c}{\cancel}
+\newcommand{\normalin}{\trianglelefteq}
+\newcommand{\angvec}[1]{\langle #1\rangle}
+\newcommand{\varpoly}[2]{#1_{#2}x^{#2}+#1_{#2-1}x^{#2-1}\cdots +#1_1x+#1_0}
+\newcommand{\varpower}[1][a]{#1_0+#1_1x+#1_1x^2+\cdots}
+\newcommand{\limasto}[2][x]{\lim_{#1\rightarrow #2}}
+\def\ntoinfty{\lim_{n\rightarrow\infty}}
+\def\xtoinfty{\lim_{x\rightarrow\infty}}
+\def\ii{\item}
+\def\bb{\begin{enumerate}}
+\def\ee{\end{enumerate}}
+\def\ds{\displaystyle}
+\def\p{\partial}
+\newcommand{\abcdmatrix}[4]{\begin{bmatrix}#1\amp #2\\ #3\amp #4 \end{bmatrix}
+}
+\newenvironment{amatrix}[1][ccc|c]{\left[\begin{array}{#1}}{\end{array}\right]}
+\newenvironment{linsys}[2][m]{
+\begin{array}[#1]{@{}*{#2}{rc}r@{}}
+}{
+\end{array}}
+\newcommand{\eqsys}{\begin{array}{rcrcrcr}
+a_{11}x_{1}\amp +\amp a_{12}x_{2}\amp +\cdots+\amp  a_{1n}x_{n}\amp =\amp b_1\\
+a_{21}x_{1}\amp +\amp a_{22}x_{2}\amp +\cdots+\amp a_{2n}x_{n}\amp =\amp b_2\\
+\amp \vdots\amp   \amp \vdots \amp  \amp \vdots \amp  \vdots\\
+a_{m1}x_{1}\amp +\amp a_{m2}x_{2}\amp +\cdots +\amp a_{mn}x_{n}\amp =\amp b_m
+\end{array}
+}
+\newcommand{\numeqsys}{\begin{array}{rrcrcrcr}
+e_1:\amp  a_{11}x_{1}\amp +\amp a_{12}x_{2}\amp +\cdots+\amp  a_{1n}x_{n}\amp =\amp b_1\\
+e_2: \amp a_{21}x_{1}\amp +\amp a_{22}x_{2}\amp +\cdots+\amp a_{2n}x_{n}\amp =\amp b_2\\
+\amp \vdots\amp   \amp \vdots \amp  \amp \vdots \amp  \vdots\\
+e_m: \amp a_{m1}x_{1}\amp +\amp a_{m2}x_{2}\amp +\cdots +\amp a_{mn}x_{n}\amp =\amp b_m
+\end{array}
+}
+\newcommand{\homsys}{\begin{array}{rcrcrcr}
+a_{11}x_{1}\amp +\amp a_{12}x_{2}\amp +\cdots+\amp  a_{1n}x_{n}\amp =\amp 0\\
+a_{21}x_{1}\amp +\amp a_{22}x_{2}\amp +\cdots+\amp a_{2n}x_{n}\amp =\amp 0\\
+\amp \vdots\amp   \amp \vdots \amp  \amp \vdots \amp  \vdots\\
+a_{m1}x_{1}\amp +\amp a_{m2}x_{2}\amp +\cdots +\amp a_{mn}x_{n}\amp =\amp 0
+\end{array}
+}
+\newcommand{\vareqsys}[4]{
+\begin{array}{ccccccc}
+#3_{11}x_{1}\amp +\amp #3_{12}x_{2}\amp +\cdots+\amp  #3_{1#2}x_{#2}\amp =\amp #4_1\\
+#3_{21}x_{1}\amp +\amp #3_{22}x_{2}\amp +\cdots+\amp #3_{2#2}x_{#2}\amp =\amp #4_2\\
+\vdots \amp \amp \vdots \amp  \amp \vdots \amp =\amp  \vdots\\
+#3_{#1 1}x_{1}\amp +\amp #3_{#1 2}x_{2}\amp +\cdots +\amp #3_{#1 #2}x_{#2}\amp =\amp #4_{#1}
+\end{array}
+}
+\newcommand{\genmatrix}[1][a]{
+\begin{bmatrix}
+#1_{11} \amp  #1_{12} \amp  \cdots \amp  #1_{1n} \\
+#1_{21} \amp  #1_{22} \amp  \cdots \amp  #1_{2n} \\
+\vdots  \amp  \vdots  \amp  \ddots \amp  \vdots  \\
+#1_{m1} \amp  #1_{m2} \amp  \cdots \amp  #1_{mn}
+\end{bmatrix}
+}
+\newcommand{\varmatrix}[3]{
+\begin{bmatrix}
+#3_{11} \amp  #3_{12} \amp  \cdots \amp  #3_{1#2} \\
+#3_{21} \amp  #3_{22} \amp  \cdots \amp  #3_{2#2} \\
+\vdots  \amp  \vdots  \amp  \ddots \amp  \vdots  \\
+#3_{#1 1} \amp  #3_{#1 2} \amp  \cdots \amp  #3_{#1 #2}
+\end{bmatrix}
+}
+\newcommand{\augmatrix}{
+\begin{amatrix}[cccc|c]
+a_{11} \amp  a_{12} \amp  \cdots \amp  a_{1n} \amp b_{1}\\
+a_{21} \amp  a_{22} \amp  \cdots \amp  a_{2n} \amp b_{2}\\
+\vdots  \amp  \vdots  \amp  \ddots \amp  \vdots  \amp \vdots\\
+a_{m1} \amp  a_{m2} \amp  \cdots \amp  a_{mn}\amp b_{m}
+\end{amatrix}
+}
+\newcommand{\varaugmatrix}[4]{
+\begin{amatrix}[cccc|c]
+#3_{11} \amp  #3_{12} \amp  \cdots \amp  #3_{1#2} \amp #4_{1}\\
+#3_{21} \amp  #3_{22} \amp  \cdots \amp  #3_{2#2} \amp #4_{2}\\
+\vdots  \amp  \vdots  \amp  \ddots \amp  \vdots  \amp \vdots\\
+#3_{#1 1} \amp  #3_{#1 2} \amp  \cdots \amp  #3_{#1 #2}\amp #4_{#1}
+\end{amatrix}
+}
+\newcommand{\spaceforemptycolumn}{\makebox[\wd\boxofmathplus]{\ }}
+\newcommand{\grstep}[2][\relax]{
+\mathrel{
+\hspace{\grsteplength}\mathop{\longrightarrow}\limits^{#2\mathstrut}_{
+\begin{subarray}{l} #1 \end{subarray}}\hspace{\grsteplength}}}
+\newcommand{\repeatedgrstep}[2][\relax]{\hspace{-\grsteplength}\grstep[#1]{#2}}
+\newcommand{\swap}{\leftrightarrow}
+\newcommand{\deter}[1]{ \mathchoice{\left|#1\right|}{|#1|}{|#1|}{|#1|} }
+\newcommand{\generalmatrix}[3]{
+\left(
+\begin{array}{cccc}
+#1_{1,1}  \amp #1_{1,2}  \amp \ldots  \amp #1_{1,#2}  \\
+#1_{2,1}  \amp #1_{2,2}  \amp \ldots  \amp #1_{2,#2}  \\
+\amp \vdots                         \\
+#1_{#3,1} \amp #1_{#3,2} \amp \ldots  \amp #1_{#3,#2}
+\end{array}
+\right)  }
+\newcommand{\colvec}[2][c]{\begin{bmatrix}[#1] #2 \end{bmatrix}}
+\newcommand{\rowvec}[1]{\setlength{\arraycolsep}{3pt}\begin{bmatrix} #1 \end{bmatrix}}
+\DeclareMathOperator{\trace}{tr}
+\newcommand{\isomorphicto}{\cong}
+\newcommand{\rangespace}[1]{ \mathscr{R}(#1) }
+\newcommand{\nullspace}[1]{ \mathscr{N}(#1) }
+\newcommand{\genrangespace}[1]{ \mathscr{R}_\infty(#1) }
+\newcommand{\gennullspace}[1]{ \mathscr{N}_\infty(#1) }
+\newcommand{\zero}{ \vec{0} }
+\newcommand{\polyspace}{\mathcal{P}}
+\newcommand{\matspace}{\mathcal{M}}
+\DeclareMathOperator{\size}{size}
+\DeclareMathOperator{\adjoint}{adj}
+\DeclareMathOperator{\sgn}{sgn}
+\newcommand{\definend}[1]{\emph{#1}}
+\renewcommand{\Re}{\mathbb{R}}
+\newcommand{\map}[3]{\mbox{$#1\colon #2\to #3$}}
+\newcommand{\mapsunder}[1]{\stackrel{#1}{\longmapsto}}
+\newcommand{\mapsvia}[1]{\xrightarrow{#1}}
+\newcommand{\xmapsunder}[1]{\mapsunder{#1}}
+\newcommand{\composed}[2]{#1\mathbin{\circ} #2}
+\DeclareMathOperator{\identity}{id}
+\newcommand{\restrictionmap}[2]{{#1}\mathpunct\upharpoonright\hbox{}_{#2}}
+\renewcommand{\emptyset}{\varnothing}
+\newcommand{\setspacing}{0.1em}
+\newcommand{\set}[1]{\mbox{$\{\hspace{\setspacing}#1\hspace{\setspacing}\}$}}
+\newcommand{\suchthat}{\mid}
+\newcommand{\union}{\cup}
+\newcommand{\intersection}{\cap}
+\newcommand{\sequence}[1]{ \langle#1\rangle }
+\newcommand{\interval}[2]{#1\,\ldots\, #2}
+\newcommand{\setinterval}[2]{\mbox{$\{\interval{#1}{#2}\}$}}
+\newcommand{\openinterval}[2]{(\interval{#1}{#2})}
+\newcommand{\closedinterval}[2]{[\interval{#1}{#2}]}
+\newcommand{\clopinterval}[2]{[\interval{#1}{#2})}
+\newcommand{\opclinterval}[2]{(\interval{#1}{#2}]}
+\newcommand{\isimpliedby}{\Longleftarrow}
+\newcommand{\Sage}{\textit{Sage}}
+\newcommand{\Maple}{\textit{Maple}}
+\newcommand{\cat}[2]{#1\!\mathbin{\raise.6ex\hbox{\left( {}^\frown \right)}}\!#2}
+\newcommand{\alignedvdots}[1][10pt]{\mskip2.5mu\makebox[.5\equalsignwd][r]{}
+\smash{\vdots}}
+\newcommand{\stdbasis}{{\cal E}}
+\newcommand{\basis}[2]{\sequence{\vec{#1}_1,\ldots,\vec{#1}_{#2}}}
+\newcommand{\rowspace}[1]{ \mathop{{\mbox{Rowspace}}}(#1) }
+\newcommand{\colspace}[1]{ \mathop{{\mbox{Columnspace}}}(#1) }
+\newcommand{\linmaps}[2]{ \mathop{{\cal L}}(#1,#2) }
+\newcommand{\lincombo}[2]{
+#1_1#2_1+#1_2#2_2+\cdots +#1_n#2_n}
+\newcommand{\rep}[2]{ { Rep}_{#2}(#1) }
+\newcommand{\wrt}[1]{{\mbox{\scriptsize \textit{wrt}\hspace{.25em}\left( #1 \right)} }}
+\newcommand{\trans}[1]{ {{#1}^{\mathsf{T}}} }
+\newcommand{\proj}[2]{\mbox{proj}_{#2}({#1}) }
+\newcommand{\spanof}[1]{\relax [#1\relax ]}
+\newcommand{\directsum}{\oplus}
+\DeclareMathOperator{\dist}{dist}
+\newcommand{\nbyn}[1]{#1 \! \times \! #1 }
+\newcommand{\nbym}[2]{#1 \! \times \! #2 }
+\newcommand{\degs}[1]{#1^\circ\relax}
+\newcommand{\votepreflist}[3]{\colvec{#1 \\ #2 \\ #3}}
+\newcommand{\votinggraphic}[1]{\hspace{1.15em}\mathord{[.3in][.2in]{\includegraphics{voting.#1}}}\hspace{1.15em}}
+\newcommand{\magicsquares}{\mathscr{M}}
+\newcommand{\semimagicsquares}{\mathscr{H}}
+\newcommand{\circuitfont}{\sffamily}
+\newcommand{\digitinsq}[1]{\fbox{\left( #1 \right)} }
+\newcommand{\matrixvenlarge}[1]{\vbox{
+\vspace{\extramatrixvspace}
+\hbox{$#1$}
+\vspace{\extramatrixvspace}
+}}
+\def\bspace{
+{\vspace{.05in}}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\)</div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="book-1.html"><span class="title">Linear algebra: the theory of vector spaces</span></a></h1>
+<p class="byline">Aaron Greicius</p>
+</div>
+</div></div>
+<nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="c_vectorspace.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="c_vectorspace.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="ss_transformation.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="c_vectorspace.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="c_vectorspace.html" title="Up">Up</a><a class="next-button button toolbar-item" href="ss_transformation.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter"><a href="frontmatter-1.html" data-scroll="frontmatter-1"><span class="title">Front Matter</span></a></li>
+<li class="link">
+<a href="c_linear_systems.html" data-scroll="c_linear_systems"><span class="codenumber">1</span> <span class="title">Linear systems of equations</span></a><ul>
+<li><a href="s_systems.html" data-scroll="s_systems">Linear systems of equations</a></li>
+<li><a href="s_ge.html" data-scroll="s_ge">Gaussian elimination</a></li>
+<li><a href="s_solving.html" data-scroll="s_solving">Solving linear systems</a></li>
+<li><a href="ss_matrix.html" data-scroll="ss_matrix">Matrix arithmetic</a></li>
+<li><a href="ss_algebraic.html" data-scroll="ss_algebraic">Algebraic properties</a></li>
+<li><a href="ss_elementary.html" data-scroll="ss_elementary">Elementary matrices</a></li>
+<li><a href="ss_invertible.html" data-scroll="ss_invertible">More on invertibility</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="c_det.html" data-scroll="c_det"><span class="codenumber">2</span> <span class="title">The determinant</span></a><ul>
+<li><a href="ss_det.html" data-scroll="ss_det">The determinant</a></li>
+<li><a href="ss_rowops.html" data-scroll="ss_rowops">Row operations and the determinant</a></li>
+<li><a href="ss_further.html" data-scroll="ss_further">Further properties</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="c_vectorspace.html" data-scroll="c_vectorspace"><span class="codenumber">3</span> <span class="title">Vector spaces and linear transformations</span></a><ul>
+<li><a href="ss_vectorspace.html" data-scroll="ss_vectorspace" class="active">Real vector spaces</a></li>
+<li><a href="ss_transformation.html" data-scroll="ss_transformation">Linear transformations</a></li>
+<li><a href="ss_subspace.html" data-scroll="ss_subspace">Subspaces</a></li>
+<li><a href="ss_independence.html" data-scroll="ss_independence">Linear independence</a></li>
+<li><a href="ss_basis.html" data-scroll="ss_basis">Bases</a></li>
+<li><a href="ss_dimension.html" data-scroll="ss_dimension">Dimension</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="c_transbasis.html" data-scroll="c_transbasis"><span class="codenumber">4</span> <span class="title">Linear transformations, bases, and dimension</span></a><ul>
+<li><a href="ss_rank-nullity.html" data-scroll="ss_rank-nullity">Linear transformations and bases</a></li>
+<li><a href="ss_rank-nullity.html" data-scroll="ss_rank-nullity">Linear transformations and bases</a></li>
+<li><a href="ss_coordinate.html" data-scroll="ss_coordinate">Coordinate vectors</a></li>
+<li><a href="ss_matrixreps.html" data-scroll="ss_matrixreps">Matrix representations</a></li>
+<li><a href="ss_changeofbasis.html" data-scroll="ss_changeofbasis">Change of basis</a></li>
+<li><a href="ss_eigenvectors.html" data-scroll="ss_eigenvectors">Eigenvectors and eigenvalues</a></li>
+<li><a href="ss_diagonalization.html" data-scroll="ss_diagonalization">Diagonalization</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="c_innerproductspaces.html" data-scroll="c_innerproductspaces"><span class="codenumber">5</span> <span class="title">Inner product spaces</span></a><ul>
+<li><a href="ss_innerproducts.html" data-scroll="ss_innerproducts">Inner products, norms, angles</a></li>
+<li><a href="ss_orthogonality.html" data-scroll="ss_orthogonality">Orthogonality, Gram-Schmidt, orthogonal projection</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter-1.html" data-scroll="backmatter-1"><span class="title">Back Matter</span></a></li>
+<li class="link"><a href="appendix-defs.html" data-scroll="appendix-defs"><span class="codenumber">A</span> <span class="title">Definitions</span></a></li>
+<li class="link"><a href="appendix-thms.html" data-scroll="appendix-thms"><span class="codenumber">B</span> <span class="title">Theorems</span></a></li>
+<li class="link"><a href="appendix-egs.html" data-scroll="appendix-egs"><span class="codenumber">C</span> <span class="title">Examples</span></a></li>
+<li class="link"><a href="references-1.html" data-scroll="references-1"><span class="title">Bibliography</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1"><span class="title">Index</span></a></li>
+</ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="ss_vectorspace"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">3.1</span> <span class="title">Real vector spaces</span>
+</h2>
+<article class="paragraphs" id="paragraphs-77"><h5 class="heading"><span class="title">Chapter 3. Section 3.1: executive summary.</span></h5>
+<article class="paragraphs" id="paragraphs-78"><h5 class="heading"><span class="title">Definitions:.</span></h5>
+<p id="p-467">general vector space. \alert{Procedures:} deciding whether something is a vector space \alert{Theorems:} no theorems, but a list of familiar examples to get acquainted with.</p></article></article><article class="paragraphs" id="paragraphs-79"><h5 class="heading"><span class="title">Interlude on abstraction.</span></h5>
+<p id="p-468">In our study of matrices, we have seen that operations from real number arithmetic (addition, subtraction, multiplication) have “analogues” in the world of matrices (matrix addition, matrix subtraction, matrix multiplication).</p>
+<p id="p-469">The question naturally arises as to what other types of mathematical objects (besides real numbers or matrices) admit analogous operations, and further, what we can say about these analogous systems.</p>
+<p id="p-470">A common technique in mathematics to help investigate such questions, is to distill the important properties of the motivating operations into a list of <em class="emphasis">axioms</em>, and then attempt to prove statements about any system of operations that satisfies these axioms.</p>
+<p id="p-471">We now embark on just such an endeavor. In the current setting we are concerned with two important operations defined on matrices: matrix addition (\(A+B\)) and scalar multiplication (\(cA\)). As you recall from <a href="c_linear_systems.html" class="internal" title="Chapter 1: Linear systems of equations">Chapter 1</a>. <a href="ss_matrix.html" class="internal" title="Section 1.4: Matrix arithmetic">Section 1.4</a>, these two operations satisfy many useful properties: e.g, commutativity, associativity, distributivity, etc.</p>
+<p id="p-472">We <em class="emphasis">axiomatize</em> this setting by considering <em class="emphasis">any</em> system admitting two operations like this: our axioms will stipulate the existence of these two operations, as well as the fact that the operations satisfy the relevant properties (commutativity, associativity, etc.). A system satisfying these axioms is called a <em class="emphasis">vector space</em>.</p></article><article class="paragraphs" id="paragraphs-80"><h5 class="heading"><span class="title">Chapter 3. Section 3.1: vector spaces.</span></h5>
+<article class="definition definition-like" id="definition-29"><h6 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.1.1</span><span class="period">.</span>
+</h6>
+<p id="p-473">A <dfn class="terminology">(real)<a data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-1" id="fn-1"><sup> 1 </sup></a> vector space</dfn>is a set \(V\) together with two operations defined on \(V\text{:}\) a multiplication by (real) scalars</p>
+<div class="displaymath">
+\begin{align*}
+\R\times V\amp \rightarrow\amp  V\\
+(r,\boldv)\amp \mapsto\amp  r\boldv\text{,}
+\end{align*}
+</div>
+<p class="continuation">called <dfn class="terminology">scalar multiplication</dfn>, and an addition of elements of \(V\)</p>
+<div class="displaymath">
+\begin{align*}
+V\times V\amp \rightarrow\amp  V\\
+(\boldv,\boldw)\amp \mapsto\amp  \boldv+\boldw\text{,}
+\end{align*}
+</div>
+<p class="continuation">called <dfn class="terminology">vector addition</dfn>.</p>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-1"><div class="fn">There is a notion of <em class="emphasis">complex</em> vector space as well. In this course it is assumed the vector space is real. As such, we will often drop this modifier.</div></div>
+<p id="p-474">Furthermore, these two operations must satisfy the axioms listed on the next slide!</p></article></article><article class="paragraphs" id="paragraphs-81"><h5 class="heading"><span class="title">Definition contd..</span></h5>
+<ol class="decimal">
+<li id="li-144"><p id="p-475">\(\boldv+\boldw=\boldw+\boldv\) (addition is commutative)</p></li>
+<li id="li-145"><p id="p-476">\(\boldu+(\boldv+\boldw)=(\boldu+\boldv)+\boldw\) (addition is associative)</p></li>
+<li id="li-146"><p id="p-477">There is an element \(\boldzero\in V\) satisfying \(\boldzero+\boldv=\boldv\) for all \(\boldv\in V\text{.}\) (\(V\) has an additive identity)</p></li>
+<li id="li-147"><p id="p-478">For all \(\boldv\in V\text{,}\) there is an element \(-\boldv\in V\) s.t. \(\boldv+(-\boldv)=\boldzero\text{.}\) (\(V\) has additive inverses)</p></li>
+<li id="li-148"><p id="p-479">\(r(\boldu+\boldv)=r\boldu+r\boldv\) (scal. mult. distributes over vector sums)</p></li>
+<li id="li-149"><p id="p-480">\((r+s)\boldv=r\boldv+s\boldv\) (sum of scalars distributes)</p></li>
+<li id="li-150"><p id="p-481">\(r(s\boldv)=(rs)\boldv\) (scal. mult. is assoc.)</p></li>
+<li id="li-151"><p id="p-482">\(1\boldv=\boldv\) for all \(\boldv\in V\) (scalar 1 acts as identity)</p></li>
+</ol>
+<p id="p-483">Elements of a vector space \(V\) are called <dfn class="terminology">vectors</dfn>.</p>
+<p id="p-484">A <dfn class="terminology">linear combination</dfn> in a vector space is any expression of the form \(c_1\boldv_1+c_2\boldv_2+\cdots +c_r\boldv_r\text{,}\) where \(c_i\in\R\) and \(\boldv_i\in V\) for all \(1\leq i\leq r\text{.}\)</p></article><article class="paragraphs" id="paragraphs-82"><h5 class="heading"><span class="title">Examples: \alert{$M_{mn}$}.</span></h5>
+<p id="p-485">As mentioned above, our inspiration for the abstract notion of a vector space comes from matrices. Let's make explicit how they constitute an example. Fix an \(m\) and \(n\) and let \(V=M_{mn}\) be the set of all \(m\times n\) matrices.</p>
+<article class="paragraphs" id="paragraphs-83"><h5 class="heading"><span class="title">Addition and scalar multiplication.</span></h5>
+<p id="p-486">Given any \(A=[a_{ij}]\text{,}\) \(B=[b_{ij}]\text{,}\) define:</p></article><div class="displaymath">
+\begin{align*}
+rA\amp :=\amp [ra_{ij}],  \text{ (the usual scalar multiplication) }\\
+A+B\amp :=\amp [a_{ij}+b_{ij}],  \text{ (the usual matrix addition) }
+\end{align*}
+</div>
+<article class="paragraphs" id="paragraphs-84"><h5 class="heading"><span class="title">Additive identity and inverses.</span></h5>
+<p id="p-487">Set:</p></article><div class="displaymath">
+\begin{align*}
+\boldzero\amp :=\amp 0_{mn}, \text{ the \(m\times n\) zero matrix }\\
+-A\amp :=\amp [-a_{ij}]\text{.}
+\end{align*}
+</div>
+<p id="p-488">We have already seen in <a href="c_linear_systems.html" class="internal" title="Chapter 1: Linear systems of equations">Chapter 1</a>. <a href="ss_matrix.html" class="internal" title="Section 1.4: Matrix arithmetic">Section 1.4</a> that these operations, along with our choices of zero vector and additive inverses, satisfy all the axioms of our vector space definition. Thus \(M_{mn}\text{,}\) along with these operations, constitutes a vector space.</p></article><article class="paragraphs" id="paragraphs-85"><h5 class="heading"><span class="title">Examples: \alert{$\R^n$}.</span></h5>
+<p id="p-489">We define \(\R^n\) to be the set of all \(n\)-tuples: i.e., \(\R^n=\{(t_1,t_2,\dots t_n)\colon t_i\in\R \}\text{.}\) We call \(\R^n\) <dfn class="terminology">\(n\)-space</dfn>, call elements of \(\R^n\) <dfn class="terminology">\(n\)-vectors</dfn>, and denote elements of \(\R^n\) with bold, lowercase letters: typically, \(\boldv\text{,}\) \(\boldw\text{,}\) and \(\boldu\text{.}\)</p>
+<p id="p-490">Define a vector space structure on \(\R^n\) as follows.</p>
+<article class="paragraphs" id="paragraphs-86"><h5 class="heading"><span class="title">Addition and scalar multiplication.</span></h5>
+<p id="p-491">Given any \(\boldv=(v_1,\dots,v_n)\) and \(\boldw=(w_1,\dots,w_n)\) in \(\R^n\) define:</p></article><div class="displaymath">
+\begin{align*}
+r\boldv\amp :=\amp (rv_1,rv_2,\dots ,rv_n) \text{ for all \(r\in\R\) } ,\\
+\boldv+\boldw\amp :=\amp (v_1+w_1,\dots,v_n+w_n)
+\end{align*}
+</div>
+<article class="paragraphs" id="paragraphs-87"><h5 class="heading"><span class="title">Additive identity and inverses.</span></h5>
+<p id="p-492">Set:</p></article><div class="displaymath">
+\begin{align*}
+\boldzero\amp :=\amp (0,0,\dots,0)\\
+-\boldv\amp :=\amp (-v_1,-v_2,\dots,-v_n)\text{.}
+\end{align*}
+</div>
+<p id="p-493">The difference between \(\R^n\) and \(M_{1n}\) (row vectors) is simply one of notation (parenthesis instead of bracket). In particular, it follows immediately from the last example that \(\R^n\) with these operations is a vector space.</p>
+<p id="p-494">Furthermore I reserve the right to identify \(\R^n\) with \(M_{1n}\text{,}\) as well as \(M_{n1}\) (column vectors), in any given example. I will always make my choice explicit: e.g. ``Let \(V=\R^n\text{,}\) with elements treated as column vectors".</p></article><article class="paragraphs" id="paragraphs-88"><h5 class="heading"><span class="title">Examples: \alert{the trivial vector space}.</span></h5>
+<p id="p-495">Vector spaces of the form \(\R^n\) will be our main object of study. It is important to observe, however, that there are many other, more exotic vector spaces. In other words, you cannot always assume that a vector is an <em class="emphasis">\(n\)-vector</em>. We now introduce some of these more exotic examples, starting with the <em class="emphasis">trivial vector space</em>.</p>
+<p id="p-496">Let \(V=\{\boldv\}\) be a set containing exactly one element.</p>
+<article class="paragraphs" id="paragraphs-89"><h5 class="heading"><span class="title">Addition and scalar multiplication.</span></h5>
+<p id="p-497">Define:</p></article><div class="displaymath">
+\begin{align*}
+r\boldv\amp :=\amp \boldv \text{ for all \(r\in\R\) } ,\\
+\boldv+\boldv\amp :=\amp \boldv
+\end{align*}
+</div>
+<article class="paragraphs" id="paragraphs-90"><h5 class="heading"><span class="title">Additive identity and inverses.</span></h5>
+<p id="p-498">Set:</p></article><div class="displaymath">
+\begin{align*}
+\boldzero\amp :=\amp \boldv\\
+-\boldv\amp :=\amp \boldv\text{.}
+\end{align*}
+</div>
+<p id="p-499">It follows easily that \(V=\{\boldv\}\text{,}\) along with these operations and choices of zero vector and additive inverses, satisfies the definition of a vector space.</p>
+<p id="p-500">We call \(V\) the <dfn class="terminology">trivial (or zero) vector space</dfn>, and denote it \(V=\{\boldzero\}\text{.}\) (Note that the single element of the trivial vector space is always the zero vector of the space. Hence the notation.)</p></article><article class="paragraphs" id="paragraphs-91"><h5 class="heading"><span class="title">Examples: \alert{$\R^\infty$}.</span></h5>
+<article class="definition definition-like" id="definition-30"><h6 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.1.2</span><span class="period">.</span>
+</h6>
+<p id="p-501">We define \(\R^\infty\) to be the set of all infinite sequences of real numbers: i.e.,</p>
+<div class="displaymath">
+\begin{equation*}
+\R^\infty=\{(t_1,t_2,t_3,\dots)\colon t_i\in\R \}\text{.}
+\end{equation*}
+</div></article><p id="p-502">Define a vector space structure on \(\R^\infty\) as follows.</p>
+<article class="paragraphs" id="paragraphs-92"><h5 class="heading"><span class="title">Addition and scalar multiplication.</span></h5>
+<p id="p-503">Given any \(\boldv=(v_1,v_2,\dots)\) and \(\boldw=(w_1,w_2, \dots )\) in \(\R^n\) define:</p></article><div class="displaymath">
+\begin{align*}
+r\boldv\amp :=\amp (rv_1,rv_2,\dots) \text{ for all \(r\in\R\) } ,\\
+\boldv+\boldw\amp :=\amp (v_1+w_1,v_2+w_2, \dots)
+\end{align*}
+</div>
+<article class="paragraphs" id="paragraphs-93"><h5 class="heading"><span class="title">Additive identity and inverses.</span></h5>
+<p id="p-504">Set:</p></article><div class="displaymath">
+\begin{align*}
+\boldzero\amp :=\amp (0,0,\dots)\\
+-\boldv\amp :=\amp (-v_1,-v_2,\dots)\text{.}
+\end{align*}
+</div>
+<p id="p-505">It is easy to show \(\R^\infty\) with these operations forms a vector space.</p></article><article class="paragraphs" id="paragraphs-94"><h5 class="heading"><span class="title">Examples: \alert{$C^\infty(X)$}.</span></h5>
+<p id="p-506">Let \(X\subset\R\) be any interval of any sort: e.g. \(X=[a,b]\text{,}\) \(X=(-\infty, \infty)\text{,}\) \(X=(-\infty, b]\text{,}\) etc. Define \(V=C^\infty(X)\) to be the set of all infinitely-differentiable real-valued functions with domain \(X\text{.}\)</p>
+<article class="paragraphs" id="paragraphs-95"><h5 class="heading"><span class="title">Addition and scalar multiplication.</span></h5>
+<p id="p-507">Given any elements \(f, g\in C^\infty(X)\text{,}\) define:</p></article><div class="displaymath">
+\begin{align*}
+rf\amp :=\amp \text{ the function defined as \((rf)(x)=rf(x)\) for all \(r\in\R\) } ,\\
+f+g\amp :=\amp \text{ the function defined as \((f+g)(x)=f(x)+g(x)\). }
+\end{align*}
+</div>
+<p id="p-508">In other words, vector scalar multiplication is defined to be scalar multiplication of functions, and vector addition is defined to be function addition.</p>
+<article class="paragraphs" id="paragraphs-96"><h5 class="heading"><span class="title">Additive identity and inverses.</span></h5>
+<p id="p-509">Set:</p></article><div class="displaymath">
+\begin{align*}
+\boldzero\amp :=\amp \text{ the zero function \(0_X\), defined as \(0_X(x)=0\) for all \(x\in X\). }\\
+-f\amp :=\amp \text{ the function defined as \((-f)(x)=-f(x)\) for all \(x\in X\) } \text{.}
+\end{align*}
+</div>
+<p id="p-510">The fact that \(C^\infty(X)\) with these operations forms a vector space follows from familiar properties of <em class="emphasis">function arithmetic</em>.</p>
+<p id="p-511">Take a moment to let the exotic quality of this example sink in. Our “vectors” in this example are <em class="emphasis">functions</em>! Whereas we can concretely describe the general element of \(\R^3\) (\((a,b,c)\)) or even \(\R^n\) (\((r_1,r_2,\dots,
+r_n)\)), this is not so in \(C^\infty(X)\text{:}\) the general element is just some infinitely differentiable function \(f\text{.}\) I can give you plenty of examples of elements (e.g., \(f(x)=x^2\text{,}\) \(f(x)=\sin x-e^x\text{,}\) etc.), but I cannot express the general element in any kind of finite way.</p></article><p id="p-512">It is now an easy, but interesting exercise to show that these definitions turn \(\R_{&gt;0}\) into a vector space.</p>
+<p id="p-513">When proving a general fact about vector spaces we can only invoke the defining axioms the vector space satisfies; we cannot assume the vectors of the space are of any particular form. For example, we cannot assume vectors of \(V\) are \(n\)-tuples, or matrices, etc. We end with an example of such an axiomatic proof.</p>
+<article class="theorem theorem-like" id="theorem-27"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.1.3</span><span class="period">.</span>
+</h6>
+<p id="p-514">Let \(V\) be a vector space.</p>
+<ol class="decimal">
+<li id="li-152"><p id="p-515">\(0\boldv=\boldzero\) for all \(\boldv\in V\text{.}\)</p></li>
+<li id="li-153"><p id="p-516">\(k\boldzero=\boldzero\) for all \(k\in \R\text{.}\)</p></li>
+<li id="li-154"><p id="p-517">\((-1)\boldv=-\boldv\) for all \(\boldv\in V\text{.}\)</p></li>
+<li id="li-155"><p id="p-518">If \(k\boldu=\boldzero\text{,}\) then \(k=0\) or \(\boldu=\boldzero\text{.}\)</p></li>
+</ol></article><article class="hiddenproof" id="proof-22"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-22"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-22"><article class="hiddenproof"><p id="p-519">We prove (a), leaving (b)-(d) as an exercise.</p>
+<p id="p-520">First observe that \(0\boldv=(0+0)\boldv\text{,}\) since \(0=0+0\text{.}\)</p>
+<p id="p-521">By Axiom (e) we have \((0+0)\boldv=0\boldv+0\boldv\text{.}\) Thus \(0\boldv=0\boldv+0\boldv\text{.}\)</p>
+<p id="p-522">Add \(-0\boldv\text{,}\) the additive inverse of \(0\boldv\text{,}\) to both sides of the last equation:</p>
+<div class="displaymath">
+\begin{equation*}
+-0\boldv+0\boldv=-0\boldv+0\boldv+0\boldv.\tag{\(*\)}
+\end{equation*}
+</div>
+<p id="p-523">The left-hand side of \((*)\) is \(\boldzero\text{,}\) by Axiom (d). The right-hand side is \(\boldzero+0\boldv=0\boldv\text{,}\) by Axiom (c). We conclude that \(\boldzero=0\boldv\text{.}\)</p></article></div></section></div></main>
+</div>
+</body>
+</html>

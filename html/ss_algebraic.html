@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-05-24T17:10:17-05:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Algebraic properties</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [['\\(','\\)']]
+    },
+    asciimath2jax: {
+        ignoreClass: ".*",
+        processClass: "has_am"
+    },
+    jax: ["input/AsciiMath"],
+    extensions: ["asciimath2jax.js"],
+    TeX: {
+        extensions: ["extpfeil.js", "autobold.js", "https://pretextbook.org/js/lib/mathjaxknowl.js", "AMScd.js", ],
+        // scrolling to fragment identifiers is controlled by other Javascript
+        positionToHash: false,
+        equationNumbers: { autoNumber: "none", useLabelIds: true, },
+        TagSide: "right",
+        TagIndent: ".8em",
+    },
+    // HTML-CSS output Jax to be dropped for MathJax 3.0
+    "HTML-CSS": {
+        scale: 88,
+        mtextFontInherit: true,
+    },
+    CommonHTML: {
+        scale: 88,
+        mtextFontInherit: true,
+    },
+});
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML-full"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext_add_on.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script xmlns:svg="http://www.w3.org/2000/svg">sagecellEvalName='Evaluate (Sage)';
+</script><link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/banner_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/toc_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/knowls_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/style_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/colors_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/setcolors.css" rel="stylesheet" type="text/css">
+<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link xmlns:svg="http://www.w3.org/2000/svg" href="developer.css" rel="stylesheet" type="text/css">
+</head>
+<body class="mathbook-book has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div xmlns:svg="http://www.w3.org/2000/svg" id="latex-macros" class="hidden-content" style="display:none">\(\newcommand{\Z}{{\mathbb Z}}
+\newcommand{\Q}{{\mathbb Q}}
+\newcommand{\R}{{\mathbb R}}
+\newcommand{\C}{{\mathbb C}}
+\newcommand{\T}{{\mathbb T}}
+\newcommand{\F}{{\mathbb F}}
+\newcommand{\HH}{{\mathbb H}}
+\newcommand{\compose}{\circ}
+\newcommand{\bolda}{{\mathbf a}}
+\newcommand{\boldb}{{\mathbf b}}
+\newcommand{\boldc}{{\mathbf c}}
+\newcommand{\boldd}{{\mathbf d}}
+\newcommand{\bolde}{{\mathbf e}}
+\newcommand{\boldi}{{\mathbf i}}
+\newcommand{\boldj}{{\mathbf j}}
+\newcommand{\boldk}{{\mathbf k}}
+\newcommand{\boldn}{{\mathbf n}}
+\newcommand{\boldp}{{\mathbf p}}
+\newcommand{\boldq}{{\mathbf q}}
+\newcommand{\boldr}{{\mathbf r}}
+\newcommand{\boldsymbol}{{\mathbf s}}
+\newcommand{\boldt}{{\mathbf t}}
+\newcommand{\boldu}{{\mathbf u}}
+\newcommand{\boldv}{{\mathbf v}}
+\newcommand{\boldw}{{\mathbf w}}
+\newcommand{\boldx}{{\mathbf x}}
+\newcommand{\boldy}{{\mathbf y}}
+\newcommand{\boldz}{{\mathbf z}}
+\newcommand{\boldzero}{{\mathbf 0}}
+\newcommand{\boldmod}{\boldsymbol{ \bmod }}
+\newcommand{\boldT}{{\mathbf T}}
+\newcommand{\boldN}{{\mathbf N}}
+\newcommand{\boldB}{{\mathbf B}}
+\newcommand{\boldF}{{\mathbf F}}
+\newcommand{\boldS}{{\mathbf S}}
+\newcommand{\boldG}{{\mathbf G}}
+\newcommand{\boldK}{{\mathbf K}}
+\newcommand{\boldL}{{\mathbf L}}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\NS}{null}
+\DeclareMathOperator{\RS}{row}
+\DeclareMathOperator{\CS}{col}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\range}{range}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\nullity}{nullity}
+\DeclareMathOperator{\sign}{sign}
+\DeclareMathOperator{\Fix}{Fix}
+\DeclareMathOperator{\Aff}{Aff}
+\DeclareMathOperator{\Frac}{Frac}
+\DeclareMathOperator{\Ann}{Ann}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\mdeg}{mdeg}
+\DeclareMathOperator{\Lt}{Lt}
+\DeclareMathOperator{\Lc}{Lc}
+\DeclareMathOperator{\disc}{disc}
+\DeclareMathOperator{\Frob}{Frob}
+\DeclareMathOperator{\adj}{adj}
+\DeclareMathOperator{\curl}{curl}
+\DeclareMathOperator{\grad}{grad}
+\DeclareMathOperator{\diver}{div}
+\DeclareMathOperator{\flux}{flux}
+\def\Gal{\operatorname{Gal}}
+\def\ord{\operatorname{ord}}
+\def\ML{\operatorname{M}}
+\def\GL{\operatorname{GL}}
+\def\PGL{\operatorname{PGL}}
+\def\SL{\operatorname{SL}}
+\def\PSL{\operatorname{PSL}}
+\def\GSp{\operatorname{GSp}}
+\def\PGSp{\operatorname{PGSp}}
+\def\Sp{\operatorname{Sp}}
+\def\PSp{\operatorname{PSp}}
+\def\Aut{\operatorname{Aut}}
+\def\Inn{\operatorname{Inn}}
+\def\Hom{\operatorname{Hom}}
+\def\End{\operatorname{End}}
+\def\ch{\operatorname{char}}
+\def\Zp{\Z/p\Z}
+\def\Zm{\Z/m\Z}
+\def\Zn{\Z/n\Z}
+\def\Fp{\F_p}
+\newcommand{\surjects}{\twoheadrightarrow}
+\newcommand{\injects}{\hookrightarrow}
+\newcommand{\bijects}{\leftrightarrow}
+\newcommand{\isomto}{\overset{\sim}{\rightarrow}}
+\newcommand{\floor}[1]{\lfloor#1\rfloor}
+\newcommand{\ceiling}[1]{\left\lceil#1\right\rceil}
+\newcommand{\mclass}[2][m]{[#2]_{#1}}
+\newcommand{\val}[2][]{\left\lvert #2\right\rvert_{#1}}
+\newcommand{\valuation}[2][]{\left\lvert #2\right\rvert_{#1}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\anpoly}{a_nx^n+a_{n-1}x^{n-1}\cdots +a_1x+a_0}
+\newcommand{\anmonic}{x^n+a_{n-1}x^{n-1}\cdots +a_1x+a_0}
+\newcommand{\bmpoly}{b_mx^m+b_{m-1}x^{m-1}\cdots +b_1x+b_0}
+\newcommand{\pder}[2]{\frac{\partial#1}{\partial#2}}
+\renewcommand{\c}{\cancel}
+\newcommand{\normalin}{\trianglelefteq}
+\newcommand{\angvec}[1]{\langle #1\rangle}
+\newcommand{\varpoly}[2]{#1_{#2}x^{#2}+#1_{#2-1}x^{#2-1}\cdots +#1_1x+#1_0}
+\newcommand{\varpower}[1][a]{#1_0+#1_1x+#1_1x^2+\cdots}
+\newcommand{\limasto}[2][x]{\lim_{#1\rightarrow #2}}
+\def\ntoinfty{\lim_{n\rightarrow\infty}}
+\def\xtoinfty{\lim_{x\rightarrow\infty}}
+\def\ii{\item}
+\def\bb{\begin{enumerate}}
+\def\ee{\end{enumerate}}
+\def\ds{\displaystyle}
+\def\p{\partial}
+\newcommand{\abcdmatrix}[4]{\begin{bmatrix}#1\amp #2\\ #3\amp #4 \end{bmatrix}
+}
+\newenvironment{amatrix}[1][ccc|c]{\left[\begin{array}{#1}}{\end{array}\right]}
+\newenvironment{linsys}[2][m]{
+\begin{array}[#1]{@{}*{#2}{rc}r@{}}
+}{
+\end{array}}
+\newcommand{\eqsys}{\begin{array}{rcrcrcr}
+a_{11}x_{1}\amp +\amp a_{12}x_{2}\amp +\cdots+\amp  a_{1n}x_{n}\amp =\amp b_1\\
+a_{21}x_{1}\amp +\amp a_{22}x_{2}\amp +\cdots+\amp a_{2n}x_{n}\amp =\amp b_2\\
+\amp \vdots\amp   \amp \vdots \amp  \amp \vdots \amp  \vdots\\
+a_{m1}x_{1}\amp +\amp a_{m2}x_{2}\amp +\cdots +\amp a_{mn}x_{n}\amp =\amp b_m
+\end{array}
+}
+\newcommand{\numeqsys}{\begin{array}{rrcrcrcr}
+e_1:\amp  a_{11}x_{1}\amp +\amp a_{12}x_{2}\amp +\cdots+\amp  a_{1n}x_{n}\amp =\amp b_1\\
+e_2: \amp a_{21}x_{1}\amp +\amp a_{22}x_{2}\amp +\cdots+\amp a_{2n}x_{n}\amp =\amp b_2\\
+\amp \vdots\amp   \amp \vdots \amp  \amp \vdots \amp  \vdots\\
+e_m: \amp a_{m1}x_{1}\amp +\amp a_{m2}x_{2}\amp +\cdots +\amp a_{mn}x_{n}\amp =\amp b_m
+\end{array}
+}
+\newcommand{\homsys}{\begin{array}{rcrcrcr}
+a_{11}x_{1}\amp +\amp a_{12}x_{2}\amp +\cdots+\amp  a_{1n}x_{n}\amp =\amp 0\\
+a_{21}x_{1}\amp +\amp a_{22}x_{2}\amp +\cdots+\amp a_{2n}x_{n}\amp =\amp 0\\
+\amp \vdots\amp   \amp \vdots \amp  \amp \vdots \amp  \vdots\\
+a_{m1}x_{1}\amp +\amp a_{m2}x_{2}\amp +\cdots +\amp a_{mn}x_{n}\amp =\amp 0
+\end{array}
+}
+\newcommand{\vareqsys}[4]{
+\begin{array}{ccccccc}
+#3_{11}x_{1}\amp +\amp #3_{12}x_{2}\amp +\cdots+\amp  #3_{1#2}x_{#2}\amp =\amp #4_1\\
+#3_{21}x_{1}\amp +\amp #3_{22}x_{2}\amp +\cdots+\amp #3_{2#2}x_{#2}\amp =\amp #4_2\\
+\vdots \amp \amp \vdots \amp  \amp \vdots \amp =\amp  \vdots\\
+#3_{#1 1}x_{1}\amp +\amp #3_{#1 2}x_{2}\amp +\cdots +\amp #3_{#1 #2}x_{#2}\amp =\amp #4_{#1}
+\end{array}
+}
+\newcommand{\genmatrix}[1][a]{
+\begin{bmatrix}
+#1_{11} \amp  #1_{12} \amp  \cdots \amp  #1_{1n} \\
+#1_{21} \amp  #1_{22} \amp  \cdots \amp  #1_{2n} \\
+\vdots  \amp  \vdots  \amp  \ddots \amp  \vdots  \\
+#1_{m1} \amp  #1_{m2} \amp  \cdots \amp  #1_{mn}
+\end{bmatrix}
+}
+\newcommand{\varmatrix}[3]{
+\begin{bmatrix}
+#3_{11} \amp  #3_{12} \amp  \cdots \amp  #3_{1#2} \\
+#3_{21} \amp  #3_{22} \amp  \cdots \amp  #3_{2#2} \\
+\vdots  \amp  \vdots  \amp  \ddots \amp  \vdots  \\
+#3_{#1 1} \amp  #3_{#1 2} \amp  \cdots \amp  #3_{#1 #2}
+\end{bmatrix}
+}
+\newcommand{\augmatrix}{
+\begin{amatrix}[cccc|c]
+a_{11} \amp  a_{12} \amp  \cdots \amp  a_{1n} \amp b_{1}\\
+a_{21} \amp  a_{22} \amp  \cdots \amp  a_{2n} \amp b_{2}\\
+\vdots  \amp  \vdots  \amp  \ddots \amp  \vdots  \amp \vdots\\
+a_{m1} \amp  a_{m2} \amp  \cdots \amp  a_{mn}\amp b_{m}
+\end{amatrix}
+}
+\newcommand{\varaugmatrix}[4]{
+\begin{amatrix}[cccc|c]
+#3_{11} \amp  #3_{12} \amp  \cdots \amp  #3_{1#2} \amp #4_{1}\\
+#3_{21} \amp  #3_{22} \amp  \cdots \amp  #3_{2#2} \amp #4_{2}\\
+\vdots  \amp  \vdots  \amp  \ddots \amp  \vdots  \amp \vdots\\
+#3_{#1 1} \amp  #3_{#1 2} \amp  \cdots \amp  #3_{#1 #2}\amp #4_{#1}
+\end{amatrix}
+}
+\newcommand{\spaceforemptycolumn}{\makebox[\wd\boxofmathplus]{\ }}
+\newcommand{\grstep}[2][\relax]{
+\mathrel{
+\hspace{\grsteplength}\mathop{\longrightarrow}\limits^{#2\mathstrut}_{
+\begin{subarray}{l} #1 \end{subarray}}\hspace{\grsteplength}}}
+\newcommand{\repeatedgrstep}[2][\relax]{\hspace{-\grsteplength}\grstep[#1]{#2}}
+\newcommand{\swap}{\leftrightarrow}
+\newcommand{\deter}[1]{ \mathchoice{\left|#1\right|}{|#1|}{|#1|}{|#1|} }
+\newcommand{\generalmatrix}[3]{
+\left(
+\begin{array}{cccc}
+#1_{1,1}  \amp #1_{1,2}  \amp \ldots  \amp #1_{1,#2}  \\
+#1_{2,1}  \amp #1_{2,2}  \amp \ldots  \amp #1_{2,#2}  \\
+\amp \vdots                         \\
+#1_{#3,1} \amp #1_{#3,2} \amp \ldots  \amp #1_{#3,#2}
+\end{array}
+\right)  }
+\newcommand{\colvec}[2][c]{\begin{bmatrix}[#1] #2 \end{bmatrix}}
+\newcommand{\rowvec}[1]{\setlength{\arraycolsep}{3pt}\begin{bmatrix} #1 \end{bmatrix}}
+\DeclareMathOperator{\trace}{tr}
+\newcommand{\isomorphicto}{\cong}
+\newcommand{\rangespace}[1]{ \mathscr{R}(#1) }
+\newcommand{\nullspace}[1]{ \mathscr{N}(#1) }
+\newcommand{\genrangespace}[1]{ \mathscr{R}_\infty(#1) }
+\newcommand{\gennullspace}[1]{ \mathscr{N}_\infty(#1) }
+\newcommand{\zero}{ \vec{0} }
+\newcommand{\polyspace}{\mathcal{P}}
+\newcommand{\matspace}{\mathcal{M}}
+\DeclareMathOperator{\size}{size}
+\DeclareMathOperator{\adjoint}{adj}
+\DeclareMathOperator{\sgn}{sgn}
+\newcommand{\definend}[1]{\emph{#1}}
+\renewcommand{\Re}{\mathbb{R}}
+\newcommand{\map}[3]{\mbox{$#1\colon #2\to #3$}}
+\newcommand{\mapsunder}[1]{\stackrel{#1}{\longmapsto}}
+\newcommand{\mapsvia}[1]{\xrightarrow{#1}}
+\newcommand{\xmapsunder}[1]{\mapsunder{#1}}
+\newcommand{\composed}[2]{#1\mathbin{\circ} #2}
+\DeclareMathOperator{\identity}{id}
+\newcommand{\restrictionmap}[2]{{#1}\mathpunct\upharpoonright\hbox{}_{#2}}
+\renewcommand{\emptyset}{\varnothing}
+\newcommand{\setspacing}{0.1em}
+\newcommand{\set}[1]{\mbox{$\{\hspace{\setspacing}#1\hspace{\setspacing}\}$}}
+\newcommand{\suchthat}{\mid}
+\newcommand{\union}{\cup}
+\newcommand{\intersection}{\cap}
+\newcommand{\sequence}[1]{ \langle#1\rangle }
+\newcommand{\interval}[2]{#1\,\ldots\, #2}
+\newcommand{\setinterval}[2]{\mbox{$\{\interval{#1}{#2}\}$}}
+\newcommand{\openinterval}[2]{(\interval{#1}{#2})}
+\newcommand{\closedinterval}[2]{[\interval{#1}{#2}]}
+\newcommand{\clopinterval}[2]{[\interval{#1}{#2})}
+\newcommand{\opclinterval}[2]{(\interval{#1}{#2}]}
+\newcommand{\isimpliedby}{\Longleftarrow}
+\newcommand{\Sage}{\textit{Sage}}
+\newcommand{\Maple}{\textit{Maple}}
+\newcommand{\cat}[2]{#1\!\mathbin{\raise.6ex\hbox{\left( {}^\frown \right)}}\!#2}
+\newcommand{\alignedvdots}[1][10pt]{\mskip2.5mu\makebox[.5\equalsignwd][r]{}
+\smash{\vdots}}
+\newcommand{\stdbasis}{{\cal E}}
+\newcommand{\basis}[2]{\sequence{\vec{#1}_1,\ldots,\vec{#1}_{#2}}}
+\newcommand{\rowspace}[1]{ \mathop{{\mbox{Rowspace}}}(#1) }
+\newcommand{\colspace}[1]{ \mathop{{\mbox{Columnspace}}}(#1) }
+\newcommand{\linmaps}[2]{ \mathop{{\cal L}}(#1,#2) }
+\newcommand{\lincombo}[2]{
+#1_1#2_1+#1_2#2_2+\cdots +#1_n#2_n}
+\newcommand{\rep}[2]{ { Rep}_{#2}(#1) }
+\newcommand{\wrt}[1]{{\mbox{\scriptsize \textit{wrt}\hspace{.25em}\left( #1 \right)} }}
+\newcommand{\trans}[1]{ {{#1}^{\mathsf{T}}} }
+\newcommand{\proj}[2]{\mbox{proj}_{#2}({#1}) }
+\newcommand{\spanof}[1]{\relax [#1\relax ]}
+\newcommand{\directsum}{\oplus}
+\DeclareMathOperator{\dist}{dist}
+\newcommand{\nbyn}[1]{#1 \! \times \! #1 }
+\newcommand{\nbym}[2]{#1 \! \times \! #2 }
+\newcommand{\degs}[1]{#1^\circ\relax}
+\newcommand{\votepreflist}[3]{\colvec{#1 \\ #2 \\ #3}}
+\newcommand{\votinggraphic}[1]{\hspace{1.15em}\mathord{[.3in][.2in]{\includegraphics{voting.#1}}}\hspace{1.15em}}
+\newcommand{\magicsquares}{\mathscr{M}}
+\newcommand{\semimagicsquares}{\mathscr{H}}
+\newcommand{\circuitfont}{\sffamily}
+\newcommand{\digitinsq}[1]{\fbox{\left( #1 \right)} }
+\newcommand{\matrixvenlarge}[1]{\vbox{
+\vspace{\extramatrixvspace}
+\hbox{$#1$}
+\vspace{\extramatrixvspace}
+}}
+\def\bspace{
+{\vspace{.05in}}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\)</div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="book-1.html"><span class="title">Linear algebra: the theory of vector spaces</span></a></h1>
+<p class="byline">Aaron Greicius</p>
+</div>
+</div></div>
+<nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="ss_matrix.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="c_linear_systems.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="ss_elementary.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="ss_matrix.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="c_linear_systems.html" title="Up">Up</a><a class="next-button button toolbar-item" href="ss_elementary.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter"><a href="frontmatter-1.html" data-scroll="frontmatter-1"><span class="title">Front Matter</span></a></li>
+<li class="link">
+<a href="c_linear_systems.html" data-scroll="c_linear_systems"><span class="codenumber">1</span> <span class="title">Linear systems of equations</span></a><ul>
+<li><a href="s_systems.html" data-scroll="s_systems">Linear systems of equations</a></li>
+<li><a href="s_ge.html" data-scroll="s_ge">Gaussian elimination</a></li>
+<li><a href="s_solving.html" data-scroll="s_solving">Solving linear systems</a></li>
+<li><a href="ss_matrix.html" data-scroll="ss_matrix">Matrix arithmetic</a></li>
+<li><a href="ss_algebraic.html" data-scroll="ss_algebraic" class="active">Algebraic properties</a></li>
+<li><a href="ss_elementary.html" data-scroll="ss_elementary">Elementary matrices</a></li>
+<li><a href="ss_invertible.html" data-scroll="ss_invertible">More on invertibility</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="c_det.html" data-scroll="c_det"><span class="codenumber">2</span> <span class="title">The determinant</span></a><ul>
+<li><a href="ss_det.html" data-scroll="ss_det">The determinant</a></li>
+<li><a href="ss_rowops.html" data-scroll="ss_rowops">Row operations and the determinant</a></li>
+<li><a href="ss_further.html" data-scroll="ss_further">Further properties</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="c_vectorspace.html" data-scroll="c_vectorspace"><span class="codenumber">3</span> <span class="title">Vector spaces and linear transformations</span></a><ul>
+<li><a href="ss_vectorspace.html" data-scroll="ss_vectorspace">Real vector spaces</a></li>
+<li><a href="ss_transformation.html" data-scroll="ss_transformation">Linear transformations</a></li>
+<li><a href="ss_subspace.html" data-scroll="ss_subspace">Subspaces</a></li>
+<li><a href="ss_independence.html" data-scroll="ss_independence">Linear independence</a></li>
+<li><a href="ss_basis.html" data-scroll="ss_basis">Bases</a></li>
+<li><a href="ss_dimension.html" data-scroll="ss_dimension">Dimension</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="c_transbasis.html" data-scroll="c_transbasis"><span class="codenumber">4</span> <span class="title">Linear transformations, bases, and dimension</span></a><ul>
+<li><a href="ss_rank-nullity.html" data-scroll="ss_rank-nullity">Linear transformations and bases</a></li>
+<li><a href="ss_rank-nullity.html" data-scroll="ss_rank-nullity">Linear transformations and bases</a></li>
+<li><a href="ss_coordinate.html" data-scroll="ss_coordinate">Coordinate vectors</a></li>
+<li><a href="ss_matrixreps.html" data-scroll="ss_matrixreps">Matrix representations</a></li>
+<li><a href="ss_changeofbasis.html" data-scroll="ss_changeofbasis">Change of basis</a></li>
+<li><a href="ss_eigenvectors.html" data-scroll="ss_eigenvectors">Eigenvectors and eigenvalues</a></li>
+<li><a href="ss_diagonalization.html" data-scroll="ss_diagonalization">Diagonalization</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="c_innerproductspaces.html" data-scroll="c_innerproductspaces"><span class="codenumber">5</span> <span class="title">Inner product spaces</span></a><ul>
+<li><a href="ss_innerproducts.html" data-scroll="ss_innerproducts">Inner products, norms, angles</a></li>
+<li><a href="ss_orthogonality.html" data-scroll="ss_orthogonality">Orthogonality, Gram-Schmidt, orthogonal projection</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter-1.html" data-scroll="backmatter-1"><span class="title">Back Matter</span></a></li>
+<li class="link"><a href="appendix-defs.html" data-scroll="appendix-defs"><span class="codenumber">A</span> <span class="title">Definitions</span></a></li>
+<li class="link"><a href="appendix-thms.html" data-scroll="appendix-thms"><span class="codenumber">B</span> <span class="title">Theorems</span></a></li>
+<li class="link"><a href="appendix-egs.html" data-scroll="appendix-egs"><span class="codenumber">C</span> <span class="title">Examples</span></a></li>
+<li class="link"><a href="references-1.html" data-scroll="references-1"><span class="title">Bibliography</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1"><span class="title">Index</span></a></li>
+</ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="ss_algebraic"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">1.5</span> <span class="title">Algebraic properties</span>
+</h2>
+<article class="paragraphs" id="paragraphs-21"><h5 class="heading"><span class="title">Chapter 1. Section 1.5: executive summary.</span></h5>
+<article class="paragraphs" id="paragraphs-22"><h5 class="heading"><span class="title">Definitions.</span></h5>
+<p id="p-210">: zero matrix \(\boldzero_{m\times n}\text{,}\) identity matrix \(I_n\text{,}\) inverse matrix \(A^{-1}\text{,}\) invertibility, \(A^r\) and \(A^{-r}\) for nonnegative integer \(r\geq 0\text{.}\) \alert{Procedures}: none! \alert{Theorems}: Many! Lots of familiar rules of real number algebra (associativity, distributivity, etc.) also hold for matrix algebra. However some important properties fail: e.g., commutativity and multiplicative cancellation. We also learn some properties about taking the transpose (\(A\mapsto A^T\)) and its relation with taking the inverse (\(A\mapsto A^{-1}\)).</p></article></article><article class="paragraphs" id="paragraphs-23"><h5 class="heading"><span class="title">1.4: algebraic properties of matrices.</span></h5>
+<p id="p-211">For the most part, the matrix operations of \(\cdot\) and \(+\) behave in much the same manner as their corresponding real number operations.</p>
+<article class="theorem theorem-like" id="th_matrix-arith"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">1.5.1</span><span class="period">.</span><span class="space"> </span><span class="title">Properties of matrix arithmetic.</span>
+</h6>
+<p id="p-212">The following properties hold for all matrices \(A, B, C\) and scalars \(a,
+b, c\) for which the given expression makes sense.</p>
+<ol class="decimal">
+<li id="li-75"><p id="p-213">\(\displaystyle A+B=B+A\)</p></li>
+<li id="li-76"><p id="p-214">\(\displaystyle A+(B+C)=(A+B)+C\)</p></li>
+<li id="li-77"><p id="p-215">\(\displaystyle A(BC)=(AB)C\)</p></li>
+<li id="li-78"><p id="p-216">\(\displaystyle A(B+C)=AB+AC\)</p></li>
+<li id="li-79"><p id="p-217">\(\displaystyle (B+C)A=BA+CA\)</p></li>
+<li id="li-80"><p id="p-218">\(\displaystyle A(B-C)=AB-AC\)</p></li>
+<li id="li-81"><p id="p-219">\(\displaystyle (B-C)A=BA-CA\)</p></li>
+<li id="li-82"><p id="p-220">\(\displaystyle a(B+C)=aB+aC\)</p></li>
+<li id="li-83"><p id="p-221">\(\displaystyle a(B-C)=aB-aC\)</p></li>
+<li id="li-84"><p id="p-222">\(\displaystyle (a+b)C=aC+bC\)</p></li>
+<li id="li-85"><p id="p-223">\(\displaystyle (a-b)C=aC-bC\)</p></li>
+<li id="li-86"><p id="p-224">\(\displaystyle a(bC)=(ab)C\)</p></li>
+<li id="li-87"><p id="p-225">\(a(BC)=(aB)C=B(aC)\text{.}\)</p></li>
+</ol></article><p id="p-226">How does one actually prove one of these properties?</p>
+<p id="p-227">These are all <em class="emphasis">matrix equalities</em>. Using the definition of matrix equality, we must show (1) the LHS and RHS matrices are of the same size, and (2) that for each \((i,j)\text{,}\) the \((i,j)\)-th entry of the LHS is equal to the \((i,j)\)-th entry of the RHS. Let's see how this works on an example.</p></article><article class="hiddenproof" id="proof-3"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-3"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-3"><article class="hiddenproof"><p id="p-228">Let \(A=[a_{ij}]_{m\times r}\text{,}\) \(B=[b_{ij}]_{r\times s}\text{,}\) \(C=[c_{ij}]_{s\times n}\text{.}\) Then</p>
+<div class="displaymath">
+\begin{equation*}
+A(BC)=(AB)C\text{.}
+\end{equation*}
+</div>
+<p id="p-229">(1) One checks easily that the matrices on the LHS and RHS are both of size \(m\times n\text{,}\) so we move straight to (2) using our index notation:</p>
+<div class="displaymath">
+\begin{align*}
+\amp  \amp \Bigl(A(BC)\Bigr)_{ij}=\sum_{\ell=1}^ra_{i\ell}(BC)_{\ell j}  =\sum_{\ell=1}^ra_{i\ell}\left(\sum_{k=1}^sb_{\ell k}c_{kj}\right)\\
+\amp =\amp \sum_{\ell=1}^r\sum_{k=1}^sa_{i\ell}(b_{\ell k}c_{kj}) \ \text{ (dist. prop.) }\\
+\amp =\amp \sum_{k=1}^s\sum_{\ell=1}^r(a_{i\ell}b_{\ell k})c_{kj} \ \text{ (comm.+assoc. prop.) }\\
+\amp =\amp \sum_{k=1}^s\left(\sum_{\ell=1}^ra_{i\ell}b_{\ell k}\right)c_{kj} \ \text{ (dist. prop.) }\\
+\amp =\amp \sum_{k=1}^s(AB)_{ik}c_{kj}  =\Bigl((AB)C\Bigr)_{ij}
+\end{align*}
+</div>
+<p id="p-230">This proves their \(ij\)-th entries are equal, and hence \(A(BC)=(AB)C\text{.}\)</p></article></div>
+<article class="paragraphs" id="paragraphs-24"><h5 class="heading"><span class="title">Zero matrix and additive inverses.</span></h5>
+<p id="p-231">Another similarity between matrix algebra and real number algebra is the existence of <em class="emphasis">additive inverses</em>.</p>
+<article class="paragraphs" id="paragraphs-25"><h5 class="heading"><span class="title">Definition:.</span></h5>
+<p id="p-232">the <dfn class="terminology">\(m\times n\) zero matrix</dfn> is the matrix \(\boldzero_{m\times n}\) all of whose entries are 0.</p></article><p id="p-233">Note we have a different zero matrix for every possible size of matrix.</p>
+<article class="theorem theorem-like" id="theorem-5"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">1.5.2</span><span class="period">.</span>
+</h6>
+<p id="p-234">Let \(A=[a_{ij}]\) be \(m\times n\text{.}\) Then the matrix \(-A:=(-1)A=[-a_{ij}]\) is an <dfn class="terminology">additive inverse</dfn> of \(A\) in the sense that</p>
+<div class="displaymath">
+\begin{equation*}
+A+(-A)=(-A)+A=\boldzero_{m\times n}\text{.}
+\end{equation*}
+</div></article><article class="paragraphs" id="paragraphs-26"><h5 class="heading"><span class="title">Comment:.</span></h5>
+<p id="p-235">thus every \(m\times n\) matrix has an additive inverse. This allows us to “cancel” matrices <em class="emphasis">additively</em>. Example: solve the following equation for \(B\text{.}\)</p></article><div class="displaymath">
+\begin{align*}
+A+B\amp =\amp 3A\\
+(-A)+A+B\amp =\amp (-A)+3A\\
+\boldzero_{m\times n}+B\amp =\amp (-1)A+3A\\
+B\amp =\amp 2A
+\end{align*}
+</div>
+<p id="p-236">I give all the gory details, but now the point should be clear; we can cancel a multiple of \(A\) on both sides, just as we do in normal algebra!</p></article><article class="paragraphs" id="paragraphs-27"><h5 class="heading"><span class="title">Abnormalities.</span></h5>
+<p id="p-237">There are two very important properties that matrix algebra fails to enjoy.</p>
+<article class="theorem theorem-like" id="theorem-6"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">1.5.3</span><span class="period">.</span>
+</h6>
+<p id="p-238">Matrix multiplication is NOT \alert{commutative}, and there are nontrivial <em class="emphasis">zero divisors</em>. That is:</p>
+<ol class="decimal">
+<li id="li-88">
+<p id="p-239">Fix \(n\text{.}\) There are (many) \(n\times n\) matrices \(A, B\) such that</p>
+<div class="displaymath">
+\begin{equation*}
+AB\alert{\ne}BA\text{.}
+\end{equation*}
+</div>
+<p class="continuation">\alert{Example:} verify that \(\begin{bmatrix}1\amp 0\\ 0\amp 0 \end{bmatrix} \begin{bmatrix}0\amp 1\\ 0\amp 0 \end{bmatrix} \ne \begin{bmatrix}0\amp 1\\ 0\amp 0 \end{bmatrix} \begin{bmatrix}1\amp 0\\ 0\amp 0 \end{bmatrix} \text{.}\)</p>
+</li>
+<li id="li-89">
+<p id="p-240">Given matrices \(A_{m\times n}, B_{n\times r}\text{,}\)</p>
+<div class="displaymath">
+\begin{equation*}
+AB=0_{m\times r}\alert{\not\Rightarrow} A=0_{m\times n} \text{ or }  B=0_{n\times r}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">In English: if the product of two matrices is the zero matrix, we CANNOT conclude that one of them is the zero matrix.   \alert{Example:} verify that \(\begin{bmatrix}0\amp 1\\ 0\amp 0 \end{bmatrix} \begin{bmatrix}1\amp 0\\ 0\amp 0 \end{bmatrix} =\begin{bmatrix}0\amp 0\\ 0\amp 0 \end{bmatrix} \text{.}\)</p>
+</li>
+</ol></article></article><p id="p-241">It is worth pointing out how important the second failed property is to matrix algebra.</p>
+<p id="p-242">In normal real number algebra, if \(a\ne 0\) and \(ab=ac\text{,}\) we may “cancel” the \(a\) and conclude \(b=c\text{.}\) Not so in matrix algebra!</p>
+<article class="theorem theorem-like" id="theorem-7"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">1.5.4</span><span class="period">.</span><span class="space"> </span><span class="title">Failure of cancellation.</span>
+</h6>
+<div class="displaymath">
+\begin{align*}
+\text{Suppose \(A\ne 0_{m\times n}\), then  }  AB=AC \amp \alert{\not\Rightarrow}\amp  B=C\\
+\text{Suppose \(D\ne 0_{s\times t}\),  then }  BD=CD \amp \alert{\not\Rightarrow}\amp  B=D
+\end{align*}
+</div></article><p id="p-243">Let that sink in. Cancellation is one of the most used properties in normal algebra. It is in general no longer available to us when doing matrix algebra.</p>
+<p id="p-244"><em class="emphasis">Examples:</em> (you should verify).</p>
+<div class="displaymath">
+\begin{equation*}
+\begin{bmatrix}1\amp 1\amp 0\\ 0\amp 0\amp 0 \end{bmatrix} \begin{bmatrix}1\amp 0\\ 0\amp 0\\ 0\amp 0 \end{bmatrix} = \begin{bmatrix}1\amp 1\amp 0\\ 0\amp 0\amp 0 \end{bmatrix} \begin{bmatrix}0\amp 0\\ 1\amp 0\\ 0\amp 0 \end{bmatrix}
+\end{equation*}
+</div>
+<div class="displaymath">
+\begin{equation*}
+\begin{bmatrix}1\amp 0\amp 0\\ 0\amp 0\amp 0 \end{bmatrix} \begin{bmatrix}1\amp 0\\ 1\amp 0\\ 0\amp 0 \end{bmatrix} = \begin{bmatrix}0\amp 1\amp 0\\ 0\amp 0\amp 0 \end{bmatrix} \begin{bmatrix}1\amp 0\\ 1\amp 0\\ 0\amp 0 \end{bmatrix}
+\end{equation*}
+</div>
+<article class="paragraphs" id="paragraphs-28"><h5 class="heading"><span class="title">Invertibility.</span></h5>
+<p id="p-245">What allows cancellation of a nonzero \(a\) in the reals is the existence of its <em class="emphasis">multiplicative inverse</em>, the element \(a^{-1}=\frac{1}{a}\text{,}\) which satisfies \(a^{-1}a=1\text{.}\)</p>
+<p id="p-246">Not all nonzero matrices \(A\) have a multiplicative inverse. The ones that do are called <em class="emphasis">invertible</em>. In order to define this properly, we need to identify a matrix that acts as the number one does: i.e., a <em class="emphasis">multiplicative identity</em>.</p>
+<article class="definition definition-like" id="definition-21"><h6 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.5.5</span><span class="period">.</span>
+</h6>
+<p id="p-247">The <dfn class="terminology">identity matrix of size \(n\times n\)</dfn> is the \(n\times n\) matrix \(I_n\) with 1's along the diagonal (i.e., \(a_{ii}=1\)) and 0's everywhere else (i.e., \(a_{ij}=0\) for \(i\ne j\)). For example:</p>
+<div class="displaymath">
+\begin{equation*}
+I_1=\begin{bmatrix}1 \end{bmatrix} , I_2=\begin{bmatrix}1\amp 0\\ 0\amp 1 \end{bmatrix} , I_3=\begin{bmatrix}1\amp 0\amp 0\\ 0\amp 1\amp 0\\ 0\amp 0\amp 1 \end{bmatrix} , \text{ etc. }
+\end{equation*}
+</div></article><article class="theorem theorem-like" id="theorem-8"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">1.5.6</span><span class="period">.</span><span class="space"> </span><span class="title">Multiplicative identity.</span>
+</h6>
+<p id="p-248">For any \(A_{m\times n}\) we have</p>
+<div class="displaymath">
+\begin{align*}
+I_mA\amp =\amp A\\
+AI_n\amp =\amp A\text{.}
+\end{align*}
+</div></article><article class="hiddenproof" id="proof-4"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-4"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-4"><article class="hiddenproof"><p id="p-249">Use either column or row method to perform the multiplications involved!</p></article></div></article><article class="paragraphs" id="paragraphs-29"><h5 class="heading"><span class="title">Invertibility.</span></h5>
+<article class="definition definition-like" id="definition-22"><h6 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.5.7</span><span class="period">.</span>
+</h6>
+<p id="p-250">A square matrix \(A_{n\times n}\) is <dfn class="terminology">invertible</dfn> if there is a matrix \(B_{n\times n}\) such that</p>
+<div class="displaymath">
+\begin{align*}
+AB\amp =\amp I_n, \text{ and }\\
+BA\amp =\amp I_n
+\end{align*}
+</div>
+<p id="p-251">In this case we call \(B\) an <dfn class="terminology">inverse</dfn> of \(A\text{,}\) and we say that \(A\) and \(B\) are <dfn class="terminology">inverses</dfn> of one another.</p></article><article class="paragraphs" id="paragraphs-30"><h5 class="heading"><span class="title">Theorem (uniqueness of inverses):.</span></h5>
+<p id="p-252">an invertible matrix \(A\) has exactly one inverse. That is, if</p></article><div class="displaymath">
+\begin{equation*}
+AB=BA=I_n
+\end{equation*}
+</div>
+<p id="p-253">and</p>
+<div class="displaymath">
+\begin{equation*}
+AC=CA=I_n\text{,}
+\end{equation*}
+</div>
+<p class="continuation">then \(B=C\text{.}\)</p>
+<p id="p-254">We denote by \(A^{-1}\) the inverse of \(A\text{.}\)</p>
+<article class="hiddenproof" id="proof-5"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-5"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-5"><article class="hiddenproof"><p id="p-255">Suppose we have such matrices \(B\) and \(C\text{.}\)</p>
+<p id="p-256">Then \(I_n=AB=AC \Rightarrow BAB=BAC \Rightarrow I_nB=I_nC \Rightarrow B=C\text{.}\)</p></article></div></article><article class="paragraphs" id="paragraphs-31"><h5 class="heading"><span class="title">$2\times 2$ matrices.</span></h5>
+<p id="p-257">When is a \(2\times 2\) matrix \(A=\abcdmatrix{a}{b}{c}{d}\) invertible?</p>
+<p id="p-258">If \(ad-cb\ne 0\text{,}\) then we can easily show that</p>
+<div class="displaymath">
+\begin{equation*}
+A^{-1}=\frac{1}{ad-bc}\abcdmatrix{d}{-b}{-c}{a}
+\end{equation*}
+</div>
+<p class="continuation">is the inverse.</p>
+<p id="p-259">Thus</p>
+<div class="displaymath">
+\begin{equation*}
+ad-bc\ne 0\Rightarrow  A \text{ invertible }\text{.}
+\end{equation*}
+</div>
+<p id="p-260">It turns out that the converse is also true, that is</p>
+<div class="displaymath">
+\begin{equation*}
+ad-bc\ne 0\Leftrightarrow  A \text{ invertible }\text{.}
+\end{equation*}
+</div>
+<p id="p-261">We will prove this a littler further down the line.</p></article><article class="theorem theorem-like" id="theorem-9"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">1.5.8</span><span class="period">.</span>
+</h6>
+<p id="p-262">Let \(A,B\) be \(n\times n\) matrices.</p>
+<div class="displaymath">
+\begin{equation*}
+A \text{ and }  B  \text{ invertible } \Rightarrow AB \text{ invertible }\text{,}
+\end{equation*}
+</div>
+<p class="continuation">and in fact \((AB)^{-1}=B^{-1}A^{-1}\text{.}\)</p></article><article class="hiddenproof" id="proof-6"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-6"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-6"><article class="hiddenproof"><p id="p-263">In the absence of more theory, we can only prove invertibility by providing an inverse. The last statement offers up a candidate: viz., \(C=B^{-1}A^{-1}\text{.}\) We need only show that \(C\) satisfies the relevant properties:</p>
+<div class="displaymath">
+\begin{align*}
+C(AB)\amp =\amp (B^{-1}A^{-1})AB=B^{-1}A^{-1}AB=B^{-1}IB=B^{-1}B=I\\
+(AB)C\amp =\amp (AB)B^{-1}A^{-1}=ABB^{-1}A^{-1}=AIA^{-1}=AA^{-1}=I\text{.}
+\end{align*}
+</div></article></div>
+<article class="corollary theorem-like" id="corollary-2"><h6 class="heading">
+<span class="type">Corollary</span><span class="space"> </span><span class="codenumber">1.5.9</span><span class="period">.</span>
+</h6>
+<p id="p-264">More generally,</p>
+<div class="displaymath">
+\begin{equation*}
+A_1,A_2,\dots A_r \text{ invertible } \Rightarrow (A_1A_2\cdots A_r)\text{ invertible }\text{,}
+\end{equation*}
+</div>
+<p class="continuation">and in fact \((A_1A_2\cdots A_r)^{-1}=A_r^{-1}A_{r-1}^{-1}\cdots A_1^{-1}\text{.}\)</p></article><p id="p-265"><em class="emphasis">Question:</em> do the implication arrows above go the other way?</p>
+<p id="p-266"><em class="emphasis">Answer:</em> we shall see.</p>
+<article class="paragraphs" id="paragraphs-32"><h5 class="heading"><span class="title">Powers of matrices.</span></h5>
+<article class="definition definition-like" id="definition-23"><h6 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.5.10</span><span class="period">.</span>
+</h6>
+<p id="p-267">Let \(A\) be any \(n\times n\) matrix. For any integer \(r\geq 0\) we define the \(r\)-th power of \(A\text{,}\) \(A^{r}\text{,}\) as follows:</p>
+<ol class="decimal">
+<li id="li-90"><p id="p-268">\(A^0=I_n\text{.}\)</p></li>
+<li id="li-91"><p id="p-269">\(\ds A^r=\underbrace{A\cdot A\cdots A}_{r \text{ times } }\) for \(r&gt;0\text{.}\)</p></li>
+</ol>
+<p id="p-270">Furthermore, if \(A\) is <dfn class="terminology">invertible</dfn>, we define</p>
+<div class="displaymath">
+\begin{equation*}
+A^{-r}=\left(A^{-1}\right)^r\text{,}
+\end{equation*}
+</div>
+<p class="continuation">for any positive integer \(r&gt;0\text{.}\)</p></article><article class="theorem theorem-like" id="theorem-10"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">1.5.11</span><span class="period">.</span><span class="space"> </span><span class="title">Power rules.</span>
+</h6>
+<ol class="decimal">
+<li id="li-92"><p id="p-271">\(\displaystyle A^{r}A^s=A^{r+s}\)</p></li>
+<li id="li-93"><p id="p-272">\(\displaystyle (A^r)^s=A^{rs}\)</p></li>
+<li id="li-94"><p id="p-273">\(\displaystyle \left(A^{-1}\right)^{-1}=A\)</p></li>
+<li id="li-95"><p id="p-274">\(\displaystyle \left(A^n\right)^{-1}=A^{-n}\)</p></li>
+<li id="li-96"><p id="p-275">\((kA)^n=k^nA^n\) for any scalar \(k\text{.}\)</p></li>
+</ol></article><article class="paragraphs" id="paragraphs-33"><h5 class="heading"><span class="title">Question:.</span></h5>
+<p id="p-276">\(A^rB^r\stackrel{{\color{red}?}}{=}(AB)^r\)</p></article></article><article class="paragraphs" id="paragraphs-34"><h5 class="heading"><span class="title">Transposes and inverses.</span></h5>
+<article class="theorem theorem-like" id="theorem-11"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">1.5.12</span><span class="period">.</span>
+</h6>
+<ol class="decimal">
+<li id="li-97"><p id="p-277">\(\displaystyle \left(A^T\right)^T=A\)</p></li>
+<li id="li-98"><p id="p-278">\(\displaystyle (A+B)^T=A^T+B^T\)</p></li>
+<li id="li-99"><p id="p-279">\(\displaystyle (A-B)^T=A^T-B^T\)</p></li>
+<li id="li-100"><p id="p-280">\(\displaystyle (kA)^T=kA^T\)</p></li>
+<li id="li-101"><p id="p-281">\(\displaystyle (AB)^T=B^TA^T\)</p></li>
+</ol></article><article class="theorem theorem-like" id="theorem-12"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">1.5.13</span><span class="period">.</span>
+</h6>
+<p id="p-282">Let \(A_{n\times n}\) be invertible. Then \(A^T\) is invertible, and \(\left(A^T\right)^{-1}=\left(A^{-1}\right)^T\text{.}\)</p></article></article><article class="paragraphs" id="paragraphs-35"><h5 class="heading"><span class="title">More sample proofs.</span></h5>
+<p id="p-283">Let's prove some of the last two theorems.</p>
+<article class="hiddenproof" id="proof-7"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-7"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-7"><article class="hiddenproof"><div class="displaymath">
+\begin{align*}
+\left((A+B)^T\right)_{ij}\amp =\amp (A+B)_{ji} \ \text{ (def. of transp.) }\\
+\amp =\amp A_{ji}+B_{ji} \ \text{ (def. of +) }\\
+\amp =\amp (A^T)_{ij}+(B^T)_{ij} \ \text{ (def. of transp.) }\\
+\amp =\amp (A^T+B^T)_{ij} \ \text{ (def. of +) }
+\end{align*}
+</div>
+<p id="p-284">Since \(ij\)-entry of LHS and RHS is same for each \((i,j)\text{,}\) it follows that \((A+B)^T=A^T+B^T\text{.}\)</p></article></div></article><article class="paragraphs" id="paragraphs-36"><h5 class="heading"><span class="title">More sample proofs.</span></h5>
+<article class="hiddenproof" id="proof-8"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-8"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-8"><article class="hiddenproof"><p id="p-285">Suppose \(A\) is invertible, and let \(A^{-1}\) be its inverse. The claim above is that \(B=\left(A^{-1}\right)^T\) is the inverse of \(A^T\text{.}\) To prove this claim we need only show that \(BA^T=A^TB=I_n\text{:}\)</p>
+<div class="displaymath">
+\begin{align*}
+BA^T=\left(A^{-1}\right)^TA^T \amp =\amp \left(AA^{-1}\right)^T \ \text{ (since \((CD)^T=D^TC^T\)) }\\
+\amp =\amp I_n^T=I_n \ \checkmark
+\end{align*}
+</div>
+<div class="displaymath">
+\begin{align*}
+A^TB=A^T\left(A^{-1}\right)^T \amp =\amp \left(A^{-1}A\right)^T \ \text{ (since \((CD)^T=D^TC^T\)) }\\
+\amp =\amp I_n^T=I_n \ \checkmark
+\end{align*}
+</div></article></div></article></section></div></main>
+</div>
+</body>
+</html>

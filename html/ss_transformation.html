@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-05-24T17:10:23-05:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Linear transformations</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [['\\(','\\)']]
+    },
+    asciimath2jax: {
+        ignoreClass: ".*",
+        processClass: "has_am"
+    },
+    jax: ["input/AsciiMath"],
+    extensions: ["asciimath2jax.js"],
+    TeX: {
+        extensions: ["extpfeil.js", "autobold.js", "https://pretextbook.org/js/lib/mathjaxknowl.js", "AMScd.js", ],
+        // scrolling to fragment identifiers is controlled by other Javascript
+        positionToHash: false,
+        equationNumbers: { autoNumber: "none", useLabelIds: true, },
+        TagSide: "right",
+        TagIndent: ".8em",
+    },
+    // HTML-CSS output Jax to be dropped for MathJax 3.0
+    "HTML-CSS": {
+        scale: 88,
+        mtextFontInherit: true,
+    },
+    CommonHTML: {
+        scale: 88,
+        mtextFontInherit: true,
+    },
+});
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML-full"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext_add_on.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script xmlns:svg="http://www.w3.org/2000/svg">sagecellEvalName='Evaluate (Sage)';
+</script><link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/banner_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/toc_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/knowls_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/style_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/colors_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/setcolors.css" rel="stylesheet" type="text/css">
+<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link xmlns:svg="http://www.w3.org/2000/svg" href="developer.css" rel="stylesheet" type="text/css">
+</head>
+<body class="mathbook-book has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div xmlns:svg="http://www.w3.org/2000/svg" id="latex-macros" class="hidden-content" style="display:none">\(\newcommand{\Z}{{\mathbb Z}}
+\newcommand{\Q}{{\mathbb Q}}
+\newcommand{\R}{{\mathbb R}}
+\newcommand{\C}{{\mathbb C}}
+\newcommand{\T}{{\mathbb T}}
+\newcommand{\F}{{\mathbb F}}
+\newcommand{\HH}{{\mathbb H}}
+\newcommand{\compose}{\circ}
+\newcommand{\bolda}{{\mathbf a}}
+\newcommand{\boldb}{{\mathbf b}}
+\newcommand{\boldc}{{\mathbf c}}
+\newcommand{\boldd}{{\mathbf d}}
+\newcommand{\bolde}{{\mathbf e}}
+\newcommand{\boldi}{{\mathbf i}}
+\newcommand{\boldj}{{\mathbf j}}
+\newcommand{\boldk}{{\mathbf k}}
+\newcommand{\boldn}{{\mathbf n}}
+\newcommand{\boldp}{{\mathbf p}}
+\newcommand{\boldq}{{\mathbf q}}
+\newcommand{\boldr}{{\mathbf r}}
+\newcommand{\boldsymbol}{{\mathbf s}}
+\newcommand{\boldt}{{\mathbf t}}
+\newcommand{\boldu}{{\mathbf u}}
+\newcommand{\boldv}{{\mathbf v}}
+\newcommand{\boldw}{{\mathbf w}}
+\newcommand{\boldx}{{\mathbf x}}
+\newcommand{\boldy}{{\mathbf y}}
+\newcommand{\boldz}{{\mathbf z}}
+\newcommand{\boldzero}{{\mathbf 0}}
+\newcommand{\boldmod}{\boldsymbol{ \bmod }}
+\newcommand{\boldT}{{\mathbf T}}
+\newcommand{\boldN}{{\mathbf N}}
+\newcommand{\boldB}{{\mathbf B}}
+\newcommand{\boldF}{{\mathbf F}}
+\newcommand{\boldS}{{\mathbf S}}
+\newcommand{\boldG}{{\mathbf G}}
+\newcommand{\boldK}{{\mathbf K}}
+\newcommand{\boldL}{{\mathbf L}}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\NS}{null}
+\DeclareMathOperator{\RS}{row}
+\DeclareMathOperator{\CS}{col}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\range}{range}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\nullity}{nullity}
+\DeclareMathOperator{\sign}{sign}
+\DeclareMathOperator{\Fix}{Fix}
+\DeclareMathOperator{\Aff}{Aff}
+\DeclareMathOperator{\Frac}{Frac}
+\DeclareMathOperator{\Ann}{Ann}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\mdeg}{mdeg}
+\DeclareMathOperator{\Lt}{Lt}
+\DeclareMathOperator{\Lc}{Lc}
+\DeclareMathOperator{\disc}{disc}
+\DeclareMathOperator{\Frob}{Frob}
+\DeclareMathOperator{\adj}{adj}
+\DeclareMathOperator{\curl}{curl}
+\DeclareMathOperator{\grad}{grad}
+\DeclareMathOperator{\diver}{div}
+\DeclareMathOperator{\flux}{flux}
+\def\Gal{\operatorname{Gal}}
+\def\ord{\operatorname{ord}}
+\def\ML{\operatorname{M}}
+\def\GL{\operatorname{GL}}
+\def\PGL{\operatorname{PGL}}
+\def\SL{\operatorname{SL}}
+\def\PSL{\operatorname{PSL}}
+\def\GSp{\operatorname{GSp}}
+\def\PGSp{\operatorname{PGSp}}
+\def\Sp{\operatorname{Sp}}
+\def\PSp{\operatorname{PSp}}
+\def\Aut{\operatorname{Aut}}
+\def\Inn{\operatorname{Inn}}
+\def\Hom{\operatorname{Hom}}
+\def\End{\operatorname{End}}
+\def\ch{\operatorname{char}}
+\def\Zp{\Z/p\Z}
+\def\Zm{\Z/m\Z}
+\def\Zn{\Z/n\Z}
+\def\Fp{\F_p}
+\newcommand{\surjects}{\twoheadrightarrow}
+\newcommand{\injects}{\hookrightarrow}
+\newcommand{\bijects}{\leftrightarrow}
+\newcommand{\isomto}{\overset{\sim}{\rightarrow}}
+\newcommand{\floor}[1]{\lfloor#1\rfloor}
+\newcommand{\ceiling}[1]{\left\lceil#1\right\rceil}
+\newcommand{\mclass}[2][m]{[#2]_{#1}}
+\newcommand{\val}[2][]{\left\lvert #2\right\rvert_{#1}}
+\newcommand{\valuation}[2][]{\left\lvert #2\right\rvert_{#1}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\anpoly}{a_nx^n+a_{n-1}x^{n-1}\cdots +a_1x+a_0}
+\newcommand{\anmonic}{x^n+a_{n-1}x^{n-1}\cdots +a_1x+a_0}
+\newcommand{\bmpoly}{b_mx^m+b_{m-1}x^{m-1}\cdots +b_1x+b_0}
+\newcommand{\pder}[2]{\frac{\partial#1}{\partial#2}}
+\renewcommand{\c}{\cancel}
+\newcommand{\normalin}{\trianglelefteq}
+\newcommand{\angvec}[1]{\langle #1\rangle}
+\newcommand{\varpoly}[2]{#1_{#2}x^{#2}+#1_{#2-1}x^{#2-1}\cdots +#1_1x+#1_0}
+\newcommand{\varpower}[1][a]{#1_0+#1_1x+#1_1x^2+\cdots}
+\newcommand{\limasto}[2][x]{\lim_{#1\rightarrow #2}}
+\def\ntoinfty{\lim_{n\rightarrow\infty}}
+\def\xtoinfty{\lim_{x\rightarrow\infty}}
+\def\ii{\item}
+\def\bb{\begin{enumerate}}
+\def\ee{\end{enumerate}}
+\def\ds{\displaystyle}
+\def\p{\partial}
+\newcommand{\abcdmatrix}[4]{\begin{bmatrix}#1\amp #2\\ #3\amp #4 \end{bmatrix}
+}
+\newenvironment{amatrix}[1][ccc|c]{\left[\begin{array}{#1}}{\end{array}\right]}
+\newenvironment{linsys}[2][m]{
+\begin{array}[#1]{@{}*{#2}{rc}r@{}}
+}{
+\end{array}}
+\newcommand{\eqsys}{\begin{array}{rcrcrcr}
+a_{11}x_{1}\amp +\amp a_{12}x_{2}\amp +\cdots+\amp  a_{1n}x_{n}\amp =\amp b_1\\
+a_{21}x_{1}\amp +\amp a_{22}x_{2}\amp +\cdots+\amp a_{2n}x_{n}\amp =\amp b_2\\
+\amp \vdots\amp   \amp \vdots \amp  \amp \vdots \amp  \vdots\\
+a_{m1}x_{1}\amp +\amp a_{m2}x_{2}\amp +\cdots +\amp a_{mn}x_{n}\amp =\amp b_m
+\end{array}
+}
+\newcommand{\numeqsys}{\begin{array}{rrcrcrcr}
+e_1:\amp  a_{11}x_{1}\amp +\amp a_{12}x_{2}\amp +\cdots+\amp  a_{1n}x_{n}\amp =\amp b_1\\
+e_2: \amp a_{21}x_{1}\amp +\amp a_{22}x_{2}\amp +\cdots+\amp a_{2n}x_{n}\amp =\amp b_2\\
+\amp \vdots\amp   \amp \vdots \amp  \amp \vdots \amp  \vdots\\
+e_m: \amp a_{m1}x_{1}\amp +\amp a_{m2}x_{2}\amp +\cdots +\amp a_{mn}x_{n}\amp =\amp b_m
+\end{array}
+}
+\newcommand{\homsys}{\begin{array}{rcrcrcr}
+a_{11}x_{1}\amp +\amp a_{12}x_{2}\amp +\cdots+\amp  a_{1n}x_{n}\amp =\amp 0\\
+a_{21}x_{1}\amp +\amp a_{22}x_{2}\amp +\cdots+\amp a_{2n}x_{n}\amp =\amp 0\\
+\amp \vdots\amp   \amp \vdots \amp  \amp \vdots \amp  \vdots\\
+a_{m1}x_{1}\amp +\amp a_{m2}x_{2}\amp +\cdots +\amp a_{mn}x_{n}\amp =\amp 0
+\end{array}
+}
+\newcommand{\vareqsys}[4]{
+\begin{array}{ccccccc}
+#3_{11}x_{1}\amp +\amp #3_{12}x_{2}\amp +\cdots+\amp  #3_{1#2}x_{#2}\amp =\amp #4_1\\
+#3_{21}x_{1}\amp +\amp #3_{22}x_{2}\amp +\cdots+\amp #3_{2#2}x_{#2}\amp =\amp #4_2\\
+\vdots \amp \amp \vdots \amp  \amp \vdots \amp =\amp  \vdots\\
+#3_{#1 1}x_{1}\amp +\amp #3_{#1 2}x_{2}\amp +\cdots +\amp #3_{#1 #2}x_{#2}\amp =\amp #4_{#1}
+\end{array}
+}
+\newcommand{\genmatrix}[1][a]{
+\begin{bmatrix}
+#1_{11} \amp  #1_{12} \amp  \cdots \amp  #1_{1n} \\
+#1_{21} \amp  #1_{22} \amp  \cdots \amp  #1_{2n} \\
+\vdots  \amp  \vdots  \amp  \ddots \amp  \vdots  \\
+#1_{m1} \amp  #1_{m2} \amp  \cdots \amp  #1_{mn}
+\end{bmatrix}
+}
+\newcommand{\varmatrix}[3]{
+\begin{bmatrix}
+#3_{11} \amp  #3_{12} \amp  \cdots \amp  #3_{1#2} \\
+#3_{21} \amp  #3_{22} \amp  \cdots \amp  #3_{2#2} \\
+\vdots  \amp  \vdots  \amp  \ddots \amp  \vdots  \\
+#3_{#1 1} \amp  #3_{#1 2} \amp  \cdots \amp  #3_{#1 #2}
+\end{bmatrix}
+}
+\newcommand{\augmatrix}{
+\begin{amatrix}[cccc|c]
+a_{11} \amp  a_{12} \amp  \cdots \amp  a_{1n} \amp b_{1}\\
+a_{21} \amp  a_{22} \amp  \cdots \amp  a_{2n} \amp b_{2}\\
+\vdots  \amp  \vdots  \amp  \ddots \amp  \vdots  \amp \vdots\\
+a_{m1} \amp  a_{m2} \amp  \cdots \amp  a_{mn}\amp b_{m}
+\end{amatrix}
+}
+\newcommand{\varaugmatrix}[4]{
+\begin{amatrix}[cccc|c]
+#3_{11} \amp  #3_{12} \amp  \cdots \amp  #3_{1#2} \amp #4_{1}\\
+#3_{21} \amp  #3_{22} \amp  \cdots \amp  #3_{2#2} \amp #4_{2}\\
+\vdots  \amp  \vdots  \amp  \ddots \amp  \vdots  \amp \vdots\\
+#3_{#1 1} \amp  #3_{#1 2} \amp  \cdots \amp  #3_{#1 #2}\amp #4_{#1}
+\end{amatrix}
+}
+\newcommand{\spaceforemptycolumn}{\makebox[\wd\boxofmathplus]{\ }}
+\newcommand{\grstep}[2][\relax]{
+\mathrel{
+\hspace{\grsteplength}\mathop{\longrightarrow}\limits^{#2\mathstrut}_{
+\begin{subarray}{l} #1 \end{subarray}}\hspace{\grsteplength}}}
+\newcommand{\repeatedgrstep}[2][\relax]{\hspace{-\grsteplength}\grstep[#1]{#2}}
+\newcommand{\swap}{\leftrightarrow}
+\newcommand{\deter}[1]{ \mathchoice{\left|#1\right|}{|#1|}{|#1|}{|#1|} }
+\newcommand{\generalmatrix}[3]{
+\left(
+\begin{array}{cccc}
+#1_{1,1}  \amp #1_{1,2}  \amp \ldots  \amp #1_{1,#2}  \\
+#1_{2,1}  \amp #1_{2,2}  \amp \ldots  \amp #1_{2,#2}  \\
+\amp \vdots                         \\
+#1_{#3,1} \amp #1_{#3,2} \amp \ldots  \amp #1_{#3,#2}
+\end{array}
+\right)  }
+\newcommand{\colvec}[2][c]{\begin{bmatrix}[#1] #2 \end{bmatrix}}
+\newcommand{\rowvec}[1]{\setlength{\arraycolsep}{3pt}\begin{bmatrix} #1 \end{bmatrix}}
+\DeclareMathOperator{\trace}{tr}
+\newcommand{\isomorphicto}{\cong}
+\newcommand{\rangespace}[1]{ \mathscr{R}(#1) }
+\newcommand{\nullspace}[1]{ \mathscr{N}(#1) }
+\newcommand{\genrangespace}[1]{ \mathscr{R}_\infty(#1) }
+\newcommand{\gennullspace}[1]{ \mathscr{N}_\infty(#1) }
+\newcommand{\zero}{ \vec{0} }
+\newcommand{\polyspace}{\mathcal{P}}
+\newcommand{\matspace}{\mathcal{M}}
+\DeclareMathOperator{\size}{size}
+\DeclareMathOperator{\adjoint}{adj}
+\DeclareMathOperator{\sgn}{sgn}
+\newcommand{\definend}[1]{\emph{#1}}
+\renewcommand{\Re}{\mathbb{R}}
+\newcommand{\map}[3]{\mbox{$#1\colon #2\to #3$}}
+\newcommand{\mapsunder}[1]{\stackrel{#1}{\longmapsto}}
+\newcommand{\mapsvia}[1]{\xrightarrow{#1}}
+\newcommand{\xmapsunder}[1]{\mapsunder{#1}}
+\newcommand{\composed}[2]{#1\mathbin{\circ} #2}
+\DeclareMathOperator{\identity}{id}
+\newcommand{\restrictionmap}[2]{{#1}\mathpunct\upharpoonright\hbox{}_{#2}}
+\renewcommand{\emptyset}{\varnothing}
+\newcommand{\setspacing}{0.1em}
+\newcommand{\set}[1]{\mbox{$\{\hspace{\setspacing}#1\hspace{\setspacing}\}$}}
+\newcommand{\suchthat}{\mid}
+\newcommand{\union}{\cup}
+\newcommand{\intersection}{\cap}
+\newcommand{\sequence}[1]{ \langle#1\rangle }
+\newcommand{\interval}[2]{#1\,\ldots\, #2}
+\newcommand{\setinterval}[2]{\mbox{$\{\interval{#1}{#2}\}$}}
+\newcommand{\openinterval}[2]{(\interval{#1}{#2})}
+\newcommand{\closedinterval}[2]{[\interval{#1}{#2}]}
+\newcommand{\clopinterval}[2]{[\interval{#1}{#2})}
+\newcommand{\opclinterval}[2]{(\interval{#1}{#2}]}
+\newcommand{\isimpliedby}{\Longleftarrow}
+\newcommand{\Sage}{\textit{Sage}}
+\newcommand{\Maple}{\textit{Maple}}
+\newcommand{\cat}[2]{#1\!\mathbin{\raise.6ex\hbox{\left( {}^\frown \right)}}\!#2}
+\newcommand{\alignedvdots}[1][10pt]{\mskip2.5mu\makebox[.5\equalsignwd][r]{}
+\smash{\vdots}}
+\newcommand{\stdbasis}{{\cal E}}
+\newcommand{\basis}[2]{\sequence{\vec{#1}_1,\ldots,\vec{#1}_{#2}}}
+\newcommand{\rowspace}[1]{ \mathop{{\mbox{Rowspace}}}(#1) }
+\newcommand{\colspace}[1]{ \mathop{{\mbox{Columnspace}}}(#1) }
+\newcommand{\linmaps}[2]{ \mathop{{\cal L}}(#1,#2) }
+\newcommand{\lincombo}[2]{
+#1_1#2_1+#1_2#2_2+\cdots +#1_n#2_n}
+\newcommand{\rep}[2]{ { Rep}_{#2}(#1) }
+\newcommand{\wrt}[1]{{\mbox{\scriptsize \textit{wrt}\hspace{.25em}\left( #1 \right)} }}
+\newcommand{\trans}[1]{ {{#1}^{\mathsf{T}}} }
+\newcommand{\proj}[2]{\mbox{proj}_{#2}({#1}) }
+\newcommand{\spanof}[1]{\relax [#1\relax ]}
+\newcommand{\directsum}{\oplus}
+\DeclareMathOperator{\dist}{dist}
+\newcommand{\nbyn}[1]{#1 \! \times \! #1 }
+\newcommand{\nbym}[2]{#1 \! \times \! #2 }
+\newcommand{\degs}[1]{#1^\circ\relax}
+\newcommand{\votepreflist}[3]{\colvec{#1 \\ #2 \\ #3}}
+\newcommand{\votinggraphic}[1]{\hspace{1.15em}\mathord{[.3in][.2in]{\includegraphics{voting.#1}}}\hspace{1.15em}}
+\newcommand{\magicsquares}{\mathscr{M}}
+\newcommand{\semimagicsquares}{\mathscr{H}}
+\newcommand{\circuitfont}{\sffamily}
+\newcommand{\digitinsq}[1]{\fbox{\left( #1 \right)} }
+\newcommand{\matrixvenlarge}[1]{\vbox{
+\vspace{\extramatrixvspace}
+\hbox{$#1$}
+\vspace{\extramatrixvspace}
+}}
+\def\bspace{
+{\vspace{.05in}}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\)</div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="book-1.html"><span class="title">Linear algebra: the theory of vector spaces</span></a></h1>
+<p class="byline">Aaron Greicius</p>
+</div>
+</div></div>
+<nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="ss_vectorspace.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="c_vectorspace.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="ss_subspace.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="ss_vectorspace.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="c_vectorspace.html" title="Up">Up</a><a class="next-button button toolbar-item" href="ss_subspace.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter"><a href="frontmatter-1.html" data-scroll="frontmatter-1"><span class="title">Front Matter</span></a></li>
+<li class="link">
+<a href="c_linear_systems.html" data-scroll="c_linear_systems"><span class="codenumber">1</span> <span class="title">Linear systems of equations</span></a><ul>
+<li><a href="s_systems.html" data-scroll="s_systems">Linear systems of equations</a></li>
+<li><a href="s_ge.html" data-scroll="s_ge">Gaussian elimination</a></li>
+<li><a href="s_solving.html" data-scroll="s_solving">Solving linear systems</a></li>
+<li><a href="ss_matrix.html" data-scroll="ss_matrix">Matrix arithmetic</a></li>
+<li><a href="ss_algebraic.html" data-scroll="ss_algebraic">Algebraic properties</a></li>
+<li><a href="ss_elementary.html" data-scroll="ss_elementary">Elementary matrices</a></li>
+<li><a href="ss_invertible.html" data-scroll="ss_invertible">More on invertibility</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="c_det.html" data-scroll="c_det"><span class="codenumber">2</span> <span class="title">The determinant</span></a><ul>
+<li><a href="ss_det.html" data-scroll="ss_det">The determinant</a></li>
+<li><a href="ss_rowops.html" data-scroll="ss_rowops">Row operations and the determinant</a></li>
+<li><a href="ss_further.html" data-scroll="ss_further">Further properties</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="c_vectorspace.html" data-scroll="c_vectorspace"><span class="codenumber">3</span> <span class="title">Vector spaces and linear transformations</span></a><ul>
+<li><a href="ss_vectorspace.html" data-scroll="ss_vectorspace">Real vector spaces</a></li>
+<li><a href="ss_transformation.html" data-scroll="ss_transformation" class="active">Linear transformations</a></li>
+<li><a href="ss_subspace.html" data-scroll="ss_subspace">Subspaces</a></li>
+<li><a href="ss_independence.html" data-scroll="ss_independence">Linear independence</a></li>
+<li><a href="ss_basis.html" data-scroll="ss_basis">Bases</a></li>
+<li><a href="ss_dimension.html" data-scroll="ss_dimension">Dimension</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="c_transbasis.html" data-scroll="c_transbasis"><span class="codenumber">4</span> <span class="title">Linear transformations, bases, and dimension</span></a><ul>
+<li><a href="ss_rank-nullity.html" data-scroll="ss_rank-nullity">Linear transformations and bases</a></li>
+<li><a href="ss_rank-nullity.html" data-scroll="ss_rank-nullity">Linear transformations and bases</a></li>
+<li><a href="ss_coordinate.html" data-scroll="ss_coordinate">Coordinate vectors</a></li>
+<li><a href="ss_matrixreps.html" data-scroll="ss_matrixreps">Matrix representations</a></li>
+<li><a href="ss_changeofbasis.html" data-scroll="ss_changeofbasis">Change of basis</a></li>
+<li><a href="ss_eigenvectors.html" data-scroll="ss_eigenvectors">Eigenvectors and eigenvalues</a></li>
+<li><a href="ss_diagonalization.html" data-scroll="ss_diagonalization">Diagonalization</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="c_innerproductspaces.html" data-scroll="c_innerproductspaces"><span class="codenumber">5</span> <span class="title">Inner product spaces</span></a><ul>
+<li><a href="ss_innerproducts.html" data-scroll="ss_innerproducts">Inner products, norms, angles</a></li>
+<li><a href="ss_orthogonality.html" data-scroll="ss_orthogonality">Orthogonality, Gram-Schmidt, orthogonal projection</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter-1.html" data-scroll="backmatter-1"><span class="title">Back Matter</span></a></li>
+<li class="link"><a href="appendix-defs.html" data-scroll="appendix-defs"><span class="codenumber">A</span> <span class="title">Definitions</span></a></li>
+<li class="link"><a href="appendix-thms.html" data-scroll="appendix-thms"><span class="codenumber">B</span> <span class="title">Theorems</span></a></li>
+<li class="link"><a href="appendix-egs.html" data-scroll="appendix-egs"><span class="codenumber">C</span> <span class="title">Examples</span></a></li>
+<li class="link"><a href="references-1.html" data-scroll="references-1"><span class="title">Bibliography</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1"><span class="title">Index</span></a></li>
+</ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="ss_transformation"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">3.2</span> <span class="title">Linear transformations</span>
+</h2>
+<article class="paragraphs" id="paragraphs-97"><h5 class="heading"><span class="title">Chapter 3. Section 3.2: executive summary.</span></h5>
+<article class="paragraphs" id="paragraphs-98"><h5 class="heading"><span class="title">Definitions:.</span></h5>
+<p id="p-524">linear transformation. \alert{Procedures:} none. \alert{Theorems:} none, but plenty of examples!</p></article></article><article class="paragraphs" id="paragraphs-99"><h5 class="heading"><span class="title">Chapter 3. Section 3.2: introduction.</span></h5>
+<p id="p-525"><a href="c_vectorspace.html" class="internal" title="Chapter 3: Vector spaces and linear transformations">In 3</a>. <a href="ss_vectorspace.html" class="internal" title="Section 3.1: Real vector spaces">Section 3.1</a> we introduced the general notion of a vector space \(V\text{.}\) In this section we study special functions between vector spaces, called <em class="emphasis">linear transformations</em>.</p>
+<p id="p-526">This manner of theorizing is typical in mathematics: first we introduce a special class of objects (e.g. vector spaces, manifolds, groups, etc.), then we introduce special functions or maps between these objects. Since the original objects of study (e.g. vector spaces) come equipped with a certain structure (e.g. vector scalar multiplication and addition), the functions between these objects should in some sense <em class="emphasis">respect</em> this structure.</p>
+<p id="p-527">You have already seen this principle at work in your study of calculus. First we give \(\R\) some structure by defining a notion of proximity (i.e., \(x\) is close to \(y\) if \(\val{x-y}\) is small), then we introduce a special family of functions that somehow respects this structure: these are precisely the <em class="emphasis">continuous</em> functions!</p>
+<p id="p-528">The definition of linear transformation will make explicit what I mean by respecting the vector space structure.</p>
+<p id="p-529">In the meantime rejoice in the fact that we can now give a succinct, general definition of linear algebra: it is the theory of vector spaces and the linear transformations between them. Go shout it from the rooftops!</p></article><article class="paragraphs" id="paragraphs-100"><h5 class="heading"><span class="title">Chapter 3. Section 3.2: linear transformations.</span></h5>
+<article class="definition definition-like" id="definition-31"><h6 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.2.1</span><span class="period">.</span>
+</h6>
+<p id="p-530">Let \(V\) and \(W\) be vector spaces. A <dfn class="terminology">linear transformation</dfn> is a function \(T\colon V\rightarrow W\) that satisfies the following properties:</p>
+<ol class="decimal">
+<li id="li-156"><p id="p-531">\(T(\boldv_1+\boldv_2)=T(\boldv_1)+T(\boldv_2)\) for all \(\boldv_1,\boldv_2\in V\text{;}\)</p></li>
+<li id="li-157"><p id="p-532">\(T(k\boldv)=kT(\boldv)\) for all \(k\in\R\) and \(\boldv\in V\text{.}\)</p></li>
+</ol></article><article class="paragraphs" id="paragraphs-101"><h5 class="heading"><span class="title">Comments.</span></h5></article><ol class="decimal">
+<li id="li-158"><p id="p-533">If \(T\colon V\rightarrow W\) is linear it follows automatically that \(T(\boldzero_V)=\boldzero_W\text{.}\) Indeed, we have \(T(\boldzero_V)=T(0\cdot\boldzero_V)=0T(\boldzero_V)=\boldzero_W\text{.}\)</p></li>
+<li id="li-159"><p id="p-534">Useful shortcut: we can prove both properties (i) and (ii) hold in one shot by showing \(T(c_1\boldv_1+c_2\boldv_2)=c_1T(\boldv_1)+c_2T(\boldv_2)\) for all \(c_1,c_2\in\R\text{,}\) \(\boldv_1,\boldv_2\in V\text{.}\)</p></li>
+<li id="li-160"><p id="p-535">We can combine properties (i)-(ii) and use induction to conclude that if \(T\) is linear, then \(T(c_1\boldv_1+c_2\boldv_2+\cdots+c_r\boldv_r)=c_1T(\boldv_1)+c_2T(\boldv_2)+\cdots+c_rT(\boldv_r)\) for all \(c_i\in\R\) and \(\boldv_i\in V\text{.}\)</p></li>
+<li id="li-161"><p id="p-536">How does \(T\) respect the vector space structure? In plain English: the image of a sum is the sum of the images, and the image of a scalar multiple is the scalar multiple of the image. Alternatively, a linear transformation <em class="emphasis">distributes</em> over linear combinations of vectors, as we saw in the previous comment.</p></li>
+</ol></article><article class="paragraphs" id="paragraphs-102"><h5 class="heading"><span class="title">Function terminology and notation.</span></h5>
+<p id="p-537">Now is a good time to review some concepts and notations related to functions.</p>
+<p id="p-538">A <dfn class="terminology">function</dfn> with <dfn class="terminology">domain</dfn> the set \(A\) and <dfn class="terminology">codomain</dfn> the set \(B\) is a <em class="emphasis">rule</em> that, given an <dfn class="terminology">input</dfn> \(a\in A\text{,}\) returns an <dfn class="terminology">output</dfn> \(b=f(a)\in B\text{.}\) We write \(f\colon A\rightarrow B\text{,}\) or \(A\xrightarrow{f} B\text{,}\) to indicate this.</p>
+<p id="p-539">The “maps to” symbol \(a\mapsto f(a)\) can be used in conjunction with the notation above to give more detail about what \(f\) is. For example</p>
+<div class="displaymath">
+\begin{align*}
+f\colon \R\amp \rightarrow \R\\
+x\amp \xmapsto{\hspace{10pt}} f(x)=x^2
+\end{align*}
+</div>
+<p class="continuation">denotes the squaring function from \(\R\) to \(\R\text{.}\)</p>
+<p id="p-540">Given \(b=f(a)\text{,}\) we call \(b\) the <dfn class="terminology">image of \(a\) under \(f\)</dfn>, or the <dfn class="terminology">value of \(f\) at \(a\)</dfn>. Similarly, given a subset \(X\subseteq A\text{,}\) we define the <dfn class="terminology">image of \(X\) under \(f\)</dfn> to the be</p>
+<div class="displaymath">
+\begin{equation*}
+f(X):=\{f(a)\colon a\in X\}=\{b\in B\colon b=f(a) \text{ for some } a\in X\}\text{.}
+\end{equation*}
+</div></article><article class="paragraphs" id="paragraphs-103"><h5 class="heading"><span class="title">Example: \alert{the zero transformation}.</span></h5>
+<p id="p-541">Given any vector spaces \(V\) and \(W\text{,}\) the <dfn class="terminology">zero transformation</dfn> \(T_0\colon V\rightarrow W\) is defined as \(T_0(\boldv)=\boldzero_W\) for all \(\boldv\in V\text{.}\)</p>
+<article class="paragraphs" id="paragraphs-104"><h5 class="heading"><span class="title">Claim.</span></h5>
+<p id="p-542">: \(T_0\colon V\rightarrow W\) is a linear transformation.</p></article><article class="hiddenproof" id="proof-23"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-23"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-23"><article class="hiddenproof"><p id="p-543">We must show</p>
+<div class="displaymath">
+\begin{equation*}
+T_0(c_1\boldv_1+c_2\boldv_2)=c_1T_0(\boldv_1)+c_2T_0(\boldv_2)
+\end{equation*}
+</div>
+<p class="continuation">for all \(c_i\in\R\) and \(\boldv_i\in V\text{.}\)</p>
+<p id="p-544">This is obvious: since \(T_0(\boldv)=\boldzero_W\) for all \(\boldv\in V\text{,}\) the LHS and RHS of the equation above are both equal to \(\boldzero_W\text{.}\)</p></article></div></article><article class="paragraphs" id="paragraphs-105"><h5 class="heading"><span class="title">Example: \alert{the identity transformation}.</span></h5>
+<p id="p-545">Given a vector space \(V\) the <dfn class="terminology">identity transformation (on \(V\))</dfn> \(I_V\colon V\rightarrow V\) is defined as \(I_V(\boldv)=\boldv\) for all \(\boldv\in V\text{.}\)</p>
+<article class="paragraphs" id="paragraphs-106"><h5 class="heading"><span class="title">Claim.</span></h5>
+<p id="p-546">: \(I_V\colon V\rightarrow V\) is a linear transformation.</p></article><article class="hiddenproof" id="proof-24"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-24"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-24"><article class="hiddenproof"><p id="p-547">We must show</p>
+<div class="displaymath">
+\begin{equation*}
+I_V(c_1\boldv_1+c_2\boldv_2)=c_1I_V(\boldv_1)+c_2I_V(\boldv_2)
+\end{equation*}
+</div>
+<p class="continuation">for all \(c_i\in\R\) and \(\boldv_i\in V\text{.}\)</p>
+<p id="p-548">Again, this is fairly obvious.</p>
+<p id="p-549">The LHS of the above equation is \(I_V(c_1\boldv_1+c_2\boldv_2)=c_1\boldv_1+c_2\boldv_2\text{,}\) by definition of the function \(I_V\text{.}\)</p>
+<p id="p-550">The RHS of the equation is \(c_1I_V(\boldv_1)+c_2I_V(\boldv_2)=c_1\boldv_1+c_2\boldv_2\text{,}\) again by definition of the function \(I_V\text{.}\)</p>
+<p id="p-551">This shows LHS=RHS, as desired.</p></article></div></article><article class="paragraphs" id="paragraphs-107"><h5 class="heading"><span class="title">Important example: \alert{matrix transformations}.</span></h5>
+<article class="definition definition-like" id="definition-32"><h6 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.2.2</span><span class="period">.</span>
+</h6>
+<p id="p-552">Let \(A\) be an \(m\times n\) matrix. The <dfn class="terminology">linear transformation associated to \(A\)</dfn>, denoted \(T_A\text{,}\) is the function \(T_A\colon\R^n\rightarrow \R^m\) defined as \(T_A(\boldx)=A\boldx\text{.}\)</p>
+<p id="p-553">Note: here we treat \(\R^n\) and \(\R^m\) as collections of column vectors.</p></article><article class="theorem theorem-like" id="theorem-28"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.2.3</span><span class="period">.</span>
+</h6>
+<p id="p-554">Let \(A\) be an \(m\times n\) matrix. Then \(T_A\colon \R^n\rightarrow\R^m\) is a linear transformation from \(\R^n\) to \(\R^m\text{.}\)</p></article><article class="hiddenproof" id="proof-25"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-25"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-25"><article class="hiddenproof"><p id="p-555">As usual, we must show \(T_A(c_1\boldx_1+c_2\boldx_2)=c_1T_A(\boldx_1)+c_2T_A(\boldx_2)\text{.}\) We do so via a chain of equalities:</p>
+<div class="displaymath">
+\begin{align*}
+T_A(c_1\boldx_1+c_2\boldx_2)\amp =\amp A(c_1\boldx_1+c_2\boldx_2) \ \text{ (def. of \(T_A\)) }\\
+\amp =\amp c_1A\boldx_1+c_2A\boldx_2 \ \text{ (prop. of matrix mult.) }\\
+\amp =\amp c_1T_A(\boldx_1)+c_2T_A(\boldx_2) \ \text{ (def. of \(T_A\)) }
+\end{align*}
+</div>
+<p id="p-556">This shows \(T_A\) is a linear transformation.</p></article></div></article><article class="paragraphs" id="paragraphs-108"><h5 class="heading"><span class="title">Important example: \alert{matrix transformations}.</span></h5>
+<p id="p-557">We will show later that in fact <em class="emphasis">all</em> linear transformations from \(\R^n\) to \(\R^m\) are of the form \(T_A\) for some \(m\times n\) matrix \(A\text{!}\) In other words, matrices gives us the full picture in terms of linear transformations.</p>
+<p id="p-558">In the meantime, matrix transformations give us a way of <em class="emphasis">retroactively</em> justifying our definition of matrix multiplication! Here's how.</p>
+<p id="p-559">Given \(A\in M_{mn}\) and \(B\in M_{np}\text{,}\) let \(C=AB\) be their product. (Note that \(C\in M_{mp}\)).</p>
+<p id="p-560">We have associated functions \(T_A\colon \R^n\rightarrow \R^m\) and \(T_B\colon \R^p\rightarrow\R^n\text{.}\) These functions can be <em class="emphasis">composed</em> to form a new function \(T=T_A\circ T_B\colon \R^p\rightarrow \R^m\text{!}\) Here is a diagram of the situation:</p>
+<div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="images/b4eb52bfe174fb5fb20b08e96e8629964ba3aade.png" style="width: 100%; height: auto;" alt=""></div>
+<p id="p-561">I claim that \(T\) is none other than the matrix transformation \(T_C\text{.}\) In other words, the definition of matrix multiplication was chosen precisely in order to model the composition of matrix transformations!</p>
+<p id="p-562">I leave the proof as an exercise.</p></article><article class="paragraphs" id="paragraphs-109"><h5 class="heading"><span class="title">Geometric example: \alert{rotation in the plane}.</span></h5>
+<p id="p-563">Fix an angle \(\alpha\) and define \(T\colon \R^2\rightarrow \R^2\) to be <dfn class="terminology">rotation by \(\alpha\)</dfn>: in other words, \(T\) takes a point \(P=(x,y)\) in \(\R^2\) with polar coordinates \((r, \theta)\) and maps it to the point \(T(P)=Q\) with polar coordinates \((r, \theta+\alpha)\text{.}\)</p>
+<p id="p-564">Treating elements of \(\R^2\) as column vectors we have</p>
+<div class="displaymath">
+\begin{equation*}
+T\left (\begin{bmatrix}x \\ y \end{bmatrix} \right)=T\left( \begin{bmatrix}r\cos \theta\\ r\sin \theta \end{bmatrix} \right)=\begin{bmatrix}r\cos(\theta+\alpha)\\ r\sin(\theta+\alpha) \end{bmatrix}\text{,}
+\end{equation*}
+</div>
+<p class="continuation">where \((x,y)\) has polar coordinates \((r,\theta)\text{.}\)</p>
+<p id="p-565">Somewhat surprisingly, \(T\) is a linear transformation!</p>
+<p id="p-566">You can either show this directly, by proving \(T(\boldx_1+\boldx_2)=T(\boldx_1)+T(\boldx_2)\) and \(T(c\boldx)=cT(\boldx)\text{,}\) or indirectly, by proving that \(T=T_A\) where \(A=\begin{bmatrix}\cos\alpha\amp -\sin\alpha\\ \sin\alpha\amp \cos\alpha \end{bmatrix}\text{.}\) I leave this as an exercise.</p></article><article class="paragraphs" id="paragraphs-110"><h5 class="heading"><span class="title">Exotic example: \alert{transposition}.</span></h5>
+<p id="p-567">Let \(V=M_{mn}\text{,}\) \(W=M_{nm}\text{.}\) Define \(S\colon M_{mn}\rightarrow M_{nm}\) as \(S(A)=A^T\text{.}\) In other words, \(S\) takes an input \(m\times n\) matrix and returns as an output its transpose.</p>
+<p id="p-568">(Note: I name the function \(S\) so as not to conflict with ‘T’ in our transpose notation.)</p>
+<article class="paragraphs" id="paragraphs-111"><h5 class="heading"><span class="title">Claim.</span></h5>
+<p id="p-569">: \(S\) is a linear transformation.</p></article><article class="hiddenproof" id="proof-26"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-26"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-26"><article class="hiddenproof"><p id="p-570">We must show \(S(cA+dB)=cS(A)+dS(B)\) for all scalars \(c,d\in\R\) and all matrices \(A, B\in M_{mn}\text{.}\) This follows easily from properties of transpose:</p>
+<div class="displaymath">
+\begin{align*}
+S(cA+dB)\amp =(cA+dB)^T \amp \text{ (def. of \(S\)) }\\
+\amp =(cA)^T+(dB)^T \amp \text{ (addition prop. of transpose) }\\
+\amp =cA^T+dB^T \amp \text{ (scalar prop. of transpose) }\\
+\amp =cS(A)+dS(B)
+\end{align*}
+</div></article></div></article><p id="p-571">Note further, that if we let \(\phi\) be the angle between \(\boldy=(y_1,y_2)\) and \((1,0)\text{,}\) then <article class="paragraphs" id="paragraphs-112"><h5 class="heading"><span class="title">Exotic example: \alert{shift transformations}.</span></h5>
+<p id="p-572">Let \(V=\R^\infty\text{,}\) the vector space of all infinite sequences.</p>
+<p id="p-573">The <dfn class="terminology">left-shift transformation</dfn>, denoted \(T_\ell\) is the function \(T_\ell\colon \R^\infty\rightarrow\R^\infty\) defined as</p>
+<div class="displaymath">
+\begin{equation*}
+T_\ell\left( (a_1,a_2,a_3,\dots)\right)=(a_2,a_3,\dots)\text{.}
+\end{equation*}
+</div>
+<p id="p-574">The <dfn class="terminology">right-shift transformation</dfn>, denoted \(T_r\) is the function \(T_r\colon \R^\infty\rightarrow\R^\infty\) defined as</p>
+<div class="displaymath">
+\begin{equation*}
+T_r\left( (a_1,a_2,a_3,\dots)\right)=(0,a_1,a_2,a_3,\dots)\text{.}
+\end{equation*}
+</div>
+<p id="p-575">In other words, \(T_\ell\) takes an input sequence and returns as an output the sequence obtained by shifting all terms one to the left; \(T_r\) takes an input sequence and returns as an output the sequence obtained by shifting all terms one to the right and setting the first term equal to 0.</p>
+<article class="paragraphs" id="paragraphs-113"><h5 class="heading"><span class="title">Claim.</span></h5>
+<p id="p-576">: \(T_\ell\) and \(T_r\) are both linear transformations.</p></article><article class="hiddenproof" id="proof-27"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-27"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-27"><article class="hiddenproof"><p id="p-577">Exercise.</p></article></div></article> <article class="paragraphs" id="paragraphs-114"><h5 class="heading"><span class="title">Exotic example: \alert{differentiaton}.</span></h5>
+<p id="p-578">Let \(V=C^\infty(\R)\text{,}\) the vector space of all infinitely differentiable functions on \(\R\text{.}\) Define \(T\colon C^\infty(\R)\rightarrow C^\infty(\R)\) by \(T(f)=f'\text{.}\) In other words, \(T\) takes as an input a function \(f\text{,}\) and returns as an output its derivative function \(f'\text{.}\)</p>
+<article class="paragraphs" id="paragraphs-115"><h5 class="heading"><span class="title">Claim.</span></h5>
+<p id="p-579">: \(T\) is a linear transformation.</p></article><article class="hiddenproof" id="proof-28"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-28"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-28"><article class="hiddenproof"><p id="p-580">We must show \(T(cf+dg)=cT(f)+dT(g)\) for any scalars \(c,d\in\R\) and any functions \(f, g\in C^\infty(\R)\text{.}\)</p>
+<p id="p-581">This follows easily from certain properties of the derivative:</p>
+<div class="displaymath">
+\begin{align*}
+T(cf+dg)\amp =(cf+dg)' \amp \text{ (def. of \(T\)) }\\
+\amp =(cf)'+(dg)'\amp \text{ (addition prop. of derivative) }\\
+\amp =cf'+dg' \amp \text{ (scalar prop. of derivative) }\\
+\amp =cT(f)+dT(g) \amp \text{ (def. of \(T\)) }
+\end{align*}
+</div></article></div></article> \item Let \(V=P_n\) and \(W=P_{n+1}\text{,}\) the function \item Let \(V=M_{mn}\text{,}\) \(W=M_{nm}\text{.}\) The function \item Let \(V=C^1(-\infty,\infty)\text{,}\) \(W=C(-\infty,\infty)\text{.}\) The function</p>
+<p id="p-582">\item Both \(\NS(T)\) and \(\range(T)\) are indeed <em class="emphasis">subspaces</em>. Note that they live in different spaces: \(\NS(T)\subseteq V\) and \(\range(T)\subseteq W\text{.}\) \item We define \(\nullity(T)=\dim(\NS(T))\) and \(\rank(T)=\dim(\range(T))\text{.}\)</p>
+<p id="p-583">\item We must show \(\boldzero_W\in \range(T)\text{.}\) But \(\boldzero_W=T(\boldzero_V)\text{.}\) Thus there is a \(\boldv\in V\) with \(T(\boldv)=\boldzero_W\text{,}\) which proves that \(\boldzero_W\in\range(T)\text{.}\) \item Suppose \(\boldw_1,\boldw_2\in \range(T)\text{.}\) This means there are \(\boldv_1, \boldv_2\in V\) such that \(T(\boldv_i)=\boldw_i\) for \(i=1,2\text{.}\) We must show \(\boldw=\boldw_1+\boldw_2\in\range(T)\text{.}\)</p>
+<p id="p-584">\item Suppose \(\boldw\in\range(T)\text{.}\) Then there is a \(\boldv\in V\) with \(T(\boldv)=\boldw\text{.}\) Then \(T(k\boldv)=kT(\boldv)=k\boldw\text{,}\) showing \(k\boldw\in\range(T)\text{.}\)</p>
+<p id="p-585">Let \(S=\{\boldv_1,\boldv_2,\dots, \boldv_r\}\) be a basis of \(\NS(T)\text{;}\) \alert{extend} this basis to a full basis \(\{\boldv_1,\boldv_2,\dots, \boldv_r, \boldu_{1},\dots \boldu_{n-r}\}\) of \(V\text{.}\) Claim: \(S'=\{T(\boldu_{1}),\dots, T(\boldu_{n-r})\}\) is a basis of \(\range(T)\text{.}\) If this is true we are done, since we have \(\dim(\NS(T))=\#S=r\) and \(\dim(\range(T))=\#S'=n-r\text{,}\) and thus Now ask your professor to prove the claim.</p>
+<p id="p-586">\item easily check whether two linear transformations are equal simply by checking that they agree on the basis elements \(\boldv_i\text{.}\)</p>
+<p id="p-587">Then</p>
+<p id="p-588">A simple drawing on the unit circle tells us what happens to these vectors when we rotate them by \(\theta\text{.}\) We get:</p>
+<p id="p-589">Note further, that if we let \(\phi\) be the angle between \(\boldy=(y_1,y_2)\) and \((1,0)\text{,}\) then</p>
+<p id="p-590">Thus \(\text{ proj } _W=T_A\text{,}\) where $A=\frac{1}{a^2+b^2+c^2}\​begin{bmatrix}</p>
+<p id="p-591">Thus $\text{ proj } _W=T_A\(,
+where\)A=\frac{1}{a^2+b^2+c^2}\​begin{bmatrix}</p></section></div></main>
+</div>
+</body>
+</html>

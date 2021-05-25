@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-05-24T17:11:34-05:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<article class="paragraphs"><h5 class="heading"><span class="title">Example.</span></h5>
+<p xmlns:svg="http://www.w3.org/2000/svg">Consider again the linear transformation \(T\colon M_{nn}\rightarrow M_{nn}\text{,}\) \(T(A)=A^T-A\text{.}\) We saw that \(\NS T\) was the space of symmetric matrices. The theorem above tells us that \(\range T\) is also a subspace of \(M_{nn}\text{.}\) What is it?</p>
+<p xmlns:svg="http://www.w3.org/2000/svg">Take \(B\in \range T\text{.}\) By definition this means \(B=T(A)=A^T-A\) for some \(A\text{.}\) So one, somewhat unsatisfying way of describing \(\range T\) is as the set of all matrices of the form \(A^T-A\text{.}\)</p>
+<p xmlns:svg="http://www.w3.org/2000/svg">Let's investigate further. Notice that if \(B=A^T-A\text{,}\) then \(B^T=(A^T-A)^T=(A^T)^T-A^T=A-A^T=-B\text{.}\) Thus every element \(B\in \range T\) satisfies \(B^T=-B\text{.}\) Such matrices are called <dfn class="terminology">skew-symmetric</dfn>.</p>
+<p xmlns:svg="http://www.w3.org/2000/svg">I claim further that in fact \(\range T\) is the the set of <em class="emphasis">all</em> skew-symmetric matrices. To prove this, I need to show that given a skew-symmetric matrix \(B\text{,}\) there is a matrix \(A\) such that \(T(A)=B\text{.}\)</p>
+<p>Suppose I have a \(B\) such that \(B^T=-B\text{.}\) Let \(A=-\frac{1}{2}B\text{.}\) Then</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+T(A)=T(-\frac{1}{2}B)=-\frac{1}{2}(B^T-B)=-\frac{1}{2}(-B-B)=B\text{.}
+\end{equation*}
+</div>
+<p xmlns:svg="http://www.w3.org/2000/svg">This shows that \(B\in \range T\text{,}\) and concludes the proof that \(\range T\) is the set of all skew-symmetric matrices.</p></article><span class="incontext"><a href="ss_subspace.html#paragraphs-142">in-context</a></span>
+</body>
+</html>

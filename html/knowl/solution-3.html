@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-05-24T17:10:48-05:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<div class="solution solution-like">
+<h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading">
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">1.1.2.1</span><span class="period">.</span>
+</h6>
+<p xmlns:svg="http://www.w3.org/2000/svg">Let \(L\) be the original system with equations \(e_1,e_2,\dots ,e_m\text{.}\)</p>
+<p>For each specified row operation, we will call the resulting new system \(L'\) and its equations \(e'_1,e'_2,\dots , e'_m\text{.}\)</p>
+<ul class="disc">
+<li>
+<h6 class="heading"><span class="title">Row swap.</span></h6>
+<p xmlns:svg="http://www.w3.org/2000/svg">In this case systems \(L\) and \(L'\) have exactly the same equations, just written in a different order. Thus the \(n\)-tuple \(s\) satisfies \(L\) if and only if it satisfies each of the equations \(e_i\text{,}\) if and only if it satisfies each of the equations \(e'_i\text{,}\) since these are the same equations! It follows that \(s\) is a solution of \(L\) if and only if it is a solution to \(L'\text{.}\)</p>
+</li>
+<li>
+<h6 class="heading"><span class="title">Scalar multiplication.</span></h6>
+<p>In this case \(e_j=e'_j\) for all \(j\ne i\text{,}\) and \(e'_i=c\cdot e_i\) for some \(c\ne 0\text{.}\) Since only the \(i\)-th equation has changed, it suffices to show that \(s\) is a solution to \(e_i\) if and only if \(s\) is a solution to \(c\cdot e_i\text{.}\) Let's prove each direction of this if and only if separately.</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{align*}
+s \text{ satisfies }  e_i\amp \Rightarrow  a_{i1}s_1+a_{i2}s_2+\cdots +a_{in}s_n=b_i \amp  \text{ (by def.) }\\
+\amp \Rightarrow  ca_{i1}s_1+ca_{i2}s_2+\cdots +ca_{in}s_n=cb_i \amp  \text{ (mult both sides by \(c\)) }\\
+\amp \Rightarrow  s \text{ satisfies }  e'_i \amp \text{ (by def) }
+\end{align*}
+</div>
+<p class="continuation">Now for reverse implication.</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{align*}
+s \text{ satisfies }  e'_i \amp \Rightarrow ca_{ii}s_1+ca_{i2}s_2+\cdots ca_{in}s_n=cb_i \amp \text{ (by def) }\\
+\amp \Rightarrow \frac{1}{c}(ca_{i1}s_1+ca_{i2}s_2+\cdots +ca_{in}s_n)=\frac{1}{c}\cdot cb_i \amp  \text{ (mult both sides by \(\frac{1}{c}\))}\\
+\amp \Rightarrow a_{i1}s_1+a_{i2}s_2+\cdots +a_{in}x_n=b_i \amp  \text{ (distribute \(\frac{1}{c}\))}\\
+\amp \Rightarrow s \text{ satisfies }  e'_i \amp  \text{ (by def.). }
+\end{align*}
+</div>
+</li>
+<li>
+<h6 class="heading"><span class="title">Row addition.</span></h6>
+<p>The only equation of \(L'\) that differs from \(L\) is</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+e_i'=e_i+ce_j\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Writing this equation out in terms of coefficients gives us</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+e_i': a_{i1}x_1+a_{i2}x_2+\cdots +a_{in}x_n+c(a_{j1}x_1+a_{j2}x_2+\cdots +a_{jn}x_n)=b_i+cb_j\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Now if \(s\) satisfies \(L\text{,}\) then it satisfies \(e_i\) and \(e_j\text{,}\) in which case evaluating the RHS of the \(e_i'\) above at \(s\) yields</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{align*}
+a_{i1}s_1+a_{i2}s_2+\cdots +a_{in}s_n+c(a_{j1}s_1+a_{j2}s_2+\cdots +a_{jn}s_n)\amp =b_i+cb_j
+\end{align*}
+</div>
+<p class="continuation">showing that \(s\) satisfies \(e_i'\text{.}\) Now suppose \(s=(s_1,s_2,\dots,
+s_n)\) satisfies \(L'\text{.}\) Since \(s\) satisfies \(e_j'=e_j\text{,}\) we have</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+a_{j1}s_1+a_{j2}s_2+\cdots +a_{jn}s_n=b_j\tag{\(*\)}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Since \(s\) satisfies \(e_i'\text{,}\) we have</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+a_{i1}s_1+a_{i2}s_2+\cdots +a_{in}s_n+c(a_{j1}s_1+a_{j2}s_2+\cdots +a_{jn}s_n)=b_i+cb_j
+\end{equation*}
+</div>
+<p class="continuation">Substituting \((*)\) into the equation above we get</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+a_{i1}s_1+a_{i2}s_2+\cdots +a_{in}s_n+c(b_j)=b_i+cb_j\text{,}
+\end{equation*}
+</div>
+<p class="continuation">and hence</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+a_{i1}s_1+a_{i2}s_2+\cdots +a_{in}s_n=b_i\text{.}
+\end{equation*}
+</div>
+<p class="continuation">This shows that \(s\) satisfies \(e_i\text{.}\) It follows that \(s\) satisfies \(L\text{.}\)</p>
+</li>
+</ul>
+</div>
+<span class="incontext"><a href="s_systems.html#solution-3">in-context</a></span>
+</body>
+</html>

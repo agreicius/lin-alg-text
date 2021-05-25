@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-05-24T17:12:52-05:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<article class="paragraphs"><h5 class="heading"><span class="title">Example: least-squares solution to $A\boldx=\boldy$.</span></h5>
+<p>Often in applications we have an \(m\times n\) matrix \(A\) and vector \(\boldy\in\R^m\) for which the matrix equation</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+A\boldx=\boldy
+\end{equation*}
+</div>
+<p class="continuation">has no solution. In terms of fundamental spaces, this means simply that \(\boldy\notin \CS(A)\text{.}\) Set \(W=\CS(A)\text{.}\)</p>
+<p xmlns:svg="http://www.w3.org/2000/svg">In such situations we speak of a <em class="emphasis">least-squares</em> solution to the matrix equation. This is a vector \(\hat{\boldx}\) such that \(A\hat{\boldx}=\hat{\boldy}\text{,}\) where \(\hat{\boldy}=\proj{\boldy}{W}\text{.}\) Here the inner product is taken to be the dot product.</p>
+<p xmlns:svg="http://www.w3.org/2000/svg">Note: the equation \(A\hat{\boldx}=\hat{\boldy}\) is guaranteed to have a solution since \(\hat{\boldy}=\proj{\boldy}{W}\) lies in \(\CS(A)\text{.}\)</p>
+<p>The vector \(\hat{\boldx}\) is called a least-square solutions because its image \(\hat{\boldy}\) is the element of \(\CS(A)\) that is “closest” to \(\boldy\) in terms of the dot product. Writing \(\boldy=(y_1,y_2,\dots,y_n)\) and \(\hat{\boldy}=(y_1',y_2',\dots,
+y_n')\text{,}\) this means that \(\hat{\boldy}\) minimizes the distance</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\norm{\boldy-\hat{\boldy}}=\sqrt{(y_1-y_1')^2+(y_2-y_2')^2+\cdots +(y_n-y_n')^2}\text{.}
+\end{equation*}
+</div></article><span class="incontext"><a href="ss_orthogonality.html#paragraphs-290">in-context</a></span>
+</body>
+</html>
